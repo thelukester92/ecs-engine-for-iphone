@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A30B688C18B541E800871175 /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = A30B688B18B541E800871175 /* MainScene.m */; };
+		A30B689118B546A500871175 /* LGComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = A30B689018B546A500871175 /* LGComponent.m */; };
+		A30B689518B546BC00871175 /* LGRender.m in Sources */ = {isa = PBXBuildFile; fileRef = A30B689418B546BC00871175 /* LGRender.m */; };
+		A30B689E18B555EC00871175 /* LGPhysics.m in Sources */ = {isa = PBXBuildFile; fileRef = A30B689D18B555EC00871175 /* LGPhysics.m */; };
+		A314CFD318B6826000B34555 /* LGSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A314CFD218B6826000B34555 /* LGSystem.m */; };
+		A314CFD918B699D300B34555 /* LGSpriteRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = A314CFD818B699D300B34555 /* LGSpriteRenderer.m */; };
+		A314CFE018B6A00600B34555 /* LGPhysicalSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A314CFDF18B6A00600B34555 /* LGPhysicalSystem.m */; };
+		A31C3C7B18C637EA00021A50 /* LGSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = A31C3C7A18C637EA00021A50 /* LGSprite.m */; };
+		A31C3C7E18C6399B00021A50 /* Player.png in Resources */ = {isa = PBXBuildFile; fileRef = A31C3C7D18C6399B00021A50 /* Player.png */; };
 		A3367D0A18B3E620005475B7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3367D0918B3E620005475B7 /* Foundation.framework */; };
 		A3367D0C18B3E620005475B7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3367D0B18B3E620005475B7 /* CoreGraphics.framework */; };
 		A3367D0E18B3E620005475B7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3367D0D18B3E620005475B7 /* UIKit.framework */; };
@@ -22,6 +31,29 @@
 		A3367D2B18B3E621005475B7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3367D0F18B3E620005475B7 /* CoreData.framework */; };
 		A3367D3318B3E621005475B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3367D3118B3E621005475B7 /* InfoPlist.strings */; };
 		A3367D3518B3E621005475B7 /* EngineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3367D3418B3E621005475B7 /* EngineTests.m */; };
+		A3367D4018B3E662005475B7 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3367D3F18B3E662005475B7 /* MainViewController.m */; };
+		A3367D4318B3E730005475B7 /* LGEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = A3367D4218B3E730005475B7 /* LGEngine.m */; };
+		A3367D4718B3E757005475B7 /* LGScene.m in Sources */ = {isa = PBXBuildFile; fileRef = A3367D4618B3E757005475B7 /* LGScene.m */; };
+		A35A8B8918C80418000349A7 /* LGPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A35A8B8818C80418000349A7 /* LGPlayer.m */; };
+		A35A8B8B18C8063B000349A7 /* blue.png in Resources */ = {isa = PBXBuildFile; fileRef = A35A8B8A18C8063B000349A7 /* blue.png */; };
+		A35A8B8E18C80756000349A7 /* LGPlayerInputSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A35A8B8D18C80756000349A7 /* LGPlayerInputSystem.m */; };
+		A37F40B418C503BA00C58298 /* LGCollider.m in Sources */ = {isa = PBXBuildFile; fileRef = A37F40B318C503BA00C58298 /* LGCollider.m */; };
+		A37F40B718C5070A00C58298 /* EntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A37F40B618C5070A00C58298 /* EntityFactory.m */; };
+		A37F40BA18C50A6400C58298 /* LGCollisionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A37F40B918C50A6400C58298 /* LGCollisionSystem.m */; };
+		A37F40BC18C524E100C58298 /* notes.md in Resources */ = {isa = PBXBuildFile; fileRef = A37F40BB18C524E100C58298 /* notes.md */; };
+		A38069D818B56A7100486D21 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3367D0918B3E620005475B7 /* Foundation.framework */; };
+		A38069F918B56AA700486D21 /* LGComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = A30B689018B546A500871175 /* LGComponent.m */; };
+		A38069FA18B56AA700486D21 /* LGRender.m in Sources */ = {isa = PBXBuildFile; fileRef = A30B689418B546BC00871175 /* LGRender.m */; };
+		A38069FB18B56AA700486D21 /* LGPhysics.m in Sources */ = {isa = PBXBuildFile; fileRef = A30B689D18B555EC00871175 /* LGPhysics.m */; };
+		A38069FC18B56AA700486D21 /* LGEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = A3367D4218B3E730005475B7 /* LGEngine.m */; };
+		A38069FD18B56AA700486D21 /* LGEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = A394F6D118B44CBC00387E9C /* LGEntity.m */; };
+		A38069FE18B56AA700486D21 /* LGScene.m in Sources */ = {isa = PBXBuildFile; fileRef = A3367D4618B3E757005475B7 /* LGScene.m */; };
+		A38069FF18B56ACD00486D21 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3367D0B18B3E620005475B7 /* CoreGraphics.framework */; };
+		A3806A0018B56AD200486D21 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3367D0F18B3E620005475B7 /* CoreData.framework */; };
+		A3806A0118B56AD500486D21 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3367D0D18B3E620005475B7 /* UIKit.framework */; };
+		A394F6D218B44CBC00387E9C /* LGEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = A394F6D118B44CBC00387E9C /* LGEntity.m */; };
+		A39F6CEC18CE520000936EE9 /* LGTileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A39F6CEB18CE520000936EE9 /* LGTileSystem.m */; };
+		A3A59CC618B8070300E456EE /* LGTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A59CC518B8070300E456EE /* LGTransform.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +66,36 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A38069D518B56A7100486D21 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		A30B688A18B541E800871175 /* MainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScene.h; sourceTree = "<group>"; };
+		A30B688B18B541E800871175 /* MainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScene.m; sourceTree = "<group>"; };
+		A30B688F18B546A500871175 /* LGComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGComponent.h; sourceTree = "<group>"; };
+		A30B689018B546A500871175 /* LGComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGComponent.m; sourceTree = "<group>"; };
+		A30B689318B546BC00871175 /* LGRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGRender.h; sourceTree = "<group>"; };
+		A30B689418B546BC00871175 /* LGRender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGRender.m; sourceTree = "<group>"; };
+		A30B689C18B555EC00871175 /* LGPhysics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGPhysics.h; sourceTree = "<group>"; };
+		A30B689D18B555EC00871175 /* LGPhysics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGPhysics.m; sourceTree = "<group>"; };
+		A314CFD118B6826000B34555 /* LGSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGSystem.h; sourceTree = "<group>"; };
+		A314CFD218B6826000B34555 /* LGSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGSystem.m; sourceTree = "<group>"; };
+		A314CFD718B699D300B34555 /* LGSpriteRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGSpriteRenderer.h; sourceTree = "<group>"; };
+		A314CFD818B699D300B34555 /* LGSpriteRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGSpriteRenderer.m; sourceTree = "<group>"; };
+		A314CFDE18B6A00600B34555 /* LGPhysicalSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGPhysicalSystem.h; sourceTree = "<group>"; };
+		A314CFDF18B6A00600B34555 /* LGPhysicalSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGPhysicalSystem.m; sourceTree = "<group>"; };
+		A31C3C7918C637EA00021A50 /* LGSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGSprite.h; sourceTree = "<group>"; };
+		A31C3C7A18C637EA00021A50 /* LGSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGSprite.m; sourceTree = "<group>"; };
+		A31C3C7D18C6399B00021A50 /* Player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Player.png; sourceTree = "<group>"; };
 		A3367D0618B3E620005475B7 /* Engine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Engine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3367D0918B3E620005475B7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A3367D0B18B3E620005475B7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -53,6 +114,31 @@
 		A3367D3018B3E621005475B7 /* EngineTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EngineTests-Info.plist"; sourceTree = "<group>"; };
 		A3367D3218B3E621005475B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A3367D3418B3E621005475B7 /* EngineTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EngineTests.m; sourceTree = "<group>"; };
+		A3367D3E18B3E662005475B7 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		A3367D3F18B3E662005475B7 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		A3367D4118B3E730005475B7 /* LGEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGEngine.h; sourceTree = "<group>"; };
+		A3367D4218B3E730005475B7 /* LGEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGEngine.m; sourceTree = "<group>"; };
+		A3367D4518B3E757005475B7 /* LGScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGScene.h; sourceTree = "<group>"; };
+		A3367D4618B3E757005475B7 /* LGScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGScene.m; sourceTree = "<group>"; };
+		A35A8B8718C80418000349A7 /* LGPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGPlayer.h; sourceTree = "<group>"; };
+		A35A8B8818C80418000349A7 /* LGPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGPlayer.m; sourceTree = "<group>"; };
+		A35A8B8A18C8063B000349A7 /* blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue.png; sourceTree = "<group>"; };
+		A35A8B8C18C80756000349A7 /* LGPlayerInputSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGPlayerInputSystem.h; sourceTree = "<group>"; };
+		A35A8B8D18C80756000349A7 /* LGPlayerInputSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGPlayerInputSystem.m; sourceTree = "<group>"; };
+		A37F40B218C503BA00C58298 /* LGCollider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGCollider.h; sourceTree = "<group>"; };
+		A37F40B318C503BA00C58298 /* LGCollider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGCollider.m; sourceTree = "<group>"; };
+		A37F40B518C5070A00C58298 /* EntityFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityFactory.h; sourceTree = "<group>"; };
+		A37F40B618C5070A00C58298 /* EntityFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityFactory.m; sourceTree = "<group>"; };
+		A37F40B818C50A6400C58298 /* LGCollisionSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGCollisionSystem.h; sourceTree = "<group>"; };
+		A37F40B918C50A6400C58298 /* LGCollisionSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGCollisionSystem.m; sourceTree = "<group>"; };
+		A37F40BB18C524E100C58298 /* notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = notes.md; sourceTree = "<group>"; };
+		A38069D718B56A7100486D21 /* libLGEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLGEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A394F6D018B44CBC00387E9C /* LGEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGEntity.h; sourceTree = "<group>"; };
+		A394F6D118B44CBC00387E9C /* LGEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGEntity.m; sourceTree = "<group>"; };
+		A39F6CEA18CE520000936EE9 /* LGTileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGTileSystem.h; sourceTree = "<group>"; };
+		A39F6CEB18CE520000936EE9 /* LGTileSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGTileSystem.m; sourceTree = "<group>"; };
+		A3A59CC418B8070300E456EE /* LGTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGTransform.h; sourceTree = "<group>"; };
+		A3A59CC518B8070300E456EE /* LGTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGTransform.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,9 +164,74 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A38069D418B56A7100486D21 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3806A0118B56AD500486D21 /* UIKit.framework in Frameworks */,
+				A3806A0018B56AD200486D21 /* CoreData.framework in Frameworks */,
+				A38069FF18B56ACD00486D21 /* CoreGraphics.framework in Frameworks */,
+				A38069D818B56A7100486D21 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A30B688D18B541F000871175 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				A30B688A18B541E800871175 /* MainScene.h */,
+				A30B688B18B541E800871175 /* MainScene.m */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		A30B689218B546AA00871175 /* Core Components */ = {
+			isa = PBXGroup;
+			children = (
+				A37F40B218C503BA00C58298 /* LGCollider.h */,
+				A37F40B318C503BA00C58298 /* LGCollider.m */,
+				A30B689C18B555EC00871175 /* LGPhysics.h */,
+				A30B689D18B555EC00871175 /* LGPhysics.m */,
+				A35A8B8718C80418000349A7 /* LGPlayer.h */,
+				A35A8B8818C80418000349A7 /* LGPlayer.m */,
+				A30B689318B546BC00871175 /* LGRender.h */,
+				A30B689418B546BC00871175 /* LGRender.m */,
+				A31C3C7918C637EA00021A50 /* LGSprite.h */,
+				A31C3C7A18C637EA00021A50 /* LGSprite.m */,
+				A3A59CC418B8070300E456EE /* LGTransform.h */,
+				A3A59CC518B8070300E456EE /* LGTransform.m */,
+			);
+			name = "Core Components";
+			sourceTree = "<group>";
+		};
+		A314CFDA18B699D600B34555 /* Core Systems */ = {
+			isa = PBXGroup;
+			children = (
+				A37F40B818C50A6400C58298 /* LGCollisionSystem.h */,
+				A37F40B918C50A6400C58298 /* LGCollisionSystem.m */,
+				A314CFDE18B6A00600B34555 /* LGPhysicalSystem.h */,
+				A314CFDF18B6A00600B34555 /* LGPhysicalSystem.m */,
+				A35A8B8C18C80756000349A7 /* LGPlayerInputSystem.h */,
+				A35A8B8D18C80756000349A7 /* LGPlayerInputSystem.m */,
+				A314CFD718B699D300B34555 /* LGSpriteRenderer.h */,
+				A314CFD818B699D300B34555 /* LGSpriteRenderer.m */,
+				A39F6CEA18CE520000936EE9 /* LGTileSystem.h */,
+				A39F6CEB18CE520000936EE9 /* LGTileSystem.m */,
+			);
+			name = "Core Systems";
+			sourceTree = "<group>";
+		};
+		A31C3C7C18C6398B00021A50 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A31C3C7D18C6399B00021A50 /* Player.png */,
+				A35A8B8A18C8063B000349A7 /* blue.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		A3367CFD18B3E620005475B7 = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +247,7 @@
 			children = (
 				A3367D0618B3E620005475B7 /* Engine.app */,
 				A3367D2618B3E621005475B7 /* EngineTests.xctest */,
+				A38069D718B56A7100486D21 /* libLGEngine.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -115,8 +267,12 @@
 		A3367D1118B3E620005475B7 /* Engine */ = {
 			isa = PBXGroup;
 			children = (
+				A3367D4418B3E738005475B7 /* Engine */,
+				A394F6D318B44CC100387E9C /* Game */,
 				A3367D1A18B3E620005475B7 /* AppDelegate.h */,
 				A3367D1B18B3E620005475B7 /* AppDelegate.m */,
+				A3367D3E18B3E662005475B7 /* MainViewController.h */,
+				A3367D3F18B3E662005475B7 /* MainViewController.m */,
 				A3367D2018B3E621005475B7 /* Images.xcassets */,
 				A3367D1D18B3E621005475B7 /* Engine.xcdatamodeld */,
 				A3367D1218B3E620005475B7 /* Supporting Files */,
@@ -151,6 +307,37 @@
 				A3367D3118B3E621005475B7 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A3367D4418B3E738005475B7 /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				A37F40BB18C524E100C58298 /* notes.md */,
+				A30B689218B546AA00871175 /* Core Components */,
+				A314CFDA18B699D600B34555 /* Core Systems */,
+				A30B688F18B546A500871175 /* LGComponent.h */,
+				A30B689018B546A500871175 /* LGComponent.m */,
+				A3367D4118B3E730005475B7 /* LGEngine.h */,
+				A3367D4218B3E730005475B7 /* LGEngine.m */,
+				A394F6D018B44CBC00387E9C /* LGEntity.h */,
+				A394F6D118B44CBC00387E9C /* LGEntity.m */,
+				A3367D4518B3E757005475B7 /* LGScene.h */,
+				A3367D4618B3E757005475B7 /* LGScene.m */,
+				A314CFD118B6826000B34555 /* LGSystem.h */,
+				A314CFD218B6826000B34555 /* LGSystem.m */,
+			);
+			name = Engine;
+			sourceTree = "<group>";
+		};
+		A394F6D318B44CC100387E9C /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				A31C3C7C18C6398B00021A50 /* Resources */,
+				A30B688D18B541F000871175 /* Scenes */,
+				A37F40B518C5070A00C58298 /* EntityFactory.h */,
+				A37F40B618C5070A00C58298 /* EntityFactory.m */,
+			);
+			name = Game;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +378,24 @@
 			productReference = A3367D2618B3E621005475B7 /* EngineTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		A38069D618B56A7100486D21 /* LGEngine */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A38069F318B56A7200486D21 /* Build configuration list for PBXNativeTarget "LGEngine" */;
+			buildPhases = (
+				A38069D318B56A7100486D21 /* Sources */,
+				A38069D418B56A7100486D21 /* Frameworks */,
+				A38069D518B56A7100486D21 /* CopyFiles */,
+				A3806A1318B5725D00486D21 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LGEngine;
+			productName = LGEngine;
+			productReference = A38069D718B56A7100486D21 /* libLGEngine.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -219,6 +424,7 @@
 			targets = (
 				A3367D0518B3E620005475B7 /* Engine */,
 				A3367D2518B3E621005475B7 /* EngineTests */,
+				A38069D618B56A7100486D21 /* LGEngine */,
 			);
 		};
 /* End PBXProject section */
@@ -229,6 +435,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3367D1618B3E620005475B7 /* InfoPlist.strings in Resources */,
+				A35A8B8B18C8063B000349A7 /* blue.png in Resources */,
+				A37F40BC18C524E100C58298 /* notes.md in Resources */,
+				A31C3C7E18C6399B00021A50 /* Player.png in Resources */,
 				A3367D2118B3E621005475B7 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,14 +452,49 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A3806A1318B5725D00486D21 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "##########################################\n#\n# c.f. http://stackoverflow.com/questions/3520977/build-fat-static-library-device-simulator-using-xcode-and-sdk-4\n#\n# Version 2.7\n#\n# Latest Change:\n# - Supports iPhone 5 / iPod Touch 5 (uses Apple's workaround to lipo bug)\n#\n# Purpose:\n#   Automatically create a Universal static library for iPhone + iPad + iPhone Simulator from within XCode\n#\n# Author: Adam Martin - http://twitter.com/t_machine_org\n# Based on: original script from Eonil (main changes: Eonil's script WILL NOT WORK in Xcode GUI - it WILL CRASH YOUR COMPUTER)\n#\n\nset -e\nset -o pipefail\n\n#################[ Tests: helps workaround any future bugs in Xcode ]########\n#\nDEBUG_THIS_SCRIPT=\"false\"\n\nif [ $DEBUG_THIS_SCRIPT = \"true\" ]\nthen\necho \"########### TESTS #############\"\necho \"Use the following variables when debugging this script; note that they may change on recursions\"\necho \"BUILD_DIR = $BUILD_DIR\"\necho \"BUILD_ROOT = $BUILD_ROOT\"\necho \"CONFIGURATION_BUILD_DIR = $CONFIGURATION_BUILD_DIR\"\necho \"BUILT_PRODUCTS_DIR = $BUILT_PRODUCTS_DIR\"\necho \"CONFIGURATION_TEMP_DIR = $CONFIGURATION_TEMP_DIR\"\necho \"TARGET_BUILD_DIR = $TARGET_BUILD_DIR\"\nfi\n\n#####################[ part 1 ]##################\n# First, work out the BASESDK version number (NB: Apple ought to report this, but they hide it)\n#    (incidental: searching for substrings in sh is a nightmare! Sob)\n\nSDK_VERSION=$(echo ${SDK_NAME} | grep -o '.\\{3\\}$')\n\n# Next, work out if we're in SIM or DEVICE\n\nif [ ${PLATFORM_NAME} = \"iphonesimulator\" ]\nthen\nOTHER_SDK_TO_BUILD=iphoneos${SDK_VERSION}\nelse\nOTHER_SDK_TO_BUILD=iphonesimulator${SDK_VERSION}\nfi\n\necho \"XCode has selected SDK: ${PLATFORM_NAME} with version: ${SDK_VERSION} (although back-targetting: ${IPHONEOS_DEPLOYMENT_TARGET})\"\necho \"...therefore, OTHER_SDK_TO_BUILD = ${OTHER_SDK_TO_BUILD}\"\n#\n#####################[ end of part 1 ]##################\n\n#####################[ part 2 ]##################\n#\n# IF this is the original invocation, invoke WHATEVER other builds are required\n#\n# Xcode is already building ONE target...\n#\n# ...but this is a LIBRARY, so Apple is wrong to set it to build just one.\n# ...we need to build ALL targets\n# ...we MUST NOT re-build the target that is ALREADY being built: Xcode WILL CRASH YOUR COMPUTER if you try this (infinite recursion!)\n#\n#\n# So: build ONLY the missing platforms/configurations.\n\nif [ \"true\" == ${ALREADYINVOKED:-false} ]\nthen\necho \"RECURSION: I am NOT the root invocation, so I'm NOT going to recurse\"\nelse\n# CRITICAL:\n# Prevent infinite recursion (Xcode sucks)\nexport ALREADYINVOKED=\"true\"\n\necho \"RECURSION: I am the root ... recursing all missing build targets NOW...\"\necho \"RECURSION: ...about to invoke: xcodebuild -configuration \\\"${CONFIGURATION}\\\" -project \\\"${PROJECT_NAME}.xcodeproj\\\" -target \\\"${TARGET_NAME}\\\" -sdk \\\"${OTHER_SDK_TO_BUILD}\\\" ${ACTION} RUN_CLANG_STATIC_ANALYZER=NO\" BUILD_DIR=\\\"${BUILD_DIR}\\\" BUILD_ROOT=\\\"${BUILD_ROOT}\\\" SYMROOT=\\\"${SYMROOT}\\\"\n\nxcodebuild -configuration \"${CONFIGURATION}\" -project \"${PROJECT_NAME}.xcodeproj\" -target \"${TARGET_NAME}\" -sdk \"${OTHER_SDK_TO_BUILD}\" ${ACTION} RUN_CLANG_STATIC_ANALYZER=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" SYMROOT=\"${SYMROOT}\"\n\nACTION=\"build\"\n\n#Merge all platform binaries as a fat binary for each configurations.\n\n# Calculate where the (multiple) built files are coming from:\nCURRENTCONFIG_DEVICE_DIR=${SYMROOT}/${CONFIGURATION}-iphoneos\nCURRENTCONFIG_SIMULATOR_DIR=${SYMROOT}/${CONFIGURATION}-iphonesimulator\n\necho \"Taking device build from: ${CURRENTCONFIG_DEVICE_DIR}\"\necho \"Taking simulator build from: ${CURRENTCONFIG_SIMULATOR_DIR}\"\n\nCREATING_UNIVERSAL_DIR=${SYMROOT}/${CONFIGURATION}-universal\necho \"...I will output a universal build to: ${CREATING_UNIVERSAL_DIR}\"\n\n# ... remove the products of previous runs of this script\n#      NB: this directory is ONLY created by this script - it should be safe to delete!\n\nrm -rf \"${CREATING_UNIVERSAL_DIR}\"\nmkdir \"${CREATING_UNIVERSAL_DIR}\"\n\n#\necho \"lipo: for current configuration (${CONFIGURATION}) creating output file: ${CREATING_UNIVERSAL_DIR}/${EXECUTABLE_NAME}\"\nxcrun -sdk iphoneos lipo -create -output \"${CREATING_UNIVERSAL_DIR}/${EXECUTABLE_NAME}\" \"${CURRENTCONFIG_DEVICE_DIR}/${EXECUTABLE_NAME}\" \"${CURRENTCONFIG_SIMULATOR_DIR}/${EXECUTABLE_NAME}\"\n\n#########\n#\n# Added: StackOverflow suggestion to also copy \"include\" files\n#    (untested, but should work OK)\n#\necho \"Fetching headers from ${PUBLIC_HEADERS_FOLDER_PATH}\"\necho \"  (if you embed your library project in another project, you will need to add\"\necho \"   a \"User Search Headers\" build setting of: (NB INCLUDE THE DOUBLE QUOTES BELOW!)\"\necho '        \"$(TARGET_BUILD_DIR)/usr/local/include/\"'\nif [ -d \"${CURRENTCONFIG_DEVICE_DIR}${PUBLIC_HEADERS_FOLDER_PATH}\" ]\nthen\nmkdir -p \"${CREATING_UNIVERSAL_DIR}${PUBLIC_HEADERS_FOLDER_PATH}\"\n# * needs to be outside the double quotes?\ncp -r \"${CURRENTCONFIG_DEVICE_DIR}${PUBLIC_HEADERS_FOLDER_PATH}\"* \"${CREATING_UNIVERSAL_DIR}${PUBLIC_HEADERS_FOLDER_PATH}\"\nfi\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A3367D0218B3E620005475B7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A31C3C7B18C637EA00021A50 /* LGSprite.m in Sources */,
+				A30B689118B546A500871175 /* LGComponent.m in Sources */,
+				A3367D4718B3E757005475B7 /* LGScene.m in Sources */,
 				A3367D1C18B3E620005475B7 /* AppDelegate.m in Sources */,
 				A3367D1F18B3E621005475B7 /* Engine.xcdatamodeld in Sources */,
+				A30B689E18B555EC00871175 /* LGPhysics.m in Sources */,
+				A35A8B8E18C80756000349A7 /* LGPlayerInputSystem.m in Sources */,
+				A39F6CEC18CE520000936EE9 /* LGTileSystem.m in Sources */,
+				A314CFD918B699D300B34555 /* LGSpriteRenderer.m in Sources */,
+				A37F40BA18C50A6400C58298 /* LGCollisionSystem.m in Sources */,
 				A3367D1818B3E620005475B7 /* main.m in Sources */,
+				A3A59CC618B8070300E456EE /* LGTransform.m in Sources */,
+				A37F40B418C503BA00C58298 /* LGCollider.m in Sources */,
+				A35A8B8918C80418000349A7 /* LGPlayer.m in Sources */,
+				A30B688C18B541E800871175 /* MainScene.m in Sources */,
+				A3367D4018B3E662005475B7 /* MainViewController.m in Sources */,
+				A37F40B718C5070A00C58298 /* EntityFactory.m in Sources */,
+				A394F6D218B44CBC00387E9C /* LGEntity.m in Sources */,
+				A314CFD318B6826000B34555 /* LGSystem.m in Sources */,
+				A3367D4318B3E730005475B7 /* LGEngine.m in Sources */,
+				A30B689518B546BC00871175 /* LGRender.m in Sources */,
+				A314CFE018B6A00600B34555 /* LGPhysicalSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +503,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3367D3518B3E621005475B7 /* EngineTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A38069D318B56A7100486D21 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A38069FC18B56AA700486D21 /* LGEngine.m in Sources */,
+				A38069F918B56AA700486D21 /* LGComponent.m in Sources */,
+				A38069FA18B56AA700486D21 /* LGRender.m in Sources */,
+				A38069FB18B56AA700486D21 /* LGPhysics.m in Sources */,
+				A38069FD18B56AA700486D21 /* LGEntity.m in Sources */,
+				A38069FE18B56AA700486D21 /* LGScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +689,42 @@
 			};
 			name = Release;
 		};
+		A38069F418B56A7200486D21 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				DSTROOT = /tmp/LGEngine.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Engine/Engine-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s";
+			};
+			name = Debug;
+		};
+		A38069F518B56A7200486D21 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				DSTROOT = /tmp/LGEngine.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Engine/Engine-Prefix.pch";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -451,6 +744,7 @@
 				A3367D3A18B3E621005475B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A3367D3B18B3E621005475B7 /* Build configuration list for PBXNativeTarget "EngineTests" */ = {
 			isa = XCConfigurationList;
@@ -459,6 +753,16 @@
 				A3367D3D18B3E621005475B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A38069F318B56A7200486D21 /* Build configuration list for PBXNativeTarget "LGEngine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A38069F418B56A7200486D21 /* Debug */,
+				A38069F518B56A7200486D21 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

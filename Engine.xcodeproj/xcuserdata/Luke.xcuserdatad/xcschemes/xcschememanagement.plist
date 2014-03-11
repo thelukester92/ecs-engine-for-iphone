@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>LGEngine.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -18,6 +23,51 @@
 			<true/>
 		</dict>
 		<key>A3367D2518B3E621005475B7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A38069CF18B5677300486D21</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A38069D618B56A7100486D21</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A38069E318B56A7100486D21</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A3A9DEAE18B5604C000B1529</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A3A9DEBB18B5604C000B1529</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A3A9DED118B560CC000B1529</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A3B4E8AA18B5638000D419F2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A3B4E8B718B5638100D419F2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A3F27CA818B5616B0055382A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
