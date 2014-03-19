@@ -11,10 +11,13 @@
 #import "LGSpriteRenderer.h"
 #import "LGCollisionSystem.h"
 #import "LGPlayerInputSystem.h"
+#import "LGCameraSystem.h"
 #import "LGTileSystem.h"
 #import "LGEntity.h"
 #import "LGTransform.h"
-#import "LGRender.h"
+#import "LGSprite.h"
+#import "LGPhysics.h"
+#import "LGCollider.h"
 #import "EntityFactory.h"
 
 @implementation MainScene
@@ -28,12 +31,37 @@
 		[self addSystem:[[LGPhysicalSystem alloc] initWithScene:self]];
 		[self addSystem:[[LGCollisionSystem alloc] initWithScene:self]];
 		[self addSystem:[[LGSpriteRenderer alloc] initWithScene:self]];
-		[self addSystem:[[LGPlayerInputSystem alloc] initWithScene:self]];
-		[self addSystem:[[LGTileSystem alloc] initWithScene:self]];
+		// [self addSystem:[[LGPlayerInputSystem alloc] initWithScene:self]];
+		// [self addSystem:[[LGTileSystem alloc] initWithScene:self]];
+		// [self addSystem:[[LGCameraSystem alloc] initWithScene:self]];
 		
 		LGEntity *player = [EntityFactory playerEntity];
-		[[player componentOfType:[LGTransform class]] setPosition:CGPointMake(150, 0)];
-		[self addEntity:player];
+		[(LGTransform *)[player componentOfType:[LGTransform class]] setPosition:CGPointMake(150, 0)];
+		// [self addEntity:player];
+		
+		
+		LGPhysics *physics = [[LGPhysics alloc] init];
+		[physics setVelocity:CGPointMake(2, 0)];
+		[physics setElasticity:0.5];
+		[physics setMass:500];
+		[physics setRespondsToGravity:NO];
+		
+		LGEntity *floor = [EntityFactory floorEntity];
+//		[(LGCollider *)[floor componentOfType:[LGCollider class]] setType:LGColliderTypeStatic];
+		[floor addComponent:physics];
+		
+		LGPhysics *physicsB = [[LGPhysics alloc] init];
+		[physicsB setVelocity:CGPointMake(-1, 0)];
+		[physicsB setRespondsToGravity:NO];
+		
+		LGEntity *floorB = [EntityFactory floorEntity];
+		[[floorB componentOfType:[LGTransform class]] addToPosition:CGPointMake(200, 10)];
+		// [(LGCollider *)[floorB componentOfType:[LGCollider class]] setType:LGColliderTypeStatic];
+		[floorB addComponent:physicsB];
+		
+		[self addEntity:floor];
+		[self addEntity:floorB];
+		
 	}
 	
 	return self;

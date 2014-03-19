@@ -11,8 +11,9 @@
 #import "LGSprite.h"
 #import "LGPhysics.h"
 #import "LGTransform.h"
-#import "LGCollider.h"
+#import "LGCircleCollider.h"
 #import "LGPlayer.h"
+#import "LGCamera.h"
 
 @implementation EntityFactory
 
@@ -43,6 +44,7 @@
 	[player addComponent:[[LGPhysics alloc] init]];
 	[player addComponent:[[LGTransform alloc] init]];
 	[player addComponent:[[LGPlayer alloc] init]];
+	[player addComponent:[[LGCamera alloc] init]];
 	
 	return player;
 }
@@ -56,7 +58,7 @@
 	
 	LGCollider *collider = [[LGCollider alloc] init];
 	[collider setSize:CGSizeMake(50, 50)];
-	[collider setIgnoresOtherColliders:YES];
+	[collider setType:LGColliderTypeStatic];
 	
 	LGEntity *tile = [[LGEntity alloc] init];
 	[tile addComponent:[[LGTransform alloc] init]];
@@ -69,16 +71,17 @@
 + (LGEntity *)floorEntity
 {
 	LGTransform *transform = [[LGTransform alloc] init];
-	[transform setPosition:CGPointMake(100, 400)];
+	[transform setPosition:CGPointMake(100, 200)];
 	
 	LGSprite *render = [[LGSprite alloc] init];
 	[render setSpriteSheet:[UIImage imageNamed:@"blue"]];
 	[render setSize:CGSizeMake(50, 50)];
 	[render setFrameSize:CGSizeMake(50, 50)];
+	[render setState:[[LGSpriteState alloc] initWithPosition:1]];
 	
 	LGCollider *collider = [[LGCollider alloc] init];
 	[collider setSize:CGSizeMake(50, 50)];
-	[collider setIgnoresOtherColliders:YES];
+	// [collider setRadius:25];
 	
 	LGEntity *floor = [[LGEntity alloc] init];
 	[floor addComponent:render];

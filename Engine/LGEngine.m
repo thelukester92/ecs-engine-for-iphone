@@ -55,7 +55,7 @@
 		displayLink		= [CADisplayLink displayLinkWithTarget:self selector:@selector(update)];
 		
 		counter			= 0;
-		counterMax		= 10;
+		counterMax		= 5;
 		
 		running			= NO;
 	}

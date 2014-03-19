@@ -15,7 +15,7 @@
 
 - (void)addComponent:(LGComponent *)component
 {
-	[components setValue:component forKey:NSStringFromClass([component class])];
+	[components setValue:component forKey:[component componentType]];
 }
 
 - (id)componentOfType:(Class)c

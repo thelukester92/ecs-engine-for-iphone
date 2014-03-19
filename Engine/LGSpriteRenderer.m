@@ -23,7 +23,7 @@
 - (void)addEntity:(LGEntity *)entity
 {
 	[super addEntity:entity];
-	[[self.scene view] addSubview:[[entity componentOfType:[LGSprite class]] view]];
+	[[self.scene rootView] addSubview:[[entity componentOfType:[LGSprite class]] view]];
 }
 
 - (void)update

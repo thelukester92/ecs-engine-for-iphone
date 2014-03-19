@@ -15,7 +15,7 @@
 
 @implementation LGScene
 
-@synthesize engine, entities, systems, allTouches;
+@synthesize engine, entities, systems, allTouches, rootView;
 
 #pragma mark UIViewController Overrides
 
@@ -91,6 +91,9 @@
 		entities			= [NSMutableArray array];
 		systems				= [NSMutableArray array];
 		allTouches			= [NSMutableDictionary dictionary];
+		rootView			= [[UIView alloc] initWithFrame:[self.view frame]];
+		
+		[self.view addSubview:rootView];
 	}
 	
 	return self;

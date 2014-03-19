@@ -12,6 +12,7 @@
 #import "LGSprite.h"
 #import "LGTransform.h"
 #import "LGCollider.h"
+#import "LGPhysics.h"
 
 @implementation LGTileSystem
 
@@ -54,7 +55,7 @@
 		{
 			LGCollider *c = [[LGCollider alloc] init];
 			[c setSize:CGSizeMake(50, 50)];
-			[c setIgnoresOtherColliders:YES];
+			[c setType:LGColliderTypeStatic];
 			[tile addComponent:c];
 		}
 		

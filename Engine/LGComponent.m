@@ -11,6 +11,8 @@
 
 @implementation LGComponent
 
+@synthesize componentType;
+
 - (void) initialize {}
 
 - (id)init
@@ -18,7 +20,10 @@
 	self = [super init];
 	
 	if(self)
+	{
+		componentType = NSStringFromClass([self class]);
 		[self initialize];
+	}
 	
 	return self;
 }

@@ -8,11 +8,20 @@
 
 #import "LGComponent.h"
 
+typedef enum
+{
+	LGColliderTypeSolid,
+	LGColliderTypeCloud,
+	LGColliderTypeStatic
+} LGColliderType;
+
 @interface LGCollider : LGComponent
 
-@property (nonatomic, assign) CGSize size;
-@property (nonatomic, assign) BOOL ignoresOtherColliders;
+@property (nonatomic, assign) LGColliderType type;
+@property (nonatomic, assign) CGPoint offset;
 @property (nonatomic, assign) BOOL collidedLeft, collidedRight, collidedTop, collidedBottom;
+
+@property (nonatomic, assign) CGSize size;
 
 - (void)resetCollider;
 

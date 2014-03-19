@@ -27,8 +27,13 @@
 		LGPhysics *physics = [entity componentOfType:[LGPhysics class]];
 		LGTransform *transform = [entity componentOfType:[LGTransform class]];
 		
-		[physics addToVelocity:gravity];
-		[physics limitVelocity:terminalVelocity];
+		if([physics respondsToGravity])
+		{
+			[physics addToVelocity:gravity];
+			[physics limitVelocity:terminalVelocity];
+		}
+		
+		NSLog(@"%f", [physics velocity].x);
 		
 		[transform setPrevPosition:[transform position]];
 		[transform addToPosition:[physics velocity]];

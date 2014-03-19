@@ -10,7 +10,7 @@
 
 @implementation LGCollider
 
-@synthesize size, ignoresOtherColliders, collidedLeft, collidedRight, collidedTop, collidedBottom;
+@synthesize type, offset, size, collidedLeft, collidedRight, collidedTop, collidedBottom;
 
 - (void)resetCollider
 {
@@ -22,8 +22,10 @@
 
 - (void)initialize
 {
-	size = CGSizeZero;
-	ignoresOtherColliders = NO;
+	type	= LGColliderTypeSolid;
+	size	= CGSizeZero;
+	offset	= CGPointZero;
+	
 	[self resetCollider];
 }
 

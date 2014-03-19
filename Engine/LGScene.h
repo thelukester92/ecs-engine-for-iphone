@@ -15,6 +15,7 @@
 @property (nonatomic, weak) LGEngine *engine;
 @property (nonatomic, retain) NSMutableArray *entities, *systems;
 @property (nonatomic, retain) NSMutableDictionary *allTouches;
+@property (nonatomic, retain) UIView *rootView;
 
 // Actions
 - (void)addSystem:(LGSystem *)system;
