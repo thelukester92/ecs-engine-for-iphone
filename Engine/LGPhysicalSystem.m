@@ -33,8 +33,6 @@
 			[physics limitVelocity:terminalVelocity];
 		}
 		
-		NSLog(@"%f", [physics velocity].x);
-		
 		[transform setPrevPosition:[transform position]];
 		[transform addToPosition:[physics velocity]];
 	}

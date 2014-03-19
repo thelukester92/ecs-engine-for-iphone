@@ -216,8 +216,6 @@
 						}
 						else
 						{
-							NSLog(@"here");
-							
 							double newVelocityA = (elasticity * [physicsB mass] * ([physicsB velocity].x - [physicsA velocity].x) + [physicsA mass] * [physicsA velocity].x + [physicsB mass] * [physicsB velocity].x) / ([physicsA mass] + [physicsB mass]);
 							double newVelocityB = (elasticity * [physicsA mass] * ([physicsA velocity].x - [physicsB velocity].x) + [physicsA mass] * [physicsA velocity].x + [physicsB mass] * [physicsB velocity].x) / ([physicsA mass] + [physicsB mass]);
 							

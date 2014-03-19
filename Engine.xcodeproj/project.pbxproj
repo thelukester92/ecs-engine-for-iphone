@@ -55,6 +55,7 @@
 		A394F6D218B44CBC00387E9C /* LGEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = A394F6D118B44CBC00387E9C /* LGEntity.m */; };
 		A39F6CEC18CE520000936EE9 /* LGTileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A39F6CEB18CE520000936EE9 /* LGTileSystem.m */; };
 		A3A59CC618B8070300E456EE /* LGTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A59CC518B8070300E456EE /* LGTransform.m */; };
+		A3AFA1C218DA1DC50036DAA3 /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = A3AFA1C118DA1DC50036DAA3 /* ball.png */; };
 		A3ED1C7418D20CC300784F41 /* LGCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = A3ED1C7318D20CC300784F41 /* LGCamera.m */; };
 		A3ED1C7718D20D1900784F41 /* LGCameraSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A3ED1C7618D20D1900784F41 /* LGCameraSystem.m */; };
 /* End PBXBuildFile section */
@@ -144,6 +145,7 @@
 		A39F6CEB18CE520000936EE9 /* LGTileSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGTileSystem.m; sourceTree = "<group>"; };
 		A3A59CC418B8070300E456EE /* LGTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGTransform.h; sourceTree = "<group>"; };
 		A3A59CC518B8070300E456EE /* LGTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGTransform.m; sourceTree = "<group>"; };
+		A3AFA1C118DA1DC50036DAA3 /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
 		A3ED1C7218D20CC300784F41 /* LGCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGCamera.h; sourceTree = "<group>"; };
 		A3ED1C7318D20CC300784F41 /* LGCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGCamera.m; sourceTree = "<group>"; };
 		A3ED1C7518D20D1900784F41 /* LGCameraSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGCameraSystem.h; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 		A31C3C7C18C6398B00021A50 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A3AFA1C118DA1DC50036DAA3 /* ball.png */,
 				A31C3C7D18C6399B00021A50 /* Player.png */,
 				A35A8B8A18C8063B000349A7 /* blue.png */,
 			);
@@ -451,6 +454,7 @@
 			files = (
 				A3367D1618B3E620005475B7 /* InfoPlist.strings in Resources */,
 				A35A8B8B18C8063B000349A7 /* blue.png in Resources */,
+				A3AFA1C218DA1DC50036DAA3 /* ball.png in Resources */,
 				A37F40BC18C524E100C58298 /* notes.md in Resources */,
 				A31C3C7E18C6399B00021A50 /* Player.png in Resources */,
 				A3367D2118B3E621005475B7 /* Images.xcassets in Resources */,
