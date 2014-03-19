@@ -18,6 +18,12 @@
 	velocity.y += v.y;
 }
 
+- (void)subtractFromVelocity:(CGPoint)v
+{
+	velocity.x -= v.x;
+	velocity.y -= v.y;
+}
+
 - (void)limitVelocity:(CGPoint)v
 {
 	velocity.x = MIN(velocity.x, v.x);

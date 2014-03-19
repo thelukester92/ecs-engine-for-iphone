@@ -15,6 +15,7 @@
 @property (nonatomic, assign) BOOL respondsToGravity;
 
 - (void)addToVelocity:(CGPoint)v;
+- (void)subtractFromVelocity:(CGPoint)v;
 - (void)limitVelocity:(CGPoint)v;
 
 - (void)addToVelocityX:(double)x;

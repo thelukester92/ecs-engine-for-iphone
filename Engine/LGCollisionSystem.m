@@ -65,6 +65,22 @@
 	return CGPointMake(a.x - b.x, a.y - b.y);
 }
 
+- (CGPoint)scale:(CGPoint)a by:(double)c
+{
+	return CGPointMake(a.x * c, a.y * c);
+}
+
+- (CGPoint)normalize:(CGPoint)a
+{
+	double magnitude = sqrt(a.x * a.x + a.y * a.y);
+	return CGPointMake(a.x / magnitude, a.y / magnitude);
+}
+
+- (double)squareMagnitude:(CGPoint)a
+{
+	return a.x * a.x + a.y * a.y;
+}
+
 // Detect and resolve all collisions between two entities
 - (void)resolveCollisionsBetween:(LGEntity *)a and:(LGEntity *)b
 {
@@ -232,27 +248,71 @@
 		{
 			// Case 2: Circle to Circle Collision
 			
-			double xdist = colliderPositionA.x + [colliderA size].width / 2 - colliderPositionB.x - [colliderB size].width / 2;
-			double ydist = colliderPositionA.y + [colliderA size].height / 2 - colliderPositionB.y - [colliderB size].height / 2;
+			CGPoint dist = CGPointZero;
+			dist.x = colliderPositionA.x + [colliderA size].width / 2 - colliderPositionB.x - [colliderB size].width / 2;
+			dist.y = colliderPositionA.y + [colliderA size].height / 2 - colliderPositionB.y - [colliderB size].height / 2;
+			
 			double radii = [(LGCircleCollider *)colliderA radius] + [(LGCircleCollider *)colliderB radius];
 			
-			double squareDist	= xdist * xdist + ydist * ydist;
+			double squareDist	= [self squareMagnitude:dist];
 			double squareRadii	= radii * radii;
 			
 			if(squareDist < squareRadii)
 			{
 				// Resolve along the line between the two circles
 				
-				if(xdist == 0)
-					xdist = 0.1;
+				double magnitude = sqrt(squareDist);
 				
-				double theta = atan(fabs(ydist) / fabs(xdist));
-				colliderPositionA.x = colliderPositionB.x - radii * cos(theta) * (xdist < 0 ? 1 : -1);
-				colliderPositionA.y = colliderPositionB.y - radii * sin(theta) * (ydist < 0 ? 1 : -1);
+				CGPoint translationDist = dist;
+				translationDist.x *= radii / magnitude - 1;
+				translationDist.y *= radii / magnitude - 1;
+				
+				if(!canMoveB || physicsA == nil || physicsB == nil)
+				{
+					// Move A the entire distance
+					colliderPositionA.x += translationDist.x;
+					colliderPositionA.y += translationDist.y;
+				}
+				else
+				{
+					// Split the resolution distance
+					
+					colliderPositionA.x += translationDist.x * [physicsA mass] / ([physicsA mass] + [physicsB mass]);
+					colliderPositionA.y += translationDist.y * [physicsA mass] / ([physicsA mass] + [physicsB mass]);
+					
+					colliderPositionB.x -= translationDist.x * [physicsB mass] / ([physicsA mass] + [physicsB mass]);
+					colliderPositionB.y -= translationDist.y * [physicsB mass] / ([physicsA mass] + [physicsB mass]);
+				}
 				
 				if(physicsA != nil)
 				{
-					//[physics setVelocity:CGPointZero];
+					if(physicsB != nil)
+					{
+						double elasticity = MAX([physicsA elasticity], [physicsB elasticity]);
+						
+						if(!canMoveB)
+						{
+							// Model entity B as if it has infinite mass
+							
+						}
+						else
+						{
+							double impulseMagnitude = sqrt( ([physicsB velocity].x - [physicsA velocity].x) * ([physicsB velocity].x - [physicsA velocity].x) + ([physicsB velocity].y - [physicsA velocity].y) * ([physicsB velocity].y - [physicsA velocity].y) );
+							
+							CGPoint impulse = [self normalize:translationDist];
+							impulse.x *= impulseMagnitude;
+							impulse.y *= impulseMagnitude;
+							
+							double newVelocityAx = (elasticity * [physicsB mass] * impulse.x + [physicsA mass] * [physicsA velocity].x + [physicsB mass] * [physicsB velocity].x) / ([physicsA mass] + [physicsB mass]);
+							double newVelocityBx = (elasticity * [physicsA mass] * -impulse.x + [physicsA mass] * [physicsA velocity].x + [physicsB mass] * [physicsB velocity].x) / ([physicsA mass] + [physicsB mass]);
+							
+							double newVelocityAy = (elasticity * [physicsB mass] * impulse.y + [physicsA mass] * [physicsA velocity].y + [physicsB mass] * [physicsB velocity].y) / ([physicsA mass] + [physicsB mass]);
+							double newVelocityBy = (elasticity * [physicsA mass] * -impulse.y + [physicsA mass] * [physicsA velocity].y + [physicsB mass] * [physicsB velocity].y) / ([physicsA mass] + [physicsB mass]);
+							
+							[physicsA setVelocity:CGPointMake(newVelocityAx, newVelocityAy)];
+							[physicsB setVelocity:CGPointMake(newVelocityBx, newVelocityBy)];
+						}
+					}
 				}
 			}
 		}
