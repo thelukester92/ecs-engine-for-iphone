@@ -11,6 +11,7 @@
 #import "LGSprite.h"
 #import "LGPhysics.h"
 #import "LGTransform.h"
+#import "LGRectangleCollider.h"
 #import "LGCircleCollider.h"
 #import "LGPlayer.h"
 #import "LGCamera.h"
@@ -35,7 +36,7 @@
 	
 	[render setCurrentState:@"idle"];
 	
-	LGCollider *collider = [[LGCollider alloc] init];
+	LGRectangleCollider *collider = [[LGRectangleCollider alloc] init];
 	[collider setSize:CGSizeMake(20, 40)];
 	
 	LGEntity *player = [[LGEntity alloc] init];
@@ -49,44 +50,34 @@
 	return player;
 }
 
-+ (LGEntity *)tileEntity
++ (LGEntity *)floorEntity:(BOOL)circ
 {
-//	LGSprite *sprite = [[LGSprite alloc] init];
-//	[sprite setSpriteSheetName:@"blue"];
-//	[sprite setSize:CGSizeMake(50, 50)];
-//	[sprite setFrameSize:CGSizeMake(50, 50)];
+	LGEntity *floor = [[LGEntity alloc] init];
 	
-	LGCollider *collider = [[LGCollider alloc] init];
-	[collider setSize:CGSizeMake(50, 50)];
-	[collider setType:LGColliderTypeStatic];
-	
-	LGEntity *tile = [[LGEntity alloc] init];
-	[tile addComponent:[[LGTransform alloc] init]];
-//	[tile addComponent:sprite];
-	[tile addComponent:collider];
-	
-	return tile;
-}
-
-+ (LGEntity *)floorEntity
-{
 	LGTransform *transform = [[LGTransform alloc] init];
 	[transform setPosition:CGPointMake(100, 200)];
 	
 	LGSprite *render = [[LGSprite alloc] init];
-	[render setSpriteSheet:[UIImage imageNamed:@"blue"]];
+	[render setSpriteSheet:[UIImage imageNamed:circ ? @"ball" : @"blue"]];
 	[render setSize:CGSizeMake(50, 50)];
 	[render setFrameSize:CGSizeMake(50, 50)];
 	[render setState:[[LGSpriteState alloc] initWithPosition:1]];
 	
-	LGCollider *collider = [[LGCollider alloc] init];
-	[collider setSize:CGSizeMake(50, 50)];
-//	[collider setRadius:25];
+	if(circ)
+	{
+		LGCircleCollider *collider = [[LGCircleCollider alloc] init];
+		[collider setRadius:25];
+		[floor addComponent:collider];
+	}
+	else
+	{
+		LGRectangleCollider *collider = [[LGRectangleCollider alloc] init];
+		[collider setSize:CGSizeMake(50, 50)];
+		[floor addComponent:collider];
+	}
 	
-	LGEntity *floor = [[LGEntity alloc] init];
 	[floor addComponent:render];
 	[floor addComponent:transform];
-	[floor addComponent:collider];
 	
 	return floor;
 }

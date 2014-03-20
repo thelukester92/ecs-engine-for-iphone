@@ -56,6 +56,7 @@
 		A39F6CEC18CE520000936EE9 /* LGTileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A39F6CEB18CE520000936EE9 /* LGTileSystem.m */; };
 		A3A59CC618B8070300E456EE /* LGTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A59CC518B8070300E456EE /* LGTransform.m */; };
 		A3AFA1C218DA1DC50036DAA3 /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = A3AFA1C118DA1DC50036DAA3 /* ball.png */; };
+		A3B7EB5618DA6DB50026A931 /* LGRectangleCollider.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B7EB5518DA6DB50026A931 /* LGRectangleCollider.m */; };
 		A3ED1C7418D20CC300784F41 /* LGCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = A3ED1C7318D20CC300784F41 /* LGCamera.m */; };
 		A3ED1C7718D20D1900784F41 /* LGCameraSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A3ED1C7618D20D1900784F41 /* LGCameraSystem.m */; };
 /* End PBXBuildFile section */
@@ -146,6 +147,8 @@
 		A3A59CC418B8070300E456EE /* LGTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGTransform.h; sourceTree = "<group>"; };
 		A3A59CC518B8070300E456EE /* LGTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGTransform.m; sourceTree = "<group>"; };
 		A3AFA1C118DA1DC50036DAA3 /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
+		A3B7EB5418DA6DB50026A931 /* LGRectangleCollider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGRectangleCollider.h; sourceTree = "<group>"; };
+		A3B7EB5518DA6DB50026A931 /* LGRectangleCollider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGRectangleCollider.m; sourceTree = "<group>"; };
 		A3ED1C7218D20CC300784F41 /* LGCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGCamera.h; sourceTree = "<group>"; };
 		A3ED1C7318D20CC300784F41 /* LGCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGCamera.m; sourceTree = "<group>"; };
 		A3ED1C7518D20D1900784F41 /* LGCameraSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGCameraSystem.h; sourceTree = "<group>"; };
@@ -203,10 +206,9 @@
 			children = (
 				A3ED1C7218D20CC300784F41 /* LGCamera.h */,
 				A3ED1C7318D20CC300784F41 /* LGCamera.m */,
-				A38BF5BC18D8B867007E7328 /* LGCircleCollider.h */,
-				A38BF5BD18D8B867007E7328 /* LGCircleCollider.m */,
 				A37F40B218C503BA00C58298 /* LGCollider.h */,
 				A37F40B318C503BA00C58298 /* LGCollider.m */,
+				A3B7EB5718DA6DBE0026A931 /* LGCollider Subclasses */,
 				A30B689C18B555EC00871175 /* LGPhysics.h */,
 				A30B689D18B555EC00871175 /* LGPhysics.m */,
 				A35A8B8718C80418000349A7 /* LGPlayer.h */,
@@ -358,6 +360,17 @@
 			name = Game;
 			sourceTree = "<group>";
 		};
+		A3B7EB5718DA6DBE0026A931 /* LGCollider Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				A38BF5BC18D8B867007E7328 /* LGCircleCollider.h */,
+				A38BF5BD18D8B867007E7328 /* LGCircleCollider.m */,
+				A3B7EB5418DA6DB50026A931 /* LGRectangleCollider.h */,
+				A3B7EB5518DA6DB50026A931 /* LGRectangleCollider.m */,
+			);
+			name = "LGCollider Subclasses";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -504,6 +517,7 @@
 				A314CFD918B699D300B34555 /* LGSpriteRenderer.m in Sources */,
 				A37F40BA18C50A6400C58298 /* LGCollisionSystem.m in Sources */,
 				A3367D1818B3E620005475B7 /* main.m in Sources */,
+				A3B7EB5618DA6DB50026A931 /* LGRectangleCollider.m in Sources */,
 				A3ED1C7718D20D1900784F41 /* LGCameraSystem.m in Sources */,
 				A3A59CC618B8070300E456EE /* LGTransform.m in Sources */,
 				A37F40B418C503BA00C58298 /* LGCollider.m in Sources */,

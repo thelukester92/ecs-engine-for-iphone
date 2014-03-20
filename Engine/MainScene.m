@@ -40,20 +40,21 @@
 		// [self addEntity:player];
 		
 		LGPhysics *physics = [[LGPhysics alloc] init];
-		[physics setVelocity:CGPointMake(1, 0)];
-		[physics setElasticity:0];
+		[physics setVelocity:CGPointMake(0, -1)];
+		[physics setMass:3];
+		[physics setElasticity:0.7];
 		[physics setRespondsToGravity:NO];
 		
-		LGEntity *floor = [EntityFactory floorEntity];
-		[(LGCollider *)[floor componentOfType:[LGCollider class]] setType:LGColliderTypeStatic];
+		LGEntity *floor = [EntityFactory floorEntity:NO];
+		// [(LGCollider *)[floor componentOfType:[LGCollider class]] setType:LGColliderTypeStatic];
 		[floor addComponent:physics];
 		
 		LGPhysics *physicsB = [[LGPhysics alloc] init];
-		[physicsB setVelocity:CGPointMake(-2, 0)];
+		[physicsB setVelocity:CGPointMake(0, 2)];
 		[physicsB setRespondsToGravity:NO];
 		
-		LGEntity *floorB = [EntityFactory floorEntity];
-		[[floorB componentOfType:[LGTransform class]] addToPosition:CGPointMake(200, 0)];
+		LGEntity *floorB = [EntityFactory floorEntity:NO];
+		[[floorB componentOfType:[LGTransform class]] addToPosition:CGPointMake(-30, -100)];
 		// [(LGCollider *)[floorB componentOfType:[LGCollider class]] setType:LGColliderTypeStatic];
 		[floorB addComponent:physicsB];
 		

@@ -1,27 +1,27 @@
 //
-//  LGCircleCollider.m
+//  LGRectangleCollider.m
 //  Engine
 //
-//  Created by Luke Godfrey on 3/18/14.
+//  Created by Luke Godfrey on 3/19/14.
 //  Copyright (c) 2014 Luke Godfrey. All rights reserved.
 //
 
-#import "LGCircleCollider.h"
+#import "LGRectangleCollider.h"
 
-@implementation LGCircleCollider
+@implementation LGRectangleCollider
 
-@synthesize radius;
+@synthesize size;
 
 - (CGSize)boundingBox
 {
-	return CGSizeMake(radius * 2, radius * 2);
+	return size;
 }
 
 - (void)initialize
 {
 	[super initialize];
 	
-	radius = 0;
+	size = CGSizeZero;
 	self.componentType = NSStringFromClass([self superclass]);
 }
 

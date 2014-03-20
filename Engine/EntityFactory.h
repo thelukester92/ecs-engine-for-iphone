@@ -13,7 +13,6 @@
 @interface EntityFactory : NSObject
 
 + (LGEntity *)playerEntity;
-+ (LGEntity *)tileEntity;
-+ (LGEntity *)floorEntity;
++ (LGEntity *)floorEntity:(BOOL)circ;
 
 @end

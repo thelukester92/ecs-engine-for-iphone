@@ -21,8 +21,7 @@ typedef enum
 @property (nonatomic, assign) CGPoint offset;
 @property (nonatomic, assign) BOOL collidedLeft, collidedRight, collidedTop, collidedBottom;
 
-@property (nonatomic, assign) CGSize size;
-
+- (CGSize)boundingBox;
 - (void)resetCollider;
 
 @end

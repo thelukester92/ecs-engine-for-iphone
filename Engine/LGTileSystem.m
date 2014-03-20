@@ -11,7 +11,7 @@
 #import "LGEntity.h"
 #import "LGSprite.h"
 #import "LGTransform.h"
-#import "LGCollider.h"
+#import "LGRectangleCollider.h"
 #import "LGPhysics.h"
 
 @implementation LGTileSystem
@@ -53,7 +53,7 @@
 		
 		if([[layer objectAtIndex:i] intValue] == 1)
 		{
-			LGCollider *c = [[LGCollider alloc] init];
+			LGRectangleCollider *c = [[LGRectangleCollider alloc] init];
 			[c setSize:CGSizeMake(50, 50)];
 			[c setType:LGColliderTypeStatic];
 			[tile addComponent:c];
