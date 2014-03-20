@@ -74,14 +74,14 @@
 	[transform setPosition:CGPointMake(100, 200)];
 	
 	LGSprite *render = [[LGSprite alloc] init];
-	[render setSpriteSheet:[UIImage imageNamed:@"ball"]];
+	[render setSpriteSheet:[UIImage imageNamed:@"blue"]];
 	[render setSize:CGSizeMake(50, 50)];
 	[render setFrameSize:CGSizeMake(50, 50)];
 	[render setState:[[LGSpriteState alloc] initWithPosition:1]];
 	
-	LGCircleCollider *collider = [[LGCircleCollider alloc] init];
+	LGCollider *collider = [[LGCollider alloc] init];
 	[collider setSize:CGSizeMake(50, 50)];
-	[collider setRadius:25];
+//	[collider setRadius:25];
 	
 	LGEntity *floor = [[LGEntity alloc] init];
 	[floor addComponent:render];

@@ -41,11 +41,11 @@
 		
 		LGPhysics *physics = [[LGPhysics alloc] init];
 		[physics setVelocity:CGPointMake(1, 0)];
-		[physics setElasticity:0.3];
+		[physics setElasticity:0];
 		[physics setRespondsToGravity:NO];
 		
 		LGEntity *floor = [EntityFactory floorEntity];
-		// [(LGCollider *)[floor componentOfType:[LGCollider class]] setType:LGColliderTypeStatic];
+		[(LGCollider *)[floor componentOfType:[LGCollider class]] setType:LGColliderTypeStatic];
 		[floor addComponent:physics];
 		
 		LGPhysics *physicsB = [[LGPhysics alloc] init];
@@ -53,7 +53,7 @@
 		[physicsB setRespondsToGravity:NO];
 		
 		LGEntity *floorB = [EntityFactory floorEntity];
-		[[floorB componentOfType:[LGTransform class]] addToPosition:CGPointMake(200, -30)];
+		[[floorB componentOfType:[LGTransform class]] addToPosition:CGPointMake(200, 0)];
 		// [(LGCollider *)[floorB componentOfType:[LGCollider class]] setType:LGColliderTypeStatic];
 		[floorB addComponent:physicsB];
 		
