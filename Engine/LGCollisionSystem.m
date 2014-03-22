@@ -348,8 +348,8 @@
 		// Adjust the transforms
 		if(physicsA != nil && physicsB != nil && canMoveB)
 		{
-			double aRatio = [physicsA mass] / ([physicsA mass] + [physicsB mass]);
-			double bRatio = [physicsB mass] / ([physicsA mass] + [physicsB mass]) * -1;
+			double aRatio = [physicsB mass] / ([physicsA mass] + [physicsB mass]);
+			double bRatio = [physicsA mass] / ([physicsA mass] + [physicsB mass]) * -1;
 			
 			colliderPositionA = [self translate:colliderPositionA by:[self scale:resolution by:aRatio]];
 			colliderPositionB = [self translate:colliderPositionB by:[self scale:resolution by:bRatio]];
@@ -364,24 +364,27 @@
 		}
 		
 		// Adjust the velocities
-		if(physicsA != nil && physicsB != nil && canMoveB)
+		if(!CGPointEqualToPoint(impulse, CGPointZero))
 		{
-			double elasticity = MAX([physicsA elasticity], [physicsB elasticity]);
-			
-			double newVelocityAx = (elasticity * [physicsB mass] * impulse.x + [physicsA mass] * [physicsA velocity].x + [physicsB mass] * [physicsB velocity].x) / ([physicsA mass] + [physicsB mass]);
-			double newVelocityBx = (elasticity * [physicsA mass] * -impulse.x + [physicsA mass] * [physicsA velocity].x + [physicsB mass] * [physicsB velocity].x) / ([physicsA mass] + [physicsB mass]);
-			
-			double newVelocityAy = (elasticity * [physicsB mass] * impulse.y + [physicsA mass] * [physicsA velocity].y + [physicsB mass] * [physicsB velocity].y) / ([physicsA mass] + [physicsB mass]);
-			double newVelocityBy = (elasticity * [physicsA mass] * -impulse.y + [physicsA mass] * [physicsA velocity].y + [physicsB mass] * [physicsB velocity].y) / ([physicsA mass] + [physicsB mass]);
-			
-			[physicsA setVelocity:CGPointMake(newVelocityAx, newVelocityAy)];
-			[physicsB setVelocity:CGPointMake(newVelocityBx, newVelocityBy)];
-		}
-		else
-		{
-			// Model entity B as if it has infinite mass; apply the entire impulse to entity A
-			double elasticity = physicsB != nil ? MAX([physicsA elasticity], [physicsB elasticity]) : [physicsA elasticity];
-			[physicsA setVelocity:CGPointMake(elasticity * impulse.x, elasticity * impulse.y)];
+			if(physicsA != nil && physicsB != nil && canMoveB)
+			{
+				double elasticity = MAX([physicsA elasticity], [physicsB elasticity]);
+				
+				double newVelocityAx = (elasticity * [physicsB mass] * impulse.x + [physicsA mass] * [physicsA velocity].x + [physicsB mass] * [physicsB velocity].x) / ([physicsA mass] + [physicsB mass]);
+				double newVelocityBx = (elasticity * [physicsA mass] * -impulse.x + [physicsA mass] * [physicsA velocity].x + [physicsB mass] * [physicsB velocity].x) / ([physicsA mass] + [physicsB mass]);
+				
+				double newVelocityAy = (elasticity * [physicsB mass] * impulse.y + [physicsA mass] * [physicsA velocity].y + [physicsB mass] * [physicsB velocity].y) / ([physicsA mass] + [physicsB mass]);
+				double newVelocityBy = (elasticity * [physicsA mass] * -impulse.y + [physicsA mass] * [physicsA velocity].y + [physicsB mass] * [physicsB velocity].y) / ([physicsA mass] + [physicsB mass]);
+				
+				[physicsA setVelocity:CGPointMake(newVelocityAx, newVelocityAy)];
+				[physicsB setVelocity:CGPointMake(newVelocityBx, newVelocityBy)];
+			}
+			else
+			{
+				// Model entity B as if it has infinite mass; apply the entire impulse to entity A
+				double elasticity = physicsB != nil ? MAX([physicsA elasticity], [physicsB elasticity]) : [physicsA elasticity];
+				[physicsA setVelocity:CGPointMake(elasticity * impulse.x, elasticity * impulse.y)];
+			}
 		}
 	}
 }
