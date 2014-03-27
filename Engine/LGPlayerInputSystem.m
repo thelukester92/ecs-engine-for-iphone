@@ -16,7 +16,7 @@
 
 @implementation LGPlayerInputSystem
 
-@synthesize sprite, physics, collider, receivingInput, speedX;
+@synthesize sprite, physics, collider, receivingInput, speedX, directionX;
 
 #pragma mark Hidden Methods
 
@@ -50,24 +50,51 @@
 {
 	CGPoint point = [[touches anyObject] locationInView:[self.scene view]];
 	
-	if(point.x > [[self.scene view] frame].size.width / 2)
-		speedX = 3;
+	if([allTouches count] == 2)
+	{
+		[self jump];
+	}
 	else
-		speedX = -3;
-	
-	if(speedX < 0)
-		[sprite view].transform = CGAffineTransformMakeScale(-1.0, 1.0);
-	else
-		[sprite view].transform = CGAffineTransformMakeScale(1.0, 1.0);
+	{
+		if(point.x > [[self.scene view] frame].size.width / 2)
+		{
+			directionX = 1;
+			[sprite view].transform = CGAffineTransformMakeScale(1.0, 1.0);
+		}
+		else
+		{
+			directionX = -1;
+			[sprite view].transform = CGAffineTransformMakeScale(-1.0, 1.0);
+		}
+	}
 	
 	receivingInput = YES;
 }
 
 - (void)touchUp:(NSSet *)touches allTouches:(NSDictionary *)allTouches
 {
-	[physics setVelocityX:0];
+	NSLog(@"%d", [allTouches count]);
 	
-	receivingInput = [allTouches count] > 0;
+	if([allTouches count] == 0)
+	{
+		directionX = 0;
+		receivingInput = NO;
+	}
+	else if([allTouches count] == 1)
+	{
+		CGPoint point = [[[allTouches allValues] objectAtIndex:0] locationInView:[self.scene view]];
+		
+		if(point.x > [[self.scene view] frame].size.width / 2)
+		{
+			directionX = 1;
+			[sprite view].transform = CGAffineTransformMakeScale(1.0, 1.0);
+		}
+		else
+		{
+			directionX = -1;
+			[sprite view].transform = CGAffineTransformMakeScale(-1.0, 1.0);
+		}
+	}
 }
 
 - (void)update
@@ -79,10 +106,11 @@
 		else if(receivingInput)
 		{
 			[sprite setCurrentState:@"walk"];
-			[physics setVelocityX:speedX];
 		}
 		else
 			[sprite setCurrentState:@"idle"];
+		
+		[physics setVelocityX:(speedX * directionX)];
 	}
 }
 
@@ -92,7 +120,8 @@
 	physics				= nil;
 	collider			= nil;
 	receivingInput		= NO;
-	speedX				= 0;
+	speedX				= 3;
+	directionX			= 0;
 	self.updateOrder	= LGUpdateOrderBeforeMovement;
 }
 

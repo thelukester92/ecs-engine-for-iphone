@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class LGEngine, LGEntity, LGSystem, LGSpriteRenderer, LGUpdatingSystem;
+@class LGEngine, LGEntity, LGSystem, LGSpriteRenderingSystem, LGUpdatingSystem;
 
 @interface LGScene : UIViewController
 

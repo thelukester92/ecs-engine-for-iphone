@@ -10,13 +10,14 @@
 
 @implementation LGRender
 
-@synthesize view, size, visible;
+@synthesize view, size, offset, visible;
 
 - (void)initialize
 {
-	view = [[UIView alloc] initWithFrame:CGRectZero];
-	size = CGSizeZero;
-	visible = YES;
+	view	= [[UIView alloc] initWithFrame:CGRectZero];
+	size	= CGSizeZero;
+	offset	= CGPointZero;
+	visible	= YES;
 }
 
 @end

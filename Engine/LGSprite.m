@@ -11,7 +11,7 @@
 @implementation LGSprite
 
 @synthesize spriteSheet, spriteView, imageView, states, currentState, state;
-@synthesize frameSize, offset, position, animationCounter, animationDelay, animationComplete;
+@synthesize position, animationCounter, animationDelay, animationComplete;
 
 #pragma mark Class Methods
 
@@ -30,7 +30,7 @@
 + (LGSprite *)copyOfSprite:(LGSprite *)sprite
 {
 	LGSprite *copy = [[LGSprite alloc] init];
-	[copy setFrameSize:[sprite frameSize]];
+	[copy setSize:[sprite size]];
 	[copy setSpriteSheet:[sprite spriteSheet]];
 	[copy setStates:[sprite states]];
 	return copy;
@@ -82,13 +82,13 @@
 	}
 	
 	// Subtract 1 from position because position is 1-indexed; position 0 is empty
-	int sheetWidth = (int) (spriteSheet.size.width / frameSize.width);
+	int sheetWidth = (int) (spriteSheet.size.width / self.size.width);
 	int row = (position - 1) / sheetWidth;
 	int col = (position - 1) % sheetWidth;
 	
 	CGRect frame = [imageView frame];
-	frame.origin.x = -col * frameSize.width;
-	frame.origin.y = -row * frameSize.height;
+	frame.origin.x = -col * self.size.width;
+	frame.origin.y = -row * self.size.height;
 	[imageView setFrame:frame];
 }
 
@@ -98,23 +98,23 @@
 	[imageView setImage:spriteSheet];
 }
 
-- (void)setFrameSize:(CGSize)f
+- (void)setSize:(CGSize)f
 {
-	frameSize = f;
+	[super setSize:f];
 	
 	CGRect frame = [spriteView frame];
-	frame.size.width = frameSize.width;
-	frame.size.height = frameSize.height;
+	frame.size.width = self.size.width;
+	frame.size.height = self.size.height;
 	[spriteView setFrame:frame];
 }
 
 - (void)setOffset:(CGPoint)o
 {
-	offset = o;
+	[super setOffset:o];
 	
 	CGRect frame = [self.view frame];
-	frame.origin.x = -offset.x;
-	frame.origin.y = -offset.y;
+	frame.origin.x = -self.offset.x;
+	frame.origin.y = -self.offset.y;
 	[self.view setFrame:frame];
 }
 
@@ -141,9 +141,6 @@
 - (void)initialize
 {
 	[super initialize];
-	
-	frameSize = CGSizeZero;
-	offset = CGPointZero;
 	
 	spriteSheet = nil;
 	spriteView = [[UIView alloc] initWithFrame:CGRectZero];

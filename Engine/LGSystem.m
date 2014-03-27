@@ -34,9 +34,9 @@
 	
 	if(self)
 	{
-		scene = s;
-		entities = [NSMutableArray array];
-		updateOrder = LGUpdateOrderBeforeRender;
+		scene		= s;
+		entities	= [NSMutableArray array];
+		updateOrder	= LGUpdateOrderBeforeRender;
 		[self initialize];
 	}
 	

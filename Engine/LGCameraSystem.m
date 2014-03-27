@@ -14,19 +14,32 @@
 
 @implementation LGCameraSystem
 
+@synthesize camera, cameraTransform;
+
 - (BOOL)acceptsEntity:(LGEntity *)entity
 {
 	return [entity hasComponentsOfType:[LGCamera class], [LGTransform class], nil];
 }
 
+- (void)addEntity:(LGEntity *)entity
+{
+	[super addEntity:entity];
+	
+	camera = [entity componentOfType:[LGCamera class]];
+	cameraTransform = [entity componentOfType:[LGTransform class]];
+}
+
 - (void)update
 {
-	LGTransform *transform = [[self.entities objectAtIndex:0] componentOfType:[LGTransform class]];
-	
 	CGRect frame = [[self.scene rootView] frame];
-	frame.origin.x = round([[self.scene view] frame].size.width / 2 - [transform position].x);
-	frame.origin.y = round([[self.scene view] frame].size.height / 2 - [transform position].y);
+	frame.origin.x = round(- [camera offset].x - [cameraTransform position].x);
+	frame.origin.y = round(- [camera offset].y - [cameraTransform position].y);
 	[[self.scene rootView] setFrame:frame];
+}
+
+- (void)initialize
+{
+	self.updateOrder = LGUpdateOrderRender;
 }
 
 @end

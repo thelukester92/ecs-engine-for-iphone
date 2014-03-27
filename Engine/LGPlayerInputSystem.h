@@ -16,6 +16,6 @@
 @property (nonatomic, weak) LGPhysics *physics;
 @property (nonatomic, weak) LGCollider *collider;
 @property (nonatomic, assign) BOOL receivingInput;
-@property (nonatomic, assign) double speedX;
+@property (nonatomic, assign) double speedX, directionX;
 
 @end

@@ -24,7 +24,6 @@
 	[render setSpriteSheetName:@"Player"];
 	[render setSize:CGSizeMake(64, 64)];
 	[render setOffset:CGPointMake(24, 24)];
-	[render setFrameSize:CGSizeMake(64, 64)];
 	
 	[render addState:[[LGSpriteState alloc] initWithStart:1 andEnd:8] forKey:@"idle"];
 	[render addState:[[LGSpriteState alloc] initWithStart:11 andEnd:18] forKey:@"walk"];
@@ -45,7 +44,12 @@
 	[player addComponent:[[LGPhysics alloc] init]];
 	[player addComponent:[[LGTransform alloc] init]];
 	[player addComponent:[[LGPlayer alloc] init]];
-	[player addComponent:[[LGCamera alloc] init]];
+	
+	[(LGTransform *) [player componentOfType:[LGTransform class]] setPosition:CGPointMake(100, 100)];
+	
+	LGCamera *camera = [[LGCamera alloc] init];
+	[camera setOffset:CGPointMake(-200, -50)];
+	[player addComponent:camera];
 	
 	return player;
 }
@@ -60,7 +64,6 @@
 	LGSprite *render = [[LGSprite alloc] init];
 	[render setSpriteSheet:[UIImage imageNamed:circ ? @"ball" : @"blue"]];
 	[render setSize:CGSizeMake(50, 50)];
-	[render setFrameSize:CGSizeMake(50, 50)];
 	[render setState:[[LGSpriteState alloc] initWithPosition:1]];
 	
 	if(circ)

@@ -8,7 +8,7 @@
 
 #import "MainScene.h"
 #import "LGPhysicalSystem.h"
-#import "LGSpriteRenderer.h"
+#import "LGSpriteRenderingSystem.h"
 #import "LGCollisionSystem.h"
 #import "LGPlayerInputSystem.h"
 #import "LGCameraSystem.h"
@@ -18,29 +18,68 @@
 #import "LGSprite.h"
 #import "LGPhysics.h"
 #import "LGCollider.h"
+#import "LGCamera.h"
 #import "EntityFactory.h"
 
 @implementation MainScene
 
-- (id)initWithEngine:(LGEngine *)e
+@synthesize tileSystem;
+
+#pragma mark Private Methods
+
+- (void)registerSystems
 {
-	self = [super initWithEngine:e];
+	[self addSystem:[[LGRenderingSystem alloc] initWithScene:self]];
+	[self addSystem:[[LGSpriteRenderingSystem alloc] initWithScene:self]];
+//	[self addSystem:[[LGCameraSystem alloc] initWithScene:self]];
+	[self addSystem:[[LGPlayerInputSystem alloc] initWithScene:self]];
+	[self addSystem:[[LGPhysicalSystem alloc] initWithScene:self]];
+	[self addSystem:[[LGCollisionSystem alloc] initWithScene:self]];
 	
-	if(self)
-	{
-		[self addSystem:[[LGPhysicalSystem alloc] initWithScene:self]];
-		[self addSystem:[[LGCollisionSystem alloc] initWithScene:self]];
-		[self addSystem:[[LGSpriteRenderer alloc] initWithScene:self]];
-		// [self addSystem:[[LGPlayerInputSystem alloc] initWithScene:self]];
-		// [self addSystem:[[LGTileSystem alloc] initWithScene:self]];
-		// [self addSystem:[[LGCameraSystem alloc] initWithScene:self]];
-		
-		LGEntity *player = [EntityFactory playerEntity];
-		[(LGTransform *)[player componentOfType:[LGTransform class]] setPosition:CGPointMake(150, 0)];
-		// [self addEntity:player];
-	}
+	tileSystem = [[LGTileSystem alloc] initWithScene:self];
 	
-	return self;
+	LGSprite *sprite = [[LGSprite alloc] init];
+	[sprite setSpriteSheetName:@"tileset"];
+	[sprite setSize:CGSizeMake(32, 32)];
+	
+	[tileSystem setSprite:sprite];
+	
+//	[self addSystem:tileSystem];
+}
+
+#pragma mark UIViewController Methods
+
+- (void)viewDidAppear:(BOOL)animated
+{
+	[super viewDidAppear:animated];
+	
+	[self registerSystems];
+	
+	LGEntity *player = [EntityFactory playerEntity];
+	[[player componentOfType:[LGCamera class]] setSize:CGSizeMake([self.view frame].size.width, [self.view frame].size.height)];
+	// [[player componentOfType:[LGPhysics class]] setRespondsToGravity:NO];
+	[self addEntity:player];
+	
+	LGEntity *floor = [EntityFactory floorEntity:NO];
+//	[(LGCollider *)[floor componentOfType:[LGCollider class]] setType:LGColliderTypeStatic];
+	
+	LGPhysics *phys = [[LGPhysics alloc] init];
+	[phys setVelocity:CGPointMake(1, 0)];
+	[phys setRespondsToGravity:NO];
+	[floor addComponent:phys];
+	
+	LGEntity *floor2 = [EntityFactory floorEntity:NO];
+	[(LGTransform *)[floor2 componentOfType:[LGTransform class]] addToPositionX:200];
+	
+	LGPhysics *phys2 = [[LGPhysics alloc] init];
+	[phys2 setVelocity:CGPointMake(-2, 0)];
+	[phys2 setRespondsToGravity:NO];
+	[floor2 addComponent:phys2];
+	
+	[self addEntity:floor];
+	[self addEntity:floor2];
+	
+	[tileSystem loadPlist:@"level1"];
 }
 
 @end

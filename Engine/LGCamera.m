@@ -10,4 +10,12 @@
 
 @implementation LGCamera
 
+@synthesize offset, size;
+
+- (void)initialize
+{
+	offset	= CGPointZero;
+	size	= CGSizeZero;
+}
+
 @end

@@ -12,6 +12,7 @@
 #import "LGRectangleCollider.h"
 #import "LGCircleCollider.h"
 #import "LGPhysics.h"
+#import "LGCollisionResolver.h"
 
 @implementation LGCollisionSystem
 
@@ -147,45 +148,20 @@
 		{
 			// Case 1: Rectangle to Rectangle Collision
 			
-			LGRectangleCollider *rectA = (LGRectangleCollider *)colliderA;
-			LGRectangleCollider *rectB = (LGRectangleCollider *)colliderB;
+			LGRectangleCollider *rectColliderA = (LGRectangleCollider *)colliderA;
+			LGRectangleCollider *rectColliderB = (LGRectangleCollider *)colliderB;
 			
-			CGPoint dist = CGPointZero;
-			dist.x = colliderPositionB.x > colliderPositionA.x ? colliderPositionB.x - colliderPositionA.x - [rectA size].width : colliderPositionB.x + [rectB size].width - colliderPositionA.x;
-			dist.y = colliderPositionB.y > colliderPositionA.y ? colliderPositionB.y - colliderPositionA.y - [rectA size].height : colliderPositionB.y + [rectB size].height - colliderPositionA.y;
+			LGCollisionResolver *resolver = [[LGCollisionResolver alloc] init];
+			[resolver setPhysicsA:physicsA];
+			[resolver setPhysicsB:physicsB];
 			
-			if(fabs(dist.y) < fabs(dist.x))
-			{
-				resolution.y += dist.y;
-				
-				if(physicsA != nil)
-				{
-					if(physicsB != nil)
-					{
-						impulse.y = [physicsB velocity].y - [physicsA velocity].y;
-					}
-					else
-					{
-						impulse.y = -[physicsA velocity].y;
-					}
-				}
-			}
-			else
-			{
-				resolution.x += dist.x;
-				
-				if(physicsA != nil)
-				{
-					if(physicsB != nil)
-					{
-						impulse.x = [physicsB velocity].x - [physicsA velocity].x;
-					}
-					else
-					{
-						impulse.x = -[physicsA velocity].x;
-					}
-				}
-			}
+			CGRect rectA = CGRectMake(colliderPositionA.x, colliderPositionA.y, [rectColliderA size].width, [rectColliderA size].height);
+			CGRect rectB = CGRectMake(colliderPositionB.x, colliderPositionB.y, [rectColliderB size].width, [rectColliderB size].height);
+			
+			[resolver resolveRectangle:rectA withRectangle:rectB];
+			
+			resolution = [resolver resolution];
+			impulse = [resolver impulse];
 		}
 		else if([colliderA isMemberOfClass:[colliderB class]] && [colliderA isMemberOfClass:[LGCircleCollider class]])
 		{

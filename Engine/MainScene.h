@@ -8,6 +8,10 @@
 
 #import "LGScene.h"
 
+@class LGTileSystem;
+
 @interface MainScene : LGScene
+
+@property (nonatomic, retain) LGTileSystem *tileSystem;
 
 @end

@@ -8,6 +8,11 @@
 
 #import "LGSystem.h"
 
+@class LGCamera, LGTransform;
+
 @interface LGCameraSystem : LGSystem
+
+@property (nonatomic, retain) LGCamera *camera;
+@property (nonatomic, retain) LGTransform *cameraTransform;
 
 @end

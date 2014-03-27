@@ -1,19 +1,19 @@
 //
-//  LGSpriteRenderer.m
+//  LGSpriteRenderingSystem.m
 //  Engine
 //
 //  Created by Luke Godfrey on 2/20/14.
 //  Copyright (c) 2014 Luke Godfrey. All rights reserved.
 //
 
-#import "LGSpriteRenderer.h"
+#import "LGSpriteRenderingSystem.h"
 #import "LGEntity.h"
 #import "LGComponent.h"
 #import "LGTransform.h"
 #import "LGSprite.h"
 #import "LGScene.h"
 
-@implementation LGSpriteRenderer
+@implementation LGSpriteRenderingSystem
 
 - (BOOL)acceptsEntity:(LGEntity *)entity
 {
@@ -23,15 +23,15 @@
 - (void)addEntity:(LGEntity *)entity
 {
 	[super addEntity:entity];
-	[[self.scene rootView] addSubview:[[entity componentOfType:[LGSprite class]] view]];
+	[self addRenderToView:[entity componentOfType:[LGSprite class]]];
 }
 
 - (void)update
 {
 	for(LGEntity *entity in self.entities)
 	{
-		LGSprite *sprite = [entity componentOfType:[LGSprite class]];
-		LGTransform *transform = [entity componentOfType:[LGTransform class]];
+		LGSprite *sprite		= [entity componentOfType:[LGSprite class]];
+		LGTransform *transform	= [entity componentOfType:[LGTransform class]];
 		
 		if([sprite visible])
 		{
@@ -45,11 +45,6 @@
 			}
 		}
 	}
-}
-
-- (void)initialize
-{
-	self.updateOrder = LGUpdateOrderRender;
 }
 
 @end

@@ -94,6 +94,7 @@
 		rootView			= [[UIView alloc] initWithFrame:[self.view frame]];
 		
 		[self.view addSubview:rootView];
+		[self.view setMultipleTouchEnabled:YES];
 	}
 	
 	return self;

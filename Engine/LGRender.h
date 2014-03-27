@@ -12,6 +12,7 @@
 
 @property (nonatomic, retain) UIView *view;
 @property (nonatomic, assign) CGSize size;
+@property (nonatomic, assign) CGPoint offset;
 @property (nonatomic, assign) BOOL visible;
 
 @end

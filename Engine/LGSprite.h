@@ -23,9 +23,6 @@
 @property (nonatomic, retain) NSString *currentState;
 @property (nonatomic, retain) LGSpriteState *state;
 
-@property (nonatomic, assign) CGSize frameSize;	// The size of each frame of the sprite sheet
-@property (nonatomic, assign) CGPoint offset;	// Line up the texture with the parent position
-
 @property (nonatomic, assign) int position, animationCounter, animationDelay;
 @property (nonatomic, assign) BOOL animationComplete;
 
