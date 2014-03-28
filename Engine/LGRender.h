@@ -8,11 +8,19 @@
 
 #import "LGComponent.h"
 
+typedef enum
+{
+	LGRenderLayerBackground,
+	LGRenderLayerMainLayer,
+	LGRenderLayerForeground
+} LGRenderLayer;
+
 @interface LGRender : LGComponent
 
 @property (nonatomic, retain) UIView *view;
 @property (nonatomic, assign) CGSize size;
 @property (nonatomic, assign) CGPoint offset;
 @property (nonatomic, assign) BOOL visible;
+@property (nonatomic, assign) LGRenderLayer layer;
 
 @end

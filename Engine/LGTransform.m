@@ -10,7 +10,7 @@
 
 @implementation LGTransform
 
-@synthesize position, prevPosition;
+@synthesize position;
 
 - (void)addToPosition:(CGPoint)p
 {
@@ -41,7 +41,6 @@
 - (void)initialize
 {
 	position = CGPointZero;
-	prevPosition = position;
 }
 
 @end

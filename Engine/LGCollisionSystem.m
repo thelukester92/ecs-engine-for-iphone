@@ -13,6 +13,8 @@
 #import "LGCircleCollider.h"
 #import "LGPhysics.h"
 #import "LGCollisionResolver.h"
+#import "LGTileCollider.h"
+#import "LGTileLayer.h"
 
 @implementation LGCollisionSystem
 
@@ -23,41 +25,77 @@
 
 - (void)update
 {
-	// Use nested loops to make sure each entity pair is only run once per loop
+	NSMutableArray *nonStaticEntities	= [NSMutableArray array];
+	BOOL shouldResetColliders			= YES;
+	
+	// Step 1: Static to non-static collisions
+	
 	for(int i = 0; i < [self.entities count]; i++)
 	{
+		// Get a non-static entity
+		
 		LGEntity *a = [self.entities objectAtIndex:i];
 		
-		if(i == 0)
-			[[a componentOfType:[LGCollider class]] resetCollider];
+		LGCollider *colliderA = [a componentOfType:[LGCollider class]];
+		
+		if(shouldResetColliders)
+		{
+			[colliderA resetCollider];
+		}
+		
+		if([colliderA type] == LGColliderTypeStatic || [colliderA type] == LGColliderTypeTile)
+		{
+			continue;
+		}
+		else
+		{
+			[nonStaticEntities addObject:a];
+		}
 		
 		for(int j = i + 1; j < [self.entities count]; j++)
 		{
+			// Get a static entity
+			
 			LGEntity *b = [self.entities objectAtIndex:j];
 			
-			if(i == 0)
-				[[b componentOfType:[LGCollider class]] resetCollider];
+			LGCollider *colliderB = [b componentOfType:[LGCollider class]];
 			
+			if(shouldResetColliders)
+			{
+				[colliderB resetCollider];
+			}
+			
+			if([colliderB type] == LGColliderTypeStatic)
+			{
+				[self resolveCollisionsBetween:a and:b];
+			}
+			else if([colliderB type] == LGColliderTypeTile)
+			{
+				[self resolveTileCollisionsBetween:a and:(LGTileCollider *)colliderB];
+			}
+		}
+		
+		if(shouldResetColliders)
+		{
+			shouldResetColliders = NO;
+		}
+	}
+	
+	// Step 2: Non-static to non-static collisions
+	
+	for(int i = 0; i < [nonStaticEntities count]; i++)
+	{
+		LGEntity *a = [nonStaticEntities objectAtIndex:i];
+		
+		for(int j = i + 1; j < [nonStaticEntities count]; j++)
+		{
+			LGEntity *b = [nonStaticEntities objectAtIndex:j];
 			[self resolveCollisionsBetween:a and:b];
 		}
 	}
 }
 
-- (void)initialize
-{
-	self.updateOrder = LGUpdateOrderBeforeRender;
-}
-
 #pragma mark Hidden Methods
-
-- (void)swapPointer:(void **)ptr1 with:(void **)ptr2
-{
-	void *tmp = *ptr1;
-	*ptr1 = *ptr2;
-	*ptr2 = tmp;
-}
-
-// Vector operations
 
 - (CGPoint)translate:(CGPoint)a by:(CGPoint)b
 {
@@ -85,6 +123,109 @@
 	return a.x * a.x + a.y * a.y;
 }
 
+// Detect and resolve all collision between an entity and a tile layer
+- (void)resolveTileCollisionsBetween:(LGEntity *)a and:(LGTileCollider *)tileCollider
+{
+	LGTransform *transform = [a componentOfType:[LGTransform class]];
+	LGCollider *collider = [a componentOfType:[LGCollider class]];
+	LGPhysics *physics = [a componentOfType:[LGPhysics class]];
+	
+	CGPoint position;
+	int tileX, tileY;
+	
+	// Decompose the collision along each axis
+	
+	if([physics velocity].y != 0)
+	{
+		// Collide along the y-axis only; don't check the x-axis
+		position = [transform position];
+		position.x -= [physics velocity].x;
+		
+		// Only check the leading edge
+		BOOL isBottom = [physics velocity].y > 0;
+		
+		// Check one row of tiles
+		tileY = (int) floor( ( position.y + ( isBottom ? [collider boundingBox].height : 0 ) ) / [tileCollider tileSize].height );
+		
+		// Check a range of columns
+		
+		int fromX	= (int) floor( (position.x + 1) / [tileCollider tileSize].width );
+		int toX		= (int) floor( (position.x + [collider boundingBox].width - 1) / [tileCollider tileSize].width );
+		
+		for(tileX = fromX; tileX <= toX; tileX++)
+		{
+			if( [[tileCollider collisionLayer] collidesAtRow:tileY andCol:tileX] )
+			{
+				// Resolution
+				
+				if(isBottom)
+				{
+					[transform setPositionY:tileY * [tileCollider tileSize].height - [collider boundingBox].height];
+					[collider setCollidedBottom:YES];
+					[collider setStaticBottom:YES];
+				}
+				else
+				{
+					[transform setPositionY:(tileY + 1) * [tileCollider tileSize].height];
+					[collider setCollidedTop:YES];
+					[collider setStaticTop:YES];
+				}
+				
+				// Impulse
+				[physics setVelocityY:0];
+				
+				// Only need to find one collision, so stop here
+				break;
+			}
+		}
+	}
+	
+	if([physics velocity].x != 0)
+	{
+		// Collide along the x-axis only; don't check the y-axis
+		position = [transform position];
+		position.y -= [physics velocity].y;
+		
+		// Only check the leading edge
+		BOOL isRight = [physics velocity].x > 0;
+		
+		// Check one column of tiles
+		tileX = (int) floor( ( position.x + ( isRight ? [collider boundingBox].width : 0 ) ) / [tileCollider tileSize].height );
+		
+		// Check a range of rows
+		
+		int fromY	= (int) floor( (position.y + 1) / [tileCollider tileSize].height );
+		int toY		= (int) floor( (position.y + [collider boundingBox].height - 1) / [tileCollider tileSize].height );
+		
+		for(tileY = fromY; tileY <= toY; tileY++)
+		{
+			if( [[tileCollider collisionLayer] collidesAtRow:tileY andCol:tileX] )
+			{
+				// Resolution
+				
+				if(isRight)
+				{
+					[transform setPositionX:tileX * [tileCollider tileSize].width - [collider boundingBox].width];
+					[collider setCollidedRight:YES];
+					[collider setStaticRight:YES];
+				}
+				else
+				{
+					[transform setPositionX:(tileX + 1) * [tileCollider tileSize].width];
+					[collider setCollidedLeft:YES];
+					[collider setStaticLeft:YES];
+				}
+				
+				// Impulse
+				[physics setVelocityX:0];
+				
+				// Only need to find one collision, so stop here
+				break;
+			}
+		}
+	}
+}
+
 // Detect and resolve all collisions between two entities
 - (void)resolveCollisionsBetween:(LGEntity *)a and:(LGEntity *)b
 {
@@ -98,27 +239,7 @@
 	LGCollider *colliderA = [a componentOfType:[LGCollider class]];
 	LGCollider *colliderB = [b componentOfType:[LGCollider class]];
 	
-	BOOL movedB		= !CGPointEqualToPoint([transformB position], [transformB prevPosition]);
-	BOOL canMoveA	= [colliderA type] != LGColliderTypeStatic;
-	BOOL canMoveB	= [colliderB type] != LGColliderTypeStatic;
-	
-	if(canMoveB && (movedB || !canMoveA))
-	{
-		// Collisions can only be resolved if at least one of the colliders can be moved
-		// This swap ensures that A is always movable
-		
-		[self swapPointer:(void *)&a with:(void *)&b];
-		[self swapPointer:(void *)&transformA with:(void *)&transformB];
-		[self swapPointer:(void *)&colliderA with:(void *)&colliderB];
-		
-		canMoveB = canMoveA;
-		canMoveA = YES;
-	}
-	else if(!canMoveA)
-	{
-		// Both of the colliders ignore each other and any collision doesn't need to be resolved
-		return;
-	}
+	BOOL canMoveB = [colliderB type] != LGColliderTypeStatic;
 	
 	CGPoint colliderPositionA = [self translate:[transformA position] by:[colliderA offset]];
 	CGPoint colliderPositionB = [self translate:[transformB position] by:[colliderB offset]];
@@ -162,6 +283,17 @@
 			
 			resolution = [resolver resolution];
 			impulse = [resolver impulse];
+			
+			if(resolution.y > 0)
+			{
+				[colliderA setCollidedTop:YES];
+				[colliderB setCollidedBottom:YES];
+			}
+			else if(resolution.y < 0)
+			{
+				[colliderA setCollidedBottom:YES];
+				[colliderB setCollidedTop:YES];
+			}
 		}
 		else if([colliderA isMemberOfClass:[colliderB class]] && [colliderA isMemberOfClass:[LGCircleCollider class]])
 		{
@@ -321,8 +453,69 @@
 			}
 		}
 		
+		// Check for entities that are against static entities
+		
+		BOOL againstStaticA = NO;
+		BOOL againstStaticB = NO;
+		
+		if(canMoveB)
+		{
+			// Only consider single-axis collisions
+			if(resolution.x == 0 || resolution.y == 0)
+			{
+				if(resolution.x > 0)
+				{
+					againstStaticA = [colliderA staticRight];
+					againstStaticB = [colliderB staticLeft];
+				}
+				else if(resolution.x < 0)
+				{
+					againstStaticA = [colliderA staticLeft];
+					againstStaticB = [colliderB staticRight];
+				}
+				else if(resolution.y > 0)
+				{
+					againstStaticA = [colliderA staticBottom];
+					againstStaticB = [colliderB staticTop];
+				}
+				else if(resolution.y < 0)
+				{
+					againstStaticA = [colliderA staticTop];
+					againstStaticB = [colliderB staticBottom];
+				}
+			}
+			
+			// Adjustment of velocities: go to zero on the moved axis
+			
+			if(resolution.x != 0)
+			{
+				if(againstStaticA && physicsB != nil)
+				{
+					[physicsB setVelocityX:0];
+				}
+				
+				if(againstStaticB)
+				{
+					[physicsA setVelocityX:0];
+				}
+			}
+			
+			if(resolution.y != 0)
+			{
+				if(againstStaticA && physicsB != nil)
+				{
+					[physicsB setVelocityY:0];
+				}
+				
+				if(againstStaticB)
+				{
+					[physicsA setVelocityY:0];
+				}
+			}
+		}
+		
 		// Adjust the transforms
-		if(physicsA != nil && physicsB != nil && canMoveB)
+		if(physicsA != nil && physicsB != nil && canMoveB && !againstStaticA && !againstStaticB)
 		{
 			double aRatio = [physicsB mass] / ([physicsA mass] + [physicsB mass]);
 			double bRatio = [physicsA mass] / ([physicsA mass] + [physicsB mass]) * -1;
@@ -333,6 +526,11 @@
 			[transformA setPosition:[self untranslate:colliderPositionA by:[colliderA offset]]];
 			[transformB setPosition:[self untranslate:colliderPositionB by:[colliderB offset]]];
 		}
+		else if(againstStaticA && canMoveB)
+		{
+			colliderPositionB = [self translate:colliderPositionB by:[self scale:resolution by:-1]];
+			[transformB setPosition:[self untranslate:colliderPositionB by:[colliderB offset]]];
+		}
 		else
 		{
 			colliderPositionA = [self translate:colliderPositionA by:resolution];
@@ -340,7 +538,7 @@
 		}
 		
 		// Adjust the velocities
-		if(!CGPointEqualToPoint(impulse, CGPointZero))
+		if(!CGPointEqualToPoint(impulse, CGPointZero) && !againstStaticA && !againstStaticB)
 		{
 			if(physicsA != nil && physicsB != nil && canMoveB)
 			{

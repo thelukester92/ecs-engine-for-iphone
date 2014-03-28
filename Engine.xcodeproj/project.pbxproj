@@ -18,6 +18,7 @@
 		A31C3C7E18C6399B00021A50 /* Player.png in Resources */ = {isa = PBXBuildFile; fileRef = A31C3C7D18C6399B00021A50 /* Player.png */; };
 		A3231FD318E3130900AA6950 /* level1.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3231FD218E3130900AA6950 /* level1.plist */; };
 		A3231FD618E315F500AA6950 /* LGTile.m in Sources */ = {isa = PBXBuildFile; fileRef = A3231FD518E315F500AA6950 /* LGTile.m */; };
+		A329E6B418E5FFBE00B18BAA /* LGTileCollider.m in Sources */ = {isa = PBXBuildFile; fileRef = A329E6B318E5FFBE00B18BAA /* LGTileCollider.m */; };
 		A3367D0A18B3E620005475B7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3367D0918B3E620005475B7 /* Foundation.framework */; };
 		A3367D0C18B3E620005475B7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3367D0B18B3E620005475B7 /* CoreGraphics.framework */; };
 		A3367D0E18B3E620005475B7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3367D0D18B3E620005475B7 /* UIKit.framework */; };
@@ -110,6 +111,8 @@
 		A3231FD218E3130900AA6950 /* level1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = level1.plist; sourceTree = "<group>"; };
 		A3231FD418E315F500AA6950 /* LGTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGTile.h; sourceTree = "<group>"; };
 		A3231FD518E315F500AA6950 /* LGTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGTile.m; sourceTree = "<group>"; };
+		A329E6B218E5FFBE00B18BAA /* LGTileCollider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGTileCollider.h; sourceTree = "<group>"; };
+		A329E6B318E5FFBE00B18BAA /* LGTileCollider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGTileCollider.m; sourceTree = "<group>"; };
 		A3367D0618B3E620005475B7 /* Engine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Engine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3367D0918B3E620005475B7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A3367D0B18B3E620005475B7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -409,6 +412,8 @@
 				A38BF5BD18D8B867007E7328 /* LGCircleCollider.m */,
 				A3B7EB5418DA6DB50026A931 /* LGRectangleCollider.h */,
 				A3B7EB5518DA6DB50026A931 /* LGRectangleCollider.m */,
+				A329E6B218E5FFBE00B18BAA /* LGTileCollider.h */,
+				A329E6B318E5FFBE00B18BAA /* LGTileCollider.m */,
 			);
 			name = "LGCollider Subclasses";
 			sourceTree = "<group>";
@@ -578,6 +583,7 @@
 				A3367D4318B3E730005475B7 /* LGEngine.m in Sources */,
 				A38BF5BE18D8B867007E7328 /* LGCircleCollider.m in Sources */,
 				A30B689518B546BC00871175 /* LGRender.m in Sources */,
+				A329E6B418E5FFBE00B18BAA /* LGTileCollider.m in Sources */,
 				A314CFE018B6A00600B34555 /* LGPhysicalSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

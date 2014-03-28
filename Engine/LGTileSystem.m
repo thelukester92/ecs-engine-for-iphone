@@ -17,6 +17,7 @@
 #import "LGCamera.h"
 #import "LGTileLayer.h"
 #import "LGCollisionResolver.h"
+#import "LGTileCollider.h"
 
 @implementation LGTileSystem
 
@@ -51,6 +52,7 @@
 		
 		LGRender *render = [[LGRender alloc] init];
 		[render setSize:[self.scene view].frame.size];
+		[render setLayer:LGRenderLayerBackground];
 		[layerEntity addComponent:render];
 		
 		[self.scene addEntity:layerEntity];
@@ -92,6 +94,20 @@
 		[layer setIsVisible:isVisible];
 		
 		[layers setValue:layer forKey:name];
+		
+		// Set as the collision layer
+		if([name isEqualToString:@"collision"])
+		{
+			LGTileCollider *tileCollider = [[LGTileCollider alloc] init];
+			[tileCollider setCollisionLayer:layer];
+			[tileCollider setTileSize:[sprite size]];
+			
+			LGEntity *collisionLayerEntity = [[LGEntity alloc] init];
+			[collisionLayerEntity addComponent:tileCollider];
+			[collisionLayerEntity addComponent:[[LGTransform alloc] init]];
+			
+			[self.scene addEntity:collisionLayerEntity];
+		}
 	}
 }
 
@@ -150,140 +166,22 @@
 	}
 }
 
-- (void)resolveCollisionsWith:(LGEntity *)a
-{
-	LGTransform *transform = [a componentOfType:[LGTransform class]];
-	LGRectangleCollider *collider = [a componentOfType:[LGCollider class]];
-	LGPhysics *physics = [a componentOfType:[LGPhysics class]];
-	
-	int tileX, tileY;
-	
-	[collider resetCollider];
-	
-	// Top collisions
-	
-	tileY = (int) floor( [transform position].y / [sprite size].height );
-	
-	for(tileX = (int) floor( ([transform position].x + 1) / [sprite size].width ); tileX <= (int) floor( ( [transform position].x + [collider size].width - 1 ) / [sprite size].width ); tileX++)
-	{
-		if( [[layers objectForKey:@"collision"] collidesAtRow:tileY andCol:tileX] )
-		{
-			[transform setPositionY:(tileY + 1) * [sprite size].height];
-			[collider setCollidedTop:YES];
-			
-			if(physics)
-			{
-				[physics setVelocityY:0];
-			}
-			
-			break;
-		}
-	}
-	
-	// Bottom collisions
-	
-	tileY = (int) floor( ( [transform position].y + [collider size].height ) / [sprite size].height );
-	
-	for(tileX = (int) floor( ([transform position].x + 1) / [sprite size].width ); tileX <= (int) floor( ( [transform position].x + [collider size].width - 1 ) / [sprite size].width ); tileX++)
-	{
-		if( [[layers objectForKey:@"collision"] collidesAtRow:tileY andCol:tileX] )
-		{
-			// Case 1: Rectangle to Rectangle Collision
-			
-			LGCollisionResolver *resolver = [[LGCollisionResolver alloc] init];
-			
-			CGRect rectA = CGRectMake([transform position].x, [transform position].y, [collider size].width, [collider size].height);
-			CGRect rectB = CGRectMake(tileX * [sprite size].width, tileY * [sprite size].height, [sprite size].width, [sprite size].height);
-			
-			[resolver resolveRectangle:rectA withRectangle:rectB];
-			
-			// TODO: Apply resolution to the entity
-			
-			[transform setPositionY:tileY * [sprite size].height - [collider size].height];
-			[collider setCollidedBottom:YES];
-			
-			if(physics)
-			{
-				[physics setVelocityY:0];
-			}
-			
-			break;
-		}
-	}
-	
-	// Left collisions
-	
-	tileX = (int) floor( [transform position].x / [sprite size].width );
-	
-	for(tileY = (int) floor( ([transform position].y + 1) / [sprite size].height ); tileY <= (int) floor( ( [transform position].y + [collider size].height - 1 ) / [sprite size].height ); tileY++)
-	{
-		if([[layers objectForKey:@"collision"] collidesAtRow:tileY andCol:tileX] )
-		{
-			[transform setPositionX:(tileX + 1) * [sprite size].width];
-			[collider setCollidedLeft:YES];
-			
-			if(physics)
-			{
-				[physics setVelocityX:0];
-			}
-			
-			break;
-		}
-	}
-	
-	// Right collisions
-	
-	tileX = (int) floor( ( [transform position].x + [collider size].width ) / [sprite size].width );
-	
-	for(tileY = (int) floor( ([transform position].y + 1) / [sprite size].height ); tileY <= (int) floor( ( [transform position].y + [collider size].height - 1 ) / [sprite size].height ); tileY++)
-	{
-		if([[layers objectForKey:@"collision"] collidesAtRow:tileY andCol:tileX] )
-		{
-			[transform setPositionX:tileX * [sprite size].width - [collider size].width];
-			[collider setCollidedRight:YES];
-			
-			if(physics)
-			{
-				[physics setVelocityX:0];
-			}
-			
-			break;
-		}
-	}
-}
-
 #pragma mark LGSystem Methods
 
 - (BOOL)acceptsEntity:(LGEntity *)entity
 {
-	return [entity hasComponentsOfType:[LGCamera class], [LGTransform class], nil] || [entity hasComponentsOfType:[LGCollider class], [LGTransform class], nil];
+	return [entity hasComponentsOfType:[LGCamera class], [LGTransform class], nil];
 }
 
 - (void)addEntity:(LGEntity *)entity
 {
-	if([entity hasComponentsOfType:[LGCamera class], [LGTransform class], nil])
-	{
-		camera = [entity componentOfType:[LGCamera class]];
-		cameraTransform = [entity componentOfType:[LGTransform class]];
-	}
-	
-	if([entity hasComponentsOfType:[LGCollider class], [LGTransform class], nil])
-	{
-		[super addEntity:entity];
-	}
+	camera = [entity componentOfType:[LGCamera class]];
+	cameraTransform = [entity componentOfType:[LGTransform class]];
 }
 
 - (void)update
 {
 	[self shiftTiles];
-	
-	for(int i = 0; i < [self.entities count]; i++)
-	{
-		LGEntity *a = [self.entities objectAtIndex:i];
-		[[a componentOfType:[LGCollider class]] resetCollider];
-		
-		[self resolveCollisionsWith:a];
-	}
 }
 
 - (void)initialize

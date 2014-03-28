@@ -30,10 +30,9 @@
 		if([physics respondsToGravity])
 		{
 			[physics addToVelocity:gravity];
-			[physics limitVelocity:terminalVelocity];
 		}
 		
-		[transform setPrevPosition:[transform position]];
+		[physics limitVelocity:terminalVelocity];
 		[transform addToPosition:[physics velocity]];
 	}
 }

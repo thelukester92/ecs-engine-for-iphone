@@ -73,8 +73,6 @@
 
 - (void)touchUp:(NSSet *)touches allTouches:(NSDictionary *)allTouches
 {
-	NSLog(@"%d", [allTouches count]);
-	
 	if([allTouches count] == 0)
 	{
 		directionX = 0;
@@ -102,13 +100,17 @@
 	if([sprite animationComplete])
 	{
 		if(![collider collidedBottom])
+		{
 			[sprite setCurrentState:@"fall"];
-		else if(receivingInput)
+		}
+		else if([physics velocity].x != 0)
 		{
 			[sprite setCurrentState:@"walk"];
 		}
 		else
+		{
 			[sprite setCurrentState:@"idle"];
+		}
 		
 		[physics setVelocityX:(speedX * directionX)];
 	}

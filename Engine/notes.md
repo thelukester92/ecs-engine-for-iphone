@@ -1,5 +1,10 @@
 Notes, Quirks, and Todos
 
+# Broken Things
+
+* Pushed objects move through tile walls, because only objects with non-zero velocity collide with tiles.
+* LGSystem.init (not initWithScene) breaks everything without being clearly broken.
+
 # Quirks
 
 * Entities expect exactly one component of each type.
@@ -13,13 +18,12 @@ Notes, Quirks, and Todos
 * "collision" is the colliding layer's name always.
 * Only .plist levels are allowed.
 * Only rectangle colliders are used in tile collisions.
-* Entites get stuck on verticle tile seams.
-* LGSystem.init (not initWithScene) breaks everything without being clearly broken.
+* All tile layers are set to background.
 
 # Todo
 
-* Allow for multiple components of one type on a single object (colliders, renderables) -- use a dictionary of arrays.
-* Make the TileSystem manage entity-to-tile collisions. Tiles should not be entitites any more.
-* Move the logic for parsing .plist outside of the engine -- the tile system should only have an addLayer: method.
+* Move the logic for parsing .plist outside of the tile system -- the tile system should only have an addLayer: method.
 * Add an "isCollision" flag to TileLayers.
-* Use axis of least penetration for tile collisions.
+* Add a "zIndex" to TileLayers.
+* Allow for multiple components of one type on a single object (colliders, renderables) -- use a dictionary of arrays.
+* Adjust the collision system's canMove boolean values so that a rectangle resting on a static object cannot be moved based on impulse vector.

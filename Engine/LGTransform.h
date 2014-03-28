@@ -10,7 +10,7 @@
 
 @interface LGTransform : LGComponent
 
-@property (nonatomic, assign) CGPoint position, prevPosition;
+@property (nonatomic, assign) CGPoint position;
 
 - (void)addToPosition:(CGPoint)p;
 - (void)addToPositionX:(double)x;

@@ -10,7 +10,7 @@
 
 @implementation LGCollider
 
-@synthesize type, offset, collidedLeft, collidedRight, collidedTop, collidedBottom;
+@synthesize type, offset, collidedLeft, collidedRight, collidedTop, collidedBottom, staticLeft, staticRight, staticTop, staticBottom;
 
 - (CGSize)boundingBox
 {
@@ -19,10 +19,17 @@
 
 - (void)resetCollider
 {
+	// Whether any collisions were made on each side
 	collidedLeft	= NO;
 	collidedRight	= NO;
 	collidedTop		= NO;
 	collidedBottom	= NO;
+	
+	// Whether static collisions were made on each side
+	staticLeft		= NO;
+	staticRight		= NO;
+	staticTop		= NO;
+	staticBottom	= NO;
 }
 
 - (void)initialize

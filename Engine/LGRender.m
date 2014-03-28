@@ -10,7 +10,13 @@
 
 @implementation LGRender
 
-@synthesize view, size, offset, visible;
+@synthesize view, size, offset, visible, layer;
+
+- (void)setLayer:(LGRenderLayer)l
+{
+	layer = l;
+	[view.layer setZPosition:layer];
+}
 
 - (void)initialize
 {
@@ -18,6 +24,9 @@
 	size	= CGSizeZero;
 	offset	= CGPointZero;
 	visible	= YES;
+	layer	= LGRenderLayerMainLayer;
+	
+	[view.layer setZPosition:layer];
 }
 
 @end
