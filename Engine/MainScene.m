@@ -59,23 +59,24 @@
 	[[player componentOfType:[LGCamera class]] setSize:CGSizeMake([self.view frame].size.width, [self.view frame].size.height)];
 	[self addEntity:player];
 	
-//	LGEntity *floor = [EntityFactory floorEntity:NO];
+	LGEntity *floor = [EntityFactory floorEntity:NO];
 //	[(LGCollider *)[floor componentOfType:[LGCollider class]] setType:LGColliderTypeCloud];
-//	
-//	LGPhysics *phys = [[LGPhysics alloc] init];
-//	[phys setVelocity:CGPointMake(0, 0)];
-//	[floor addComponent:phys];
-//
-//	LGEntity *floor2 = [EntityFactory floorEntity:NO];
-//	[(LGTransform *)[floor2 componentOfType:[LGTransform class]] addToPositionX:200];
-//	
+	
+	LGPhysics *phys = [[LGPhysics alloc] init];
+	[phys setVelocity:CGPointMake(0, 0)];
+	[floor addComponent:phys];
+
+	LGEntity *floor2 = [EntityFactory floorEntity:NO];
+	[(LGTransform *)[floor2 componentOfType:[LGTransform class]] addToPosition:CGPointMake(-100, 100)];
+	[(LGCollider *)[floor2 componentOfType:[LGCollider class]] setType:LGColliderTypeStatic];
+	
 //	LGPhysics *phys2 = [[LGPhysics alloc] init];
 //	[phys2 setVelocity:CGPointMake(-2, 0)];
 //	[phys2 setRespondsToGravity:NO];
 //	[floor2 addComponent:phys2];
-//	
-//	[self addEntity:floor];
-//	[self addEntity:floor2];
+	
+	[self addEntity:floor];
+	[self addEntity:floor2];
 	
 	[tileSystem loadPlist:@"level1"];
 }

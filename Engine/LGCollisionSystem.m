@@ -229,6 +229,8 @@
 // Detect and resolve all collisions between two entities
 - (void)resolveCollisionsBetween:(LGEntity *)a and:(LGEntity *)b
 {
+	double epsilon = 1.0;
+	
 	/*
 	 * Initialization
 	 */
@@ -243,6 +245,16 @@
 	
 	CGPoint colliderPositionA = [self translate:[transformA position] by:[colliderA offset]];
 	CGPoint colliderPositionB = [self translate:[transformB position] by:[colliderB offset]];
+	
+	/*
+	 * Static Detection
+	 */
+	
+	if([colliderB type] == LGColliderTypeStatic)
+	{
+		// See if we're close
+		NSLog(@"%@ b right: %f, a left: %f", colliderA, colliderPositionB.x + [colliderB boundingBox].width, colliderPositionA.x);
+	}
 	
 	/*
 	 * Basic Detection
@@ -288,11 +300,17 @@
 			{
 				[colliderA setCollidedTop:YES];
 				[colliderB setCollidedBottom:YES];
+				
+				[colliderA setStaticTop:YES];
+				[colliderB setStaticBottom:YES];
 			}
 			else if(resolution.y < 0)
 			{
 				[colliderA setCollidedBottom:YES];
 				[colliderB setCollidedTop:YES];
+				
+				[colliderA setStaticBottom:YES];
+				[colliderB setStaticTop:YES];
 			}
 		}
 		else if([colliderA isMemberOfClass:[colliderB class]] && [colliderA isMemberOfClass:[LGCircleCollider class]])

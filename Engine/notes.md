@@ -19,6 +19,7 @@ Notes, Quirks, and Todos
 * Only .plist levels are allowed.
 * Only rectangle colliders are used in tile collisions.
 * All tile layers are set to background.
+* Only rectangles can have static bottoms.
 
 # Todo
 
