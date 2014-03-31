@@ -16,7 +16,7 @@
 {
 	collisionLayer		= nil;
 	tileSize			= CGSizeZero;
-	self.type			= LGColliderTypeTile;
+	self.type			= LGColliderTypeStatic;
 	self.componentType	= NSStringFromClass([self superclass]);
 }
 

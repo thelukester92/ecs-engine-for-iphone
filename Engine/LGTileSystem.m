@@ -11,12 +11,10 @@
 #import "LGEntity.h"
 #import "LGSprite.h"
 #import "LGTransform.h"
-#import "LGRectangleCollider.h"
 #import "LGPhysics.h"
 #import "LGTile.h"
 #import "LGCamera.h"
 #import "LGTileLayer.h"
-#import "LGCollisionResolver.h"
 #import "LGTileCollider.h"
 
 @implementation LGTileSystem

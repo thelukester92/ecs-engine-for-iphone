@@ -2,7 +2,6 @@ Notes, Quirks, and Todos
 
 # Broken Things
 
-* Pushed objects move through tile walls, because only objects with non-zero velocity collide with tiles.
 * LGSystem.init (not initWithScene) breaks everything without being clearly broken.
 
 # Quirks
@@ -17,14 +16,13 @@ Notes, Quirks, and Todos
 * Camera size must be set.
 * "collision" is the colliding layer's name always.
 * Only .plist levels are allowed.
-* Only rectangle colliders are used in tile collisions.
 * All tile layers are set to background.
-* Only rectangles can have static bottoms.
+* Velocity y is set to zero when bottom collision is detected, even when the actual velocity is less than 0.
 
 # Todo
 
+* Fix velocity adjustment for quirk above.
 * Move the logic for parsing .plist outside of the tile system -- the tile system should only have an addLayer: method.
 * Add an "isCollision" flag to TileLayers.
 * Add a "zIndex" to TileLayers.
 * Allow for multiple components of one type on a single object (colliders, renderables) -- use a dictionary of arrays.
-* Adjust the collision system's canMove boolean values so that a rectangle resting on a static object cannot be moved based on impulse vector.

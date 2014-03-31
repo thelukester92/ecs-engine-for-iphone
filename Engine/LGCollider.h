@@ -10,9 +10,7 @@
 
 typedef enum
 {
-	LGColliderTypeSolid,
-	LGColliderTypeCloud,
-	LGColliderTypeTile,
+	LGColliderTypeDynamic,
 	LGColliderTypeStatic
 } LGColliderType;
 
@@ -20,10 +18,9 @@ typedef enum
 
 @property (nonatomic, assign) LGColliderType type;
 @property (nonatomic, assign) CGPoint offset;
-@property (nonatomic, assign) BOOL collidedLeft, collidedRight, collidedTop, collidedBottom;
-@property (nonatomic, assign) BOOL staticLeft, staticRight, staticTop, staticBottom;
+@property (nonatomic, assign) CGSize size;
+@property (nonatomic, assign) double leftDist, rightDist, topDist, bottomDist;
 
-- (CGSize)boundingBox;
-- (void)resetCollider;
+- (void)reset;
 
 @end

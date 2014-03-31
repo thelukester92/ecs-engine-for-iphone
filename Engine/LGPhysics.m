@@ -10,7 +10,7 @@
 
 @implementation LGPhysics
 
-@synthesize velocity, mass, elasticity, respondsToGravity;
+@synthesize velocity, respondsToGravity;
 
 - (void)addToVelocity:(CGPoint)v
 {
@@ -56,8 +56,6 @@
 - (void)initialize
 {
 	velocity			= CGPointZero;
-	mass				= 1;
-	elasticity			= 0;
 	respondsToGravity	= YES;
 }
 

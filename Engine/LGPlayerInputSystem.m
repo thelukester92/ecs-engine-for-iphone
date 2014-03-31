@@ -22,11 +22,11 @@
 
 - (void)jump
 {
-	if([collider collidedBottom])
+	if([collider bottomDist] == 0)
 	{
 		[sprite setCurrentState:@"jump"];
-		[physics setVelocityY:-5];
-		[collider setCollidedBottom:NO];
+		[physics setVelocityY:-6];
+		[collider setBottomDist:-1];
 	}
 }
 
@@ -99,11 +99,18 @@
 {
 	if([sprite animationComplete])
 	{
-		if(![collider collidedBottom])
+		if([collider bottomDist] != 0 || [physics velocity].y < 0)
 		{
-			[sprite setCurrentState:@"fall"];
+			if([physics velocity].y > 0)
+			{
+				[sprite setCurrentState:@"fall"];
+			}
+			else
+			{
+				[sprite setCurrentState:@"jump"];
+			}
 		}
-		else if([physics velocity].x != 0)
+		else if(receivingInput)
 		{
 			[sprite setCurrentState:@"walk"];
 		}
@@ -122,7 +129,7 @@
 	physics				= nil;
 	collider			= nil;
 	receivingInput		= NO;
-	speedX				= 3;
+	speedX				= 4;
 	directionX			= 0;
 	self.updateOrder	= LGUpdateOrderBeforeMovement;
 }

@@ -10,34 +10,23 @@
 
 @implementation LGCollider
 
-@synthesize type, offset, collidedLeft, collidedRight, collidedTop, collidedBottom, staticLeft, staticRight, staticTop, staticBottom;
+@synthesize type, offset, size, leftDist, rightDist, topDist, bottomDist;
 
-- (CGSize)boundingBox
+- (void)reset
 {
-	return CGSizeZero;
-}
-
-- (void)resetCollider
-{
-	// Whether any collisions were made on each side
-	collidedLeft	= NO;
-	collidedRight	= NO;
-	collidedTop		= NO;
-	collidedBottom	= NO;
-	
-	// Whether static collisions were made on each side
-	staticLeft		= NO;
-	staticRight		= NO;
-	staticTop		= NO;
-	staticBottom	= NO;
+	leftDist	= -1;
+	rightDist	= -1;
+	topDist		= -1;
+	bottomDist	= -1;
 }
 
 - (void)initialize
 {
-	type	= LGColliderTypeSolid;
+	type	= LGColliderTypeDynamic;
 	offset	= CGPointZero;
+	size	= CGSizeZero;
 	
-	[self resetCollider];
+	[self reset];
 }
 
 @end

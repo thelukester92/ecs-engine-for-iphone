@@ -11,10 +11,9 @@
 #import "LGSprite.h"
 #import "LGPhysics.h"
 #import "LGTransform.h"
-#import "LGRectangleCollider.h"
-#import "LGCircleCollider.h"
 #import "LGPlayer.h"
 #import "LGCamera.h"
+#import "LGCollider.h"
 
 @implementation EntityFactory
 
@@ -35,7 +34,7 @@
 	
 	[render setCurrentState:@"idle"];
 	
-	LGRectangleCollider *collider = [[LGRectangleCollider alloc] init];
+	LGCollider *collider = [[LGCollider alloc] init];
 	[collider setSize:CGSizeMake(20, 40)];
 	
 	LGEntity *player = [[LGEntity alloc] init];
@@ -66,18 +65,9 @@
 	[render setSize:CGSizeMake(50, 50)];
 	[render setState:[[LGSpriteState alloc] initWithPosition:1]];
 	
-	if(circ)
-	{
-		LGCircleCollider *collider = [[LGCircleCollider alloc] init];
-		[collider setRadius:25];
-		[floor addComponent:collider];
-	}
-	else
-	{
-		LGRectangleCollider *collider = [[LGRectangleCollider alloc] init];
-		[collider setSize:CGSizeMake(50, 50)];
-		[floor addComponent:collider];
-	}
+	LGCollider *collider = [[LGCollider alloc] init];
+	[collider setSize:CGSizeMake(50, 50)];
+	[floor addComponent:collider];
 	
 	[floor addComponent:render];
 	[floor addComponent:transform];
