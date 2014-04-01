@@ -19,8 +19,5 @@ typedef enum
 @property (nonatomic, assign) LGColliderType type;
 @property (nonatomic, assign) CGPoint offset;
 @property (nonatomic, assign) CGSize size;
-@property (nonatomic, assign) double leftDist, rightDist, topDist, bottomDist;
-
-- (void)reset;
 
 @end

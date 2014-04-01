@@ -58,7 +58,7 @@
 	LGEntity *floor = [[LGEntity alloc] init];
 	
 	LGTransform *transform = [[LGTransform alloc] init];
-	[transform setPosition:CGPointMake(100, 200)];
+	[transform setPosition:CGPointMake(100, 100)];
 	
 	LGSprite *render = [[LGSprite alloc] init];
 	[render setSpriteSheet:[UIImage imageNamed:circ ? @"ball" : @"blue"]];

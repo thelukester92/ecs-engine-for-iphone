@@ -22,11 +22,10 @@
 
 - (void)jump
 {
-	if([collider bottomDist] == 0)
+	if(YES)
 	{
 		[sprite setCurrentState:@"jump"];
 		[physics setVelocityY:-6];
-		[collider setBottomDist:-1];
 	}
 }
 
@@ -99,7 +98,7 @@
 {
 	if([sprite animationComplete])
 	{
-		if([collider bottomDist] != 0 || [physics velocity].y < 0)
+		if(NO)
 		{
 			if([physics velocity].y > 0)
 			{

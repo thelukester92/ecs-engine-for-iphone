@@ -10,6 +10,6 @@
 
 @interface LGCollisionSystem : LGSystem
 
-@property (nonatomic, retain) NSMutableArray *staticEntities, *dynamicEntities;
+@property (nonatomic, retain) NSMutableArray *staticEntities, *dynamicEntities, *currentEntities;
 
 @end

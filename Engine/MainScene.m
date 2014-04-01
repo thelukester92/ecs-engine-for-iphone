@@ -44,7 +44,7 @@
 	
 	[tileSystem setSprite:sprite];
 	
-	[self addSystem:tileSystem];
+	// [self addSystem:tileSystem];
 }
 
 #pragma mark UIViewController Methods
@@ -57,16 +57,28 @@
 	
 	LGEntity *player = [EntityFactory playerEntity];
 	[[player componentOfType:[LGCamera class]] setSize:CGSizeMake([self.view frame].size.width, [self.view frame].size.height)];
+//	[[player componentOfType:[LGPhysics class]] setRespondsToGravity:NO];
+//	[[player componentOfType:[LGTransform class]] addToPositionX:400];
 	[self addEntity:player];
 	
-	for(int i = 0; i < 10; i++)
+	for(int i = 0; i < 3; i++)
 	{
 		LGEntity *floor = [EntityFactory floorEntity:NO];
-		[(LGTransform *)[floor componentOfType:[LGTransform class]] addToPositionX:50 + (rand() % 500)];
+		[(LGTransform *)[floor componentOfType:[LGTransform class]] addToPosition:CGPointMake(20 * i, 100 + i * 70)];
+		
+		if(i == 2)
+		{
+			[(LGCollider *)[floor componentOfType:[LGCollider class]] setType:LGColliderTypeStatic];
+		}
+		else
+		{
+			[floor addComponent:[[LGPhysics alloc] init]];
+		}
+		
 		[self addEntity:floor];
 	}
 	
-	[tileSystem loadPlist:@"level1"];
+	// [tileSystem loadPlist:@"level1"];
 }
 
 @end

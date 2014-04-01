@@ -16,66 +16,9 @@
 
 @implementation LGCollisionSystem
 
-@synthesize staticEntities, dynamicEntities;
+@synthesize staticEntities, dynamicEntities, currentEntities;
 
-- (BOOL)acceptsEntity:(LGEntity *)entity
-{
-	return [entity hasComponentsOfType:[LGTransform class], [LGCollider class], nil];
-}
-
-- (void)addEntity:(LGEntity *)entity
-{
-	[super addEntity:entity];
-	
-	LGCollider *collider = [entity componentOfType:[LGCollider class]];
-	if([collider type] == LGColliderTypeStatic)
-	{
-		[staticEntities addObject:entity];
-	}
-	else if([collider type] == LGColliderTypeDynamic)
-	{
-		[dynamicEntities addObject:entity];
-	}
-}
-
-- (void)update
-{
-	// Step 1: Dynamic-to-Static Collisions
-	
-	for(int i = 0; i < [dynamicEntities count]; i++)
-	{
-		LGEntity *a = [dynamicEntities objectAtIndex:i];
-		[(LGCollider *)[a componentOfType:[LGCollider class]] reset];
-		
-		for(int j = 0; j < [staticEntities count]; j++)
-		{
-			LGEntity *b = [staticEntities objectAtIndex:j];
-			[self resolveCollisionsBetween:a and:b];
-		}
-	}
-	
-	// Step 2: Dynamic-to-Dynamic Collisions
-	
-	for(int i = 0; i < [dynamicEntities count]; i++)
-	{
-		LGEntity *a = [dynamicEntities objectAtIndex:i];
-		
-		for(int j = i + 1; j < [dynamicEntities count]; j++)
-		{
-			LGEntity *b = [dynamicEntities objectAtIndex:j];
-			
-			[self resolveCollisionsBetween:a and:b];
-		}
-	}
-}
-
-- (void)initialize
-{
-	staticEntities	= [NSMutableArray array];
-	dynamicEntities	= [NSMutableArray array];
-}
-
-#pragma mark Private Methods
+#pragma mark LGCollisionSystem Private Methods
 
 - (CGPoint)translate:(CGPoint)a by:(CGPoint)b
 {
@@ -95,6 +38,7 @@
 // Detect and resolve all collision between an entity and a tile layer
 - (void)resolveTileCollisionsBetween:(LGEntity *)a and:(LGTileCollider *)tileCollider
 {
+	/*
 	LGTransform *transform = [a componentOfType:[LGTransform class]];
 	LGCollider *collider = [a componentOfType:[LGCollider class]];
 	LGPhysics *physics = [a componentOfType:[LGPhysics class]];
@@ -262,66 +206,44 @@
 	position.y += [physics velocity].y;
 	
 	[transform setPosition:[self untranslate:position by:[collider offset]]];
+	*/
 }
 
-- (void)resolveCollisionsBetween:(LGEntity *)a and:(LGEntity *)b
+// Resolve collisions between two entities and return the amount entity A moved
+- (CGPoint)resolveCollisionsBetween:(LGEntity *)a and:(LGEntity *)b ignoring:(LGEntity *)entityToIgnore
 {
 	// Initialize
-	
-	LGTransform *transformA = [a componentOfType:[LGTransform class]];
-	LGTransform *transformB = [b componentOfType:[LGTransform class]];
 	
 	LGCollider *colliderA = [a componentOfType:[LGCollider class]];
 	LGCollider *colliderB = [b componentOfType:[LGCollider class]];
 	
-	LGPhysics *physicsA = [a componentOfType:[LGPhysics class]];
-	LGPhysics *physicsB = [b componentOfType:[LGPhysics class]];
-	
 	if([colliderB isMemberOfClass:[LGTileCollider class]])
 	{
 		[self resolveTileCollisionsBetween:a and:(LGTileCollider *)colliderB];
-		return;
+		return CGPointZero;
 	}
 	
-	// Calculate distances
+	LGTransform *transformA = [a componentOfType:[LGTransform class]];
+	LGTransform *transformB = [b componentOfType:[LGTransform class]];
+	
+	LGPhysics *physicsA = [a componentOfType:[LGPhysics class]];
+	LGPhysics *physicsB = [b componentOfType:[LGPhysics class]];
 	
 	CGPoint colliderPositionA = [self translate:[transformA position] by:[colliderA offset]];
 	CGPoint colliderPositionB = [self translate:[transformB position] by:[colliderB offset]];
 	
-	double leftDist		= colliderPositionA.x - (colliderPositionB.x + [colliderB size].width);
-	double rightDist	= colliderPositionB.x - (colliderPositionA.x + [colliderA size].width);
-	double topDist		= colliderPositionA.y - (colliderPositionB.y + [colliderB size].height);
-	double bottomDist	= colliderPositionB.y - (colliderPositionA.y + [colliderA size].height);
-	
-	// Update maximum distances
-	
-	if(leftDist >= 0 && (topDist <= 0 && bottomDist <= 0) && ([colliderA leftDist] < 0 || leftDist < [colliderA leftDist]))
-	{
-		[colliderA setLeftDist:leftDist];
-	}
-	
-	if(rightDist >= 0 && (topDist <= 0 && bottomDist <= 0) && ([colliderA rightDist] < 0 || rightDist < [colliderA rightDist]))
-	{
-		[colliderA setRightDist:rightDist];
-	}
-	
-	if(topDist >= 0 && (leftDist <= 0 && rightDist <= 0) && ([colliderA topDist] < 0|| topDist < [colliderA topDist]))
-	{
-		[colliderA setTopDist:topDist];
-	}
-	
-	if(bottomDist >= 0 && (leftDist <= 0 && rightDist <= 0) && ([colliderA bottomDist] < 0 || bottomDist < [colliderA bottomDist]))
-	{
-		[colliderA setBottomDist:bottomDist];
-	}
-	
 	// Bounding box test
 	
-	if(leftDist <= 0 && rightDist <= 0 && topDist <= 0 && bottomDist <= 0)
+	BOOL outsideLeft	= colliderPositionA.x > colliderPositionB.x + [colliderB size].width;
+	BOOL outsideRight	= colliderPositionA.x + [colliderA size].width < colliderPositionB.x;
+ 	BOOL outsideTop		= colliderPositionA.y > colliderPositionB.y + [colliderB size].height;
+	BOOL outsideBottom	= colliderPositionA.y + [colliderA size].height < colliderPositionB.y;
+	
+	if(!outsideLeft && !outsideRight && !outsideTop && !outsideBottom)
 	{
 		CGPoint resolution = CGPointZero;
 		
-		// Calculate resolution vector
+		// Calculate the resolution vector pointing from entity B to entity A
 		
 		CGPoint dist = CGPointZero;
 		dist.x = colliderPositionB.x > colliderPositionA.x ? colliderPositionB.x - colliderPositionA.x - [colliderA size].width : colliderPositionB.x + [colliderB size].width - colliderPositionA.x;
@@ -359,59 +281,17 @@
 						[physicsA setVelocityY:0];
 					}
 				}
+				
+				return resolution;
 			}
 			else
 			{
-				// Split the resolution vector between dynamic entities A and B
+				// Split the resolution vector between dynamic entities A and B [assumed to have equal mass]
 				
 				CGPoint deltaA = [self scale:resolution by:0.5];
 				CGPoint deltaB = [self scale:resolution by:-0.5];
 				
-				if(deltaA.x < 0 && [colliderA leftDist] < -deltaA.x && [colliderA leftDist] >= 0)
-				{
-					deltaB.x -= deltaA.x + [colliderA leftDist];
-					deltaA.x = -[colliderA leftDist];
-				}
-				else if(deltaA.x > 0 && [colliderA rightDist] < deltaA.x && [colliderA rightDist] >= 0)
-				{
-					deltaB.x -= deltaA.x - [colliderA rightDist];
-					deltaA.x = [colliderA rightDist];
-				}
-				
-				if(deltaA.y < 0 && [colliderA topDist] < -deltaA.y && [colliderA topDist] >= 0)
-				{
-					deltaB.y -= deltaA.y + [colliderA topDist];
-					deltaA.y = -[colliderA topDist];
-				}
-				else if(deltaA.y > 0 && [colliderA bottomDist] < deltaA.y && [colliderA bottomDist] >= 0)
-				{
-					deltaB.y -= deltaA.y - [colliderA bottomDist];
-					deltaA.y = [colliderA bottomDist];
-				}
-				
-				if(deltaB.x < 0 && [colliderB leftDist] < -deltaB.x && [colliderB leftDist] >= 0)
-				{
-					deltaA.x -= deltaB.x + [colliderB leftDist];
-					deltaB.x = -[colliderB leftDist];
-				}
-				else if(deltaB.x > 0 && [colliderB rightDist] < deltaB.x && [colliderB rightDist] >= 0)
-				{
-					deltaA.x -= deltaB.x - [colliderB rightDist];
-					deltaB.x = [colliderB rightDist];
-				}
-				
-				if(deltaB.y < 0 && [colliderB topDist] < -deltaB.y && [colliderB topDist] >= 0)
-				{
-					deltaA.y -= deltaB.y + [colliderB topDist];
-					deltaB.y = -[colliderB topDist];
-				}
-				else if(deltaB.y > 0 && [colliderB bottomDist] < deltaB.y && [colliderB bottomDist] >= 0)
-				{
-					deltaA.y -= deltaB.y - [colliderB bottomDist];
-					deltaB.y = [colliderB bottomDist];
-				}
-				
-				// Finally, resolve the collision
+				// Resolve the collision
 				
 				colliderPositionA = [self translate:colliderPositionA by:deltaA];
 				colliderPositionB = [self translate:colliderPositionB by:deltaB];
@@ -444,33 +324,92 @@
 						[physicsB setVelocityY:0];
 					}
 				}
-			}
-			
-			// Update distances
-			
-			if(resolution.x < 0)
-			{
-				[colliderA setRightDist:0];
-				[colliderB setLeftDist:0];
-			}
-			else if(resolution.x > 0)
-			{
-				[colliderA setLeftDist:0];
-				[colliderB setRightDist:0];
-			}
-			
-			if(resolution.y < 0)
-			{
-				[colliderA setBottomDist:0];
-				[colliderB setTopDist:0];
-			}
-			else if(resolution.y > 0)
-			{
-				[colliderA setTopDist:0];
-				[colliderB setBottomDist:0];
+				
+				// Check to see if resolution caused another collision [extremely inefficient; should use spatial partitioning to improve performance]
+				
+				for(int i = 0; i < [self.entities count]; i++)
+				{
+					LGEntity *c = [self.entities objectAtIndex:i];
+					if(![c isEqual:a] && ![c isEqual:b] && ![c isEqual:entityToIgnore])
+					{
+						CGPoint resolutionA = [self resolveCollisionsBetween:a and:c ignoring:b];
+						if(CGPointEqualToPoint(resolutionA, CGPointZero))
+						{
+							CGPoint resolutionB = [self resolveCollisionsBetween:b and:c ignoring:a];
+							if(!CGPointEqualToPoint(resolutionB, CGPointZero))
+							{
+								// Resolution caused another collision -- move entity A back
+								[transformA addToPosition:resolutionB];
+								deltaA = [self translate:deltaA by:resolutionB];
+							}
+						}
+						else
+						{
+							// Resolution caused another collision -- move entity B back
+							[transformB addToPosition:resolutionA];
+							deltaB = [self translate:deltaB by:resolutionA];
+						}
+					}
+				}
+				
+				return deltaA;
 			}
 		}
 	}
+	
+	return CGPointZero;
+}
+
+#pragma mark LGSystem Methods
+
+- (BOOL)acceptsEntity:(LGEntity *)entity
+{
+	return [entity hasComponentsOfType:[LGTransform class], [LGCollider class], nil];
+}
+
+- (void)addEntity:(LGEntity *)entity
+{
+	[super addEntity:entity];
+	
+	LGCollider *collider = [entity componentOfType:[LGCollider class]];
+	if([collider type] == LGColliderTypeStatic)
+	{
+		[staticEntities addObject:entity];
+	}
+	else if([collider type] == LGColliderTypeDynamic)
+	{
+		[dynamicEntities addObject:entity];
+	}
+}
+
+- (void)update
+{
+	for(int i = 0; i < [dynamicEntities count]; i++)
+	{
+		LGEntity *a = [dynamicEntities objectAtIndex:i];
+		
+		currentEntities = [self.entities mutableCopy];
+		[currentEntities removeObject:a];
+		
+		for(int j = 0; j < [staticEntities count]; j++)
+		{
+			LGEntity *b = [staticEntities objectAtIndex:j];
+			[self resolveCollisionsBetween:a and:b ignoring:nil];
+		}
+		
+		for(int j = i + 1; j < [dynamicEntities count]; j++)
+		{
+			LGEntity *b = [dynamicEntities objectAtIndex:j];
+			[self resolveCollisionsBetween:a and:b ignoring:nil];
+		}
+	}
+}
+
+- (void)initialize
+{
+	staticEntities	= [NSMutableArray array];
+	dynamicEntities	= [NSMutableArray array];
+	currentEntities	= nil;
 }
 
 @end

@@ -12,6 +12,7 @@
 #import "LGTransform.h"
 #import "LGSprite.h"
 #import "LGScene.h"
+#import "LGPlayer.h"
 
 @implementation LGSpriteRenderingSystem
 
