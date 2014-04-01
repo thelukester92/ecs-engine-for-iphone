@@ -61,18 +61,26 @@
 //	[[player componentOfType:[LGTransform class]] addToPositionX:400];
 	[self addEntity:player];
 	
-	for(int i = 0; i < 3; i++)
+	LGEntity *test = [EntityFactory floorEntity:NO];
+	[(LGTransform *)[test componentOfType:[LGTransform class]] addToPositionX:200];
+	[self addEntity:test];
+	
+	LGEntity *ceiling = [EntityFactory floorEntity:NO];
+	[(LGTransform *)[ceiling componentOfType:[LGTransform class]] addToPositionY:-200];
+	[(LGCollider *)[ceiling componentOfType:[LGCollider class]] setType:LGColliderTypeStatic];
+	[self addEntity:ceiling];
+	
+	for(int i = 0; i < 1; i++)
 	{
 		LGEntity *floor = [EntityFactory floorEntity:NO];
-		[(LGTransform *)[floor componentOfType:[LGTransform class]] addToPosition:CGPointMake(20 * i, 100 + i * 70)];
+		[(LGTransform *)[floor componentOfType:[LGTransform class]] addToPosition:CGPointMake(0, 100 + i * 70)];
+		[floor addComponent:[[LGPhysics alloc] init]];
 		
-		if(i == 2)
+		if(i == 0)
 		{
 			[(LGCollider *)[floor componentOfType:[LGCollider class]] setType:LGColliderTypeStatic];
-		}
-		else
-		{
-			[floor addComponent:[[LGPhysics alloc] init]];
+			[(LGPhysics *)[floor componentOfType:[LGPhysics class]] setRespondsToGravity:NO];
+			[(LGPhysics *)[floor componentOfType:[LGPhysics class]] setVelocityY:-1];
 		}
 		
 		[self addEntity:floor];

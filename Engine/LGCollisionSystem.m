@@ -210,7 +210,7 @@
 }
 
 // Resolve collisions between two entities and return the amount entity A moved
-- (CGPoint)resolveCollisionsBetween:(LGEntity *)a and:(LGEntity *)b ignoring:(LGEntity *)entityToIgnore
+- (CGPoint)resolveCollisionsBetween:(LGEntity *)a and:(LGEntity *)b ignoring:(LGEntity *)entityToIgnore forceStatic:(BOOL)forceStatic
 {
 	// Initialize
 	
@@ -262,7 +262,7 @@
 		
 		if(!CGPointEqualToPoint(resolution, CGPointZero))
 		{
-			if([colliderB type] == LGColliderTypeStatic)
+			if(forceStatic || [colliderB type] == LGColliderTypeStatic)
 			{
 				// Apply all of the resolution vector to dynamic entity A
 				
@@ -279,6 +279,18 @@
 					if((resolution.y > 0 && [physicsA velocity].y < 0) || (resolution.y < 0 && [physicsA velocity].y > 0))
 					{
 						[physicsA setVelocityY:0];
+					}
+				}
+				
+				// Check to see if resolution caused another collision [extremely inefficient; should use spatial partitioning to improve performance]
+				
+				for(int i = 0; i < [dynamicEntities count]; i++)
+				{
+					LGEntity *c = [dynamicEntities objectAtIndex:i];
+					if(![c isEqual:a] && ![c isEqual:b] && ![c isEqual:entityToIgnore])
+					{
+						// Treat A as static during this section
+						[self resolveCollisionsBetween:c and:a ignoring:b forceStatic:YES];
 					}
 				}
 				
@@ -332,10 +344,10 @@
 					LGEntity *c = [self.entities objectAtIndex:i];
 					if(![c isEqual:a] && ![c isEqual:b] && ![c isEqual:entityToIgnore])
 					{
-						CGPoint resolutionA = [self resolveCollisionsBetween:a and:c ignoring:b];
+						CGPoint resolutionA = [self resolveCollisionsBetween:a and:c ignoring:b forceStatic:NO];
 						if(CGPointEqualToPoint(resolutionA, CGPointZero))
 						{
-							CGPoint resolutionB = [self resolveCollisionsBetween:b and:c ignoring:a];
+							CGPoint resolutionB = [self resolveCollisionsBetween:b and:c ignoring:a forceStatic:NO];
 							if(!CGPointEqualToPoint(resolutionB, CGPointZero))
 							{
 								// Resolution caused another collision -- move entity A back
@@ -394,13 +406,13 @@
 		for(int j = 0; j < [staticEntities count]; j++)
 		{
 			LGEntity *b = [staticEntities objectAtIndex:j];
-			[self resolveCollisionsBetween:a and:b ignoring:nil];
+			[self resolveCollisionsBetween:a and:b ignoring:nil forceStatic:NO];
 		}
 		
 		for(int j = i + 1; j < [dynamicEntities count]; j++)
 		{
 			LGEntity *b = [dynamicEntities objectAtIndex:j];
-			[self resolveCollisionsBetween:a and:b ignoring:nil];
+			[self resolveCollisionsBetween:a and:b ignoring:nil forceStatic:NO];
 		}
 	}
 }

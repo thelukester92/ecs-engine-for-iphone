@@ -17,11 +17,13 @@ Notes, Quirks, and Todos
 * "collision" is the colliding layer's name always.
 * Only .plist levels are allowed.
 * All tile layers are set to background.
-* Velocity y is set to zero when bottom collision is detected, even when the actual velocity is less than 0.
+* Collisions treat both objects as having equal masses.
+* Chained collisions treat both objects as having equal masses.
 
 # Todo
 
-* Fix velocity adjustment for quirk above.
+* Reintroduce mass.
+* Make chained collisions use the combined mass of all the previous entities.
 * Move the logic for parsing .plist outside of the tile system -- the tile system should only have an addLayer: method.
 * Add an "isCollision" flag to TileLayers.
 * Add a "zIndex" to TileLayers.
