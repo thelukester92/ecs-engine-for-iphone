@@ -11,6 +11,7 @@
 @interface LGPhysics : LGComponent
 
 @property (nonatomic, assign) CGPoint velocity;
+@property (nonatomic, assign) double mass;
 @property (nonatomic, assign) BOOL respondsToGravity;
 
 - (void)addToVelocity:(CGPoint)v;

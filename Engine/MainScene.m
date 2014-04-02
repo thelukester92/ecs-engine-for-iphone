@@ -44,7 +44,7 @@
 	
 	[tileSystem setSprite:sprite];
 	
-	// [self addSystem:tileSystem];
+	[self addSystem:tileSystem];
 }
 
 #pragma mark UIViewController Methods
@@ -61,32 +61,24 @@
 //	[[player componentOfType:[LGTransform class]] addToPositionX:400];
 	[self addEntity:player];
 	
-	LGEntity *test = [EntityFactory floorEntity:NO];
-	[(LGTransform *)[test componentOfType:[LGTransform class]] addToPositionX:200];
-	[self addEntity:test];
-	
-	LGEntity *ceiling = [EntityFactory floorEntity:NO];
-	[(LGTransform *)[ceiling componentOfType:[LGTransform class]] addToPositionY:-200];
-	[(LGCollider *)[ceiling componentOfType:[LGCollider class]] setType:LGColliderTypeStatic];
-	[self addEntity:ceiling];
-	
-	for(int i = 0; i < 1; i++)
+	for(int i = 0; i < 5; i++)
 	{
 		LGEntity *floor = [EntityFactory floorEntity:NO];
-		[(LGTransform *)[floor componentOfType:[LGTransform class]] addToPosition:CGPointMake(0, 100 + i * 70)];
-		[floor addComponent:[[LGPhysics alloc] init]];
+		[(LGTransform *)[floor componentOfType:[LGTransform class]] addToPosition:CGPointMake(50 + 100 * i, -10 + i * 20)];
 		
-		if(i == 0)
+		LGPhysics *physics = [[LGPhysics alloc] init];
+		//[physics setRespondsToGravity:NO];
+		[floor addComponent:physics];
+		
+		if(i == 3)
 		{
 			[(LGCollider *)[floor componentOfType:[LGCollider class]] setType:LGColliderTypeStatic];
-			[(LGPhysics *)[floor componentOfType:[LGPhysics class]] setRespondsToGravity:NO];
-			[(LGPhysics *)[floor componentOfType:[LGPhysics class]] setVelocityY:-1];
 		}
 		
 		[self addEntity:floor];
 	}
 	
-	// [tileSystem loadPlist:@"level1"];
+	[tileSystem loadPlist:@"level1"];
 }
 
 @end

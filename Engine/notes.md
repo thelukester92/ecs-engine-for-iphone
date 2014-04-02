@@ -22,8 +22,6 @@ Notes, Quirks, and Todos
 
 # Todo
 
-* Reintroduce mass.
-* Make chained collisions use the combined mass of all the previous entities.
 * Move the logic for parsing .plist outside of the tile system -- the tile system should only have an addLayer: method.
 * Add an "isCollision" flag to TileLayers.
 * Add a "zIndex" to TileLayers.
