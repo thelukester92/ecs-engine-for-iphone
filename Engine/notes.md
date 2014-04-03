@@ -7,7 +7,6 @@ Notes, Quirks, and Todos
 
 # Quirks
 
-* All tile layers are set to background.
 * Entities expect exactly one component of each type.
 * [LGTileSystem initializeWithPlist:] must be called after entities (the camera entity, specifically) have been added to the scene.
 * Entities can't be added before systems.
@@ -17,7 +16,5 @@ Notes, Quirks, and Todos
 
 # Todo
 
-* Add a "zIndex" to TileLayers.
-	* Fixes "All tile layers are set to background."
 * Allow for multiple components of one type on a single object (colliders, renderables) -- use a dictionary of arrays.
 	* Fixes "Entities expect exactly one component of each type."
