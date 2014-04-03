@@ -8,13 +8,15 @@
 
 #import "LGSystem.h"
 
-@class LGSprite, LGPhysics, LGCollider;
+@class LGSprite, LGPhysics, LGCollider, LGTransform;
 
 @interface LGPlayerInputSystem : LGSystem
 
 @property (nonatomic, weak) LGSprite *sprite;
 @property (nonatomic, weak) LGPhysics *physics;
 @property (nonatomic, weak) LGCollider *collider;
+@property (nonatomic, weak) LGTransform *transform;
+@property (nonatomic, assign) CGPoint previousPosition;
 @property (nonatomic, assign) BOOL receivingInput;
 @property (nonatomic, assign) double speedX, directionX;
 

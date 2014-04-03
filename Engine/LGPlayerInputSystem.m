@@ -13,16 +13,17 @@
 #import "LGSprite.h"
 #import "LGPhysics.h"
 #import "LGCollider.h"
+#import "LGTransform.h"
 
 @implementation LGPlayerInputSystem
 
-@synthesize sprite, physics, collider, receivingInput, speedX, directionX;
+@synthesize sprite, physics, collider, transform, previousPosition, receivingInput, speedX, directionX;
 
 #pragma mark Hidden Methods
 
 - (void)jump
 {
-	if(YES)
+	if([collider bottomCollided])
 	{
 		[sprite setCurrentState:@"jump"];
 		[physics setVelocityY:-6];
@@ -33,16 +34,15 @@
 
 - (BOOL)acceptsEntity:(LGEntity *)entity
 {
-	return [self.entities count] == 0 && [entity hasComponentsOfType:[LGPlayer class], [LGPhysics class], [LGSprite class], nil];
+	return [self.entities count] == 0 && [entity hasComponentsOfType:[LGPlayer class], [LGPhysics class], [LGSprite class], [LGTransform class], nil];
 }
 
 - (void)addEntity:(LGEntity *)entity
 {
-	[super addEntity:entity];
-	
-	physics		= [[self.entities objectAtIndex:0] componentOfType:[LGPhysics class]];
-	sprite		= [[self.entities objectAtIndex:0] componentOfType:[LGSprite class]];
-	collider	= [[self.entities objectAtIndex:0] componentOfType:[LGCollider class]];
+	physics		= [entity componentOfType:[LGPhysics class]];
+	sprite		= [entity componentOfType:[LGSprite class]];
+	collider	= [entity componentOfType:[LGCollider class]];
+	transform	= [entity componentOfType:[LGTransform class]];
 }
 
 - (void)touchDown:(NSSet *)touches allTouches:(NSDictionary *)allTouches
@@ -96,11 +96,13 @@
 
 - (void)update
 {
+	CGPoint delta = CGPointMake([transform position].x - previousPosition.x, [transform position].y - previousPosition.y);
+	
 	if([sprite animationComplete])
 	{
-		if(NO)
+		if(![collider bottomCollided] || delta.y != 0)
 		{
-			if([physics velocity].y > 0)
+			if(delta.y >= 0)
 			{
 				[sprite setCurrentState:@"fall"];
 			}
@@ -109,7 +111,7 @@
 				[sprite setCurrentState:@"jump"];
 			}
 		}
-		else if(receivingInput)
+		else if(delta.x != 0)
 		{
 			[sprite setCurrentState:@"walk"];
 		}
@@ -120,6 +122,8 @@
 		
 		[physics setVelocityX:(speedX * directionX)];
 	}
+	
+	previousPosition = [transform position];
 }
 
 - (void)initialize
@@ -127,6 +131,8 @@
 	sprite				= nil;
 	physics				= nil;
 	collider			= nil;
+	transform			= nil;
+	previousPosition	= CGPointZero;
 	receivingInput		= NO;
 	speedX				= 4;
 	directionX			= 0;

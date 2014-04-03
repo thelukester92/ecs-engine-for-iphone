@@ -53,7 +53,7 @@
 	}
 }
 
-- (CGPoint)resolveTileCollisionsBetween:(LGEntity *)a and:(LGTileCollider *)tileCollider alreadyAdjusted:(CGPoint)alreadyAdjusted collisionAxis:(LGCollisionAxis)axis
+- (CGPoint)resolveTileCollisionsBetween:(LGEntity *)a and:(LGTileCollider *)tileCollider alreadyAdjusted:(CGPoint)alreadyAdjusted chainingAxis:(LGCollisionAxis)axis
 {
 	LGTransform *transform = [a componentOfType:[LGTransform class]];
 	LGCollider *collider = [a componentOfType:[LGCollider class]];
@@ -193,7 +193,7 @@
 	
 	if([colliderB isMemberOfClass:[LGTileCollider class]])
 	{
-		resolution = [self resolveTileCollisionsBetween:a and:(LGTileCollider *)colliderB alreadyAdjusted:alreadyAdjustedA collisionAxis:axis];
+		resolution = [self resolveTileCollisionsBetween:a and:(LGTileCollider *)colliderB alreadyAdjusted:alreadyAdjustedA chainingAxis:axis];
 	}
 	else
 	{
@@ -232,6 +232,30 @@
 	if(axis == LGCollisionAxisY)
 	{
 		resolution.x = 0;
+	}
+	
+	// Update collider flags
+	
+	if(resolution.x > 0)
+	{
+		[colliderA setLeftCollided:YES];
+		[colliderB setRightCollided:YES];
+	}
+	else if(resolution.x < 0)
+	{
+		[colliderA setRightCollided:YES];
+		[colliderB setLeftCollided:YES];
+	}
+	
+	if(resolution.y > 0)
+	{
+		[colliderA setTopCollided:YES];
+		[colliderB setBottomCollided:YES];
+	}
+	else if(resolution.y < 0)
+	{
+		[colliderA setBottomCollided:YES];
+		[colliderB setTopCollided:YES];
 	}
 	
 	// Resolve the collision
@@ -352,6 +376,7 @@
 	for(int i = 0; i < [dynamicEntities count]; i++)
 	{
 		LGEntity *a = [dynamicEntities objectAtIndex:i];
+		[(LGCollider *)[a componentOfType:[LGCollider class]] reset];
 		
 		for(int j = 0; j < [staticEntities count]; j++)
 		{
@@ -362,6 +387,12 @@
 		for(int j = i + 1; j < [dynamicEntities count]; j++)
 		{
 			LGEntity *b = [dynamicEntities objectAtIndex:j];
+			
+			if(i == 0)
+			{
+				[(LGCollider *)[b componentOfType:[LGCollider class]] reset];
+			}
+			
 			[self resolveCollisionsBetween:a and:b ignoring:nil withAdditionalMass:0 forceStatic:NO alreadyAdjustedA:CGPointZero collisionAxis:LGCollisionAxisAny];
 		}
 	}

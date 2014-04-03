@@ -10,13 +10,23 @@
 
 @implementation LGCollider
 
-@synthesize type, offset, size;
+@synthesize type, offset, size, topCollided, rightCollided, bottomCollided, leftCollided;
+
+- (void)reset
+{
+	topCollided		= NO;
+	rightCollided	= NO;
+	bottomCollided	= NO;
+	leftCollided	= NO;
+}
 
 - (void)initialize
 {
 	type	= LGColliderTypeDynamic;
 	offset	= CGPointZero;
 	size	= CGSizeZero;
+	
+	[self reset];
 }
 
 @end

@@ -1,5 +1,5 @@
 //
-//  Scene.h
+//  LGScene.h
 //  Engine
 //
 //  Created by Luke Godfrey on 2/18/14.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class LGEngine, LGEntity, LGSystem, LGSpriteRenderingSystem, LGUpdatingSystem;
+@class LGEngine, LGEntity, LGSystem;
 
 @interface LGScene : UIViewController
 
