@@ -70,8 +70,11 @@
 		return;
 	}
 	
+	int rightMost = (int) [[[visibleLayer sprites] objectAtIndex:0] count] - 1;
+	int bottomMost = (int) [[visibleLayer sprites] count] - 1;
+	
 	LGSprite *leftMostSprite = [visibleLayer spriteAtRow:0 andCol:0];
-	LGSprite *rightMostSprite = [visibleLayer spriteAtRow:[[visibleLayer sprites] count] - 1 andCol:[[[visibleLayer sprites] objectAtIndex:0] count] - 1];
+	LGSprite *rightMostSprite = [visibleLayer spriteAtRow:bottomMost andCol:rightMost];
 	BOOL canShift;
 	
 	canShift = YES;
@@ -93,7 +96,7 @@
 			canShift = [layer shiftLeft];
 		}
 		
-		rightMostSprite = [visibleLayer spriteAtRow:[[visibleLayer sprites] count] - 1 andCol:[[[visibleLayer sprites] objectAtIndex:0] count] - 1];
+		rightMostSprite = [visibleLayer spriteAtRow:bottomMost andCol:rightMost];
 	}
 	
 	canShift = YES;
@@ -115,7 +118,7 @@
 			canShift = [layer shiftUp];
 		}
 		
-		rightMostSprite = [visibleLayer spriteAtRow:[[visibleLayer sprites] count] - 1 andCol:[[[visibleLayer sprites] objectAtIndex:0] count] - 1];
+		rightMostSprite = [visibleLayer spriteAtRow:bottomMost andCol:rightMost];
 	}
 }
 
