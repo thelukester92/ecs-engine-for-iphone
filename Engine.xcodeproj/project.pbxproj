@@ -61,6 +61,7 @@
 		A3A59CC618B8070300E456EE /* LGTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A59CC518B8070300E456EE /* LGTransform.m */; };
 		A3AFA1C218DA1DC50036DAA3 /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = A3AFA1C118DA1DC50036DAA3 /* ball.png */; };
 		A3B7EB6018DDF2550026A931 /* tileset.png in Resources */ = {isa = PBXBuildFile; fileRef = A3B7EB5F18DDF2550026A931 /* tileset.png */; };
+		A3D7547618EE1B14007EC53C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A3D7547518EE1B14007EC53C /* README.md */; };
 		A3DFD9D018ECBBF8004412EE /* TileMapParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A3DFD9CF18ECBBF8004412EE /* TileMapParser.m */; };
 		A3DFD9D918EDB70F004412EE /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = A3DFD9D818EDB70F004412EE /* Constants.m */; };
 		A3DFD9DB18EDFEE0004412EE /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = A3DFD9DA18EDFEE0004412EE /* LICENSE */; };
@@ -162,6 +163,7 @@
 		A3A59CC518B8070300E456EE /* LGTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGTransform.m; sourceTree = "<group>"; };
 		A3AFA1C118DA1DC50036DAA3 /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
 		A3B7EB5F18DDF2550026A931 /* tileset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tileset.png; sourceTree = "<group>"; };
+		A3D7547518EE1B14007EC53C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		A3DFD9CE18ECBBF8004412EE /* TileMapParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileMapParser.h; sourceTree = "<group>"; };
 		A3DFD9CF18ECBBF8004412EE /* TileMapParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileMapParser.m; sourceTree = "<group>"; };
 		A3DFD9D718EDB70F004412EE /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 		A3367CFD18B3E620005475B7 = {
 			isa = PBXGroup;
 			children = (
+				A3D7547518EE1B14007EC53C /* README.md */,
 				A3DFD9DA18EDFEE0004412EE /* LICENSE */,
 				A3367D1118B3E620005475B7 /* Engine */,
 				A3367D2E18B3E621005475B7 /* EngineTests */,
@@ -512,6 +515,7 @@
 			files = (
 				A3367D1618B3E620005475B7 /* InfoPlist.strings in Resources */,
 				A35A8B8B18C8063B000349A7 /* blue.png in Resources */,
+				A3D7547618EE1B14007EC53C /* README.md in Resources */,
 				A3AFA1C218DA1DC50036DAA3 /* ball.png in Resources */,
 				A3B7EB6018DDF2550026A931 /* tileset.png in Resources */,
 				A37F40BC18C524E100C58298 /* notes.md in Resources */,
