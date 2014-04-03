@@ -1,10 +1,5 @@
 Notes, Quirks, and Todos
 
-# Broken Things
-
-* LGSystem.init (not initWithScene) breaks everything without being clearly broken.
-* Unset camera size breaks everything.
-
 # Quirks
 
 * Entities expect exactly one component of each type.

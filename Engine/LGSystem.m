@@ -43,4 +43,9 @@
 	return self;
 }
 
+- (id)init
+{
+	return [self initWithScene:nil];
+}
+
 @end
