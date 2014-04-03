@@ -149,7 +149,7 @@
 		A37F40B618C5070A00C58298 /* EntityFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityFactory.m; sourceTree = "<group>"; };
 		A37F40B818C50A6400C58298 /* LGCollisionSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGCollisionSystem.h; sourceTree = "<group>"; };
 		A37F40B918C50A6400C58298 /* LGCollisionSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGCollisionSystem.m; sourceTree = "<group>"; };
-		A37F40BB18C524E100C58298 /* notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = notes.md; sourceTree = "<group>"; };
+		A37F40BB18C524E100C58298 /* notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = notes.md; path = Engine/notes.md; sourceTree = "<group>"; };
 		A38069D718B56A7100486D21 /* libLGEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLGEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A394F6D018B44CBC00387E9C /* LGEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGEntity.h; sourceTree = "<group>"; };
 		A394F6D118B44CBC00387E9C /* LGEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGEntity.m; sourceTree = "<group>"; };
@@ -282,6 +282,7 @@
 			children = (
 				A3D7547518EE1B14007EC53C /* README.md */,
 				A3DFD9DA18EDFEE0004412EE /* LICENSE */,
+				A37F40BB18C524E100C58298 /* notes.md */,
 				A3367D1118B3E620005475B7 /* Engine */,
 				A3367D2E18B3E621005475B7 /* EngineTests */,
 				A3367D0818B3E620005475B7 /* Frameworks */,
@@ -359,7 +360,6 @@
 		A3367D4418B3E738005475B7 /* Engine */ = {
 			isa = PBXGroup;
 			children = (
-				A37F40BB18C524E100C58298 /* notes.md */,
 				A398C53E18E3A6FC000DDEA5 /* Core Classes */,
 				A30B689218B546AA00871175 /* Core Components */,
 				A314CFDA18B699D600B34555 /* Core Systems */,
