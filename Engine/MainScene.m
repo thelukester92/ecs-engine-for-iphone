@@ -72,6 +72,8 @@
 	}
 	
 	[TileMapParser parsePlist:@"level1" forSystem:tileSystem];
+	
+	[[player componentOfType:[LGCamera class]] setBounds:CGRectMake(0, 0, [tileSystem size].width, [tileSystem size].height)];
 }
 
 @end

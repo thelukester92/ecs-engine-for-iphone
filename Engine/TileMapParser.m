@@ -7,6 +7,7 @@
 //
 
 #import "TileMapParser.h"
+#import "Constants.h"
 #import "LGScene.h"
 #import "LGTileSystem.h"
 #import "LGTileLayer.h"
@@ -20,14 +21,15 @@
 + (void)parsePlist:(NSString *)filename forSystem:(LGTileSystem *)system
 {
 	NSDictionary *data	= [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:filename ofType:@"plist"]];
-	NSArray *layerData	= [data objectForKey:@"layers"];
+	NSArray *layerData	= [data objectForKey:TileMapLayers];
 	
 	for(NSDictionary *layerDictionary in layerData)
 	{
-		NSString *contents = [layerDictionary objectForKey:@"contents"];
+		NSString *contents = [layerDictionary objectForKey:TileLayerContents];
 		
-		BOOL isVisible		= ( [layerDictionary objectForKey:@"isVisible"] ? [[layerDictionary objectForKey:@"isVisible"] boolValue] : YES);
-		BOOL isCollision	= ( [layerDictionary objectForKey:@"isCollision"] ? [[layerDictionary objectForKey:@"isCollision"] boolValue] : NO);
+		BOOL isVisible		= ( [layerDictionary objectForKey:TileLayerIsVisible] ? [[layerDictionary objectForKey:TileLayerIsVisible] boolValue] : YES);
+		BOOL isCollision	= ( [layerDictionary objectForKey:TileLayerIsCollision] ? [[layerDictionary objectForKey:TileLayerIsCollision] boolValue] : NO);
+		int layerOffset		= ( [layerDictionary objectForKey:TileLayerZOffset] ? [[layerDictionary objectForKey:TileLayerZOffset] intValue] : 0);
 		
 		// Data to be stored in an LGTileLayer
 		
@@ -41,14 +43,14 @@
 		
 		LGRender *render = [[LGRender alloc] init];
 		[render setSize:[[system scene] view].frame.size];
-		[render setLayer:LGRenderLayerBackground];
+		[render setLayer:(LGRenderLayerMainLayer + layerOffset)];
 		[layerEntity addComponent:render];
 		
 		[[system scene] addEntity:layerEntity];
 		
 		// Populate tiles and sprites arrays
 		
-		NSArray *rows = [contents componentsSeparatedByString:@",\n"];
+		NSArray *rows = [contents componentsSeparatedByString:TileLayerRowSplitter];
 		for(int i = 0; i < [rows count]; i++)
 		{
 			if(sprites != nil && i < [system visibleY])
@@ -59,7 +61,7 @@
 			NSMutableArray *row = [NSMutableArray array];
 			[tiles addObject:row];
 			
-			NSArray *cols = [[rows objectAtIndex:i] componentsSeparatedByString:@","];
+			NSArray *cols = [[rows objectAtIndex:i] componentsSeparatedByString:TileLayerColSplitter];
 			for(int j = 0; j < [cols count]; j++)
 			{
 				if(sprites != nil && i < [system visibleY] && j < [system visibleX])
@@ -77,14 +79,14 @@
 			}
 		}
 		
-		// Store in an LGTileLayer and save
+		// Store in an LGTileLayer
 		
 		LGTileLayer *layer = [[LGTileLayer alloc] initWithParent:system andTiles:tiles andSprites:sprites];
 		[layer setIsVisible:isVisible];
-		
 		[system addLayer:layer];
 		
 		// Set as the collision layer
+		
 		if(isCollision)
 		{
 			LGTileCollider *tileCollider = [[LGTileCollider alloc] init];

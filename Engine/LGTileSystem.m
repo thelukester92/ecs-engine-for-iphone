@@ -19,7 +19,7 @@
 
 @implementation LGTileSystem
 
-@synthesize layers, camera, cameraTransform, sprite, visibleLayer, visibleX, visibleY, padding;
+@synthesize layers, camera, cameraTransform, sprite, visibleLayer, size, visibleX, visibleY, padding;
 
 #pragma mark Overrides
 
@@ -44,6 +44,11 @@
 	if([layer isVisible])
 	{
 		visibleLayer = layer;
+	}
+	
+	if(sprite != nil)
+	{
+		size = CGSizeMake([[[layer tiles] objectAtIndex:0] count] * [sprite size].width, [[layer tiles] count] * [sprite size].height);
 	}
 }
 
@@ -140,6 +145,7 @@
 	cameraTransform	= nil;
 	sprite			= nil;
 	visibleLayer	= nil;
+	size			= CGSizeZero;
 	visibleX		= 0;
 	visibleY		= 0;
 	padding			= 1;

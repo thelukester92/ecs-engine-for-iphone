@@ -17,6 +17,7 @@
 @property (nonatomic, retain) LGTransform *cameraTransform;
 @property (nonatomic, retain) LGSprite *sprite;
 @property (nonatomic, retain) LGTileLayer *visibleLayer;
+@property (nonatomic, assign) CGSize size;
 @property (nonatomic, assign) int visibleX, visibleY, padding;
 
 - (void)addLayer:(LGTileLayer *)layer;

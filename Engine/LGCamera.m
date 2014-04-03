@@ -10,12 +10,13 @@
 
 @implementation LGCamera
 
-@synthesize offset, size;
+@synthesize offset, size, bounds;
 
 - (void)initialize
 {
 	offset	= CGPointZero;
 	size	= CGSizeZero;
+	bounds	= CGRectZero;
 }
 
 @end

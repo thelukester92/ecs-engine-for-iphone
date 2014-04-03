@@ -12,5 +12,6 @@
 
 @property (nonatomic, assign) CGPoint offset;
 @property (nonatomic, assign) CGSize size;
+@property (nonatomic, assign) CGRect bounds;
 
 @end

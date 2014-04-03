@@ -8,12 +8,12 @@
 
 #import "LGComponent.h"
 
-typedef enum
+enum
 {
 	LGRenderLayerBackground,
 	LGRenderLayerMainLayer,
 	LGRenderLayerForeground
-} LGRenderLayer;
+};
 
 @interface LGRender : LGComponent
 
@@ -21,6 +21,6 @@ typedef enum
 @property (nonatomic, assign) CGSize size;
 @property (nonatomic, assign) CGPoint offset;
 @property (nonatomic, assign) BOOL visible;
-@property (nonatomic, assign) LGRenderLayer layer;
+@property (nonatomic, assign) int layer;
 
 @end

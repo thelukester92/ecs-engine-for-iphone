@@ -12,7 +12,7 @@
 
 @synthesize view, size, offset, visible, layer;
 
-- (void)setLayer:(LGRenderLayer)l
+- (void)setLayer:(int)l
 {
 	layer = l;
 	[view.layer setZPosition:layer];
