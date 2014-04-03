@@ -61,7 +61,7 @@
 		A3A59CC618B8070300E456EE /* LGTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A59CC518B8070300E456EE /* LGTransform.m */; };
 		A3AFA1C218DA1DC50036DAA3 /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = A3AFA1C118DA1DC50036DAA3 /* ball.png */; };
 		A3B7EB6018DDF2550026A931 /* tileset.png in Resources */ = {isa = PBXBuildFile; fileRef = A3B7EB5F18DDF2550026A931 /* tileset.png */; };
-		A3DFD9D018ECBBF8004412EE /* LGTileMapParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A3DFD9CF18ECBBF8004412EE /* LGTileMapParser.m */; };
+		A3DFD9D018ECBBF8004412EE /* TileMapParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A3DFD9CF18ECBBF8004412EE /* TileMapParser.m */; };
 		A3ED1C7418D20CC300784F41 /* LGCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = A3ED1C7318D20CC300784F41 /* LGCamera.m */; };
 		A3ED1C7718D20D1900784F41 /* LGCameraSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A3ED1C7618D20D1900784F41 /* LGCameraSystem.m */; };
 /* End PBXBuildFile section */
@@ -160,8 +160,8 @@
 		A3A59CC518B8070300E456EE /* LGTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGTransform.m; sourceTree = "<group>"; };
 		A3AFA1C118DA1DC50036DAA3 /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
 		A3B7EB5F18DDF2550026A931 /* tileset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tileset.png; sourceTree = "<group>"; };
-		A3DFD9CE18ECBBF8004412EE /* LGTileMapParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGTileMapParser.h; sourceTree = "<group>"; };
-		A3DFD9CF18ECBBF8004412EE /* LGTileMapParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGTileMapParser.m; sourceTree = "<group>"; };
+		A3DFD9CE18ECBBF8004412EE /* TileMapParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileMapParser.h; sourceTree = "<group>"; };
+		A3DFD9CF18ECBBF8004412EE /* TileMapParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileMapParser.m; sourceTree = "<group>"; };
 		A3ED1C7218D20CC300784F41 /* LGCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGCamera.h; sourceTree = "<group>"; };
 		A3ED1C7318D20CC300784F41 /* LGCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGCamera.m; sourceTree = "<group>"; };
 		A3ED1C7518D20D1900784F41 /* LGCameraSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGCameraSystem.h; sourceTree = "<group>"; };
@@ -375,6 +375,8 @@
 				A30B688D18B541F000871175 /* Scenes */,
 				A37F40B518C5070A00C58298 /* EntityFactory.h */,
 				A37F40B618C5070A00C58298 /* EntityFactory.m */,
+				A3DFD9CE18ECBBF8004412EE /* TileMapParser.h */,
+				A3DFD9CF18ECBBF8004412EE /* TileMapParser.m */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -393,8 +395,6 @@
 			children = (
 				A398C53F18E3A70F000DDEA5 /* LGTileLayer.h */,
 				A398C54018E3A70F000DDEA5 /* LGTileLayer.m */,
-				A3DFD9CE18ECBBF8004412EE /* LGTileMapParser.h */,
-				A3DFD9CF18ECBBF8004412EE /* LGTileMapParser.m */,
 			);
 			name = "Core Classes";
 			sourceTree = "<group>";
@@ -566,7 +566,7 @@
 				A30B688C18B541E800871175 /* MainScene.m in Sources */,
 				A3367D4018B3E662005475B7 /* MainViewController.m in Sources */,
 				A37F40B718C5070A00C58298 /* EntityFactory.m in Sources */,
-				A3DFD9D018ECBBF8004412EE /* LGTileMapParser.m in Sources */,
+				A3DFD9D018ECBBF8004412EE /* TileMapParser.m in Sources */,
 				A394F6D218B44CBC00387E9C /* LGEntity.m in Sources */,
 				A314CFD318B6826000B34555 /* LGSystem.m in Sources */,
 				A3367D4318B3E730005475B7 /* LGEngine.m in Sources */,

@@ -20,7 +20,7 @@
 #import "LGCollider.h"
 #import "LGCamera.h"
 #import "EntityFactory.h"
-#import "LGTileMapParser.h"
+#import "TileMapParser.h"
 
 @implementation MainScene
 
@@ -71,7 +71,7 @@
 		[self addEntity:floor];
 	}
 	
-	[LGTileMapParser parsePlist:@"level1" forSystem:tileSystem];
+	[TileMapParser parsePlist:@"level1" forSystem:tileSystem];
 }
 
 @end

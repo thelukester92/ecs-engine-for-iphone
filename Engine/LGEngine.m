@@ -36,7 +36,7 @@
 	if(counter > counterMax)
 		counter = 0;
 	else
-		return;
+		;
 	
 	if(currentScene != nil)
 		[currentScene update];

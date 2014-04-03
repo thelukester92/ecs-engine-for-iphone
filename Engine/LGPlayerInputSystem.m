@@ -17,13 +17,13 @@
 
 @implementation LGPlayerInputSystem
 
-@synthesize sprite, physics, collider, transform, previousPosition, receivingInput, speedX, directionX;
+@synthesize sprite, physics, collider, transform, previousPosition, receivingInput, isOnGround, speedX, directionX;
 
 #pragma mark Hidden Methods
 
 - (void)jump
 {
-	if([collider bottomCollided])
+	if(isOnGround)
 	{
 		[sprite setCurrentState:@"jump"];
 		[physics setVelocityY:-6];
@@ -97,12 +97,13 @@
 - (void)update
 {
 	CGPoint delta = CGPointMake([transform position].x - previousPosition.x, [transform position].y - previousPosition.y);
+	isOnGround = [collider bottomCollided] && [physics velocity].y >= 0;
 	
 	if([sprite animationComplete])
 	{
-		if(![collider bottomCollided] || delta.y != 0)
+		if(!isOnGround)
 		{
-			if(delta.y >= 0)
+			if([physics velocity].y >= 0)
 			{
 				[sprite setCurrentState:@"fall"];
 			}
@@ -134,6 +135,7 @@
 	transform			= nil;
 	previousPosition	= CGPointZero;
 	receivingInput		= NO;
+	isOnGround			= NO;
 	speedX				= 4;
 	directionX			= 0;
 	self.updateOrder	= LGUpdateOrderBeforeMovement;

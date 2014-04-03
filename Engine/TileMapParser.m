@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Luke Godfrey. All rights reserved.
 //
 
-#import "LGTileMapParser.h"
+#import "TileMapParser.h"
 #import "LGScene.h"
 #import "LGTileSystem.h"
 #import "LGTileLayer.h"
@@ -15,7 +15,7 @@
 #import "LGSprite.h"
 #import "LGTileCollider.h"
 
-@implementation LGTileMapParser
+@implementation TileMapParser
 
 + (void)parsePlist:(NSString *)filename forSystem:(LGTileSystem *)system
 {
@@ -24,10 +24,10 @@
 	
 	for(NSDictionary *layerDictionary in layerData)
 	{
-		NSString *name = [layerDictionary objectForKey:@"name"];
 		NSString *contents = [layerDictionary objectForKey:@"contents"];
 		
-		BOOL isVisible = ![name isEqualToString:@"collision"];
+		BOOL isVisible		= ( [layerDictionary objectForKey:@"isVisible"] ? [[layerDictionary objectForKey:@"isVisible"] boolValue] : YES);
+		BOOL isCollision	= ( [layerDictionary objectForKey:@"isCollision"] ? [[layerDictionary objectForKey:@"isCollision"] boolValue] : NO);
 		
 		// Data to be stored in an LGTileLayer
 		
@@ -82,10 +82,10 @@
 		LGTileLayer *layer = [[LGTileLayer alloc] initWithParent:system andTiles:tiles andSprites:sprites];
 		[layer setIsVisible:isVisible];
 		
-		[[system layers] setValue:layer forKey:name];
+		[system addLayer:layer];
 		
 		// Set as the collision layer
-		if([name isEqualToString:@"collision"])
+		if(isCollision)
 		{
 			LGTileCollider *tileCollider = [[LGTileCollider alloc] init];
 			[tileCollider setCollisionLayer:layer];

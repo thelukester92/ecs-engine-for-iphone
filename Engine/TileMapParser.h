@@ -10,7 +10,7 @@
 
 @class LGTileSystem, LGTileLayer;
 
-@interface LGTileMapParser : NSObject
+@interface TileMapParser : NSObject
 
 + (void)parsePlist:(NSString *)filename forSystem:(LGTileSystem *)system;
 

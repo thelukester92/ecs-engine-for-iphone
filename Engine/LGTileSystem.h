@@ -8,14 +8,17 @@
 
 #import "LGSystem.h"
 
-@class LGSprite, LGCamera, LGTransform;
+@class LGSprite, LGCamera, LGTransform, LGTileLayer;
 
 @interface LGTileSystem : LGSystem
 
-@property (nonatomic, retain) NSDictionary *layers;
+@property (nonatomic, retain) NSMutableArray *layers;
 @property (nonatomic, retain) LGCamera *camera;
 @property (nonatomic, retain) LGTransform *cameraTransform;
 @property (nonatomic, retain) LGSprite *sprite;
+@property (nonatomic, retain) LGTileLayer *visibleLayer;
 @property (nonatomic, assign) int visibleX, visibleY, padding;
+
+- (void)addLayer:(LGTileLayer *)layer;
 
 @end

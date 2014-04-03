@@ -19,7 +19,7 @@
 
 @implementation LGTileSystem
 
-@synthesize layers, camera, cameraTransform, sprite, visibleX, visibleY, padding;
+@synthesize layers, camera, cameraTransform, sprite, visibleLayer, visibleX, visibleY, padding;
 
 #pragma mark Overrides
 
@@ -35,6 +35,18 @@
 	[self updateVisibleTiles];
 }
 
+#pragma mark Public Methods
+
+- (void)addLayer:(LGTileLayer *)layer
+{
+	[layers addObject:layer];
+	
+	if([layer isVisible])
+	{
+		visibleLayer = layer;
+	}
+}
+
 #pragma mark Private Methods
 
 - (void)updateVisibleTiles
@@ -48,54 +60,57 @@
 
 - (void)shiftTiles
 {
-	LGTileLayer *layer = [layers objectForKey:[[layers allKeys] objectAtIndex:0]];
+	if(visibleLayer == nil)
+	{
+		return;
+	}
 	
-	LGSprite *leftMostSprite = [layer spriteAtRow:0 andCol:0];
-	LGSprite *rightMostSprite = [layer spriteAtRow:[[layer sprites] count] - 1 andCol:[[[layer sprites] objectAtIndex:0] count] - 1];
+	LGSprite *leftMostSprite = [visibleLayer spriteAtRow:0 andCol:0];
+	LGSprite *rightMostSprite = [visibleLayer spriteAtRow:[[visibleLayer sprites] count] - 1 andCol:[[[visibleLayer sprites] objectAtIndex:0] count] - 1];
 	BOOL canShift;
 	
 	canShift = YES;
 	while([[leftMostSprite view] frame].origin.x + [sprite size].width < [camera offset].x + [cameraTransform position].x && canShift)
 	{
-		for(NSString *name in layers)
+		for(LGTileLayer *layer in layers)
 		{
-			canShift = [[layers objectForKey:name] shiftRight];
+			canShift = [layer shiftRight];
 		}
 		
-		leftMostSprite = [layer spriteAtRow:0 andCol:0];
+		leftMostSprite = [visibleLayer spriteAtRow:0 andCol:0];
 	}
 	
 	canShift = YES;
 	while([[rightMostSprite view] frame].origin.x > [camera offset].x + [cameraTransform position].x + (visibleX - padding) * [sprite size].width && canShift)
 	{
-		for(NSString *name in layers)
+		for(LGTileLayer *layer in layers)
 		{
-			canShift = [[layers objectForKey:name] shiftLeft];
+			canShift = [layer shiftLeft];
 		}
 		
-		rightMostSprite = [layer spriteAtRow:[[layer sprites] count] - 1 andCol:[[[layer sprites] objectAtIndex:0] count] - 1];
+		rightMostSprite = [visibleLayer spriteAtRow:[[visibleLayer sprites] count] - 1 andCol:[[[visibleLayer sprites] objectAtIndex:0] count] - 1];
 	}
 	
 	canShift = YES;
 	while([[leftMostSprite view] frame].origin.y + [sprite size].height < [camera offset].y + [cameraTransform position].y && canShift)
 	{
-		for(NSString *name in layers)
+		for(LGTileLayer *layer in layers)
 		{
-			canShift = [[layers objectForKey:name] shiftDown];
+			canShift = [layer shiftDown];
 		}
 		
-		leftMostSprite = [layer spriteAtRow:0 andCol:0];
+		leftMostSprite = [visibleLayer spriteAtRow:0 andCol:0];
 	}
 	
 	canShift = YES;
 	while([[rightMostSprite view] frame].origin.y > [camera offset].y + [cameraTransform position].y + [camera size].height && canShift)
 	{
-		for(NSString *name in layers)
+		for(LGTileLayer *layer in layers)
 		{
-			canShift = [[layers objectForKey:name] shiftUp];
+			canShift = [layer shiftUp];
 		}
 		
-		rightMostSprite = [layer spriteAtRow:[[layer sprites] count] - 1 andCol:[[[layer sprites] objectAtIndex:0] count] - 1];
+		rightMostSprite = [visibleLayer spriteAtRow:[[visibleLayer sprites] count] - 1 andCol:[[[visibleLayer sprites] objectAtIndex:0] count] - 1];
 	}
 }
 
@@ -120,10 +135,11 @@
 
 - (void)initialize
 {
-	layers			= [NSMutableDictionary dictionary];
+	layers			= [NSMutableArray array];
 	camera			= nil;
 	cameraTransform	= nil;
 	sprite			= nil;
+	visibleLayer	= nil;
 	visibleX		= 0;
 	visibleY		= 0;
 	padding			= 1;

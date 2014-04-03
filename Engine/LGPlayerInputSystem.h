@@ -17,7 +17,7 @@
 @property (nonatomic, weak) LGCollider *collider;
 @property (nonatomic, weak) LGTransform *transform;
 @property (nonatomic, assign) CGPoint previousPosition;
-@property (nonatomic, assign) BOOL receivingInput;
+@property (nonatomic, assign) BOOL receivingInput, isOnGround;
 @property (nonatomic, assign) double speedX, directionX;
 
 @end
