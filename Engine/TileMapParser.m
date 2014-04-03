@@ -3,7 +3,7 @@
 //  Engine
 //
 //  Created by Luke Godfrey on 4/2/14.
-//  Copyright (c) 2014 Luke Godfrey. All rights reserved.
+//  Copyright (c) 2014 Luke Godfrey. See LICENSE.
 //
 
 #import "TileMapParser.h"
@@ -70,7 +70,7 @@
 					[s setPosition:[[cols objectAtIndex:j] intValue]];
 					
 					[[s view] setFrame:CGRectMake(j * [[system sprite] size].width, i * [[system sprite] size].height, [[system sprite] size].width, [[system sprite] size].height)];
-					[[render view] addSubview:[s view]];
+					[render addSubRender:s];
 					
 					[[sprites objectAtIndex:i] addObject:s];
 				}
