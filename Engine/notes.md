@@ -22,7 +22,10 @@ Notes, Quirks, and Todos
 
 # Todo
 
-* Move the logic for parsing .plist outside of the tile system -- the tile system should only have an addLayer: method.
 * Add an "isCollision" flag to TileLayers.
 * Add a "zIndex" to TileLayers.
 * Allow for multiple components of one type on a single object (colliders, renderables) -- use a dictionary of arrays.
+
+# Collision Algorithm
+
+* Ground collisions are resolving the player to entity collisions via chaining when chaining isn't needed...

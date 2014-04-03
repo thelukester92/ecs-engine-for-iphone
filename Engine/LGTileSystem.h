@@ -18,6 +18,4 @@
 @property (nonatomic, retain) LGSprite *sprite;
 @property (nonatomic, assign) int visibleX, visibleY, padding;
 
-- (void)loadPlist:(NSString *)filename;
-
 @end

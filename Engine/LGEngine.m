@@ -36,7 +36,7 @@
 	if(counter > counterMax)
 		counter = 0;
 	else
-		;
+		return;
 	
 	if(currentScene != nil)
 		[currentScene update];
@@ -55,7 +55,7 @@
 		displayLink		= [CADisplayLink displayLinkWithTarget:self selector:@selector(update)];
 		
 		counter			= 0;
-		counterMax		= 50;
+		counterMax		= 10;
 		
 		running			= NO;
 	}

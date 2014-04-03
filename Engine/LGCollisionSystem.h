@@ -8,8 +8,15 @@
 
 #import "LGSystem.h"
 
+typedef enum
+{
+	LGCollisionAxisAny,
+	LGCollisionAxisX,
+	LGCollisionAxisY
+} LGCollisionAxis;
+
 @interface LGCollisionSystem : LGSystem
 
-@property (nonatomic, retain) NSMutableArray *staticEntities, *dynamicEntities, *currentEntities;
+@property (nonatomic, retain) NSMutableArray *staticEntities, *dynamicEntities;
 
 @end

@@ -20,6 +20,7 @@
 #import "LGCollider.h"
 #import "LGCamera.h"
 #import "EntityFactory.h"
+#import "LGTileMapParser.h"
 
 @implementation MainScene
 
@@ -57,28 +58,20 @@
 	
 	LGEntity *player = [EntityFactory playerEntity];
 	[[player componentOfType:[LGCamera class]] setSize:CGSizeMake([self.view frame].size.width, [self.view frame].size.height)];
-//	[[player componentOfType:[LGPhysics class]] setRespondsToGravity:NO];
-//	[[player componentOfType:[LGTransform class]] addToPositionX:400];
 	[self addEntity:player];
 	
-	for(int i = 0; i < 5; i++)
+	for(int i = 0; i < 4; i++)
 	{
 		LGEntity *floor = [EntityFactory floorEntity:NO];
 		[(LGTransform *)[floor componentOfType:[LGTransform class]] addToPosition:CGPointMake(50 + 100 * i, -10 + i * 20)];
 		
 		LGPhysics *physics = [[LGPhysics alloc] init];
-		//[physics setRespondsToGravity:NO];
 		[floor addComponent:physics];
-		
-		if(i == 3)
-		{
-			[(LGCollider *)[floor componentOfType:[LGCollider class]] setType:LGColliderTypeStatic];
-		}
 		
 		[self addEntity:floor];
 	}
 	
-	[tileSystem loadPlist:@"level1"];
+	[LGTileMapParser parsePlist:@"level1" forSystem:tileSystem];
 }
 
 @end

@@ -16,7 +16,7 @@
 
 @implementation LGCollisionSystem
 
-@synthesize staticEntities, dynamicEntities, currentEntities;
+@synthesize staticEntities, dynamicEntities;
 
 #pragma mark LGCollisionSystem Private Methods
 
@@ -53,7 +53,7 @@
 	}
 }
 
-- (CGPoint)resolveTileCollisionsBetween:(LGEntity *)a and:(LGTileCollider *)tileCollider alreadyAdjusted:(CGPoint)alreadyAdjusted
+- (CGPoint)resolveTileCollisionsBetween:(LGEntity *)a and:(LGTileCollider *)tileCollider alreadyAdjusted:(CGPoint)alreadyAdjusted collisionAxis:(LGCollisionAxis)axis
 {
 	LGTransform *transform = [a componentOfType:[LGTransform class]];
 	LGCollider *collider = [a componentOfType:[LGCollider class]];
@@ -64,107 +64,114 @@
 	
 	// Decompose the collision along each axis
 	
-	position.y -= [physics velocity].y + alreadyAdjusted.y;
-	
-	for(int i = 0; i < 2; i++)
+	if(axis != LGCollisionAxisY)
 	{
-		BOOL isRight = i == 0;
-		BOOL shouldBreak = NO;
+		position.y -= [physics velocity].y + alreadyAdjusted.y;
 		
-		// Check one column of tiles
-		
-		tileX = (int) floor( ( position.x + ( isRight ? [collider size].width : 0 ) ) / [tileCollider tileSize].width );
-		
-		// Check a range of rows
-		
-		int fromY	= (int) floor( (position.y + 1) / [tileCollider tileSize].height );
-		int toY		= (int) floor( (position.y + [collider size].height - 1) / [tileCollider tileSize].height );
-		
-		for(tileY = fromY; tileY <= toY; tileY++)
+		for(int i = 0; i < 2; i++)
 		{
-			if( [[tileCollider collisionLayer] collidesAtRow:tileY andCol:tileX] )
+			BOOL isRight = i == 0;
+			BOOL shouldBreak = NO;
+			
+			// Check one column of tiles
+			
+			tileX = (int) floor( ( position.x + ( isRight ? [collider size].width : 0 ) ) / [tileCollider tileSize].width );
+			
+			// Check a range of rows
+			
+			int fromY	= (int) floor( (position.y + 1) / [tileCollider tileSize].height );
+			int toY		= (int) floor( (position.y + [collider size].height - 1) / [tileCollider tileSize].height );
+			
+			for(tileY = fromY; tileY <= toY; tileY++)
 			{
-				if(isRight)
+				if( [[tileCollider collisionLayer] collidesAtRow:tileY andCol:tileX] )
 				{
-					position.x = tileX * [tileCollider tileSize].width - [collider size].width;
+					if(isRight)
+					{
+						position.x = tileX * [tileCollider tileSize].width - [collider size].width;
+					}
+					else
+					{
+						position.x = (tileX + 1) * [tileCollider tileSize].width;
+					}
+					
+					if(physics != nil)
+					{
+						[physics setVelocityX:0];
+					}
+					
+					// Only need to find one collision, so stop here
+					shouldBreak = YES;
+					break;
 				}
-				else
-				{
-					position.x = (tileX + 1) * [tileCollider tileSize].width;
-				}
-				
-				if(physics != nil)
-				{
-					[physics setVelocityX:0];
-				}
-				
-				// Only need to find one collision, so stop here
-				shouldBreak = YES;
+			}
+			
+			if(shouldBreak)
+			{
 				break;
 			}
 		}
 		
-		if(shouldBreak)
-		{
-			break;
-		}
+		position.y += [physics velocity].y + alreadyAdjusted.y;
 	}
 	
-	position.y += [physics velocity].y + alreadyAdjusted.y;
-	position.x -= [physics velocity].x + alreadyAdjusted.x;
-	
-	for(int i = 0; i < 2; i++)
+	if(axis != LGCollisionAxisX)
 	{
-		BOOL isBottom = i == 0;
-		BOOL shouldBreak = NO;
+		position.x -= [physics velocity].x + alreadyAdjusted.x;
 		
-		// Check one row of tiles
-		
-		tileY = (int) floor( ( position.y + ( isBottom ? [collider size].height : 0 ) ) / [tileCollider tileSize].height );
-		
-		// Check a range of columns
-		
-		int fromX	= (int) floor( (position.x + 1) / [tileCollider tileSize].width );
-		int toX		= (int) floor( (position.x + [collider size].width - 1) / [tileCollider tileSize].width );
-		
-		for(tileX = fromX; tileX <= toX; tileX++)
+		for(int i = 0; i < 2; i++)
 		{
-			if( [[tileCollider collisionLayer] collidesAtRow:tileY andCol:tileX] )
+			BOOL isBottom = i == 0;
+			BOOL shouldBreak = NO;
+			
+			// Check one row of tiles
+			
+			tileY = (int) floor( ( position.y + ( isBottom ? [collider size].height : 0 ) ) / [tileCollider tileSize].height );
+			
+			// Check a range of columns
+			
+			int fromX	= (int) floor( (position.x + 1) / [tileCollider tileSize].width );
+			int toX		= (int) floor( (position.x + [collider size].width - 1) / [tileCollider tileSize].width );
+			
+			for(tileX = fromX; tileX <= toX; tileX++)
 			{
-				if(isBottom)
+				if( [[tileCollider collisionLayer] collidesAtRow:tileY andCol:tileX] )
 				{
-					position.y = tileY * [tileCollider tileSize].height - [collider size].height;
+					if(isBottom)
+					{
+						position.y = tileY * [tileCollider tileSize].height - [collider size].height;
+					}
+					else
+					{
+						position.y = (tileY + 1) * [tileCollider tileSize].height;
+					}
+					
+					if(physics != nil)
+					{
+						[physics setVelocityY:0];
+					}
+					
+					// Only need to find one collision, so stop here
+					shouldBreak = YES;
+					break;
 				}
-				else
-				{
-					position.y = (tileY + 1) * [tileCollider tileSize].height;
-				}
-				
-				if(physics != nil)
-				{
-					[physics setVelocityY:0];
-				}
-				
-				// Only need to find one collision, so stop here
-				shouldBreak = YES;
+			}
+			
+			if(shouldBreak)
+			{
 				break;
 			}
 		}
 		
-		if(shouldBreak)
-		{
-			break;
-		}
+		position.x += [physics velocity].x + alreadyAdjusted.x;
 	}
-	
-	position.x += [physics velocity].x + alreadyAdjusted.x;
 	
 	position = [self untranslate:position by:[collider offset]];
 	
 	return CGPointMake(position.x - [transform position].x, position.y - [transform position].y);
 }
 
-- (CGPoint)resolveCollisionsBetween:(LGEntity *)a and:(LGEntity *)b ignoring:(LGEntity *)entityToIgnore withAdditionalMass:(double)additionalMass forceStatic:(BOOL)forceStatic alreadyAdjustedA:(CGPoint)alreadyAdjustedA
+- (CGPoint)resolveCollisionsBetween:(LGEntity *)a and:(LGEntity *)b ignoring:(LGEntity *)entityToIgnore withAdditionalMass:(double)additionalMass forceStatic:(BOOL)forceStatic alreadyAdjustedA:(CGPoint)alreadyAdjustedA collisionAxis:(LGCollisionAxis)axis
 {
 	// Initialize
 	
@@ -186,7 +193,7 @@
 	
 	if([colliderB isMemberOfClass:[LGTileCollider class]])
 	{
-		resolution = [self resolveTileCollisionsBetween:a and:(LGTileCollider *)colliderB alreadyAdjusted:alreadyAdjustedA];
+		resolution = [self resolveTileCollisionsBetween:a and:(LGTileCollider *)colliderB alreadyAdjusted:alreadyAdjustedA collisionAxis:axis];
 	}
 	else
 	{
@@ -213,6 +220,18 @@
 				resolution.y = 0;
 			}
 		}
+	}
+	
+	// Limit to the given axis
+	
+	if(axis == LGCollisionAxisX)
+	{
+		resolution.y = 0;
+	}
+	
+	if(axis == LGCollisionAxisY)
+	{
+		resolution.x = 0;
 	}
 	
 	// Resolve the collision
@@ -257,7 +276,9 @@
 			[self updateTransform:transformB andCollider:colliderB andPhysics:physicsB with:deltaB];
 		}
 		
-		// Collision chaining [extremely inefficient; should use spatial partitioning to improve performance]
+		// Collision chaining
+		
+		LGCollisionAxis collisionAxis = resolution.y != 0 ? LGCollisionAxisY : LGCollisionAxisX;
 		
 		if(forceStatic || [colliderB type] == LGColliderTypeStatic)
 		{
@@ -266,7 +287,7 @@
 				LGEntity *c = [dynamicEntities objectAtIndex:i];
 				if(![c isEqual:a] && ![c isEqual:entityToIgnore])
 				{
-					[self resolveCollisionsBetween:c and:a ignoring:b withAdditionalMass:0 forceStatic:YES alreadyAdjustedA:CGPointZero];
+					[self resolveCollisionsBetween:c and:a ignoring:b withAdditionalMass:0 forceStatic:YES alreadyAdjustedA:CGPointZero collisionAxis:collisionAxis];
 				}
 			}
 		}
@@ -277,10 +298,10 @@
 				LGEntity *c = [self.entities objectAtIndex:i];
 				if(![c isEqual:a] && ![c isEqual:b] && ![c isEqual:entityToIgnore])
 				{
-					CGPoint resolutionA = [self resolveCollisionsBetween:a and:c ignoring:b withAdditionalMass:massB forceStatic:NO alreadyAdjustedA:deltaA];
+					CGPoint resolutionA = [self resolveCollisionsBetween:a and:c ignoring:b withAdditionalMass:massB forceStatic:NO alreadyAdjustedA:deltaA collisionAxis:collisionAxis];
 					if(CGPointEqualToPoint(resolutionA, CGPointZero))
 					{
-						CGPoint resolutionB = [self resolveCollisionsBetween:b and:c ignoring:a withAdditionalMass:massA forceStatic:NO alreadyAdjustedA:deltaB];
+						CGPoint resolutionB = [self resolveCollisionsBetween:b and:c ignoring:a withAdditionalMass:massA forceStatic:NO alreadyAdjustedA:deltaB collisionAxis:collisionAxis];
 						if(!CGPointEqualToPoint(resolutionB, CGPointZero))
 						{
 							// Resolution caused another collision -- move entity A back
@@ -332,19 +353,16 @@
 	{
 		LGEntity *a = [dynamicEntities objectAtIndex:i];
 		
-		currentEntities = [self.entities mutableCopy];
-		[currentEntities removeObject:a];
-		
 		for(int j = 0; j < [staticEntities count]; j++)
 		{
 			LGEntity *b = [staticEntities objectAtIndex:j];
-			[self resolveCollisionsBetween:a and:b ignoring:nil withAdditionalMass:0 forceStatic:NO alreadyAdjustedA:CGPointZero];
+			[self resolveCollisionsBetween:a and:b ignoring:nil withAdditionalMass:0 forceStatic:NO alreadyAdjustedA:CGPointZero collisionAxis:LGCollisionAxisAny];
 		}
 		
 		for(int j = i + 1; j < [dynamicEntities count]; j++)
 		{
 			LGEntity *b = [dynamicEntities objectAtIndex:j];
-			[self resolveCollisionsBetween:a and:b ignoring:nil withAdditionalMass:0 forceStatic:NO alreadyAdjustedA:CGPointZero];
+			[self resolveCollisionsBetween:a and:b ignoring:nil withAdditionalMass:0 forceStatic:NO alreadyAdjustedA:CGPointZero collisionAxis:LGCollisionAxisAny];
 		}
 	}
 }
@@ -353,7 +371,7 @@
 {
 	staticEntities	= [NSMutableArray array];
 	dynamicEntities	= [NSMutableArray array];
-	currentEntities	= nil;
+	
 }
 
 @end
