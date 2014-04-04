@@ -15,7 +15,6 @@
 		A314CFD918B699D300B34555 /* LGSpriteRenderingSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A314CFD818B699D300B34555 /* LGSpriteRenderingSystem.m */; };
 		A314CFE018B6A00600B34555 /* LGPhysicalSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A314CFDF18B6A00600B34555 /* LGPhysicalSystem.m */; };
 		A31C3C7B18C637EA00021A50 /* LGSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = A31C3C7A18C637EA00021A50 /* LGSprite.m */; };
-		A31C3C7E18C6399B00021A50 /* Player.png in Resources */ = {isa = PBXBuildFile; fileRef = A31C3C7D18C6399B00021A50 /* Player.png */; };
 		A3231FD318E3130900AA6950 /* level1.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3231FD218E3130900AA6950 /* level1.plist */; };
 		A3231FD618E315F500AA6950 /* LGTile.m in Sources */ = {isa = PBXBuildFile; fileRef = A3231FD518E315F500AA6950 /* LGTile.m */; };
 		A329E6B418E5FFBE00B18BAA /* LGTileCollider.m in Sources */ = {isa = PBXBuildFile; fileRef = A329E6B318E5FFBE00B18BAA /* LGTileCollider.m */; };
@@ -60,7 +59,6 @@
 		A39F6CEC18CE520000936EE9 /* LGTileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A39F6CEB18CE520000936EE9 /* LGTileSystem.m */; };
 		A3A59CC618B8070300E456EE /* LGTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A59CC518B8070300E456EE /* LGTransform.m */; };
 		A3AFA1C218DA1DC50036DAA3 /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = A3AFA1C118DA1DC50036DAA3 /* ball.png */; };
-		A3B7EB6018DDF2550026A931 /* tileset.png in Resources */ = {isa = PBXBuildFile; fileRef = A3B7EB5F18DDF2550026A931 /* tileset.png */; };
 		A3D7547618EE1B14007EC53C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A3D7547518EE1B14007EC53C /* README.md */; };
 		A3DFD9D018ECBBF8004412EE /* TileMapParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A3DFD9CF18ECBBF8004412EE /* TileMapParser.m */; };
 		A3DFD9D918EDB70F004412EE /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = A3DFD9D818EDB70F004412EE /* Constants.m */; };
@@ -108,7 +106,6 @@
 		A314CFDF18B6A00600B34555 /* LGPhysicalSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGPhysicalSystem.m; sourceTree = "<group>"; };
 		A31C3C7918C637EA00021A50 /* LGSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGSprite.h; sourceTree = "<group>"; };
 		A31C3C7A18C637EA00021A50 /* LGSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGSprite.m; sourceTree = "<group>"; };
-		A31C3C7D18C6399B00021A50 /* Player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Player.png; sourceTree = "<group>"; };
 		A3231FD218E3130900AA6950 /* level1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = level1.plist; sourceTree = "<group>"; };
 		A3231FD418E315F500AA6950 /* LGTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGTile.h; sourceTree = "<group>"; };
 		A3231FD518E315F500AA6950 /* LGTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGTile.m; sourceTree = "<group>"; };
@@ -162,7 +159,6 @@
 		A3A59CC418B8070300E456EE /* LGTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGTransform.h; sourceTree = "<group>"; };
 		A3A59CC518B8070300E456EE /* LGTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGTransform.m; sourceTree = "<group>"; };
 		A3AFA1C118DA1DC50036DAA3 /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
-		A3B7EB5F18DDF2550026A931 /* tileset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tileset.png; sourceTree = "<group>"; };
 		A3D7547518EE1B14007EC53C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		A3DFD9CE18ECBBF8004412EE /* TileMapParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileMapParser.h; sourceTree = "<group>"; };
 		A3DFD9CF18ECBBF8004412EE /* TileMapParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileMapParser.m; sourceTree = "<group>"; };
@@ -269,9 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				A3231FD218E3130900AA6950 /* level1.plist */,
-				A3B7EB5F18DDF2550026A931 /* tileset.png */,
 				A3AFA1C118DA1DC50036DAA3 /* ball.png */,
-				A31C3C7D18C6399B00021A50 /* Player.png */,
 				A35A8B8A18C8063B000349A7 /* blue.png */,
 			);
 			name = Resources;
@@ -517,9 +511,7 @@
 				A35A8B8B18C8063B000349A7 /* blue.png in Resources */,
 				A3D7547618EE1B14007EC53C /* README.md in Resources */,
 				A3AFA1C218DA1DC50036DAA3 /* ball.png in Resources */,
-				A3B7EB6018DDF2550026A931 /* tileset.png in Resources */,
 				A37F40BC18C524E100C58298 /* notes.md in Resources */,
-				A31C3C7E18C6399B00021A50 /* Player.png in Resources */,
 				A3DFD9DB18EDFEE0004412EE /* LICENSE in Resources */,
 				A3367D2118B3E621005475B7 /* Images.xcassets in Resources */,
 				A3231FD318E3130900AA6950 /* level1.plist in Resources */,
