@@ -7,17 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A30B688C18B541E800871175 /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = A30B688B18B541E800871175 /* MainScene.m */; };
-		A30B689118B546A500871175 /* LGComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = A30B689018B546A500871175 /* LGComponent.m */; };
-		A30B689518B546BC00871175 /* LGRender.m in Sources */ = {isa = PBXBuildFile; fileRef = A30B689418B546BC00871175 /* LGRender.m */; };
-		A30B689E18B555EC00871175 /* LGPhysics.m in Sources */ = {isa = PBXBuildFile; fileRef = A30B689D18B555EC00871175 /* LGPhysics.m */; };
-		A314CFD318B6826000B34555 /* LGSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A314CFD218B6826000B34555 /* LGSystem.m */; };
-		A314CFD918B699D300B34555 /* LGSpriteRenderingSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A314CFD818B699D300B34555 /* LGSpriteRenderingSystem.m */; };
-		A314CFE018B6A00600B34555 /* LGPhysicalSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A314CFDF18B6A00600B34555 /* LGPhysicalSystem.m */; };
-		A31C3C7B18C637EA00021A50 /* LGSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = A31C3C7A18C637EA00021A50 /* LGSprite.m */; };
-		A3231FD318E3130900AA6950 /* level1.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3231FD218E3130900AA6950 /* level1.plist */; };
-		A3231FD618E315F500AA6950 /* LGTile.m in Sources */ = {isa = PBXBuildFile; fileRef = A3231FD518E315F500AA6950 /* LGTile.m */; };
-		A329E6B418E5FFBE00B18BAA /* LGTileCollider.m in Sources */ = {isa = PBXBuildFile; fileRef = A329E6B318E5FFBE00B18BAA /* LGTileCollider.m */; };
+		A319EF6718EEEE070058E0E3 /* LGTileLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF3818EEEE070058E0E3 /* LGTileLayer.m */; };
+		A319EF6818EEEE070058E0E3 /* LGCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF3B18EEEE070058E0E3 /* LGCamera.m */; };
+		A319EF6918EEEE070058E0E3 /* LGCollider.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF3D18EEEE070058E0E3 /* LGCollider.m */; };
+		A319EF6A18EEEE070058E0E3 /* LGTileCollider.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4018EEEE070058E0E3 /* LGTileCollider.m */; };
+		A319EF6B18EEEE070058E0E3 /* LGPhysics.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4218EEEE070058E0E3 /* LGPhysics.m */; };
+		A319EF6C18EEEE070058E0E3 /* LGPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4418EEEE070058E0E3 /* LGPlayer.m */; };
+		A319EF6D18EEEE070058E0E3 /* LGRender.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4618EEEE070058E0E3 /* LGRender.m */; };
+		A319EF6E18EEEE070058E0E3 /* LGSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4818EEEE070058E0E3 /* LGSprite.m */; };
+		A319EF6F18EEEE070058E0E3 /* LGTile.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4A18EEEE070058E0E3 /* LGTile.m */; };
+		A319EF7018EEEE070058E0E3 /* LGTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4C18EEEE070058E0E3 /* LGTransform.m */; };
+		A319EF7118EEEE070058E0E3 /* LGCameraSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4F18EEEE070058E0E3 /* LGCameraSystem.m */; };
+		A319EF7218EEEE070058E0E3 /* LGCollisionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF5118EEEE070058E0E3 /* LGCollisionSystem.m */; };
+		A319EF7318EEEE070058E0E3 /* LGPhysicalSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF5318EEEE070058E0E3 /* LGPhysicalSystem.m */; };
+		A319EF7418EEEE070058E0E3 /* LGPlayerInputSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF5518EEEE070058E0E3 /* LGPlayerInputSystem.m */; };
+		A319EF7518EEEE070058E0E3 /* LGSpriteRenderingSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF5818EEEE070058E0E3 /* LGSpriteRenderingSystem.m */; };
+		A319EF7618EEEE070058E0E3 /* LGRenderingSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF5A18EEEE070058E0E3 /* LGRenderingSystem.m */; };
+		A319EF7718EEEE070058E0E3 /* LGTileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF5C18EEEE070058E0E3 /* LGTileSystem.m */; };
+		A319EF7818EEEE070058E0E3 /* LGComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF5E18EEEE070058E0E3 /* LGComponent.m */; };
+		A319EF7918EEEE070058E0E3 /* LGEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF6018EEEE070058E0E3 /* LGEngine.m */; };
+		A319EF7A18EEEE070058E0E3 /* LGEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF6218EEEE070058E0E3 /* LGEntity.m */; };
+		A319EF7B18EEEE070058E0E3 /* LGScene.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF6418EEEE070058E0E3 /* LGScene.m */; };
+		A319EF7C18EEEE070058E0E3 /* LGSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF6618EEEE070058E0E3 /* LGSystem.m */; };
+		A319EF8B18EEEE8E0058E0E3 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF7F18EEEE8E0058E0E3 /* Constants.m */; };
+		A319EF8C18EEEE8E0058E0E3 /* EntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF8118EEEE8E0058E0E3 /* EntityFactory.m */; };
+		A319EF8D18EEEE8E0058E0E3 /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = A319EF8318EEEE8E0058E0E3 /* ball.png */; };
+		A319EF8E18EEEE8E0058E0E3 /* blue.png in Resources */ = {isa = PBXBuildFile; fileRef = A319EF8418EEEE8E0058E0E3 /* blue.png */; };
+		A319EF8F18EEEE8E0058E0E3 /* level1.plist in Resources */ = {isa = PBXBuildFile; fileRef = A319EF8518EEEE8E0058E0E3 /* level1.plist */; };
+		A319EF9018EEEE8E0058E0E3 /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF8818EEEE8E0058E0E3 /* MainScene.m */; };
+		A319EF9118EEEE8E0058E0E3 /* TileMapParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF8A18EEEE8E0058E0E3 /* TileMapParser.m */; };
 		A3367D0A18B3E620005475B7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3367D0918B3E620005475B7 /* Foundation.framework */; };
 		A3367D0C18B3E620005475B7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3367D0B18B3E620005475B7 /* CoreGraphics.framework */; };
 		A3367D0E18B3E620005475B7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3367D0D18B3E620005475B7 /* UIKit.framework */; };
@@ -34,37 +52,13 @@
 		A3367D3318B3E621005475B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3367D3118B3E621005475B7 /* InfoPlist.strings */; };
 		A3367D3518B3E621005475B7 /* EngineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3367D3418B3E621005475B7 /* EngineTests.m */; };
 		A3367D4018B3E662005475B7 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3367D3F18B3E662005475B7 /* MainViewController.m */; };
-		A3367D4318B3E730005475B7 /* LGEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = A3367D4218B3E730005475B7 /* LGEngine.m */; };
-		A3367D4718B3E757005475B7 /* LGScene.m in Sources */ = {isa = PBXBuildFile; fileRef = A3367D4618B3E757005475B7 /* LGScene.m */; };
-		A35A8B8918C80418000349A7 /* LGPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A35A8B8818C80418000349A7 /* LGPlayer.m */; };
-		A35A8B8B18C8063B000349A7 /* blue.png in Resources */ = {isa = PBXBuildFile; fileRef = A35A8B8A18C8063B000349A7 /* blue.png */; };
-		A35A8B8E18C80756000349A7 /* LGPlayerInputSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A35A8B8D18C80756000349A7 /* LGPlayerInputSystem.m */; };
-		A37F40B418C503BA00C58298 /* LGCollider.m in Sources */ = {isa = PBXBuildFile; fileRef = A37F40B318C503BA00C58298 /* LGCollider.m */; };
-		A37F40B718C5070A00C58298 /* EntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A37F40B618C5070A00C58298 /* EntityFactory.m */; };
-		A37F40BA18C50A6400C58298 /* LGCollisionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A37F40B918C50A6400C58298 /* LGCollisionSystem.m */; };
 		A37F40BC18C524E100C58298 /* notes.md in Resources */ = {isa = PBXBuildFile; fileRef = A37F40BB18C524E100C58298 /* notes.md */; };
 		A38069D818B56A7100486D21 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3367D0918B3E620005475B7 /* Foundation.framework */; };
-		A38069F918B56AA700486D21 /* LGComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = A30B689018B546A500871175 /* LGComponent.m */; };
-		A38069FA18B56AA700486D21 /* LGRender.m in Sources */ = {isa = PBXBuildFile; fileRef = A30B689418B546BC00871175 /* LGRender.m */; };
-		A38069FB18B56AA700486D21 /* LGPhysics.m in Sources */ = {isa = PBXBuildFile; fileRef = A30B689D18B555EC00871175 /* LGPhysics.m */; };
-		A38069FC18B56AA700486D21 /* LGEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = A3367D4218B3E730005475B7 /* LGEngine.m */; };
-		A38069FD18B56AA700486D21 /* LGEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = A394F6D118B44CBC00387E9C /* LGEntity.m */; };
-		A38069FE18B56AA700486D21 /* LGScene.m in Sources */ = {isa = PBXBuildFile; fileRef = A3367D4618B3E757005475B7 /* LGScene.m */; };
 		A38069FF18B56ACD00486D21 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3367D0B18B3E620005475B7 /* CoreGraphics.framework */; };
 		A3806A0018B56AD200486D21 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3367D0F18B3E620005475B7 /* CoreData.framework */; };
 		A3806A0118B56AD500486D21 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3367D0D18B3E620005475B7 /* UIKit.framework */; };
-		A394F6D218B44CBC00387E9C /* LGEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = A394F6D118B44CBC00387E9C /* LGEntity.m */; };
-		A398C53C18E35FF5000DDEA5 /* LGRenderingSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A398C53B18E35FF5000DDEA5 /* LGRenderingSystem.m */; };
-		A398C54118E3A70F000DDEA5 /* LGTileLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A398C54018E3A70F000DDEA5 /* LGTileLayer.m */; };
-		A39F6CEC18CE520000936EE9 /* LGTileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A39F6CEB18CE520000936EE9 /* LGTileSystem.m */; };
-		A3A59CC618B8070300E456EE /* LGTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A59CC518B8070300E456EE /* LGTransform.m */; };
-		A3AFA1C218DA1DC50036DAA3 /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = A3AFA1C118DA1DC50036DAA3 /* ball.png */; };
 		A3D7547618EE1B14007EC53C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A3D7547518EE1B14007EC53C /* README.md */; };
-		A3DFD9D018ECBBF8004412EE /* TileMapParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A3DFD9CF18ECBBF8004412EE /* TileMapParser.m */; };
-		A3DFD9D918EDB70F004412EE /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = A3DFD9D818EDB70F004412EE /* Constants.m */; };
 		A3DFD9DB18EDFEE0004412EE /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = A3DFD9DA18EDFEE0004412EE /* LICENSE */; };
-		A3ED1C7418D20CC300784F41 /* LGCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = A3ED1C7318D20CC300784F41 /* LGCamera.m */; };
-		A3ED1C7718D20D1900784F41 /* LGCameraSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A3ED1C7618D20D1900784F41 /* LGCameraSystem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,27 +84,61 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A30B688A18B541E800871175 /* MainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScene.h; sourceTree = "<group>"; };
-		A30B688B18B541E800871175 /* MainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScene.m; sourceTree = "<group>"; };
-		A30B688F18B546A500871175 /* LGComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGComponent.h; sourceTree = "<group>"; };
-		A30B689018B546A500871175 /* LGComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGComponent.m; sourceTree = "<group>"; };
-		A30B689318B546BC00871175 /* LGRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGRender.h; sourceTree = "<group>"; };
-		A30B689418B546BC00871175 /* LGRender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGRender.m; sourceTree = "<group>"; };
-		A30B689C18B555EC00871175 /* LGPhysics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGPhysics.h; sourceTree = "<group>"; };
-		A30B689D18B555EC00871175 /* LGPhysics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGPhysics.m; sourceTree = "<group>"; };
-		A314CFD118B6826000B34555 /* LGSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGSystem.h; sourceTree = "<group>"; };
-		A314CFD218B6826000B34555 /* LGSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGSystem.m; sourceTree = "<group>"; };
-		A314CFD718B699D300B34555 /* LGSpriteRenderingSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGSpriteRenderingSystem.h; sourceTree = "<group>"; };
-		A314CFD818B699D300B34555 /* LGSpriteRenderingSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGSpriteRenderingSystem.m; sourceTree = "<group>"; };
-		A314CFDE18B6A00600B34555 /* LGPhysicalSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGPhysicalSystem.h; sourceTree = "<group>"; };
-		A314CFDF18B6A00600B34555 /* LGPhysicalSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGPhysicalSystem.m; sourceTree = "<group>"; };
-		A31C3C7918C637EA00021A50 /* LGSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGSprite.h; sourceTree = "<group>"; };
-		A31C3C7A18C637EA00021A50 /* LGSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGSprite.m; sourceTree = "<group>"; };
-		A3231FD218E3130900AA6950 /* level1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = level1.plist; sourceTree = "<group>"; };
-		A3231FD418E315F500AA6950 /* LGTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGTile.h; sourceTree = "<group>"; };
-		A3231FD518E315F500AA6950 /* LGTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGTile.m; sourceTree = "<group>"; };
-		A329E6B218E5FFBE00B18BAA /* LGTileCollider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGTileCollider.h; sourceTree = "<group>"; };
-		A329E6B318E5FFBE00B18BAA /* LGTileCollider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGTileCollider.m; sourceTree = "<group>"; };
+		A319EF3718EEEE070058E0E3 /* LGTileLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGTileLayer.h; sourceTree = "<group>"; };
+		A319EF3818EEEE070058E0E3 /* LGTileLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGTileLayer.m; sourceTree = "<group>"; };
+		A319EF3A18EEEE070058E0E3 /* LGCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGCamera.h; sourceTree = "<group>"; };
+		A319EF3B18EEEE070058E0E3 /* LGCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGCamera.m; sourceTree = "<group>"; };
+		A319EF3C18EEEE070058E0E3 /* LGCollider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGCollider.h; sourceTree = "<group>"; };
+		A319EF3D18EEEE070058E0E3 /* LGCollider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGCollider.m; sourceTree = "<group>"; };
+		A319EF3F18EEEE070058E0E3 /* LGTileCollider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGTileCollider.h; sourceTree = "<group>"; };
+		A319EF4018EEEE070058E0E3 /* LGTileCollider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGTileCollider.m; sourceTree = "<group>"; };
+		A319EF4118EEEE070058E0E3 /* LGPhysics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGPhysics.h; sourceTree = "<group>"; };
+		A319EF4218EEEE070058E0E3 /* LGPhysics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGPhysics.m; sourceTree = "<group>"; };
+		A319EF4318EEEE070058E0E3 /* LGPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGPlayer.h; sourceTree = "<group>"; };
+		A319EF4418EEEE070058E0E3 /* LGPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGPlayer.m; sourceTree = "<group>"; };
+		A319EF4518EEEE070058E0E3 /* LGRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGRender.h; sourceTree = "<group>"; };
+		A319EF4618EEEE070058E0E3 /* LGRender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGRender.m; sourceTree = "<group>"; };
+		A319EF4718EEEE070058E0E3 /* LGSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGSprite.h; sourceTree = "<group>"; };
+		A319EF4818EEEE070058E0E3 /* LGSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGSprite.m; sourceTree = "<group>"; };
+		A319EF4918EEEE070058E0E3 /* LGTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGTile.h; sourceTree = "<group>"; };
+		A319EF4A18EEEE070058E0E3 /* LGTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGTile.m; sourceTree = "<group>"; };
+		A319EF4B18EEEE070058E0E3 /* LGTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGTransform.h; sourceTree = "<group>"; };
+		A319EF4C18EEEE070058E0E3 /* LGTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGTransform.m; sourceTree = "<group>"; };
+		A319EF4E18EEEE070058E0E3 /* LGCameraSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGCameraSystem.h; sourceTree = "<group>"; };
+		A319EF4F18EEEE070058E0E3 /* LGCameraSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGCameraSystem.m; sourceTree = "<group>"; };
+		A319EF5018EEEE070058E0E3 /* LGCollisionSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGCollisionSystem.h; sourceTree = "<group>"; };
+		A319EF5118EEEE070058E0E3 /* LGCollisionSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGCollisionSystem.m; sourceTree = "<group>"; };
+		A319EF5218EEEE070058E0E3 /* LGPhysicalSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGPhysicalSystem.h; sourceTree = "<group>"; };
+		A319EF5318EEEE070058E0E3 /* LGPhysicalSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGPhysicalSystem.m; sourceTree = "<group>"; };
+		A319EF5418EEEE070058E0E3 /* LGPlayerInputSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGPlayerInputSystem.h; sourceTree = "<group>"; };
+		A319EF5518EEEE070058E0E3 /* LGPlayerInputSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGPlayerInputSystem.m; sourceTree = "<group>"; };
+		A319EF5718EEEE070058E0E3 /* LGSpriteRenderingSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGSpriteRenderingSystem.h; sourceTree = "<group>"; };
+		A319EF5818EEEE070058E0E3 /* LGSpriteRenderingSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGSpriteRenderingSystem.m; sourceTree = "<group>"; };
+		A319EF5918EEEE070058E0E3 /* LGRenderingSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGRenderingSystem.h; sourceTree = "<group>"; };
+		A319EF5A18EEEE070058E0E3 /* LGRenderingSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGRenderingSystem.m; sourceTree = "<group>"; };
+		A319EF5B18EEEE070058E0E3 /* LGTileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGTileSystem.h; sourceTree = "<group>"; };
+		A319EF5C18EEEE070058E0E3 /* LGTileSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGTileSystem.m; sourceTree = "<group>"; };
+		A319EF5D18EEEE070058E0E3 /* LGComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGComponent.h; sourceTree = "<group>"; };
+		A319EF5E18EEEE070058E0E3 /* LGComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGComponent.m; sourceTree = "<group>"; };
+		A319EF5F18EEEE070058E0E3 /* LGEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGEngine.h; sourceTree = "<group>"; };
+		A319EF6018EEEE070058E0E3 /* LGEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGEngine.m; sourceTree = "<group>"; };
+		A319EF6118EEEE070058E0E3 /* LGEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGEntity.h; sourceTree = "<group>"; };
+		A319EF6218EEEE070058E0E3 /* LGEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGEntity.m; sourceTree = "<group>"; };
+		A319EF6318EEEE070058E0E3 /* LGScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGScene.h; sourceTree = "<group>"; };
+		A319EF6418EEEE070058E0E3 /* LGScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGScene.m; sourceTree = "<group>"; };
+		A319EF6518EEEE070058E0E3 /* LGSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGSystem.h; sourceTree = "<group>"; };
+		A319EF6618EEEE070058E0E3 /* LGSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGSystem.m; sourceTree = "<group>"; };
+		A319EF7E18EEEE8E0058E0E3 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		A319EF7F18EEEE8E0058E0E3 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		A319EF8018EEEE8E0058E0E3 /* EntityFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityFactory.h; sourceTree = "<group>"; };
+		A319EF8118EEEE8E0058E0E3 /* EntityFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityFactory.m; sourceTree = "<group>"; };
+		A319EF8318EEEE8E0058E0E3 /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
+		A319EF8418EEEE8E0058E0E3 /* blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue.png; sourceTree = "<group>"; };
+		A319EF8518EEEE8E0058E0E3 /* level1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = level1.plist; sourceTree = "<group>"; };
+		A319EF8718EEEE8E0058E0E3 /* MainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScene.h; sourceTree = "<group>"; };
+		A319EF8818EEEE8E0058E0E3 /* MainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScene.m; sourceTree = "<group>"; };
+		A319EF8918EEEE8E0058E0E3 /* TileMapParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileMapParser.h; sourceTree = "<group>"; };
+		A319EF8A18EEEE8E0058E0E3 /* TileMapParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileMapParser.m; sourceTree = "<group>"; };
 		A3367D0618B3E620005475B7 /* Engine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Engine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3367D0918B3E620005475B7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A3367D0B18B3E620005475B7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -131,44 +159,10 @@
 		A3367D3418B3E621005475B7 /* EngineTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EngineTests.m; sourceTree = "<group>"; };
 		A3367D3E18B3E662005475B7 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		A3367D3F18B3E662005475B7 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		A3367D4118B3E730005475B7 /* LGEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGEngine.h; sourceTree = "<group>"; };
-		A3367D4218B3E730005475B7 /* LGEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGEngine.m; sourceTree = "<group>"; };
-		A3367D4518B3E757005475B7 /* LGScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGScene.h; sourceTree = "<group>"; };
-		A3367D4618B3E757005475B7 /* LGScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGScene.m; sourceTree = "<group>"; };
-		A35A8B8718C80418000349A7 /* LGPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGPlayer.h; sourceTree = "<group>"; };
-		A35A8B8818C80418000349A7 /* LGPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGPlayer.m; sourceTree = "<group>"; };
-		A35A8B8A18C8063B000349A7 /* blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue.png; sourceTree = "<group>"; };
-		A35A8B8C18C80756000349A7 /* LGPlayerInputSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGPlayerInputSystem.h; sourceTree = "<group>"; };
-		A35A8B8D18C80756000349A7 /* LGPlayerInputSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGPlayerInputSystem.m; sourceTree = "<group>"; };
-		A37F40B218C503BA00C58298 /* LGCollider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGCollider.h; sourceTree = "<group>"; };
-		A37F40B318C503BA00C58298 /* LGCollider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGCollider.m; sourceTree = "<group>"; };
-		A37F40B518C5070A00C58298 /* EntityFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityFactory.h; sourceTree = "<group>"; };
-		A37F40B618C5070A00C58298 /* EntityFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityFactory.m; sourceTree = "<group>"; };
-		A37F40B818C50A6400C58298 /* LGCollisionSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGCollisionSystem.h; sourceTree = "<group>"; };
-		A37F40B918C50A6400C58298 /* LGCollisionSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGCollisionSystem.m; sourceTree = "<group>"; };
 		A37F40BB18C524E100C58298 /* notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = notes.md; path = Engine/notes.md; sourceTree = "<group>"; };
 		A38069D718B56A7100486D21 /* libLGEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLGEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		A394F6D018B44CBC00387E9C /* LGEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGEntity.h; sourceTree = "<group>"; };
-		A394F6D118B44CBC00387E9C /* LGEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGEntity.m; sourceTree = "<group>"; };
-		A398C53A18E35FF5000DDEA5 /* LGRenderingSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGRenderingSystem.h; sourceTree = "<group>"; };
-		A398C53B18E35FF5000DDEA5 /* LGRenderingSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGRenderingSystem.m; sourceTree = "<group>"; };
-		A398C53F18E3A70F000DDEA5 /* LGTileLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGTileLayer.h; sourceTree = "<group>"; };
-		A398C54018E3A70F000DDEA5 /* LGTileLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGTileLayer.m; sourceTree = "<group>"; };
-		A39F6CEA18CE520000936EE9 /* LGTileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGTileSystem.h; sourceTree = "<group>"; };
-		A39F6CEB18CE520000936EE9 /* LGTileSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGTileSystem.m; sourceTree = "<group>"; };
-		A3A59CC418B8070300E456EE /* LGTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGTransform.h; sourceTree = "<group>"; };
-		A3A59CC518B8070300E456EE /* LGTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGTransform.m; sourceTree = "<group>"; };
-		A3AFA1C118DA1DC50036DAA3 /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
 		A3D7547518EE1B14007EC53C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		A3DFD9CE18ECBBF8004412EE /* TileMapParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileMapParser.h; sourceTree = "<group>"; };
-		A3DFD9CF18ECBBF8004412EE /* TileMapParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileMapParser.m; sourceTree = "<group>"; };
-		A3DFD9D718EDB70F004412EE /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		A3DFD9D818EDB70F004412EE /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		A3DFD9DA18EDFEE0004412EE /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		A3ED1C7218D20CC300784F41 /* LGCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGCamera.h; sourceTree = "<group>"; };
-		A3ED1C7318D20CC300784F41 /* LGCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGCamera.m; sourceTree = "<group>"; };
-		A3ED1C7518D20D1900784F41 /* LGCameraSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGCameraSystem.h; sourceTree = "<group>"; };
-		A3ED1C7618D20D1900784F41 /* LGCameraSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGCameraSystem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,67 +202,129 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A30B688D18B541F000871175 /* Scenes */ = {
+		A319EF3518EEEE070058E0E3 /* Engine */ = {
 			isa = PBXGroup;
 			children = (
-				A30B688A18B541E800871175 /* MainScene.h */,
-				A30B688B18B541E800871175 /* MainScene.m */,
+				A319EF3618EEEE070058E0E3 /* Core Classes */,
+				A319EF3918EEEE070058E0E3 /* Core Components */,
+				A319EF4D18EEEE070058E0E3 /* Core Systems */,
+				A319EF5D18EEEE070058E0E3 /* LGComponent.h */,
+				A319EF5E18EEEE070058E0E3 /* LGComponent.m */,
+				A319EF5F18EEEE070058E0E3 /* LGEngine.h */,
+				A319EF6018EEEE070058E0E3 /* LGEngine.m */,
+				A319EF6118EEEE070058E0E3 /* LGEntity.h */,
+				A319EF6218EEEE070058E0E3 /* LGEntity.m */,
+				A319EF6318EEEE070058E0E3 /* LGScene.h */,
+				A319EF6418EEEE070058E0E3 /* LGScene.m */,
+				A319EF6518EEEE070058E0E3 /* LGSystem.h */,
+				A319EF6618EEEE070058E0E3 /* LGSystem.m */,
 			);
-			name = Scenes;
+			path = Engine;
 			sourceTree = "<group>";
 		};
-		A30B689218B546AA00871175 /* Core Components */ = {
+		A319EF3618EEEE070058E0E3 /* Core Classes */ = {
 			isa = PBXGroup;
 			children = (
-				A3ED1C7218D20CC300784F41 /* LGCamera.h */,
-				A3ED1C7318D20CC300784F41 /* LGCamera.m */,
-				A37F40B218C503BA00C58298 /* LGCollider.h */,
-				A37F40B318C503BA00C58298 /* LGCollider.m */,
-				A3B7EB5718DA6DBE0026A931 /* LGCollider Subclasses */,
-				A30B689C18B555EC00871175 /* LGPhysics.h */,
-				A30B689D18B555EC00871175 /* LGPhysics.m */,
-				A35A8B8718C80418000349A7 /* LGPlayer.h */,
-				A35A8B8818C80418000349A7 /* LGPlayer.m */,
-				A30B689318B546BC00871175 /* LGRender.h */,
-				A30B689418B546BC00871175 /* LGRender.m */,
-				A31C3C7918C637EA00021A50 /* LGSprite.h */,
-				A31C3C7A18C637EA00021A50 /* LGSprite.m */,
-				A3A59CC418B8070300E456EE /* LGTransform.h */,
-				A3A59CC518B8070300E456EE /* LGTransform.m */,
-				A3231FD418E315F500AA6950 /* LGTile.h */,
-				A3231FD518E315F500AA6950 /* LGTile.m */,
+				A319EF3718EEEE070058E0E3 /* LGTileLayer.h */,
+				A319EF3818EEEE070058E0E3 /* LGTileLayer.m */,
 			);
-			name = "Core Components";
+			path = "Core Classes";
 			sourceTree = "<group>";
 		};
-		A314CFDA18B699D600B34555 /* Core Systems */ = {
+		A319EF3918EEEE070058E0E3 /* Core Components */ = {
 			isa = PBXGroup;
 			children = (
-				A37F40B818C50A6400C58298 /* LGCollisionSystem.h */,
-				A37F40B918C50A6400C58298 /* LGCollisionSystem.m */,
-				A3ED1C7518D20D1900784F41 /* LGCameraSystem.h */,
-				A3ED1C7618D20D1900784F41 /* LGCameraSystem.m */,
-				A314CFDE18B6A00600B34555 /* LGPhysicalSystem.h */,
-				A314CFDF18B6A00600B34555 /* LGPhysicalSystem.m */,
-				A35A8B8C18C80756000349A7 /* LGPlayerInputSystem.h */,
-				A35A8B8D18C80756000349A7 /* LGPlayerInputSystem.m */,
-				A398C53A18E35FF5000DDEA5 /* LGRenderingSystem.h */,
-				A398C53B18E35FF5000DDEA5 /* LGRenderingSystem.m */,
-				A398C53D18E3656C000DDEA5 /* LGRenderingSystem Subclasses */,
-				A39F6CEA18CE520000936EE9 /* LGTileSystem.h */,
-				A39F6CEB18CE520000936EE9 /* LGTileSystem.m */,
+				A319EF3A18EEEE070058E0E3 /* LGCamera.h */,
+				A319EF3B18EEEE070058E0E3 /* LGCamera.m */,
+				A319EF3C18EEEE070058E0E3 /* LGCollider.h */,
+				A319EF3D18EEEE070058E0E3 /* LGCollider.m */,
+				A319EF3E18EEEE070058E0E3 /* LGColliderSubclasses */,
+				A319EF4118EEEE070058E0E3 /* LGPhysics.h */,
+				A319EF4218EEEE070058E0E3 /* LGPhysics.m */,
+				A319EF4318EEEE070058E0E3 /* LGPlayer.h */,
+				A319EF4418EEEE070058E0E3 /* LGPlayer.m */,
+				A319EF4518EEEE070058E0E3 /* LGRender.h */,
+				A319EF4618EEEE070058E0E3 /* LGRender.m */,
+				A319EF4718EEEE070058E0E3 /* LGSprite.h */,
+				A319EF4818EEEE070058E0E3 /* LGSprite.m */,
+				A319EF4918EEEE070058E0E3 /* LGTile.h */,
+				A319EF4A18EEEE070058E0E3 /* LGTile.m */,
+				A319EF4B18EEEE070058E0E3 /* LGTransform.h */,
+				A319EF4C18EEEE070058E0E3 /* LGTransform.m */,
 			);
-			name = "Core Systems";
+			path = "Core Components";
 			sourceTree = "<group>";
 		};
-		A31C3C7C18C6398B00021A50 /* Resources */ = {
+		A319EF3E18EEEE070058E0E3 /* LGColliderSubclasses */ = {
 			isa = PBXGroup;
 			children = (
-				A3231FD218E3130900AA6950 /* level1.plist */,
-				A3AFA1C118DA1DC50036DAA3 /* ball.png */,
-				A35A8B8A18C8063B000349A7 /* blue.png */,
+				A319EF3F18EEEE070058E0E3 /* LGTileCollider.h */,
+				A319EF4018EEEE070058E0E3 /* LGTileCollider.m */,
 			);
-			name = Resources;
+			path = LGColliderSubclasses;
+			sourceTree = "<group>";
+		};
+		A319EF4D18EEEE070058E0E3 /* Core Systems */ = {
+			isa = PBXGroup;
+			children = (
+				A319EF4E18EEEE070058E0E3 /* LGCameraSystem.h */,
+				A319EF4F18EEEE070058E0E3 /* LGCameraSystem.m */,
+				A319EF5018EEEE070058E0E3 /* LGCollisionSystem.h */,
+				A319EF5118EEEE070058E0E3 /* LGCollisionSystem.m */,
+				A319EF5218EEEE070058E0E3 /* LGPhysicalSystem.h */,
+				A319EF5318EEEE070058E0E3 /* LGPhysicalSystem.m */,
+				A319EF5418EEEE070058E0E3 /* LGPlayerInputSystem.h */,
+				A319EF5518EEEE070058E0E3 /* LGPlayerInputSystem.m */,
+				A319EF5618EEEE070058E0E3 /* LGRenderingSystem Subclasses */,
+				A319EF5918EEEE070058E0E3 /* LGRenderingSystem.h */,
+				A319EF5A18EEEE070058E0E3 /* LGRenderingSystem.m */,
+				A319EF5B18EEEE070058E0E3 /* LGTileSystem.h */,
+				A319EF5C18EEEE070058E0E3 /* LGTileSystem.m */,
+			);
+			path = "Core Systems";
+			sourceTree = "<group>";
+		};
+		A319EF5618EEEE070058E0E3 /* LGRenderingSystem Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				A319EF5718EEEE070058E0E3 /* LGSpriteRenderingSystem.h */,
+				A319EF5818EEEE070058E0E3 /* LGSpriteRenderingSystem.m */,
+			);
+			path = "LGRenderingSystem Subclasses";
+			sourceTree = "<group>";
+		};
+		A319EF7D18EEEE8E0058E0E3 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				A319EF7E18EEEE8E0058E0E3 /* Constants.h */,
+				A319EF7F18EEEE8E0058E0E3 /* Constants.m */,
+				A319EF8018EEEE8E0058E0E3 /* EntityFactory.h */,
+				A319EF8118EEEE8E0058E0E3 /* EntityFactory.m */,
+				A319EF8218EEEE8E0058E0E3 /* Resources */,
+				A319EF8618EEEE8E0058E0E3 /* Scenes */,
+				A319EF8918EEEE8E0058E0E3 /* TileMapParser.h */,
+				A319EF8A18EEEE8E0058E0E3 /* TileMapParser.m */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		A319EF8218EEEE8E0058E0E3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A319EF8318EEEE8E0058E0E3 /* ball.png */,
+				A319EF8418EEEE8E0058E0E3 /* blue.png */,
+				A319EF8518EEEE8E0058E0E3 /* level1.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A319EF8618EEEE8E0058E0E3 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				A319EF8718EEEE8E0058E0E3 /* MainScene.h */,
+				A319EF8818EEEE8E0058E0E3 /* MainScene.m */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 		A3367CFD18B3E620005475B7 = {
@@ -309,8 +365,8 @@
 		A3367D1118B3E620005475B7 /* Engine */ = {
 			isa = PBXGroup;
 			children = (
-				A3367D4418B3E738005475B7 /* Engine */,
-				A394F6D318B44CC100387E9C /* Game */,
+				A319EF3518EEEE070058E0E3 /* Engine */,
+				A319EF7D18EEEE8E0058E0E3 /* Game */,
 				A3367D1A18B3E620005475B7 /* AppDelegate.h */,
 				A3367D1B18B3E620005475B7 /* AppDelegate.m */,
 				A3367D3E18B3E662005475B7 /* MainViewController.h */,
@@ -349,68 +405,6 @@
 				A3367D3118B3E621005475B7 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		A3367D4418B3E738005475B7 /* Engine */ = {
-			isa = PBXGroup;
-			children = (
-				A398C53E18E3A6FC000DDEA5 /* Core Classes */,
-				A30B689218B546AA00871175 /* Core Components */,
-				A314CFDA18B699D600B34555 /* Core Systems */,
-				A30B688F18B546A500871175 /* LGComponent.h */,
-				A30B689018B546A500871175 /* LGComponent.m */,
-				A3367D4118B3E730005475B7 /* LGEngine.h */,
-				A3367D4218B3E730005475B7 /* LGEngine.m */,
-				A394F6D018B44CBC00387E9C /* LGEntity.h */,
-				A394F6D118B44CBC00387E9C /* LGEntity.m */,
-				A3367D4518B3E757005475B7 /* LGScene.h */,
-				A3367D4618B3E757005475B7 /* LGScene.m */,
-				A314CFD118B6826000B34555 /* LGSystem.h */,
-				A314CFD218B6826000B34555 /* LGSystem.m */,
-			);
-			name = Engine;
-			sourceTree = "<group>";
-		};
-		A394F6D318B44CC100387E9C /* Game */ = {
-			isa = PBXGroup;
-			children = (
-				A31C3C7C18C6398B00021A50 /* Resources */,
-				A30B688D18B541F000871175 /* Scenes */,
-				A3DFD9D718EDB70F004412EE /* Constants.h */,
-				A3DFD9D818EDB70F004412EE /* Constants.m */,
-				A37F40B518C5070A00C58298 /* EntityFactory.h */,
-				A37F40B618C5070A00C58298 /* EntityFactory.m */,
-				A3DFD9CE18ECBBF8004412EE /* TileMapParser.h */,
-				A3DFD9CF18ECBBF8004412EE /* TileMapParser.m */,
-			);
-			name = Game;
-			sourceTree = "<group>";
-		};
-		A398C53D18E3656C000DDEA5 /* LGRenderingSystem Subclasses */ = {
-			isa = PBXGroup;
-			children = (
-				A314CFD718B699D300B34555 /* LGSpriteRenderingSystem.h */,
-				A314CFD818B699D300B34555 /* LGSpriteRenderingSystem.m */,
-			);
-			name = "LGRenderingSystem Subclasses";
-			sourceTree = "<group>";
-		};
-		A398C53E18E3A6FC000DDEA5 /* Core Classes */ = {
-			isa = PBXGroup;
-			children = (
-				A398C53F18E3A70F000DDEA5 /* LGTileLayer.h */,
-				A398C54018E3A70F000DDEA5 /* LGTileLayer.m */,
-			);
-			name = "Core Classes";
-			sourceTree = "<group>";
-		};
-		A3B7EB5718DA6DBE0026A931 /* LGCollider Subclasses */ = {
-			isa = PBXGroup;
-			children = (
-				A329E6B218E5FFBE00B18BAA /* LGTileCollider.h */,
-				A329E6B318E5FFBE00B18BAA /* LGTileCollider.m */,
-			);
-			name = "LGCollider Subclasses";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -508,13 +502,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3367D1618B3E620005475B7 /* InfoPlist.strings in Resources */,
-				A35A8B8B18C8063B000349A7 /* blue.png in Resources */,
 				A3D7547618EE1B14007EC53C /* README.md in Resources */,
-				A3AFA1C218DA1DC50036DAA3 /* ball.png in Resources */,
+				A319EF8D18EEEE8E0058E0E3 /* ball.png in Resources */,
 				A37F40BC18C524E100C58298 /* notes.md in Resources */,
 				A3DFD9DB18EDFEE0004412EE /* LICENSE in Resources */,
+				A319EF8E18EEEE8E0058E0E3 /* blue.png in Resources */,
 				A3367D2118B3E621005475B7 /* Images.xcassets in Resources */,
-				A3231FD318E3130900AA6950 /* level1.plist in Resources */,
+				A319EF8F18EEEE8E0058E0E3 /* level1.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,36 +543,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A31C3C7B18C637EA00021A50 /* LGSprite.m in Sources */,
-				A30B689118B546A500871175 /* LGComponent.m in Sources */,
-				A3367D4718B3E757005475B7 /* LGScene.m in Sources */,
-				A3231FD618E315F500AA6950 /* LGTile.m in Sources */,
+				A319EF7818EEEE070058E0E3 /* LGComponent.m in Sources */,
 				A3367D1C18B3E620005475B7 /* AppDelegate.m in Sources */,
-				A3DFD9D918EDB70F004412EE /* Constants.m in Sources */,
-				A398C53C18E35FF5000DDEA5 /* LGRenderingSystem.m in Sources */,
+				A319EF7918EEEE070058E0E3 /* LGEngine.m in Sources */,
+				A319EF7318EEEE070058E0E3 /* LGPhysicalSystem.m in Sources */,
+				A319EF6A18EEEE070058E0E3 /* LGTileCollider.m in Sources */,
+				A319EF6718EEEE070058E0E3 /* LGTileLayer.m in Sources */,
+				A319EF6818EEEE070058E0E3 /* LGCamera.m in Sources */,
+				A319EF9018EEEE8E0058E0E3 /* MainScene.m in Sources */,
 				A3367D1F18B3E621005475B7 /* Engine.xcdatamodeld in Sources */,
-				A3ED1C7418D20CC300784F41 /* LGCamera.m in Sources */,
-				A30B689E18B555EC00871175 /* LGPhysics.m in Sources */,
-				A398C54118E3A70F000DDEA5 /* LGTileLayer.m in Sources */,
-				A35A8B8E18C80756000349A7 /* LGPlayerInputSystem.m in Sources */,
-				A39F6CEC18CE520000936EE9 /* LGTileSystem.m in Sources */,
-				A314CFD918B699D300B34555 /* LGSpriteRenderingSystem.m in Sources */,
-				A37F40BA18C50A6400C58298 /* LGCollisionSystem.m in Sources */,
+				A319EF6B18EEEE070058E0E3 /* LGPhysics.m in Sources */,
+				A319EF7718EEEE070058E0E3 /* LGTileSystem.m in Sources */,
+				A319EF6F18EEEE070058E0E3 /* LGTile.m in Sources */,
+				A319EF7518EEEE070058E0E3 /* LGSpriteRenderingSystem.m in Sources */,
+				A319EF9118EEEE8E0058E0E3 /* TileMapParser.m in Sources */,
+				A319EF7A18EEEE070058E0E3 /* LGEntity.m in Sources */,
+				A319EF7418EEEE070058E0E3 /* LGPlayerInputSystem.m in Sources */,
+				A319EF7118EEEE070058E0E3 /* LGCameraSystem.m in Sources */,
+				A319EF7618EEEE070058E0E3 /* LGRenderingSystem.m in Sources */,
 				A3367D1818B3E620005475B7 /* main.m in Sources */,
-				A3ED1C7718D20D1900784F41 /* LGCameraSystem.m in Sources */,
-				A3A59CC618B8070300E456EE /* LGTransform.m in Sources */,
-				A37F40B418C503BA00C58298 /* LGCollider.m in Sources */,
-				A35A8B8918C80418000349A7 /* LGPlayer.m in Sources */,
-				A30B688C18B541E800871175 /* MainScene.m in Sources */,
+				A319EF7B18EEEE070058E0E3 /* LGScene.m in Sources */,
 				A3367D4018B3E662005475B7 /* MainViewController.m in Sources */,
-				A37F40B718C5070A00C58298 /* EntityFactory.m in Sources */,
-				A3DFD9D018ECBBF8004412EE /* TileMapParser.m in Sources */,
-				A394F6D218B44CBC00387E9C /* LGEntity.m in Sources */,
-				A314CFD318B6826000B34555 /* LGSystem.m in Sources */,
-				A3367D4318B3E730005475B7 /* LGEngine.m in Sources */,
-				A30B689518B546BC00871175 /* LGRender.m in Sources */,
-				A329E6B418E5FFBE00B18BAA /* LGTileCollider.m in Sources */,
-				A314CFE018B6A00600B34555 /* LGPhysicalSystem.m in Sources */,
+				A319EF6918EEEE070058E0E3 /* LGCollider.m in Sources */,
+				A319EF6C18EEEE070058E0E3 /* LGPlayer.m in Sources */,
+				A319EF7018EEEE070058E0E3 /* LGTransform.m in Sources */,
+				A319EF6D18EEEE070058E0E3 /* LGRender.m in Sources */,
+				A319EF7C18EEEE070058E0E3 /* LGSystem.m in Sources */,
+				A319EF7218EEEE070058E0E3 /* LGCollisionSystem.m in Sources */,
+				A319EF6E18EEEE070058E0E3 /* LGSprite.m in Sources */,
+				A319EF8B18EEEE8E0058E0E3 /* Constants.m in Sources */,
+				A319EF8C18EEEE8E0058E0E3 /* EntityFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -594,12 +588,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A38069FC18B56AA700486D21 /* LGEngine.m in Sources */,
-				A38069F918B56AA700486D21 /* LGComponent.m in Sources */,
-				A38069FA18B56AA700486D21 /* LGRender.m in Sources */,
-				A38069FB18B56AA700486D21 /* LGPhysics.m in Sources */,
-				A38069FD18B56AA700486D21 /* LGEntity.m in Sources */,
-				A38069FE18B56AA700486D21 /* LGScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
