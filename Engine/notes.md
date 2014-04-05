@@ -8,9 +8,11 @@ Notes, Quirks, and Todos
 * Components can't be added/removed from entities after they've been added to the scene because their entities won't be added to the appropriate systems.
 * Transformable entities appear at (0, 0) on the first frame.
 * Sprite logic is in the component instead of in the system.
-* Tile layer generation manipulates the [UIView frame] of each sprite directly rather than leaving that to the renderer.
+* Collision chaining causes a massive amount of unnecessary collision checks.
 
 # Todo
 
 * Allow for multiple components of one type on a single object (colliders, renderables) -- use a dictionary of arrays.
 	* Fixes "Entities expect exactly one component of each type."
+* Add spatial partitioning.
+	* Fixes "Collision chaining causes a massive amount of unnecessary collision checks."

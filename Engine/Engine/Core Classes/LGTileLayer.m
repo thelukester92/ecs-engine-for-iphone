@@ -11,6 +11,7 @@
 #import "LGSprite.h"
 #import "LGEntity.h"
 #import "LGTransform.h"
+#import "LGTile.h"
 
 @implementation LGTileLayer
 
@@ -43,7 +44,7 @@
 			[[spriteEntities objectAtIndex:i] addObject:entity];
 			
 			// Swap out its texture
-			[sprite setPosition:[[self tileAtRow:tileY andCol:tileX] intValue]];
+			[sprite setPosition:[[self tileAtRow:tileY andCol:tileX] position]];
 			
 			// Adjust its position
 			[transform setPositionX:tileX * [[parent sprite] size].width];
@@ -82,7 +83,7 @@
 			[[spriteEntities objectAtIndex:i] insertObject:entity atIndex:0];
 			
 			// Swap out its texture
-			[sprite setPosition:[[self tileAtRow:tileY andCol:tileX] intValue]];
+			[sprite setPosition:[[self tileAtRow:tileY andCol:tileX] position]];
 			
 			// Adjust its position
 			[transform setPositionX:tileX * [[parent sprite] size].width];
@@ -125,7 +126,7 @@
 			LGTransform *transform	= [entity componentOfType:[LGTransform type]];
 			
 			// Swap out its texture
-			[sprite setPosition:[[self tileAtRow:tileY andCol:tileX] intValue]];
+			[sprite setPosition:[[self tileAtRow:tileY andCol:tileX] position]];
 			
 			// Adjust its position
 			[transform setPositionY:tileY * [[parent sprite] size].height];
@@ -168,7 +169,7 @@
 			LGTransform *transform	= [entity componentOfType:[LGTransform type]];
 			
 			// Swap out its texture
-			[sprite setPosition:[[self tileAtRow:tileY andCol:tileX] intValue]];
+			[sprite setPosition:[[self tileAtRow:tileY andCol:tileX] position]];
 			
 			// Adjust its position
 			[transform setPositionY:tileY * [[parent sprite] size].height];
@@ -180,7 +181,7 @@
 	return YES;
 }
 
-- (NSString *)tileAtRow:(int)row andCol:(int)col
+- (LGTile *)tileAtRow:(int)row andCol:(int)col
 {
 	if(row < [tiles count] && col < [[tiles objectAtIndex:0] count])
 	{
@@ -204,7 +205,7 @@
 {
 	if(row < [tiles count] && col < [[tiles objectAtIndex:0] count])
 	{
-		return [[[tiles objectAtIndex:row] objectAtIndex:col] intValue] != 0;
+		return [[self tileAtRow:row andCol:col] position] != 0;
 	}
 	
 	return YES;

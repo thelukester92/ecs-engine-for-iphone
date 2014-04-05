@@ -15,6 +15,7 @@
 #import "LGCamera.h"
 #import "LGTileLayer.h"
 #import "LGTileCollider.h"
+#import "LGTile.h"
 
 @implementation LGTileSystem
 
@@ -56,7 +57,7 @@
 				LGEntity *spriteEntity = [[LGEntity alloc] init];
 				
 				LGSprite *s = [LGSprite copyOfSprite:sprite];
-				[s setPosition:[[[array objectAtIndex:i] objectAtIndex:j] intValue]];
+				[s setPosition:[(LGTile *)[[array objectAtIndex:i] objectAtIndex:j] position]];
 				[s setLayer:layer];
 				[spriteEntity addComponent:s];
 				

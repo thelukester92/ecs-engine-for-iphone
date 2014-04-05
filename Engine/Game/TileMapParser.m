@@ -14,6 +14,7 @@
 #import "LGEntity.h"
 #import "LGTransform.h"
 #import "LGSprite.h"
+#import "LGTile.h"
 
 @implementation TileMapParser
 
@@ -45,7 +46,8 @@
 			NSArray *cols = [[rows objectAtIndex:i] componentsSeparatedByString:TileLayerColSplitter];
 			for(int j = 0; j < [cols count]; j++)
 			{
-				[row addObject:[cols objectAtIndex:j]];
+				LGTile *tile = [[LGTile alloc] initWithPositionString:[cols objectAtIndex:j]];
+				[row addObject:tile];
 			}
 		}
 		

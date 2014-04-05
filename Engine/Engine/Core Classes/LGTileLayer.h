@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class LGTileSystem, LGEntity;
+@class LGTileSystem, LGEntity, LGTile;
 
 @interface LGTileLayer : NSObject
 
@@ -23,7 +23,7 @@
 - (BOOL)shiftDown;
 - (BOOL)shiftUp;
 
-- (NSString *)tileAtRow:(int)row andCol:(int)col;
+- (LGTile *)tileAtRow:(int)row andCol:(int)col;
 - (LGEntity *)spriteEntityAtRow:(int)row andCol:(int)col;
 - (BOOL)collidesAtRow:(int)row andCol:(int)col;
 
