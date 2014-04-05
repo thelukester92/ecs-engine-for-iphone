@@ -17,15 +17,15 @@
 
 - (BOOL)acceptsEntity:(LGEntity *)entity
 {
-	return [entity hasComponentsOfType:[LGPhysics class], [LGTransform class], nil];
+	return [entity hasComponentsOfType:[LGPhysics type], [LGTransform type], nil];
 }
 
 - (void)update
 {
 	for(LGEntity *entity in self.entities)
 	{
-		LGPhysics *physics = [entity componentOfType:[LGPhysics class]];
-		LGTransform *transform = [entity componentOfType:[LGTransform class]];
+		LGPhysics *physics = [entity componentOfType:[LGPhysics type]];
+		LGTransform *transform = [entity componentOfType:[LGTransform type]];
 		
 		if([physics respondsToGravity])
 		{

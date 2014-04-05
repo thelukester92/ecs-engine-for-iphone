@@ -10,6 +10,8 @@
 
 @interface LGComponent : NSObject
 
++ (NSString *)type;
+
 @property (nonatomic, retain) NSString *componentType;
 
 - (void)initialize;

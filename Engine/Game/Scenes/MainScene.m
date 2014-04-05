@@ -59,13 +59,13 @@
 	[self registerSystems];
 	
 	LGEntity *player = [EntityFactory playerEntity];
-	[[player componentOfType:[LGCamera class]] setSize:CGSizeMake([self.view frame].size.width, [self.view frame].size.height)];
+	[[player componentOfType:[LGCamera type]] setSize:CGSizeMake([self.view frame].size.width, [self.view frame].size.height)];
 	[self addEntity:player];
 	
-	for(int i = 0; i < 4; i++)
+	for(int i = 0; i < 18; i++)
 	{
 		LGEntity *block = [EntityFactory blockEntity];
-		[(LGTransform *)[block componentOfType:[LGTransform class]] addToPosition:CGPointMake(50 + 100 * i, -10 + i * 20)];
+		[(LGTransform *)[block componentOfType:[LGTransform type]] addToPositionX:50 + 60 * i];
 		
 		LGPhysics *physics = [[LGPhysics alloc] init];
 		[block addComponent:physics];
@@ -75,7 +75,7 @@
 	
 	[TileMapParser parsePlist:@"level1" forSystem:tileSystem];
 	
-	[[player componentOfType:[LGCamera class]] setBounds:CGRectMake(0, 0, [tileSystem size].width, [tileSystem size].height)];
+	[[player componentOfType:[LGCamera type]] setBounds:CGRectMake(0, 0, [tileSystem size].width, [tileSystem size].height)];
 }
 
 @end

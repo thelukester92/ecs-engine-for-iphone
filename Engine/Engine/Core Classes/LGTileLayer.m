@@ -33,8 +33,8 @@
 			
 			// Get the left-most sprite
 			LGEntity *entity		= [[spriteEntities objectAtIndex:i] objectAtIndex:0];
-			LGSprite *sprite		= [entity componentOfType:[LGSprite class]];
-			LGTransform *transform	= [entity componentOfType:[LGTransform class]];
+			LGSprite *sprite		= [entity componentOfType:[LGSprite type]];
+			LGTransform *transform	= [entity componentOfType:[LGTransform type]];
 			
 			// Move it from its old place
 			[[spriteEntities objectAtIndex:i] removeObject:entity];
@@ -72,8 +72,8 @@
 			
 			// Get the right-most sprite
 			LGEntity *entity		= [[spriteEntities objectAtIndex:i] objectAtIndex:[[spriteEntities objectAtIndex:0] count] - 1];
-			LGSprite *sprite		= [entity componentOfType:[LGSprite class]];
-			LGTransform *transform	= [entity componentOfType:[LGTransform class]];
+			LGSprite *sprite		= [entity componentOfType:[LGSprite type]];
+			LGTransform *transform	= [entity componentOfType:[LGTransform type]];
 			
 			// Move it from its old place
 			[[spriteEntities objectAtIndex:i] removeObject:entity];
@@ -121,8 +121,8 @@
 			
 			// Get the sprite
 			LGEntity *entity		= [row objectAtIndex:j];
-			LGSprite *sprite		= [entity componentOfType:[LGSprite class]];
-			LGTransform *transform	= [entity componentOfType:[LGTransform class]];
+			LGSprite *sprite		= [entity componentOfType:[LGSprite type]];
+			LGTransform *transform	= [entity componentOfType:[LGTransform type]];
 			
 			// Swap out its texture
 			[sprite setPosition:[[self tileAtRow:tileY andCol:tileX] intValue]];
@@ -164,8 +164,8 @@
 			
 			// Get the sprite
 			LGEntity *entity		= [row objectAtIndex:j];
-			LGSprite *sprite		= [entity componentOfType:[LGSprite class]];
-			LGTransform *transform	= [entity componentOfType:[LGTransform class]];
+			LGSprite *sprite		= [entity componentOfType:[LGSprite type]];
+			LGTransform *transform	= [entity componentOfType:[LGTransform type]];
 			
 			// Swap out its texture
 			[sprite setPosition:[[self tileAtRow:tileY andCol:tileX] intValue]];

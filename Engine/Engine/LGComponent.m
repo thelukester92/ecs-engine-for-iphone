@@ -13,6 +13,11 @@
 
 @synthesize componentType;
 
++ (NSString *)type
+{
+	return NSStringFromClass([self class]);
+}
+
 - (void) initialize {}
 
 - (id)init
@@ -21,7 +26,7 @@
 	
 	if(self)
 	{
-		componentType = NSStringFromClass([self class]);
+		componentType = [[self class] type];
 		[self initialize];
 	}
 	

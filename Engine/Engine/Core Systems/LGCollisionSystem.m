@@ -55,9 +55,9 @@
 
 - (CGPoint)resolveTileCollisionsBetween:(LGEntity *)a and:(LGTileCollider *)tileCollider alreadyAdjusted:(CGPoint)alreadyAdjusted chainingAxis:(LGCollisionAxis)axis
 {
-	LGTransform *transform = [a componentOfType:[LGTransform class]];
-	LGCollider *collider = [a componentOfType:[LGCollider class]];
-	LGPhysics *physics = [a componentOfType:[LGPhysics class]];
+	LGTransform *transform = [a componentOfType:[LGTransform type]];
+	LGCollider *collider = [a componentOfType:[LGCollider type]];
+	LGPhysics *physics = [a componentOfType:[LGPhysics type]];
 	
 	CGPoint position = [self translate:[transform position] by:[collider offset]];
 	int tileX, tileY;
@@ -175,14 +175,14 @@
 {
 	// Initialize
 	
-	LGCollider *colliderA = [a componentOfType:[LGCollider class]];
-	LGCollider *colliderB = [b componentOfType:[LGCollider class]];
+	LGCollider *colliderA = [a componentOfType:[LGCollider type]];
+	LGCollider *colliderB = [b componentOfType:[LGCollider type]];
 	
-	LGTransform *transformA = [a componentOfType:[LGTransform class]];
-	LGTransform *transformB = [b componentOfType:[LGTransform class]];
+	LGTransform *transformA = [a componentOfType:[LGTransform type]];
+	LGTransform *transformB = [b componentOfType:[LGTransform type]];
 	
-	LGPhysics *physicsA = [a componentOfType:[LGPhysics class]];
-	LGPhysics *physicsB = [b componentOfType:[LGPhysics class]];
+	LGPhysics *physicsA = [a componentOfType:[LGPhysics type]];
+	LGPhysics *physicsB = [b componentOfType:[LGPhysics type]];
 	
 	CGPoint colliderPositionA = [self translate:[transformA position] by:[colliderA offset]];
 	CGPoint colliderPositionB = [self translate:[transformB position] by:[colliderB offset]];
@@ -353,14 +353,14 @@
 
 - (BOOL)acceptsEntity:(LGEntity *)entity
 {
-	return [entity hasComponentsOfType:[LGTransform class], [LGCollider class], nil];
+	return [entity hasComponentsOfType:[LGTransform type], [LGCollider type], nil];
 }
 
 - (void)addEntity:(LGEntity *)entity
 {
 	[super addEntity:entity];
 	
-	LGCollider *collider = [entity componentOfType:[LGCollider class]];
+	LGCollider *collider = [entity componentOfType:[LGCollider type]];
 	if([collider type] == LGColliderTypeStatic)
 	{
 		[staticEntities addObject:entity];
@@ -376,7 +376,7 @@
 	for(int i = 0; i < [dynamicEntities count]; i++)
 	{
 		LGEntity *a = [dynamicEntities objectAtIndex:i];
-		[(LGCollider *)[a componentOfType:[LGCollider class]] reset];
+		[(LGCollider *)[a componentOfType:[LGCollider type]] reset];
 		
 		for(int j = 0; j < [staticEntities count]; j++)
 		{
@@ -390,7 +390,7 @@
 			
 			if(i == 0)
 			{
-				[(LGCollider *)[b componentOfType:[LGCollider class]] reset];
+				[(LGCollider *)[b componentOfType:[LGCollider type]] reset];
 			}
 			
 			[self resolveCollisionsBetween:a and:b ignoring:nil withAdditionalMass:0 forceStatic:NO alreadyAdjustedA:CGPointZero collisionAxis:LGCollisionAxisAny];

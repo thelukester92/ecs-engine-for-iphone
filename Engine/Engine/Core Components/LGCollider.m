@@ -12,6 +12,18 @@
 
 @synthesize type, offset, size, topCollided, rightCollided, bottomCollided, leftCollided;
 
++ (NSString *)type
+{
+	static NSString *type = nil;
+	
+	if(type == nil)
+	{
+		type = NSStringFromClass([self class]);
+	}
+	
+	return type;
+}
+
 - (void)reset
 {
 	topCollided		= NO;

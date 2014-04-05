@@ -41,7 +41,7 @@
 	[player addComponent:[[LGTransform alloc] init]];
 	[player addComponent:[[LGPlayer alloc] init]];
 	
-	[(LGTransform *) [player componentOfType:[LGTransform class]] setPosition:CGPointMake(100, 100)];
+	[(LGTransform *) [player componentOfType:[LGTransform type]] setPosition:CGPointMake(100, 100)];
 	
 	LGCamera *camera = [[LGCamera alloc] init];
 	[camera setOffset:CGPointMake(-200, -100)];

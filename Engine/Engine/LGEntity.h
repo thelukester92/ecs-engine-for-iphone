@@ -15,9 +15,9 @@
 @property (nonatomic, retain) NSMutableDictionary *components;
 
 - (void)addComponent:(LGComponent *)component;
-- (id)componentOfType:(Class)c;
+- (id)componentOfType:(NSString *)type;
 
-- (BOOL)hasComponentOfType:(Class)c;
-- (BOOL)hasComponentsOfType:(id)firstObject, ... NS_REQUIRES_NIL_TERMINATION;
+- (BOOL)hasComponentOfType:(NSString *)type;
+- (BOOL)hasComponentsOfType:(NSString *)firstObject, ... NS_REQUIRES_NIL_TERMINATION;
 
 @end

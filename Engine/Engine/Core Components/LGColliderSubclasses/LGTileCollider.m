@@ -12,12 +12,24 @@
 
 @synthesize collisionLayer, tileSize;
 
++ (NSString *)type
+{
+	static NSString *type = nil;
+	
+	if(type == nil)
+	{
+		type = NSStringFromClass([self class]);
+	}
+	
+	return type;
+}
+
 - (void)initialize
 {
 	collisionLayer		= nil;
 	tileSize			= CGSizeZero;
 	self.type			= LGColliderTypeStatic;
-	self.componentType	= NSStringFromClass([self superclass]);
+	self.componentType	= [LGCollider type];
 }
 
 @end

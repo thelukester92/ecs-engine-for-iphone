@@ -33,7 +33,7 @@
 
 - (BOOL)acceptsEntity:(LGEntity *)entity
 {
-	return [entity hasComponentsOfType:[LGRender class], [LGTransform class], nil];
+	return [entity hasComponentsOfType:[LGRender type], [LGTransform type], nil];
 }
 
 - (void)addEntity:(LGEntity *)entity
@@ -44,7 +44,7 @@
 	
 	if([self isMemberOfClass:[LGRenderingSystem class]])
 	{
-		[self addRenderToView:[entity componentOfType:[LGRender class]]];
+		[self addRenderToView:[entity componentOfType:[LGRender type]]];
 	}
 }
 
@@ -52,8 +52,8 @@
 {
 	for(LGEntity *entity in self.entities)
 	{
-		LGRender *render		= [entity componentOfType:[LGRender class]];
-		LGTransform *transform	= [entity componentOfType:[LGTransform class]];
+		LGRender *render		= [entity componentOfType:[LGRender type]];
+		LGTransform *transform	= [entity componentOfType:[LGTransform type]];
 		
 		[self updateRender:render withTransform:transform];
 	}

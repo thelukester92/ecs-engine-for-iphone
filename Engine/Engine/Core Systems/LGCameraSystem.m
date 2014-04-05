@@ -18,15 +18,15 @@
 
 - (BOOL)acceptsEntity:(LGEntity *)entity
 {
-	return [entity hasComponentsOfType:[LGCamera class], [LGTransform class], nil];
+	return [entity hasComponentsOfType:[LGCamera type], [LGTransform type], nil];
 }
 
 - (void)addEntity:(LGEntity *)entity
 {
 	[super addEntity:entity];
 	
-	camera = [entity componentOfType:[LGCamera class]];
-	cameraTransform = [entity componentOfType:[LGTransform class]];
+	camera = [entity componentOfType:[LGCamera type]];
+	cameraTransform = [entity componentOfType:[LGTransform type]];
 }
 
 - (void)update

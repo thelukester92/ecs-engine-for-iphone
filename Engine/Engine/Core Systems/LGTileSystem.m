@@ -126,8 +126,8 @@
 	int rightMost = (int) [[[visibleLayer spriteEntities] objectAtIndex:0] count] - 1;
 	int bottomMost = (int) [[visibleLayer spriteEntities] count] - 1;
 	
-	LGTransform *leftTransform	= [[visibleLayer spriteEntityAtRow:0 andCol:0] componentOfType:[LGTransform class]];
-	LGTransform *rightTransform	= [[visibleLayer spriteEntityAtRow:bottomMost andCol:rightMost] componentOfType:[LGTransform class]];
+	LGTransform *leftTransform	= [[visibleLayer spriteEntityAtRow:0 andCol:0] componentOfType:[LGTransform type]];
+	LGTransform *rightTransform	= [[visibleLayer spriteEntityAtRow:bottomMost andCol:rightMost] componentOfType:[LGTransform type]];
 	
 	BOOL canShift;
 	
@@ -139,7 +139,7 @@
 			canShift = [layer shiftRight];
 		}
 		
-		leftTransform = [[visibleLayer spriteEntityAtRow:0 andCol:0] componentOfType:[LGTransform class]];
+		leftTransform = [[visibleLayer spriteEntityAtRow:0 andCol:0] componentOfType:[LGTransform type]];
 	}
 	
 	canShift = YES;
@@ -150,7 +150,7 @@
 			canShift = [layer shiftLeft];
 		}
 		
-		rightTransform = [[visibleLayer spriteEntityAtRow:bottomMost andCol:rightMost] componentOfType:[LGTransform class]];
+		rightTransform = [[visibleLayer spriteEntityAtRow:bottomMost andCol:rightMost] componentOfType:[LGTransform type]];
 	}
 	
 	canShift = YES;
@@ -161,7 +161,7 @@
 			canShift = [layer shiftDown];
 		}
 		
-		leftTransform = [[visibleLayer spriteEntityAtRow:0 andCol:0] componentOfType:[LGTransform class]];
+		leftTransform = [[visibleLayer spriteEntityAtRow:0 andCol:0] componentOfType:[LGTransform type]];
 	}
 	
 	canShift = YES;
@@ -172,7 +172,7 @@
 			canShift = [layer shiftUp];
 		}
 		
-		rightTransform = [[visibleLayer spriteEntityAtRow:bottomMost andCol:rightMost] componentOfType:[LGTransform class]];
+		rightTransform = [[visibleLayer spriteEntityAtRow:bottomMost andCol:rightMost] componentOfType:[LGTransform type]];
 	}
 }
 
@@ -180,13 +180,13 @@
 
 - (BOOL)acceptsEntity:(LGEntity *)entity
 {
-	return [entity hasComponentsOfType:[LGCamera class], [LGTransform class], nil];
+	return [entity hasComponentsOfType:[LGCamera type], [LGTransform type], nil];
 }
 
 - (void)addEntity:(LGEntity *)entity
 {
-	camera = [entity componentOfType:[LGCamera class]];
-	cameraTransform = [entity componentOfType:[LGTransform class]];
+	camera = [entity componentOfType:[LGCamera type]];
+	cameraTransform = [entity componentOfType:[LGTransform type]];
 	[self updateVisibleTiles];
 }
 

@@ -18,26 +18,26 @@
 	[components setValue:component forKey:[component componentType]];
 }
 
-- (id)componentOfType:(Class)c
+- (id)componentOfType:(NSString *)type
 {
-	return [components valueForKey:NSStringFromClass(c)];
+	return [components valueForKey:type];
 }
 
-- (BOOL)hasComponentOfType:(Class)c
+- (BOOL)hasComponentOfType:(NSString *)type
 {
-	return [self componentOfType:c] != nil;
+	return [self componentOfType:type] != nil;
 }
 
-- (BOOL)hasComponentsOfType:(id)firstObject, ...
+- (BOOL)hasComponentsOfType:(NSString *)firstObject, ...
 {
 	if(![self hasComponentOfType:firstObject])
 		return NO;
 	
-	id obj;
+	NSString *obj;
 	va_list args;
 	va_start(args, firstObject);
 	
-	while((obj = va_arg(args, id)))
+	while((obj = va_arg(args, NSString *)))
 	{
 		if(![self hasComponentOfType:obj])
 			return NO;

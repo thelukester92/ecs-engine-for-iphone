@@ -15,6 +15,18 @@
 
 #pragma mark Class Methods
 
++ (NSString *)type
+{
+	static NSString *type = nil;
+	
+	if(type == nil)
+	{
+		type = NSStringFromClass([self class]);
+	}
+	
+	return type;
+}
+
 + (NSMutableDictionary *)cachedTextures
 {
 	static NSMutableDictionary *dictionary = nil;

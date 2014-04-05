@@ -34,15 +34,15 @@
 
 - (BOOL)acceptsEntity:(LGEntity *)entity
 {
-	return [self.entities count] == 0 && [entity hasComponentsOfType:[LGPlayer class], [LGPhysics class], [LGSprite class], [LGTransform class], nil];
+	return [self.entities count] == 0 && [entity hasComponentsOfType:[LGPlayer type], [LGPhysics type], [LGSprite type], [LGTransform type], nil];
 }
 
 - (void)addEntity:(LGEntity *)entity
 {
-	physics		= [entity componentOfType:[LGPhysics class]];
-	sprite		= [entity componentOfType:[LGSprite class]];
-	collider	= [entity componentOfType:[LGCollider class]];
-	transform	= [entity componentOfType:[LGTransform class]];
+	physics		= [entity componentOfType:[LGPhysics type]];
+	sprite		= [entity componentOfType:[LGSprite type]];
+	collider	= [entity componentOfType:[LGCollider type]];
+	transform	= [entity componentOfType:[LGTransform type]];
 }
 
 - (void)touchDown:(NSSet *)touches allTouches:(NSDictionary *)allTouches

@@ -17,21 +17,21 @@
 
 - (BOOL)acceptsEntity:(LGEntity *)entity
 {
-	return [entity hasComponentsOfType:[LGSprite class], [LGTransform class], nil];
+	return [entity hasComponentsOfType:[LGSprite type], [LGTransform type], nil];
 }
 
 - (void)addEntity:(LGEntity *)entity
 {
 	[super addEntity:entity];
-	[self addRenderToView:[entity componentOfType:[LGSprite class]]];
+	[self addRenderToView:[entity componentOfType:[LGSprite type]]];
 }
 
 - (void)update
 {
 	for(LGEntity *entity in self.entities)
 	{
-		LGSprite *sprite		= [entity componentOfType:[LGSprite class]];
-		LGTransform *transform	= [entity componentOfType:[LGTransform class]];
+		LGSprite *sprite		= [entity componentOfType:[LGSprite type]];
+		LGTransform *transform	= [entity componentOfType:[LGTransform type]];
 		
 		if([sprite visible])
 		{

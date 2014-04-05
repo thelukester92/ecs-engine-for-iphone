@@ -12,6 +12,18 @@
 
 @synthesize view, superview, size, offset, visible, layer;
 
++ (NSString *)type
+{
+	static NSString *type = nil;
+	
+	if(type == nil)
+	{
+		type = NSStringFromClass([self class]);
+	}
+	
+	return type;
+}
+
 - (void)setLayer:(int)l
 {
 	layer = l;
