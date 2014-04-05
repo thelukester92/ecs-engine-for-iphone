@@ -12,7 +12,6 @@
 #import "LGSprite.h"
 #import "LGTransform.h"
 #import "LGPhysics.h"
-#import "LGTile.h"
 #import "LGCamera.h"
 #import "LGTileLayer.h"
 #import "LGTileCollider.h"
@@ -37,18 +36,72 @@
 
 #pragma mark Public Methods
 
-- (void)addLayer:(LGTileLayer *)layer
+- (void)generateLayerFromArray:(NSArray *)array layer:(int)layer visible:(BOOL)isVisible collision:(BOOL)isCollision
 {
-	[layers addObject:layer];
+	NSMutableArray *spriteEntities = nil;
 	
-	if([layer isVisible])
+	// Create the visual portion of the layer
+	
+	if(isVisible)
 	{
-		visibleLayer = layer;
+		spriteEntities = [NSMutableArray array];
+		
+		for(int i = 0; i < visibleY; i++)
+		{
+			NSMutableArray *row = [NSMutableArray array];
+			[spriteEntities addObject:row];
+			
+			for(int j = 0; j < visibleX; j++)
+			{
+				LGEntity *spriteEntity = [[LGEntity alloc] init];
+				
+				LGSprite *s = [LGSprite copyOfSprite:sprite];
+				[s setPosition:[[[array objectAtIndex:i] objectAtIndex:j] intValue]];
+				[s setLayer:layer];
+				[spriteEntity addComponent:s];
+				
+				LGTransform *t = [[LGTransform alloc] init];
+				[t setPosition:CGPointMake(j * [sprite size].width, i * [sprite size].height)];
+				[spriteEntity addComponent:t];
+				
+				[self.scene addEntity:spriteEntity];
+				[row addObject:spriteEntity];
+			}
+		}
+	}
+	
+	// Generate a layer object to store in the system
+	
+	LGTileLayer *tileLayer = [[LGTileLayer alloc] initWithParent:self andTiles:array andSprites:spriteEntities];
+	[tileLayer setIsVisible:isVisible];
+	
+	// Generate a tile collider out of the collision layer
+	
+	if(isCollision)
+	{
+		LGTileCollider *tileCollider = [[LGTileCollider alloc] init];
+		[tileCollider setCollisionLayer:tileLayer];
+		[tileCollider setTileSize:[sprite size]];
+		
+		LGEntity *collisionLayerEntity = [[LGEntity alloc] init];
+		[collisionLayerEntity addComponent:tileCollider];
+		[collisionLayerEntity addComponent:[[LGTransform alloc] init]];
+		
+		[self.scene addEntity:collisionLayerEntity];
+	}
+	
+	// Add the layer to the system
+	
+	[layers addObject:tileLayer];
+	
+	if(isVisible)
+	{
+		visibleLayer = tileLayer;
 	}
 	
 	if(sprite != nil)
 	{
-		size = CGSizeMake([[[layer tiles] objectAtIndex:0] count] * [sprite size].width, [[layer tiles] count] * [sprite size].height);
+		size = CGSizeMake([[array objectAtIndex:0] count] * [sprite size].width, [array count] * [sprite size].height);
 	}
 }
 
@@ -70,55 +123,56 @@
 		return;
 	}
 	
-	int rightMost = (int) [[[visibleLayer sprites] objectAtIndex:0] count] - 1;
-	int bottomMost = (int) [[visibleLayer sprites] count] - 1;
+	int rightMost = (int) [[[visibleLayer spriteEntities] objectAtIndex:0] count] - 1;
+	int bottomMost = (int) [[visibleLayer spriteEntities] count] - 1;
 	
-	LGSprite *leftMostSprite = [visibleLayer spriteAtRow:0 andCol:0];
-	LGSprite *rightMostSprite = [visibleLayer spriteAtRow:bottomMost andCol:rightMost];
+	LGTransform *leftTransform	= [[visibleLayer spriteEntityAtRow:0 andCol:0] componentOfType:[LGTransform class]];
+	LGTransform *rightTransform	= [[visibleLayer spriteEntityAtRow:bottomMost andCol:rightMost] componentOfType:[LGTransform class]];
+	
 	BOOL canShift;
 	
 	canShift = YES;
-	while([[leftMostSprite view] frame].origin.x + [sprite size].width < [camera offset].x + [cameraTransform position].x && canShift)
+	while([leftTransform position].x + [sprite size].width < [camera offset].x + [cameraTransform position].x && canShift)
 	{
 		for(LGTileLayer *layer in layers)
 		{
 			canShift = [layer shiftRight];
 		}
 		
-		leftMostSprite = [visibleLayer spriteAtRow:0 andCol:0];
+		leftTransform = [[visibleLayer spriteEntityAtRow:0 andCol:0] componentOfType:[LGTransform class]];
 	}
 	
 	canShift = YES;
-	while([[rightMostSprite view] frame].origin.x > [camera offset].x + [cameraTransform position].x + (visibleX - padding) * [sprite size].width && canShift)
+	while([rightTransform position].x > [camera offset].x + [cameraTransform position].x + (visibleX - padding) * [sprite size].width && canShift)
 	{
 		for(LGTileLayer *layer in layers)
 		{
 			canShift = [layer shiftLeft];
 		}
 		
-		rightMostSprite = [visibleLayer spriteAtRow:bottomMost andCol:rightMost];
+		rightTransform = [[visibleLayer spriteEntityAtRow:bottomMost andCol:rightMost] componentOfType:[LGTransform class]];
 	}
 	
 	canShift = YES;
-	while([[leftMostSprite view] frame].origin.y + [sprite size].height < [camera offset].y + [cameraTransform position].y && canShift)
+	while([leftTransform position].y + [sprite size].height < [camera offset].y + [cameraTransform position].y && canShift)
 	{
 		for(LGTileLayer *layer in layers)
 		{
 			canShift = [layer shiftDown];
 		}
 		
-		leftMostSprite = [visibleLayer spriteAtRow:0 andCol:0];
+		leftTransform = [[visibleLayer spriteEntityAtRow:0 andCol:0] componentOfType:[LGTransform class]];
 	}
 	
 	canShift = YES;
-	while([[rightMostSprite view] frame].origin.y > [camera offset].y + [cameraTransform position].y + [camera size].height && canShift)
+	while([rightTransform position].y > [camera offset].y + [cameraTransform position].y + [camera size].height && canShift)
 	{
 		for(LGTileLayer *layer in layers)
 		{
 			canShift = [layer shiftUp];
 		}
 		
-		rightMostSprite = [visibleLayer spriteAtRow:bottomMost andCol:rightMost];
+		rightTransform = [[visibleLayer spriteEntityAtRow:bottomMost andCol:rightMost] componentOfType:[LGTransform class]];
 	}
 }
 

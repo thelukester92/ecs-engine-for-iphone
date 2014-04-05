@@ -9,10 +9,12 @@
 #import "LGTileLayer.h"
 #import "LGTileSystem.h"
 #import "LGSprite.h"
+#import "LGEntity.h"
+#import "LGTransform.h"
 
 @implementation LGTileLayer
 
-@synthesize parent, tiles, sprites, offsetX, offsetY, isVisible;
+@synthesize parent, tiles, spriteEntities, offsetX, offsetY, isVisible;
 
 - (BOOL)shiftRight
 {
@@ -30,22 +32,21 @@
 			int tileY = offsetY + i;
 			
 			// Get the left-most sprite
-			LGSprite *s = [[sprites objectAtIndex:i] objectAtIndex:0];
+			LGEntity *entity		= [[spriteEntities objectAtIndex:i] objectAtIndex:0];
+			LGSprite *sprite		= [entity componentOfType:[LGSprite class]];
+			LGTransform *transform	= [entity componentOfType:[LGTransform class]];
 			
 			// Move it from its old place
-			[[sprites objectAtIndex:i] removeObject:s];
+			[[spriteEntities objectAtIndex:i] removeObject:entity];
 			
 			// Move it to its new place
-			[[sprites objectAtIndex:i] addObject:s];
+			[[spriteEntities objectAtIndex:i] addObject:entity];
 			
 			// Swap out its texture
-			[s setPosition:[[self tileAtRow:tileY andCol:tileX] intValue]];
+			[sprite setPosition:[[self tileAtRow:tileY andCol:tileX] intValue]];
 			
-			// Adjust its frame
-			CGRect frame = [[s view] frame];
-			frame.origin.x = tileX * [[parent sprite] size].width;
-			frame.origin.y = tileY * [[parent sprite] size].height;
-			[[s view] setFrame:frame];
+			// Adjust its position
+			[transform setPositionX:tileX * [[parent sprite] size].width];
 		}
 	}
 	
@@ -70,22 +71,21 @@
 			int tileY = offsetY + i;
 			
 			// Get the right-most sprite
-			LGSprite *s = [[sprites objectAtIndex:i] objectAtIndex:[[sprites objectAtIndex:0] count] - 1];
+			LGEntity *entity		= [[spriteEntities objectAtIndex:i] objectAtIndex:[[spriteEntities objectAtIndex:0] count] - 1];
+			LGSprite *sprite		= [entity componentOfType:[LGSprite class]];
+			LGTransform *transform	= [entity componentOfType:[LGTransform class]];
 			
 			// Move it from its old place
-			[[sprites objectAtIndex:i] removeObject:s];
+			[[spriteEntities objectAtIndex:i] removeObject:entity];
 			
 			// Move it to its new place
-			[[sprites objectAtIndex:i] insertObject:s atIndex:0];
+			[[spriteEntities objectAtIndex:i] insertObject:entity atIndex:0];
 			
 			// Swap out its texture
-			[s setPosition:[[self tileAtRow:tileY andCol:tileX] intValue]];
+			[sprite setPosition:[[self tileAtRow:tileY andCol:tileX] intValue]];
 			
-			// Adjust its frame
-			CGRect frame = [[s view] frame];
-			frame.origin.x = tileX * [[parent sprite] size].width;
-			frame.origin.y = tileY * [[parent sprite] size].height;
-			[[s view] setFrame:frame];
+			// Adjust its position
+			[transform setPositionX:tileX * [[parent sprite] size].width];
 		}
 	}
 	
@@ -106,13 +106,13 @@
 	if(isVisible)
 	{
 		// Get the top-most row
-		NSMutableArray *row = [sprites objectAtIndex:0];
+		NSMutableArray *row = [spriteEntities objectAtIndex:0];
 		
 		// Move it from its old place
-		[sprites removeObject:row];
+		[spriteEntities removeObject:row];
 		
 		// Move it to its new place
-		[sprites addObject:row];
+		[spriteEntities addObject:row];
 		
 		// Swap out textures
 		for(int j = 0; j < [parent visibleX]; j++)
@@ -120,16 +120,15 @@
 			int tileX = offsetX + j;
 			
 			// Get the sprite
-			LGSprite *s = [[sprites objectAtIndex:[sprites count] - 1] objectAtIndex:j];
+			LGEntity *entity		= [row objectAtIndex:j];
+			LGSprite *sprite		= [entity componentOfType:[LGSprite class]];
+			LGTransform *transform	= [entity componentOfType:[LGTransform class]];
 			
 			// Swap out its texture
-			[s setPosition:[[self tileAtRow:tileY andCol:tileX] intValue]];
+			[sprite setPosition:[[self tileAtRow:tileY andCol:tileX] intValue]];
 			
-			// Adjust its frame
-			CGRect frame = [[s view] frame];
-			frame.origin.x = tileX * [[parent sprite] size].width;
-			frame.origin.y = tileY * [[parent sprite] size].height;
-			[[s view] setFrame:frame];
+			// Adjust its position
+			[transform setPositionY:tileY * [[parent sprite] size].height];
 		}
 	}
 	
@@ -150,13 +149,13 @@
 	if(isVisible)
 	{
 		// Get the bottom-most row
-		NSMutableArray *row = [sprites objectAtIndex:[sprites count] - 1];
+		NSMutableArray *row = [spriteEntities objectAtIndex:[spriteEntities count] - 1];
 		
 		// Move it from its old place
-		[sprites removeObject:row];
+		[spriteEntities removeObject:row];
 		
 		// Move it to its new place
-		[sprites insertObject:row atIndex:0];
+		[spriteEntities insertObject:row atIndex:0];
 		
 		// Swap out textures
 		for(int j = 0; j < [parent visibleX]; j++)
@@ -164,16 +163,15 @@
 			int tileX = offsetX + j;
 			
 			// Get the sprite
-			LGSprite *s = [[sprites objectAtIndex:0] objectAtIndex:j];
+			LGEntity *entity		= [row objectAtIndex:j];
+			LGSprite *sprite		= [entity componentOfType:[LGSprite class]];
+			LGTransform *transform	= [entity componentOfType:[LGTransform class]];
 			
 			// Swap out its texture
-			[s setPosition:[[self tileAtRow:tileY andCol:tileX] intValue]];
+			[sprite setPosition:[[self tileAtRow:tileY andCol:tileX] intValue]];
 			
-			// Adjust its frame
-			CGRect frame = [[s view] frame];
-			frame.origin.x = tileX * [[parent sprite] size].width;
-			frame.origin.y = tileY * [[parent sprite] size].height;
-			[[s view] setFrame:frame];
+			// Adjust its position
+			[transform setPositionY:tileY * [[parent sprite] size].height];
 		}
 	}
 	
@@ -192,11 +190,11 @@
 	return nil;
 }
 
-- (LGSprite *)spriteAtRow:(int)row andCol:(int)col
+- (LGEntity *)spriteEntityAtRow:(int)row andCol:(int)col
 {
-	if(row < [sprites count] && col < [[sprites objectAtIndex:0] count])
+	if(row < [spriteEntities count] && col < [[spriteEntities objectAtIndex:0] count])
 	{
-		return [[sprites objectAtIndex:row] objectAtIndex:col];
+		return [[spriteEntities objectAtIndex:row] objectAtIndex:col];
 	}
 	
 	return nil;
@@ -212,7 +210,7 @@
 	return YES;
 }
 
-- (id)initWithParent:(LGTileSystem *)p andTiles:(NSMutableArray *)t andSprites:(NSMutableArray *)s
+- (id)initWithParent:(LGTileSystem *)p andTiles:(NSArray *)t andSprites:(NSMutableArray *)s
 {
 	self = [super init];
 	
@@ -220,7 +218,7 @@
 	{
 		parent		= p;
 		tiles		= t;
-		sprites		= s;
+		spriteEntities		= s;
 		offsetX		= 0;
 		offsetY		= 0;
 		isVisible	= YES;

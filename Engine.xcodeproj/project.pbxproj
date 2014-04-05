@@ -15,7 +15,6 @@
 		A319EF6C18EEEE070058E0E3 /* LGPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4418EEEE070058E0E3 /* LGPlayer.m */; };
 		A319EF6D18EEEE070058E0E3 /* LGRender.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4618EEEE070058E0E3 /* LGRender.m */; };
 		A319EF6E18EEEE070058E0E3 /* LGSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4818EEEE070058E0E3 /* LGSprite.m */; };
-		A319EF6F18EEEE070058E0E3 /* LGTile.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4A18EEEE070058E0E3 /* LGTile.m */; };
 		A319EF7018EEEE070058E0E3 /* LGTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4C18EEEE070058E0E3 /* LGTransform.m */; };
 		A319EF7118EEEE070058E0E3 /* LGCameraSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4F18EEEE070058E0E3 /* LGCameraSystem.m */; };
 		A319EF7218EEEE070058E0E3 /* LGCollisionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF5118EEEE070058E0E3 /* LGCollisionSystem.m */; };
@@ -53,6 +52,27 @@
 		A3367D4018B3E662005475B7 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3367D3F18B3E662005475B7 /* MainViewController.m */; };
 		A36C739A18F0449300B988C7 /* Player.png in Resources */ = {isa = PBXBuildFile; fileRef = A36C739918F0449300B988C7 /* Player.png */; };
 		A36C739C18F04D3C00B988C7 /* tileset.png in Resources */ = {isa = PBXBuildFile; fileRef = A36C739B18F04D3C00B988C7 /* tileset.png */; };
+		A36C73E218F0510D00B988C7 /* LGTileLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF3818EEEE070058E0E3 /* LGTileLayer.m */; };
+		A36C73E318F0510D00B988C7 /* LGCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF3B18EEEE070058E0E3 /* LGCamera.m */; };
+		A36C73E418F0510D00B988C7 /* LGCollider.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF3D18EEEE070058E0E3 /* LGCollider.m */; };
+		A36C73E518F0510D00B988C7 /* LGTileCollider.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4018EEEE070058E0E3 /* LGTileCollider.m */; };
+		A36C73E618F0510D00B988C7 /* LGPhysics.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4218EEEE070058E0E3 /* LGPhysics.m */; };
+		A36C73E718F0510D00B988C7 /* LGPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4418EEEE070058E0E3 /* LGPlayer.m */; };
+		A36C73E818F0510D00B988C7 /* LGRender.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4618EEEE070058E0E3 /* LGRender.m */; };
+		A36C73E918F0510D00B988C7 /* LGSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4818EEEE070058E0E3 /* LGSprite.m */; };
+		A36C73EB18F0510D00B988C7 /* LGTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4C18EEEE070058E0E3 /* LGTransform.m */; };
+		A36C73EC18F0510D00B988C7 /* LGCameraSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4F18EEEE070058E0E3 /* LGCameraSystem.m */; };
+		A36C73ED18F0510D00B988C7 /* LGCollisionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF5118EEEE070058E0E3 /* LGCollisionSystem.m */; };
+		A36C73EE18F0510D00B988C7 /* LGPhysicalSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF5318EEEE070058E0E3 /* LGPhysicalSystem.m */; };
+		A36C73EF18F0510D00B988C7 /* LGPlayerInputSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF5518EEEE070058E0E3 /* LGPlayerInputSystem.m */; };
+		A36C73F018F0510D00B988C7 /* LGSpriteRenderingSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF5818EEEE070058E0E3 /* LGSpriteRenderingSystem.m */; };
+		A36C73F118F0510D00B988C7 /* LGRenderingSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF5A18EEEE070058E0E3 /* LGRenderingSystem.m */; };
+		A36C73F218F0510D00B988C7 /* LGTileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF5C18EEEE070058E0E3 /* LGTileSystem.m */; };
+		A36C73F318F0510D00B988C7 /* LGComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF5E18EEEE070058E0E3 /* LGComponent.m */; };
+		A36C73F418F0510D00B988C7 /* LGEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF6018EEEE070058E0E3 /* LGEngine.m */; };
+		A36C73F518F0510D00B988C7 /* LGEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF6218EEEE070058E0E3 /* LGEntity.m */; };
+		A36C73F618F0510D00B988C7 /* LGScene.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF6418EEEE070058E0E3 /* LGScene.m */; };
+		A36C73F718F0510D00B988C7 /* LGSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF6618EEEE070058E0E3 /* LGSystem.m */; };
 		A37F40BC18C524E100C58298 /* notes.md in Resources */ = {isa = PBXBuildFile; fileRef = A37F40BB18C524E100C58298 /* notes.md */; };
 		A38069D818B56A7100486D21 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3367D0918B3E620005475B7 /* Foundation.framework */; };
 		A38069FF18B56ACD00486D21 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3367D0B18B3E620005475B7 /* CoreGraphics.framework */; };
@@ -91,8 +111,8 @@
 		A319EF3B18EEEE070058E0E3 /* LGCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGCamera.m; sourceTree = "<group>"; };
 		A319EF3C18EEEE070058E0E3 /* LGCollider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGCollider.h; sourceTree = "<group>"; };
 		A319EF3D18EEEE070058E0E3 /* LGCollider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGCollider.m; sourceTree = "<group>"; };
-		A319EF3F18EEEE070058E0E3 /* LGTileCollider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGTileCollider.h; sourceTree = "<group>"; };
-		A319EF4018EEEE070058E0E3 /* LGTileCollider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGTileCollider.m; sourceTree = "<group>"; };
+		A319EF3F18EEEE070058E0E3 /* LGTileCollider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LGTileCollider.h; path = LGColliderSubclasses/LGTileCollider.h; sourceTree = "<group>"; };
+		A319EF4018EEEE070058E0E3 /* LGTileCollider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LGTileCollider.m; path = LGColliderSubclasses/LGTileCollider.m; sourceTree = "<group>"; };
 		A319EF4118EEEE070058E0E3 /* LGPhysics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGPhysics.h; sourceTree = "<group>"; };
 		A319EF4218EEEE070058E0E3 /* LGPhysics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGPhysics.m; sourceTree = "<group>"; };
 		A319EF4318EEEE070058E0E3 /* LGPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGPlayer.h; sourceTree = "<group>"; };
@@ -101,8 +121,6 @@
 		A319EF4618EEEE070058E0E3 /* LGRender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGRender.m; sourceTree = "<group>"; };
 		A319EF4718EEEE070058E0E3 /* LGSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGSprite.h; sourceTree = "<group>"; };
 		A319EF4818EEEE070058E0E3 /* LGSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGSprite.m; sourceTree = "<group>"; };
-		A319EF4918EEEE070058E0E3 /* LGTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGTile.h; sourceTree = "<group>"; };
-		A319EF4A18EEEE070058E0E3 /* LGTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGTile.m; sourceTree = "<group>"; };
 		A319EF4B18EEEE070058E0E3 /* LGTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGTransform.h; sourceTree = "<group>"; };
 		A319EF4C18EEEE070058E0E3 /* LGTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGTransform.m; sourceTree = "<group>"; };
 		A319EF4E18EEEE070058E0E3 /* LGCameraSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGCameraSystem.h; sourceTree = "<group>"; };
@@ -113,8 +131,8 @@
 		A319EF5318EEEE070058E0E3 /* LGPhysicalSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGPhysicalSystem.m; sourceTree = "<group>"; };
 		A319EF5418EEEE070058E0E3 /* LGPlayerInputSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGPlayerInputSystem.h; sourceTree = "<group>"; };
 		A319EF5518EEEE070058E0E3 /* LGPlayerInputSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGPlayerInputSystem.m; sourceTree = "<group>"; };
-		A319EF5718EEEE070058E0E3 /* LGSpriteRenderingSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGSpriteRenderingSystem.h; sourceTree = "<group>"; };
-		A319EF5818EEEE070058E0E3 /* LGSpriteRenderingSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGSpriteRenderingSystem.m; sourceTree = "<group>"; };
+		A319EF5718EEEE070058E0E3 /* LGSpriteRenderingSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LGSpriteRenderingSystem.h; path = "LGRenderingSystem Subclasses/LGSpriteRenderingSystem.h"; sourceTree = "<group>"; };
+		A319EF5818EEEE070058E0E3 /* LGSpriteRenderingSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LGSpriteRenderingSystem.m; path = "LGRenderingSystem Subclasses/LGSpriteRenderingSystem.m"; sourceTree = "<group>"; };
 		A319EF5918EEEE070058E0E3 /* LGRenderingSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGRenderingSystem.h; sourceTree = "<group>"; };
 		A319EF5A18EEEE070058E0E3 /* LGRenderingSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGRenderingSystem.m; sourceTree = "<group>"; };
 		A319EF5B18EEEE070058E0E3 /* LGTileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGTileSystem.h; sourceTree = "<group>"; };
@@ -240,7 +258,6 @@
 				A319EF3B18EEEE070058E0E3 /* LGCamera.m */,
 				A319EF3C18EEEE070058E0E3 /* LGCollider.h */,
 				A319EF3D18EEEE070058E0E3 /* LGCollider.m */,
-				A319EF3E18EEEE070058E0E3 /* LGColliderSubclasses */,
 				A319EF4118EEEE070058E0E3 /* LGPhysics.h */,
 				A319EF4218EEEE070058E0E3 /* LGPhysics.m */,
 				A319EF4318EEEE070058E0E3 /* LGPlayer.h */,
@@ -249,21 +266,12 @@
 				A319EF4618EEEE070058E0E3 /* LGRender.m */,
 				A319EF4718EEEE070058E0E3 /* LGSprite.h */,
 				A319EF4818EEEE070058E0E3 /* LGSprite.m */,
-				A319EF4918EEEE070058E0E3 /* LGTile.h */,
-				A319EF4A18EEEE070058E0E3 /* LGTile.m */,
+				A319EF3F18EEEE070058E0E3 /* LGTileCollider.h */,
+				A319EF4018EEEE070058E0E3 /* LGTileCollider.m */,
 				A319EF4B18EEEE070058E0E3 /* LGTransform.h */,
 				A319EF4C18EEEE070058E0E3 /* LGTransform.m */,
 			);
 			path = "Core Components";
-			sourceTree = "<group>";
-		};
-		A319EF3E18EEEE070058E0E3 /* LGColliderSubclasses */ = {
-			isa = PBXGroup;
-			children = (
-				A319EF3F18EEEE070058E0E3 /* LGTileCollider.h */,
-				A319EF4018EEEE070058E0E3 /* LGTileCollider.m */,
-			);
-			path = LGColliderSubclasses;
 			sourceTree = "<group>";
 		};
 		A319EF4D18EEEE070058E0E3 /* Core Systems */ = {
@@ -277,22 +285,14 @@
 				A319EF5318EEEE070058E0E3 /* LGPhysicalSystem.m */,
 				A319EF5418EEEE070058E0E3 /* LGPlayerInputSystem.h */,
 				A319EF5518EEEE070058E0E3 /* LGPlayerInputSystem.m */,
-				A319EF5618EEEE070058E0E3 /* LGRenderingSystem Subclasses */,
 				A319EF5918EEEE070058E0E3 /* LGRenderingSystem.h */,
 				A319EF5A18EEEE070058E0E3 /* LGRenderingSystem.m */,
+				A319EF5718EEEE070058E0E3 /* LGSpriteRenderingSystem.h */,
+				A319EF5818EEEE070058E0E3 /* LGSpriteRenderingSystem.m */,
 				A319EF5B18EEEE070058E0E3 /* LGTileSystem.h */,
 				A319EF5C18EEEE070058E0E3 /* LGTileSystem.m */,
 			);
 			path = "Core Systems";
-			sourceTree = "<group>";
-		};
-		A319EF5618EEEE070058E0E3 /* LGRenderingSystem Subclasses */ = {
-			isa = PBXGroup;
-			children = (
-				A319EF5718EEEE070058E0E3 /* LGSpriteRenderingSystem.h */,
-				A319EF5818EEEE070058E0E3 /* LGSpriteRenderingSystem.m */,
-			);
-			path = "LGRenderingSystem Subclasses";
 			sourceTree = "<group>";
 		};
 		A319EF7D18EEEE8E0058E0E3 /* Game */ = {
@@ -455,7 +455,6 @@
 				A38069D318B56A7100486D21 /* Sources */,
 				A38069D418B56A7100486D21 /* Frameworks */,
 				A38069D518B56A7100486D21 /* CopyFiles */,
-				A3806A1318B5725D00486D21 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -526,22 +525,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		A3806A1318B5725D00486D21 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "##########################################\n#\n# c.f. http://stackoverflow.com/questions/3520977/build-fat-static-library-device-simulator-using-xcode-and-sdk-4\n#\n# Version 2.7\n#\n# Latest Change:\n# - Supports iPhone 5 / iPod Touch 5 (uses Apple's workaround to lipo bug)\n#\n# Purpose:\n#   Automatically create a Universal static library for iPhone + iPad + iPhone Simulator from within XCode\n#\n# Author: Adam Martin - http://twitter.com/t_machine_org\n# Based on: original script from Eonil (main changes: Eonil's script WILL NOT WORK in Xcode GUI - it WILL CRASH YOUR COMPUTER)\n#\n\nset -e\nset -o pipefail\n\n#################[ Tests: helps workaround any future bugs in Xcode ]########\n#\nDEBUG_THIS_SCRIPT=\"false\"\n\nif [ $DEBUG_THIS_SCRIPT = \"true\" ]\nthen\necho \"########### TESTS #############\"\necho \"Use the following variables when debugging this script; note that they may change on recursions\"\necho \"BUILD_DIR = $BUILD_DIR\"\necho \"BUILD_ROOT = $BUILD_ROOT\"\necho \"CONFIGURATION_BUILD_DIR = $CONFIGURATION_BUILD_DIR\"\necho \"BUILT_PRODUCTS_DIR = $BUILT_PRODUCTS_DIR\"\necho \"CONFIGURATION_TEMP_DIR = $CONFIGURATION_TEMP_DIR\"\necho \"TARGET_BUILD_DIR = $TARGET_BUILD_DIR\"\nfi\n\n#####################[ part 1 ]##################\n# First, work out the BASESDK version number (NB: Apple ought to report this, but they hide it)\n#    (incidental: searching for substrings in sh is a nightmare! Sob)\n\nSDK_VERSION=$(echo ${SDK_NAME} | grep -o '.\\{3\\}$')\n\n# Next, work out if we're in SIM or DEVICE\n\nif [ ${PLATFORM_NAME} = \"iphonesimulator\" ]\nthen\nOTHER_SDK_TO_BUILD=iphoneos${SDK_VERSION}\nelse\nOTHER_SDK_TO_BUILD=iphonesimulator${SDK_VERSION}\nfi\n\necho \"XCode has selected SDK: ${PLATFORM_NAME} with version: ${SDK_VERSION} (although back-targetting: ${IPHONEOS_DEPLOYMENT_TARGET})\"\necho \"...therefore, OTHER_SDK_TO_BUILD = ${OTHER_SDK_TO_BUILD}\"\n#\n#####################[ end of part 1 ]##################\n\n#####################[ part 2 ]##################\n#\n# IF this is the original invocation, invoke WHATEVER other builds are required\n#\n# Xcode is already building ONE target...\n#\n# ...but this is a LIBRARY, so Apple is wrong to set it to build just one.\n# ...we need to build ALL targets\n# ...we MUST NOT re-build the target that is ALREADY being built: Xcode WILL CRASH YOUR COMPUTER if you try this (infinite recursion!)\n#\n#\n# So: build ONLY the missing platforms/configurations.\n\nif [ \"true\" == ${ALREADYINVOKED:-false} ]\nthen\necho \"RECURSION: I am NOT the root invocation, so I'm NOT going to recurse\"\nelse\n# CRITICAL:\n# Prevent infinite recursion (Xcode sucks)\nexport ALREADYINVOKED=\"true\"\n\necho \"RECURSION: I am the root ... recursing all missing build targets NOW...\"\necho \"RECURSION: ...about to invoke: xcodebuild -configuration \\\"${CONFIGURATION}\\\" -project \\\"${PROJECT_NAME}.xcodeproj\\\" -target \\\"${TARGET_NAME}\\\" -sdk \\\"${OTHER_SDK_TO_BUILD}\\\" ${ACTION} RUN_CLANG_STATIC_ANALYZER=NO\" BUILD_DIR=\\\"${BUILD_DIR}\\\" BUILD_ROOT=\\\"${BUILD_ROOT}\\\" SYMROOT=\\\"${SYMROOT}\\\"\n\nxcodebuild -configuration \"${CONFIGURATION}\" -project \"${PROJECT_NAME}.xcodeproj\" -target \"${TARGET_NAME}\" -sdk \"${OTHER_SDK_TO_BUILD}\" ${ACTION} RUN_CLANG_STATIC_ANALYZER=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" SYMROOT=\"${SYMROOT}\"\n\nACTION=\"build\"\n\n#Merge all platform binaries as a fat binary for each configurations.\n\n# Calculate where the (multiple) built files are coming from:\nCURRENTCONFIG_DEVICE_DIR=${SYMROOT}/${CONFIGURATION}-iphoneos\nCURRENTCONFIG_SIMULATOR_DIR=${SYMROOT}/${CONFIGURATION}-iphonesimulator\n\necho \"Taking device build from: ${CURRENTCONFIG_DEVICE_DIR}\"\necho \"Taking simulator build from: ${CURRENTCONFIG_SIMULATOR_DIR}\"\n\nCREATING_UNIVERSAL_DIR=${SYMROOT}/${CONFIGURATION}-universal\necho \"...I will output a universal build to: ${CREATING_UNIVERSAL_DIR}\"\n\n# ... remove the products of previous runs of this script\n#      NB: this directory is ONLY created by this script - it should be safe to delete!\n\nrm -rf \"${CREATING_UNIVERSAL_DIR}\"\nmkdir \"${CREATING_UNIVERSAL_DIR}\"\n\n#\necho \"lipo: for current configuration (${CONFIGURATION}) creating output file: ${CREATING_UNIVERSAL_DIR}/${EXECUTABLE_NAME}\"\nxcrun -sdk iphoneos lipo -create -output \"${CREATING_UNIVERSAL_DIR}/${EXECUTABLE_NAME}\" \"${CURRENTCONFIG_DEVICE_DIR}/${EXECUTABLE_NAME}\" \"${CURRENTCONFIG_SIMULATOR_DIR}/${EXECUTABLE_NAME}\"\n\n#########\n#\n# Added: StackOverflow suggestion to also copy \"include\" files\n#    (untested, but should work OK)\n#\necho \"Fetching headers from ${PUBLIC_HEADERS_FOLDER_PATH}\"\necho \"  (if you embed your library project in another project, you will need to add\"\necho \"   a \"User Search Headers\" build setting of: (NB INCLUDE THE DOUBLE QUOTES BELOW!)\"\necho '        \"$(TARGET_BUILD_DIR)/usr/local/include/\"'\nif [ -d \"${CURRENTCONFIG_DEVICE_DIR}${PUBLIC_HEADERS_FOLDER_PATH}\" ]\nthen\nmkdir -p \"${CREATING_UNIVERSAL_DIR}${PUBLIC_HEADERS_FOLDER_PATH}\"\n# * needs to be outside the double quotes?\ncp -r \"${CURRENTCONFIG_DEVICE_DIR}${PUBLIC_HEADERS_FOLDER_PATH}\"* \"${CREATING_UNIVERSAL_DIR}${PUBLIC_HEADERS_FOLDER_PATH}\"\nfi\nfi";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		A3367D0218B3E620005475B7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -558,7 +541,6 @@
 				A3367D1F18B3E621005475B7 /* Engine.xcdatamodeld in Sources */,
 				A319EF6B18EEEE070058E0E3 /* LGPhysics.m in Sources */,
 				A319EF7718EEEE070058E0E3 /* LGTileSystem.m in Sources */,
-				A319EF6F18EEEE070058E0E3 /* LGTile.m in Sources */,
 				A319EF7518EEEE070058E0E3 /* LGSpriteRenderingSystem.m in Sources */,
 				A319EF9118EEEE8E0058E0E3 /* TileMapParser.m in Sources */,
 				A319EF7A18EEEE070058E0E3 /* LGEntity.m in Sources */,
@@ -592,6 +574,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A36C73E218F0510D00B988C7 /* LGTileLayer.m in Sources */,
+				A36C73E318F0510D00B988C7 /* LGCamera.m in Sources */,
+				A36C73E418F0510D00B988C7 /* LGCollider.m in Sources */,
+				A36C73E518F0510D00B988C7 /* LGTileCollider.m in Sources */,
+				A36C73E618F0510D00B988C7 /* LGPhysics.m in Sources */,
+				A36C73E718F0510D00B988C7 /* LGPlayer.m in Sources */,
+				A36C73E818F0510D00B988C7 /* LGRender.m in Sources */,
+				A36C73E918F0510D00B988C7 /* LGSprite.m in Sources */,
+				A36C73EB18F0510D00B988C7 /* LGTransform.m in Sources */,
+				A36C73EC18F0510D00B988C7 /* LGCameraSystem.m in Sources */,
+				A36C73ED18F0510D00B988C7 /* LGCollisionSystem.m in Sources */,
+				A36C73EE18F0510D00B988C7 /* LGPhysicalSystem.m in Sources */,
+				A36C73EF18F0510D00B988C7 /* LGPlayerInputSystem.m in Sources */,
+				A36C73F018F0510D00B988C7 /* LGSpriteRenderingSystem.m in Sources */,
+				A36C73F118F0510D00B988C7 /* LGRenderingSystem.m in Sources */,
+				A36C73F218F0510D00B988C7 /* LGTileSystem.m in Sources */,
+				A36C73F318F0510D00B988C7 /* LGComponent.m in Sources */,
+				A36C73F418F0510D00B988C7 /* LGEngine.m in Sources */,
+				A36C73F518F0510D00B988C7 /* LGEntity.m in Sources */,
+				A36C73F618F0510D00B988C7 /* LGScene.m in Sources */,
+				A36C73F718F0510D00B988C7 /* LGSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

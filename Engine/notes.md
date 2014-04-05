@@ -8,6 +8,7 @@ Notes, Quirks, and Todos
 * Components can't be added/removed from entities after they've been added to the scene because their entities won't be added to the appropriate systems.
 * Transformable entities appear at (0, 0) on the first frame.
 * Sprite logic is in the component instead of in the system.
+* Tile layer generation manipulates the [UIView frame] of each sprite directly rather than leaving that to the renderer.
 
 # Todo
 

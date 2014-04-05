@@ -20,6 +20,6 @@
 @property (nonatomic, assign) CGSize size;
 @property (nonatomic, assign) int visibleX, visibleY, padding;
 
-- (void)addLayer:(LGTileLayer *)layer;
+- (void)generateLayerFromArray:(NSArray *)array layer:(int)layer visible:(BOOL)isVisible collision:(BOOL)isCollision;
 
 @end

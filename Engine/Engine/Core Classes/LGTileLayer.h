@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@class LGTileSystem, LGSprite;
+@class LGTileSystem, LGEntity;
 
 @interface LGTileLayer : NSObject
 
 @property (nonatomic, weak) LGTileSystem *parent;
-@property (nonatomic, retain) NSMutableArray *tiles, *sprites;
+@property (nonatomic, retain) NSArray *tiles;
+@property (nonatomic, retain) NSMutableArray *spriteEntities;
 @property (nonatomic, assign) int offsetX, offsetY;
 @property (nonatomic, assign) BOOL isVisible;
 
@@ -23,9 +24,9 @@
 - (BOOL)shiftUp;
 
 - (NSString *)tileAtRow:(int)row andCol:(int)col;
-- (LGSprite *)spriteAtRow:(int)row andCol:(int)col;
+- (LGEntity *)spriteEntityAtRow:(int)row andCol:(int)col;
 - (BOOL)collidesAtRow:(int)row andCol:(int)col;
 
-- (id)initWithParent:(LGTileSystem *)p andTiles:(NSMutableArray *)t andSprites:(NSMutableArray *)s;
+- (id)initWithParent:(LGTileSystem *)p andTiles:(NSArray *)t andSprites:(NSMutableArray *)s;
 
 @end

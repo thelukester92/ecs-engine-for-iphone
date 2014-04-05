@@ -21,6 +21,14 @@
 	[[self.scene rootView] addSubview:[render view]];
 }
 
+- (void)updateRender:(LGRender *)render withTransform:(LGTransform *)transform
+{
+	if([render visible])
+	{
+		[[render view] setFrame:CGRectMake(round([transform position].x - [render offset].x), round([transform position].y - [render offset].y), [render size].width, [render size].height)];
+	}
+}
+
 #pragma mark LGSystem Methods
 
 - (BOOL)acceptsEntity:(LGEntity *)entity
@@ -32,7 +40,8 @@
 {
 	[super addEntity:entity];
 	
-	// Only perform this step when using this base class directly
+	// Only perform this step when using this class directly
+	
 	if([self isMemberOfClass:[LGRenderingSystem class]])
 	{
 		[self addRenderToView:[entity componentOfType:[LGRender class]]];
@@ -46,16 +55,13 @@
 		LGRender *render		= [entity componentOfType:[LGRender class]];
 		LGTransform *transform	= [entity componentOfType:[LGTransform class]];
 		
-		if([render visible])
-		{
-			[[render view] setFrame:CGRectMake(round([transform position].x - [render offset].x), round([transform position].y - [render offset].y), [render size].width, [render size].height)];
-		}
+		[self updateRender:render withTransform:transform];
 	}
 }
 
 - (void)initialize
 {
-	self.updateOrder = LGUpdateOrderRender;
+	self.updateOrder	= LGUpdateOrderRender;
 }
 
 @end

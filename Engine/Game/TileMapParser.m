@@ -14,7 +14,6 @@
 #import "LGEntity.h"
 #import "LGTransform.h"
 #import "LGSprite.h"
-#import "LGTileCollider.h"
 
 @implementation TileMapParser
 
@@ -33,72 +32,26 @@
 		
 		// Data to be stored in an LGTileLayer
 		
-		NSMutableArray *tiles	= [NSMutableArray array];
-		NSMutableArray *sprites	= isVisible ? [NSMutableArray array] : nil;
+		NSMutableArray *tiles = [NSMutableArray array];
 		
-		// The renderable entity for the scene
-		
-		LGEntity *layerEntity = [[LGEntity alloc] init];
-		[layerEntity addComponent:[[LGTransform alloc] init]];
-		
-		LGRender *render = [[LGRender alloc] init];
-		[render setSize:[[system scene] view].frame.size];
-		[render setLayer:(LGRenderLayerMainLayer + layerOffset)];
-		[layerEntity addComponent:render];
-		
-		[[system scene] addEntity:layerEntity];
-		
-		// Populate tiles and sprites arrays
+		// Populate tiles array from contents
 		
 		NSArray *rows = [contents componentsSeparatedByString:TileLayerRowSplitter];
 		for(int i = 0; i < [rows count]; i++)
 		{
-			if(sprites != nil && i < [system visibleY])
-			{
-				[sprites addObject:[NSMutableArray array]];
-			}
-			
 			NSMutableArray *row = [NSMutableArray array];
 			[tiles addObject:row];
 			
 			NSArray *cols = [[rows objectAtIndex:i] componentsSeparatedByString:TileLayerColSplitter];
 			for(int j = 0; j < [cols count]; j++)
 			{
-				if(sprites != nil && i < [system visibleY] && j < [system visibleX])
-				{
-					LGSprite *s = [LGSprite copyOfSprite:[system sprite]];
-					[s setPosition:[[cols objectAtIndex:j] intValue]];
-					
-					[[s view] setFrame:CGRectMake(j * [[system sprite] size].width, i * [[system sprite] size].height, [[system sprite] size].width, [[system sprite] size].height)];
-					[render addSubRender:s];
-					
-					[[sprites objectAtIndex:i] addObject:s];
-				}
-				
 				[row addObject:[cols objectAtIndex:j]];
 			}
 		}
 		
 		// Store in an LGTileLayer
 		
-		LGTileLayer *layer = [[LGTileLayer alloc] initWithParent:system andTiles:tiles andSprites:sprites];
-		[layer setIsVisible:isVisible];
-		[system addLayer:layer];
-		
-		// Set as the collision layer
-		
-		if(isCollision)
-		{
-			LGTileCollider *tileCollider = [[LGTileCollider alloc] init];
-			[tileCollider setCollisionLayer:layer];
-			[tileCollider setTileSize:[[system sprite] size]];
-			
-			LGEntity *collisionLayerEntity = [[LGEntity alloc] init];
-			[collisionLayerEntity addComponent:tileCollider];
-			[collisionLayerEntity addComponent:[[LGTransform alloc] init]];
-			
-			[[system scene] addEntity:collisionLayerEntity];
-		}
+		[system generateLayerFromArray:tiles layer:(LGRenderLayerMainLayer + layerOffset) visible:isVisible collision:isCollision];
 	}
 }
 

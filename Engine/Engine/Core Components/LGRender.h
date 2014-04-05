@@ -17,12 +17,10 @@ enum
 
 @interface LGRender : LGComponent
 
-@property (nonatomic, retain) UIView *view;
+@property (nonatomic, retain) UIView *view, *superview;
 @property (nonatomic, assign) CGSize size;
 @property (nonatomic, assign) CGPoint offset;
 @property (nonatomic, assign) BOOL visible;
 @property (nonatomic, assign) int layer;
-
-- (void)addSubRender:(LGRender *)render;
 
 @end

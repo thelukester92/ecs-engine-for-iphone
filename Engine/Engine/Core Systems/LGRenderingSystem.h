@@ -8,10 +8,11 @@
 
 #import "LGSystem.h"
 
-@class LGRender;
+@class LGRender, LGTransform;
 
 @interface LGRenderingSystem : LGSystem
 
 - (void)addRenderToView:(LGRender *)render;
+- (void)updateRender:(LGRender *)render withTransform:(LGTransform *)transform;
 
 @end

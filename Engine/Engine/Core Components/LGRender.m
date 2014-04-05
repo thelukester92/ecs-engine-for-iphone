@@ -10,12 +10,7 @@
 
 @implementation LGRender
 
-@synthesize view, size, offset, visible, layer;
-
-- (void)addSubRender:(LGRender *)render
-{
-	[view addSubview:[render view]];
-}
+@synthesize view, superview, size, offset, visible, layer;
 
 - (void)setLayer:(int)l
 {
@@ -25,11 +20,12 @@
 
 - (void)initialize
 {
-	view	= [[UIView alloc] initWithFrame:CGRectZero];
-	size	= CGSizeZero;
-	offset	= CGPointZero;
-	visible	= YES;
-	layer	= LGRenderLayerMainLayer;
+	view		= [[UIView alloc] initWithFrame:CGRectZero];
+	superview	= nil;
+	size		= CGSizeZero;
+	offset		= CGPointZero;
+	visible		= YES;
+	layer		= LGRenderLayerMainLayer;
 	
 	[view.layer setZPosition:layer];
 }
