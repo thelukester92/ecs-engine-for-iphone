@@ -31,7 +31,6 @@
 		A319EF7C18EEEE070058E0E3 /* LGSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF6618EEEE070058E0E3 /* LGSystem.m */; };
 		A319EF8B18EEEE8E0058E0E3 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF7F18EEEE8E0058E0E3 /* Constants.m */; };
 		A319EF8C18EEEE8E0058E0E3 /* EntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF8118EEEE8E0058E0E3 /* EntityFactory.m */; };
-		A319EF8D18EEEE8E0058E0E3 /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = A319EF8318EEEE8E0058E0E3 /* ball.png */; };
 		A319EF8E18EEEE8E0058E0E3 /* blue.png in Resources */ = {isa = PBXBuildFile; fileRef = A319EF8418EEEE8E0058E0E3 /* blue.png */; };
 		A319EF8F18EEEE8E0058E0E3 /* level1.plist in Resources */ = {isa = PBXBuildFile; fileRef = A319EF8518EEEE8E0058E0E3 /* level1.plist */; };
 		A319EF9018EEEE8E0058E0E3 /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF8818EEEE8E0058E0E3 /* MainScene.m */; };
@@ -52,6 +51,8 @@
 		A3367D3318B3E621005475B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3367D3118B3E621005475B7 /* InfoPlist.strings */; };
 		A3367D3518B3E621005475B7 /* EngineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3367D3418B3E621005475B7 /* EngineTests.m */; };
 		A3367D4018B3E662005475B7 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3367D3F18B3E662005475B7 /* MainViewController.m */; };
+		A36C739A18F0449300B988C7 /* Player.png in Resources */ = {isa = PBXBuildFile; fileRef = A36C739918F0449300B988C7 /* Player.png */; };
+		A36C739C18F04D3C00B988C7 /* tileset.png in Resources */ = {isa = PBXBuildFile; fileRef = A36C739B18F04D3C00B988C7 /* tileset.png */; };
 		A37F40BC18C524E100C58298 /* notes.md in Resources */ = {isa = PBXBuildFile; fileRef = A37F40BB18C524E100C58298 /* notes.md */; };
 		A38069D818B56A7100486D21 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3367D0918B3E620005475B7 /* Foundation.framework */; };
 		A38069FF18B56ACD00486D21 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3367D0B18B3E620005475B7 /* CoreGraphics.framework */; };
@@ -132,7 +133,6 @@
 		A319EF7F18EEEE8E0058E0E3 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		A319EF8018EEEE8E0058E0E3 /* EntityFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityFactory.h; sourceTree = "<group>"; };
 		A319EF8118EEEE8E0058E0E3 /* EntityFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityFactory.m; sourceTree = "<group>"; };
-		A319EF8318EEEE8E0058E0E3 /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
 		A319EF8418EEEE8E0058E0E3 /* blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue.png; sourceTree = "<group>"; };
 		A319EF8518EEEE8E0058E0E3 /* level1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = level1.plist; sourceTree = "<group>"; };
 		A319EF8718EEEE8E0058E0E3 /* MainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScene.h; sourceTree = "<group>"; };
@@ -159,6 +159,8 @@
 		A3367D3418B3E621005475B7 /* EngineTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EngineTests.m; sourceTree = "<group>"; };
 		A3367D3E18B3E662005475B7 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		A3367D3F18B3E662005475B7 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		A36C739918F0449300B988C7 /* Player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Player.png; sourceTree = "<group>"; };
+		A36C739B18F04D3C00B988C7 /* tileset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tileset.png; sourceTree = "<group>"; };
 		A37F40BB18C524E100C58298 /* notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = notes.md; path = Engine/notes.md; sourceTree = "<group>"; };
 		A38069D718B56A7100486D21 /* libLGEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLGEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3D7547518EE1B14007EC53C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
@@ -311,7 +313,8 @@
 		A319EF8218EEEE8E0058E0E3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A319EF8318EEEE8E0058E0E3 /* ball.png */,
+				A36C739918F0449300B988C7 /* Player.png */,
+				A36C739B18F04D3C00B988C7 /* tileset.png */,
 				A319EF8418EEEE8E0058E0E3 /* blue.png */,
 				A319EF8518EEEE8E0058E0E3 /* level1.plist */,
 			);
@@ -503,7 +506,8 @@
 			files = (
 				A3367D1618B3E620005475B7 /* InfoPlist.strings in Resources */,
 				A3D7547618EE1B14007EC53C /* README.md in Resources */,
-				A319EF8D18EEEE8E0058E0E3 /* ball.png in Resources */,
+				A36C739A18F0449300B988C7 /* Player.png in Resources */,
+				A36C739C18F04D3C00B988C7 /* tileset.png in Resources */,
 				A37F40BC18C524E100C58298 /* notes.md in Resources */,
 				A3DFD9DB18EDFEE0004412EE /* LICENSE in Resources */,
 				A319EF8E18EEEE8E0058E0E3 /* blue.png in Resources */,

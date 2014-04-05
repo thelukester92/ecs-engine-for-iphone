@@ -21,21 +21,18 @@
 {
 	LGSprite *render = [[LGSprite alloc] init];
 	[render setSpriteSheetName:@"Player"];
-	[render setSize:CGSizeMake(64, 64)];
-	[render setOffset:CGPointMake(24, 24)];
+	[render setSize:CGSizeMake(40, 42)];
+	[render setOffset:CGPointMake(8, 2)];
 	
-	[render addState:[[LGSpriteState alloc] initWithStart:1 andEnd:8] forKey:@"idle"];
-	[render addState:[[LGSpriteState alloc] initWithStart:11 andEnd:18] forKey:@"walk"];
-	[render addState:[[LGSpriteState alloc] initWithStart:21 andEnd:22 loops:NO] forKey:@"jump"];
-	[render addState:[[LGSpriteState alloc] initWithStart:23 andEnd:24 loops:NO] forKey:@"fall"];
-	[render addState:[[LGSpriteState alloc] initWithStart:31 andEnd:35 loops:NO] forKey:@"die"];
-	[render addState:[[LGSpriteState alloc] initWithStart:41 andEnd:49 loops:NO] forKey:@"disappear"];
-	[render addState:[[LGSpriteState alloc] initWithStart:51 andEnd:59 loops:NO] forKey:@"appear"];
+	[render addState:[[LGSpriteState alloc] initWithPosition:1] forKey:@"idle"];
+	[render addState:[[LGSpriteState alloc] initWithStart:8 andEnd:9] forKey:@"walk"];
+	[render addState:[[LGSpriteState alloc] initWithPosition:6] forKey:@"jump"];
+	[render addState:[[LGSpriteState alloc] initWithPosition:7] forKey:@"fall"];
 	
 	[render setCurrentState:@"idle"];
 	
 	LGCollider *collider = [[LGCollider alloc] init];
-	[collider setSize:CGSizeMake(20, 40)];
+	[collider setSize:CGSizeMake(24, 40)];
 	
 	LGEntity *player = [[LGEntity alloc] init];
 	[player addComponent:render];
@@ -53,7 +50,7 @@
 	return player;
 }
 
-+ (LGEntity *)floorEntity:(BOOL)circ
++ (LGEntity *)blockEntity
 {
 	LGEntity *floor = [[LGEntity alloc] init];
 	
@@ -61,7 +58,7 @@
 	[transform setPosition:CGPointMake(100, 100)];
 	
 	LGSprite *render = [[LGSprite alloc] init];
-	[render setSpriteSheet:[UIImage imageNamed:circ ? @"ball" : @"blue"]];
+	[render setSpriteSheet:[UIImage imageNamed:@"blue"]];
 	[render setSize:CGSizeMake(50, 50)];
 	[render setState:[[LGSpriteState alloc] initWithPosition:1]];
 	

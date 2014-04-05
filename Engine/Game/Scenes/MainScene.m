@@ -54,6 +54,8 @@
 {
 	[super viewDidAppear:animated];
 	
+	[self.view setBackgroundColor:[UIColor grayColor]];
+	
 	[self registerSystems];
 	
 	LGEntity *player = [EntityFactory playerEntity];
@@ -62,13 +64,13 @@
 	
 	for(int i = 0; i < 4; i++)
 	{
-		LGEntity *floor = [EntityFactory floorEntity:NO];
-		[(LGTransform *)[floor componentOfType:[LGTransform class]] addToPosition:CGPointMake(50 + 100 * i, -10 + i * 20)];
+		LGEntity *block = [EntityFactory blockEntity];
+		[(LGTransform *)[block componentOfType:[LGTransform class]] addToPosition:CGPointMake(50 + 100 * i, -10 + i * 20)];
 		
 		LGPhysics *physics = [[LGPhysics alloc] init];
-		[floor addComponent:physics];
+		[block addComponent:physics];
 		
-		[self addEntity:floor];
+		[self addEntity:block];
 	}
 	
 	[TileMapParser parsePlist:@"level1" forSystem:tileSystem];
