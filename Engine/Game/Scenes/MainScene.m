@@ -59,15 +59,22 @@
 	[self registerSystems];
 	
 	LGEntity *player = [EntityFactory playerEntity];
+//	[[player componentOfType:[LGPhysics type]] setRespondsToGravity:NO];
 	[[player componentOfType:[LGCamera type]] setSize:CGSizeMake([self.view frame].size.width, [self.view frame].size.height)];
 	[self addEntity:player];
 	
-	for(int i = 0; i < 18; i++)
+	for(int i = 0; i < 20; i++)
 	{
 		LGEntity *block = [EntityFactory blockEntity];
 		[(LGTransform *)[block componentOfType:[LGTransform type]] addToPositionX:50 + 60 * i];
 		
+		if(i >= 10)
+		{
+			[(LGTransform *)[block componentOfType:[LGTransform type]] addToPosition:CGPointMake(-590, -100)];
+		}
+		
 		LGPhysics *physics = [[LGPhysics alloc] init];
+//		[physics setRespondsToGravity:NO];
 		[block addComponent:physics];
 		
 		[self addEntity:block];

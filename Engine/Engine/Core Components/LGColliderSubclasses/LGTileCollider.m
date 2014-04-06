@@ -18,7 +18,7 @@
 	
 	if(type == nil)
 	{
-		type = NSStringFromClass([self class]);
+		type = NSStringFromClass([LGCollider class]);
 	}
 	
 	return type;
@@ -26,10 +26,9 @@
 
 - (void)initialize
 {
-	collisionLayer		= nil;
-	tileSize			= CGSizeZero;
-	self.type			= LGColliderTypeStatic;
-	self.componentType	= [LGCollider type];
+	collisionLayer	= nil;
+	tileSize		= CGSizeZero;
+	self.type		= LGColliderTypeStatic;
 }
 
 @end

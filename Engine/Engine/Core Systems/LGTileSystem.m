@@ -76,21 +76,6 @@
 	LGTileLayer *tileLayer = [[LGTileLayer alloc] initWithParent:self andTiles:array andSprites:spriteEntities];
 	[tileLayer setIsVisible:isVisible];
 	
-	// Generate a tile collider out of the collision layer
-	
-	if(isCollision)
-	{
-		LGTileCollider *tileCollider = [[LGTileCollider alloc] init];
-		[tileCollider setCollisionLayer:tileLayer];
-		[tileCollider setTileSize:[sprite size]];
-		
-		LGEntity *collisionLayerEntity = [[LGEntity alloc] init];
-		[collisionLayerEntity addComponent:tileCollider];
-		[collisionLayerEntity addComponent:[[LGTransform alloc] init]];
-		
-		[self.scene addEntity:collisionLayerEntity];
-	}
-	
 	// Add the layer to the system
 	
 	[layers addObject:tileLayer];
@@ -103,6 +88,22 @@
 	if(sprite != nil)
 	{
 		size = CGSizeMake([[array objectAtIndex:0] count] * [sprite size].width, [array count] * [sprite size].height);
+	}
+	
+	// Generate a tile collider out of the collision layer
+	
+	if(isCollision)
+	{
+		LGTileCollider *tileCollider = [[LGTileCollider alloc] init];
+		[tileCollider setCollisionLayer:tileLayer];
+		[tileCollider setTileSize:[sprite size]];
+		[tileCollider setSize:size];
+		
+		LGEntity *collisionLayerEntity = [[LGEntity alloc] init];
+		[collisionLayerEntity addComponent:tileCollider];
+		[collisionLayerEntity addComponent:[[LGTransform alloc] init]];
+		
+		[self.scene addEntity:collisionLayerEntity];
 	}
 }
 

@@ -13,12 +13,12 @@
 #import "LGTileCollider.h"
 #import "LGTileLayer.h"
 #import "LGPlayer.h"
-#import "LGSpatialGrid.h"
+#import "LGQuadtree.h"
 #import "LGScene.h"
 
 @implementation LGCollisionSystem
 
-@synthesize staticEntities, dynamicEntities, quadtree, grid;
+@synthesize staticEntities, dynamicEntities, quadtree;
 
 #pragma mark LGCollisionSystem Private Methods
 
@@ -308,7 +308,7 @@
 		
 		if(forceStatic || [colliderB type] == LGColliderTypeStatic)
 		{
-			NSArray *entities = [grid entitiesNearEntity:a];
+			NSArray *entities = [quadtree entitiesNearEntity:a];
 			
 			for(int i = 0; i < [entities count]; i++)
 			{
@@ -323,7 +323,7 @@
 		{
 			BOOL chained = NO;
 			
-			NSArray *entities = [grid entitiesNearEntity:a];
+			NSArray *entities = [quadtree entitiesNearEntity:a];
 			
 			for(int i = 0; i < [entities count]; i++)
 			{
@@ -344,7 +344,7 @@
 			
 			if(!chained)
 			{
-				entities = [grid entitiesNearEntity:b];
+				entities = [quadtree entitiesNearEntity:b];
 				
 				for(int i = 0; i < [entities count]; i++)
 				{
@@ -393,20 +393,20 @@
 
 - (void)update
 {
-	grid = [[LGSpatialGrid alloc] initWithSize:CGSizeMake(100, 100)];
+	quadtree = [[LGQuadtree alloc] initWithBounds:[[self.scene view] frame]];
 	
 	for(int i = 0; i < [self.entities count]; i++)
 	{
 		LGEntity *entity = [self.entities objectAtIndex:i];
 		[(LGCollider *)[entity componentOfType:[LGCollider type]] reset];
-		[grid addEntity:entity];
+		[quadtree addEntity:entity];
 	}
 	
 	for(int i = 0; i < [dynamicEntities count]; i++)
 	{
 		LGEntity *a = [dynamicEntities objectAtIndex:i];
 		
-		NSArray *entities = [grid entitiesNearEntity:a];
+		NSArray *entities = [quadtree entitiesNearEntity:a];
 		
 		for(int j = 0; j < [entities count]; j++)
 		{
@@ -422,9 +422,10 @@
 
 - (void)initialize
 {
-	NSLog(@"Spatial grid collisions.");
+	NSLog(@"Quadtree collisions.");
 	staticEntities	= [NSMutableArray array];
 	dynamicEntities	= [NSMutableArray array];
+	
 }
 
 @end

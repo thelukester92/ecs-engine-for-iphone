@@ -15,12 +15,12 @@
 
 - (void)addComponent:(LGComponent *)component
 {
-	[components setValue:component forKey:[component componentType]];
+	[components setObject:component forKey:[[component class] type]];
 }
 
 - (id)componentOfType:(NSString *)type
 {
-	return [components valueForKey:type];
+	return [components objectForKey:type];
 }
 
 - (BOOL)hasComponentOfType:(NSString *)type
@@ -33,11 +33,11 @@
 	if(![self hasComponentOfType:firstObject])
 		return NO;
 	
-	NSString *obj;
+	id obj;
 	va_list args;
 	va_start(args, firstObject);
 	
-	while((obj = va_arg(args, NSString *)))
+	while((obj = va_arg(args, id)))
 	{
 		if(![self hasComponentOfType:obj])
 			return NO;

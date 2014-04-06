@@ -87,11 +87,11 @@
 	
 	if(self)
 	{
-		engine				= e;
-		entities			= [NSMutableArray array];
-		systems				= [NSMutableArray array];
-		allTouches			= [NSMutableDictionary dictionary];
-		rootView			= [[UIView alloc] initWithFrame:[self.view frame]];
+		engine		= e;
+		entities	= [NSMutableArray array];
+		systems		= [NSMutableArray array];
+		allTouches	= [NSMutableDictionary dictionary];
+		rootView	= [[UIView alloc] initWithFrame:[self.view frame]];
 		
 		[self.view addSubview:rootView];
 		[self.view setMultipleTouchEnabled:YES];

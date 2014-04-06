@@ -13,12 +13,10 @@
 #import "LGTileCollider.h"
 #import "LGTileLayer.h"
 #import "LGPlayer.h"
-#import "LGSpatialGrid.h"
-#import "LGScene.h"
 
 @implementation LGCollisionSystem
 
-@synthesize staticEntities, dynamicEntities, quadtree, grid;
+@synthesize staticEntities, dynamicEntities;
 
 #pragma mark LGCollisionSystem Private Methods
 
@@ -308,12 +306,10 @@
 		
 		if(forceStatic || [colliderB type] == LGColliderTypeStatic)
 		{
-			NSArray *entities = [grid entitiesNearEntity:a];
-			
-			for(int i = 0; i < [entities count]; i++)
+			for(int i = 0; i < [dynamicEntities count]; i++)
 			{
-				LGEntity *c = [entities objectAtIndex:i];
-				if(![c isEqual:a] && ![c isEqual:entityToIgnore] && [(LGCollider *)[c componentOfType:[LGCollider type]] type] != LGColliderTypeStatic)
+				LGEntity *c = [dynamicEntities objectAtIndex:i];
+				if(![c isEqual:a] && ![c isEqual:entityToIgnore])
 				{
 					[self resolveCollisionsBetween:c and:a ignoring:b withAdditionalMass:0 forceStatic:YES alreadyAdjustedA:CGPointZero collisionAxis:collisionAxis];
 				}
@@ -321,35 +317,13 @@
 		}
 		else
 		{
-			BOOL chained = NO;
-			
-			NSArray *entities = [grid entitiesNearEntity:a];
-			
-			for(int i = 0; i < [entities count]; i++)
+			for(int i = 0; i < [self.entities count]; i++)
 			{
-				LGEntity *c = [entities objectAtIndex:i];
+				LGEntity *c = [self.entities objectAtIndex:i];
 				if(![c isEqual:a] && ![c isEqual:b] && ![c isEqual:entityToIgnore])
 				{
 					CGPoint resolutionA = [self resolveCollisionsBetween:a and:c ignoring:b withAdditionalMass:massB forceStatic:NO alreadyAdjustedA:deltaA collisionAxis:collisionAxis];
-					if(!CGPointEqualToPoint(resolutionA, CGPointZero))
-					{
-						// Resolution caused another collision -- move entity B back
-						[transformB addToPosition:resolutionA];
-						deltaB = [self translate:deltaB by:resolutionA];
-						
-						chained = YES;
-					}
-				}
-			}
-			
-			if(!chained)
-			{
-				entities = [grid entitiesNearEntity:b];
-				
-				for(int i = 0; i < [entities count]; i++)
-				{
-					LGEntity *c = [entities objectAtIndex:i];
-					if(![c isEqual:a] && ![c isEqual:b] && ![c isEqual:entityToIgnore])
+					if(CGPointEqualToPoint(resolutionA, CGPointZero))
 					{
 						CGPoint resolutionB = [self resolveCollisionsBetween:b and:c ignoring:a withAdditionalMass:massA forceStatic:NO alreadyAdjustedA:deltaB collisionAxis:collisionAxis];
 						if(!CGPointEqualToPoint(resolutionB, CGPointZero))
@@ -358,6 +332,12 @@
 							[transformA addToPosition:resolutionB];
 							deltaA = [self translate:deltaA by:resolutionB];
 						}
+					}
+					else
+					{
+						// Resolution caused another collision -- move entity B back
+						[transformB addToPosition:resolutionA];
+						deltaB = [self translate:deltaB by:resolutionA];
 					}
 				}
 			}
@@ -393,38 +373,37 @@
 
 - (void)update
 {
-	grid = [[LGSpatialGrid alloc] initWithSize:CGSizeMake(100, 100)];
-	
-	for(int i = 0; i < [self.entities count]; i++)
-	{
-		LGEntity *entity = [self.entities objectAtIndex:i];
-		[(LGCollider *)[entity componentOfType:[LGCollider type]] reset];
-		[grid addEntity:entity];
-	}
-	
 	for(int i = 0; i < [dynamicEntities count]; i++)
 	{
 		LGEntity *a = [dynamicEntities objectAtIndex:i];
+		[(LGCollider *)[a componentOfType:[LGCollider type]] reset];
 		
-		NSArray *entities = [grid entitiesNearEntity:a];
-		
-		for(int j = 0; j < [entities count]; j++)
+		for(int j = 0; j < [staticEntities count]; j++)
 		{
-			LGEntity *b = [entities objectAtIndex:j];
+			LGEntity *b = [staticEntities objectAtIndex:j];
+			[self resolveCollisionsBetween:a and:b ignoring:nil withAdditionalMass:0 forceStatic:NO alreadyAdjustedA:CGPointZero collisionAxis:LGCollisionAxisAny];
+		}
+		
+		for(int j = i + 1; j < [dynamicEntities count]; j++)
+		{
+			LGEntity *b = [dynamicEntities objectAtIndex:j];
 			
-			if(![a isEqual:b])
+			if(i == 0)
 			{
-				[self resolveCollisionsBetween:a and:b ignoring:nil withAdditionalMass:0 forceStatic:NO alreadyAdjustedA:CGPointZero collisionAxis:LGCollisionAxisAny];
+				[(LGCollider *)[b componentOfType:[LGCollider type]] reset];
 			}
+			
+			[self resolveCollisionsBetween:a and:b ignoring:nil withAdditionalMass:0 forceStatic:NO alreadyAdjustedA:CGPointZero collisionAxis:LGCollisionAxisAny];
 		}
 	}
 }
 
 - (void)initialize
 {
-	NSLog(@"Spatial grid collisions.");
+	NSLog(@"Brute force collisions.");
 	staticEntities	= [NSMutableArray array];
 	dynamicEntities	= [NSMutableArray array];
+	
 }
 
 @end
