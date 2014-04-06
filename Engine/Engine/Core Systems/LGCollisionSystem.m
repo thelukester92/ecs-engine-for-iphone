@@ -422,7 +422,6 @@
 
 - (void)initialize
 {
-	NSLog(@"Spatial grid collisions.");
 	staticEntities	= [NSMutableArray array];
 	dynamicEntities	= [NSMutableArray array];
 }

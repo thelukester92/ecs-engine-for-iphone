@@ -80,8 +80,6 @@
 		A3D7547618EE1B14007EC53C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A3D7547518EE1B14007EC53C /* README.md */; };
 		A3DFD9DB18EDFEE0004412EE /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = A3DFD9DA18EDFEE0004412EE /* LICENSE */; };
 		A3F818DE18F0B42400359EB8 /* LGTile.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F818DD18F0B42400359EB8 /* LGTile.m */; };
-		A3F818E118F0C33E00359EB8 /* LGQuadtree.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F818E018F0C33E00359EB8 /* LGQuadtree.m */; };
-		A3F818E518F0EC5800359EB8 /* LGCollisionSystemOld.m in Resources */ = {isa = PBXBuildFile; fileRef = A3F818E418F0EC5800359EB8 /* LGCollisionSystemOld.m */; };
 		A3F818E718F100AD00359EB8 /* LGCollisionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF5118EEEE070058E0E3 /* LGCollisionSystem.m */; };
 		A3F818EB18F1A52D00359EB8 /* LGSpatialGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F818EA18F1A52D00359EB8 /* LGSpatialGrid.m */; };
 /* End PBXBuildFile section */
@@ -189,12 +187,8 @@
 		A3DFD9DA18EDFEE0004412EE /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		A3F818DC18F0B42400359EB8 /* LGTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGTile.h; sourceTree = "<group>"; };
 		A3F818DD18F0B42400359EB8 /* LGTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGTile.m; sourceTree = "<group>"; };
-		A3F818DF18F0C33E00359EB8 /* LGQuadtree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGQuadtree.h; sourceTree = "<group>"; };
-		A3F818E018F0C33E00359EB8 /* LGQuadtree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGQuadtree.m; sourceTree = "<group>"; };
-		A3F818E418F0EC5800359EB8 /* LGCollisionSystemOld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGCollisionSystemOld.m; sourceTree = "<group>"; };
 		A3F818E918F1A52D00359EB8 /* LGSpatialGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGSpatialGrid.h; sourceTree = "<group>"; };
 		A3F818EA18F1A52D00359EB8 /* LGSpatialGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGSpatialGrid.m; sourceTree = "<group>"; };
-		A3F818EE18F1A99C00359EB8 /* LGCollisionSystemQuadtree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGCollisionSystemQuadtree.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,8 +255,6 @@
 				A3F818DD18F0B42400359EB8 /* LGTile.m */,
 				A319EF3718EEEE070058E0E3 /* LGTileLayer.h */,
 				A319EF3818EEEE070058E0E3 /* LGTileLayer.m */,
-				A3F818DF18F0C33E00359EB8 /* LGQuadtree.h */,
-				A3F818E018F0C33E00359EB8 /* LGQuadtree.m */,
 				A3F818E918F1A52D00359EB8 /* LGSpatialGrid.h */,
 				A3F818EA18F1A52D00359EB8 /* LGSpatialGrid.m */,
 			);
@@ -299,8 +291,6 @@
 				A319EF4F18EEEE070058E0E3 /* LGCameraSystem.m */,
 				A319EF5018EEEE070058E0E3 /* LGCollisionSystem.h */,
 				A319EF5118EEEE070058E0E3 /* LGCollisionSystem.m */,
-				A3F818EE18F1A99C00359EB8 /* LGCollisionSystemQuadtree.m */,
-				A3F818E418F0EC5800359EB8 /* LGCollisionSystemOld.m */,
 				A319EF5218EEEE070058E0E3 /* LGPhysicalSystem.h */,
 				A319EF5318EEEE070058E0E3 /* LGPhysicalSystem.m */,
 				A319EF5418EEEE070058E0E3 /* LGPlayerInputSystem.h */,
@@ -526,7 +516,6 @@
 				A3367D1618B3E620005475B7 /* InfoPlist.strings in Resources */,
 				A3D7547618EE1B14007EC53C /* README.md in Resources */,
 				A36C739A18F0449300B988C7 /* Player.png in Resources */,
-				A3F818E518F0EC5800359EB8 /* LGCollisionSystemOld.m in Resources */,
 				A36C739C18F04D3C00B988C7 /* tileset.png in Resources */,
 				A37F40BC18C524E100C58298 /* notes.md in Resources */,
 				A3DFD9DB18EDFEE0004412EE /* LICENSE in Resources */,
@@ -565,7 +554,6 @@
 				A319EF7718EEEE070058E0E3 /* LGTileSystem.m in Sources */,
 				A319EF7518EEEE070058E0E3 /* LGSpriteRenderingSystem.m in Sources */,
 				A3F818DE18F0B42400359EB8 /* LGTile.m in Sources */,
-				A3F818E118F0C33E00359EB8 /* LGQuadtree.m in Sources */,
 				A319EF9118EEEE8E0058E0E3 /* TileMapParser.m in Sources */,
 				A319EF7A18EEEE070058E0E3 /* LGEntity.m in Sources */,
 				A319EF7418EEEE070058E0E3 /* LGPlayerInputSystem.m in Sources */,
