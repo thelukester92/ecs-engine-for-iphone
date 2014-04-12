@@ -199,15 +199,16 @@
 
 - (void)initialize
 {
-	layers			= [NSMutableArray array];
-	camera			= nil;
-	cameraTransform	= nil;
-	sprite			= nil;
-	visibleLayer	= nil;
-	size			= CGSizeZero;
-	visibleX		= 0;
-	visibleY		= 0;
-	padding			= 1;
+	layers				= [NSMutableArray array];
+	camera				= nil;
+	cameraTransform		= nil;
+	sprite				= nil;
+	visibleLayer		= nil;
+	size				= CGSizeZero;
+	visibleX			= 0;
+	visibleY			= 0;
+	padding				= 1;
+	self.updateOrder	= LGUpdateOrderBeforeRender;
 }
 
 @end

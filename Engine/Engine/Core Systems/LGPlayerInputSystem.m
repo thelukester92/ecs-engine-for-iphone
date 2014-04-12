@@ -34,7 +34,7 @@
 
 - (BOOL)acceptsEntity:(LGEntity *)entity
 {
-	return [self.entities count] == 0 && [entity hasComponentsOfType:[LGPlayer type], [LGPhysics type], [LGSprite type], [LGTransform type], nil];
+	return [self.entities count] == 0 && [entity hasComponentsOfType:[LGPlayer type], [LGPhysics type], [LGSprite type], [LGTransform type], [LGCollider type], nil];
 }
 
 - (void)addEntity:(LGEntity *)entity

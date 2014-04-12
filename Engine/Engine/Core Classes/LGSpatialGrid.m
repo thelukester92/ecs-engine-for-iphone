@@ -20,7 +20,6 @@
 - (NSNumber *)keyForRow:(int)row andCol:(int)col
 {
 	return [NSNumber numberWithInt:row * rowHash + col];
-	//return [NSString stringWithFormat:@"%d-%d", row, col];
 }
 
 - (void)addEntity:(LGEntity *)entity atRow:(int)row andCol:(int)col

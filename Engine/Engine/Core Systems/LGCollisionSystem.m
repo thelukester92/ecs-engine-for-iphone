@@ -18,7 +18,7 @@
 
 @implementation LGCollisionSystem
 
-@synthesize staticEntities, dynamicEntities, quadtree, grid;
+@synthesize staticEntities, dynamicEntities, grid;
 
 #pragma mark LGCollisionSystem Private Methods
 

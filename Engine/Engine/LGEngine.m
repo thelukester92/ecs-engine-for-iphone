@@ -34,12 +34,18 @@
 {
 	counter++;
 	if(counter > counterMax)
+	{
 		counter = 0;
+	}
 	else
-		;
+	{
+		
+	}
 	
 	if(currentScene != nil)
+	{
 		[currentScene update];
+	}
 }
 
 #pragma mark Initializations

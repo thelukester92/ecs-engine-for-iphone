@@ -8,7 +8,7 @@
 
 #import "LGSystem.h"
 
-@class LGQuadtree, LGSpatialGrid;
+@class LGSpatialGrid;
 
 typedef enum
 {
@@ -20,7 +20,6 @@ typedef enum
 @interface LGCollisionSystem : LGSystem
 
 @property (nonatomic, retain) NSMutableArray *staticEntities, *dynamicEntities;
-@property (nonatomic, retain) LGQuadtree *quadtree;
 @property (nonatomic, retain) LGSpatialGrid *grid;
 
 @end

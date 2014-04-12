@@ -36,7 +36,7 @@
 	{
 		scene		= s;
 		entities	= [NSMutableArray array];
-		updateOrder	= LGUpdateOrderBeforeRender;
+		updateOrder	= LGUpdateOrderDefault;
 		[self initialize];
 	}
 	

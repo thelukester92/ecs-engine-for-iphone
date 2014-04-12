@@ -12,6 +12,8 @@ enum
 {
 	LGUpdateOrderBeforeMovement,
 	LGUpdateOrderMovement,
+	LGUpdateOrderAfterMovement,
+	LGUpdateOrderDefault,
 	LGUpdateOrderBeforeRender,
 	LGUpdateOrderRender
 };
