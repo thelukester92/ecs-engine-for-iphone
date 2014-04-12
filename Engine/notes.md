@@ -9,12 +9,9 @@ Notes, Quirks, and Todos
 * Transformable entities appear at (0, 0) on the first frame.
 * Sprite logic is in the component instead of in the system.
 * Collision chaining still causes jitter when pushing one object into a stack of two.
+* Tile maps smaller than the screen size so that visibleX or visibleY is bigger than the map, the app crashes.
 
 # Todo
 
 * Allow for multiple components of one type on a single object (colliders, renderables) -- use a dictionary of arrays.
 	* Fixes "Entities expect exactly one component of each type."
-
-# Thesis Todo
-
-* Explain z-order.

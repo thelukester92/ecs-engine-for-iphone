@@ -217,12 +217,12 @@
 	
 	if(self)
 	{
-		parent		= p;
-		tiles		= t;
-		spriteEntities		= s;
-		offsetX		= 0;
-		offsetY		= 0;
-		isVisible	= YES;
+		parent			= p;
+		tiles			= t;
+		spriteEntities	= s;
+		offsetX			= 0;
+		offsetY			= 0;
+		isVisible		= YES;
 	}
 	
 	return self;

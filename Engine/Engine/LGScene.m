@@ -15,7 +15,7 @@
 
 @implementation LGScene
 
-@synthesize engine, entities, systems, allTouches, rootView;
+@synthesize engine, entities, systems, allTouches, rootView, ready;
 
 #pragma mark UIViewController Overrides
 
@@ -75,8 +75,13 @@
 
 - (void)update
 {
-	for(LGSystem *system in systems)
-		[system update];
+	if(ready)
+	{
+		for(LGSystem *system in systems)
+		{
+			[system update];
+		}
+	}
 }
 
 #pragma mark Initializations
@@ -92,6 +97,7 @@
 		systems		= [NSMutableArray array];
 		allTouches	= [NSMutableDictionary dictionary];
 		rootView	= [[UIView alloc] initWithFrame:[self.view frame]];
+		ready		= NO;
 		
 		[self.view addSubview:rootView];
 		[self.view setMultipleTouchEnabled:YES];

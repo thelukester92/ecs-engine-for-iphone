@@ -39,7 +39,7 @@
 
 - (void)initialize
 {
-	self.updateOrder = LGUpdateOrderRender;
+	self.updateOrder = LGUpdateOrderBeforeRender;
 }
 
 @end

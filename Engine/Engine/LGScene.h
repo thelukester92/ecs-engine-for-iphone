@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSMutableDictionary *allTouches;
 @property (nonatomic, retain) UIView *rootView;
 @property (nonatomic, assign) CGSize size;
+@property (nonatomic, assign) BOOL ready;
 
 // Actions
 - (void)addSystem:(LGSystem *)system;

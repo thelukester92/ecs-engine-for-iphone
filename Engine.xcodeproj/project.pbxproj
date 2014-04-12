@@ -30,9 +30,7 @@
 		A319EF8B18EEEE8E0058E0E3 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF7F18EEEE8E0058E0E3 /* Constants.m */; };
 		A319EF8C18EEEE8E0058E0E3 /* EntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF8118EEEE8E0058E0E3 /* EntityFactory.m */; };
 		A319EF8E18EEEE8E0058E0E3 /* blue.png in Resources */ = {isa = PBXBuildFile; fileRef = A319EF8418EEEE8E0058E0E3 /* blue.png */; };
-		A319EF8F18EEEE8E0058E0E3 /* level1.plist in Resources */ = {isa = PBXBuildFile; fileRef = A319EF8518EEEE8E0058E0E3 /* level1.plist */; };
 		A319EF9018EEEE8E0058E0E3 /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF8818EEEE8E0058E0E3 /* MainScene.m */; };
-		A319EF9118EEEE8E0058E0E3 /* TileMapParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF8A18EEEE8E0058E0E3 /* TileMapParser.m */; };
 		A3367D0A18B3E620005475B7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3367D0918B3E620005475B7 /* Foundation.framework */; };
 		A3367D0C18B3E620005475B7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3367D0B18B3E620005475B7 /* CoreGraphics.framework */; };
 		A3367D0E18B3E620005475B7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3367D0D18B3E620005475B7 /* UIKit.framework */; };
@@ -77,6 +75,10 @@
 		A38069FF18B56ACD00486D21 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3367D0B18B3E620005475B7 /* CoreGraphics.framework */; };
 		A3806A0018B56AD200486D21 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3367D0F18B3E620005475B7 /* CoreData.framework */; };
 		A3806A0118B56AD500486D21 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3367D0D18B3E620005475B7 /* UIKit.framework */; };
+		A38C5D3118F9916B0043510C /* LGTMXParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A38C5D3018F9916B0043510C /* LGTMXParser.m */; };
+		A38C5D3618F9952E0043510C /* LGTileMap.m in Sources */ = {isa = PBXBuildFile; fileRef = A38C5D3518F9952E0043510C /* LGTileMap.m */; };
+		A38C5D3918F99CA50043510C /* LGTMXTileLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A38C5D3818F99CA50043510C /* LGTMXTileLayer.m */; };
+		A38C5D3D18F9A7A00043510C /* level1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = A38C5D3C18F9A7A00043510C /* level1.tmx */; };
 		A3D7547618EE1B14007EC53C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A3D7547518EE1B14007EC53C /* README.md */; };
 		A3DFD9DB18EDFEE0004412EE /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = A3DFD9DA18EDFEE0004412EE /* LICENSE */; };
 		A3F818DE18F0B42400359EB8 /* LGTile.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F818DD18F0B42400359EB8 /* LGTile.m */; };
@@ -154,11 +156,8 @@
 		A319EF8018EEEE8E0058E0E3 /* EntityFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityFactory.h; sourceTree = "<group>"; };
 		A319EF8118EEEE8E0058E0E3 /* EntityFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityFactory.m; sourceTree = "<group>"; };
 		A319EF8418EEEE8E0058E0E3 /* blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue.png; sourceTree = "<group>"; };
-		A319EF8518EEEE8E0058E0E3 /* level1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = level1.plist; sourceTree = "<group>"; };
 		A319EF8718EEEE8E0058E0E3 /* MainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScene.h; sourceTree = "<group>"; };
 		A319EF8818EEEE8E0058E0E3 /* MainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScene.m; sourceTree = "<group>"; };
-		A319EF8918EEEE8E0058E0E3 /* TileMapParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileMapParser.h; sourceTree = "<group>"; };
-		A319EF8A18EEEE8E0058E0E3 /* TileMapParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileMapParser.m; sourceTree = "<group>"; };
 		A3367D0618B3E620005475B7 /* Engine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Engine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3367D0918B3E620005475B7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A3367D0B18B3E620005475B7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -183,6 +182,13 @@
 		A36C739B18F04D3C00B988C7 /* tileset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tileset.png; sourceTree = "<group>"; };
 		A37F40BB18C524E100C58298 /* notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = notes.md; path = Engine/notes.md; sourceTree = "<group>"; };
 		A38069D718B56A7100486D21 /* libLGEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLGEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A38C5D2F18F9916B0043510C /* LGTMXParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGTMXParser.h; sourceTree = "<group>"; };
+		A38C5D3018F9916B0043510C /* LGTMXParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGTMXParser.m; sourceTree = "<group>"; };
+		A38C5D3418F9952E0043510C /* LGTileMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGTileMap.h; sourceTree = "<group>"; };
+		A38C5D3518F9952E0043510C /* LGTileMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGTileMap.m; sourceTree = "<group>"; };
+		A38C5D3718F99CA50043510C /* LGTMXTileLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGTMXTileLayer.h; sourceTree = "<group>"; };
+		A38C5D3818F99CA50043510C /* LGTMXTileLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGTMXTileLayer.m; sourceTree = "<group>"; };
+		A38C5D3C18F9A7A00043510C /* level1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level1.tmx; sourceTree = "<group>"; };
 		A3D7547518EE1B14007EC53C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		A3DFD9DA18EDFEE0004412EE /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		A3F818DC18F0B42400359EB8 /* LGTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGTile.h; sourceTree = "<group>"; };
@@ -257,6 +263,12 @@
 				A319EF3818EEEE070058E0E3 /* LGTileLayer.m */,
 				A3F818E918F1A52D00359EB8 /* LGSpatialGrid.h */,
 				A3F818EA18F1A52D00359EB8 /* LGSpatialGrid.m */,
+				A38C5D3418F9952E0043510C /* LGTileMap.h */,
+				A38C5D3518F9952E0043510C /* LGTileMap.m */,
+				A38C5D2F18F9916B0043510C /* LGTMXParser.h */,
+				A38C5D3018F9916B0043510C /* LGTMXParser.m */,
+				A38C5D3718F99CA50043510C /* LGTMXTileLayer.h */,
+				A38C5D3818F99CA50043510C /* LGTMXTileLayer.m */,
 			);
 			path = "Core Classes";
 			sourceTree = "<group>";
@@ -314,8 +326,6 @@
 				A319EF8118EEEE8E0058E0E3 /* EntityFactory.m */,
 				A319EF8218EEEE8E0058E0E3 /* Resources */,
 				A319EF8618EEEE8E0058E0E3 /* Scenes */,
-				A319EF8918EEEE8E0058E0E3 /* TileMapParser.h */,
-				A319EF8A18EEEE8E0058E0E3 /* TileMapParser.m */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -326,7 +336,7 @@
 				A36C739918F0449300B988C7 /* Player.png */,
 				A36C739B18F04D3C00B988C7 /* tileset.png */,
 				A319EF8418EEEE8E0058E0E3 /* blue.png */,
-				A319EF8518EEEE8E0058E0E3 /* level1.plist */,
+				A38C5D3C18F9A7A00043510C /* level1.tmx */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -513,6 +523,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A38C5D3D18F9A7A00043510C /* level1.tmx in Resources */,
 				A3367D1618B3E620005475B7 /* InfoPlist.strings in Resources */,
 				A3D7547618EE1B14007EC53C /* README.md in Resources */,
 				A36C739A18F0449300B988C7 /* Player.png in Resources */,
@@ -521,7 +532,6 @@
 				A3DFD9DB18EDFEE0004412EE /* LICENSE in Resources */,
 				A319EF8E18EEEE8E0058E0E3 /* blue.png in Resources */,
 				A3367D2118B3E621005475B7 /* Images.xcassets in Resources */,
-				A319EF8F18EEEE8E0058E0E3 /* level1.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,6 +551,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A363F6B018F1DF0600581E67 /* LGCollisionSystem.m in Sources */,
+				A38C5D3118F9916B0043510C /* LGTMXParser.m in Sources */,
 				A319EF7818EEEE070058E0E3 /* LGComponent.m in Sources */,
 				A3367D1C18B3E620005475B7 /* AppDelegate.m in Sources */,
 				A319EF7918EEEE070058E0E3 /* LGEngine.m in Sources */,
@@ -554,8 +565,9 @@
 				A319EF7718EEEE070058E0E3 /* LGTileSystem.m in Sources */,
 				A319EF7518EEEE070058E0E3 /* LGSpriteRenderingSystem.m in Sources */,
 				A3F818DE18F0B42400359EB8 /* LGTile.m in Sources */,
-				A319EF9118EEEE8E0058E0E3 /* TileMapParser.m in Sources */,
+				A38C5D3618F9952E0043510C /* LGTileMap.m in Sources */,
 				A319EF7A18EEEE070058E0E3 /* LGEntity.m in Sources */,
+				A38C5D3918F99CA50043510C /* LGTMXTileLayer.m in Sources */,
 				A319EF7418EEEE070058E0E3 /* LGPlayerInputSystem.m in Sources */,
 				A3F818EB18F1A52D00359EB8 /* LGSpatialGrid.m in Sources */,
 				A319EF7118EEEE070058E0E3 /* LGCameraSystem.m in Sources */,

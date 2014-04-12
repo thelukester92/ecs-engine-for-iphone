@@ -20,7 +20,9 @@
 #import "LGCollider.h"
 #import "LGCamera.h"
 #import "EntityFactory.h"
-#import "TileMapParser.h"
+#import "LGTMXParser.h"
+#import "LGTileMap.h"
+#import "LGTMXTileLayer.h"
 
 @implementation MainScene
 
@@ -38,13 +40,6 @@
 	[self addSystem:[[LGCollisionSystem alloc] initWithScene:self]];
 	
 	tileSystem = [[LGTileSystem alloc] initWithScene:self];
-	
-	LGSprite *sprite = [[LGSprite alloc] init];
-	[sprite setSpriteSheetName:@"tileset"];
-	[sprite setSize:CGSizeMake(32, 32)];
-	
-	[tileSystem setSprite:sprite];
-	
 	[self addSystem:tileSystem];
 }
 
@@ -62,22 +57,41 @@
 	[[player componentOfType:[LGCamera type]] setSize:CGSizeMake([self.view frame].size.width, [self.view frame].size.height)];
 	[self addEntity:player];
 	
-	for(int i = 0; i < 1; i++)
+	LGEntity *block = [EntityFactory blockEntity];
+	[(LGTransform *)[block componentOfType:[LGTransform type]] addToPosition:CGPointMake(100, 0)];
+	
+	LGPhysics *physics = [[LGPhysics alloc] init];
+	[block addComponent:physics];
+	
+	[self addEntity:block];
+	
+	LGTMXParser *parser = [[LGTMXParser alloc] init];
+	
+	[parser setCollisionLayerName:@"collisions"];
+	[parser setForegroundLayerName:@"foreground"];
+	[parser setBackgroundLayer:LGRenderLayerBackground];
+	[parser setForegroundLayer:LGRenderLayerForeground];
+	
+	[parser setCompletionHandler:^(LGTileMap *map)
 	{
-		LGEntity *block = [EntityFactory blockEntity];
+		LGSprite *sprite = [[LGSprite alloc] init];
+		[sprite setSpriteSheetName:[map imageName]];
+		[sprite setSize:CGSizeMake([map tileWidth], [map tileHeight])];
 		
-		LGPhysics *physics = [[LGPhysics alloc] init];
-		[block addComponent:physics];
+		[tileSystem setSprite:sprite];
 		
-		[(LGTransform *)[block componentOfType:[LGTransform type]] addToPositionX:50 + 50 * i];
-		[(LGTransform *)[block componentOfType:[LGTransform type]] addToPosition:CGPointMake(-950 * (i / 18), 10 * (i / 18))];
+		for(NSString *name in [map layers])
+		{
+			LGTMXTileLayer *layer = [[map layers] objectForKey:name];
+			[tileSystem generateLayerFromArray:[layer data] layer:[layer zOrder] visible:([layer isVisible] && ![layer isCollsion]) collision:[layer isCollsion]];
+		}
 		
-		[self addEntity:block];
-	}
+		[[player componentOfType:[LGCamera type]] setBounds:CGRectMake(0, 0, [tileSystem size].width, [tileSystem size].height)];
+		
+		self.ready = YES;
+	}];
 	
-	[TileMapParser parsePlist:@"level1" forSystem:tileSystem];
-	
-	[[player componentOfType:[LGCamera type]] setBounds:CGRectMake(0, 0, [tileSystem size].width, [tileSystem size].height)];
+	[parser parseFile:@"level1"];
 }
 
 @end

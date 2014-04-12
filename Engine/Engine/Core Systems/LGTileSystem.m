@@ -16,10 +16,13 @@
 #import "LGTileLayer.h"
 #import "LGTileCollider.h"
 #import "LGTile.h"
+#import "LGTileMap.h"
+#import "LGTMXTileLayer.h"
 
 @implementation LGTileSystem
 
 @synthesize layers, camera, cameraTransform, sprite, visibleLayer, size, visibleX, visibleY, padding;
+@synthesize map;
 
 #pragma mark Overrides
 
@@ -33,6 +36,60 @@
 {
 	sprite = s;
 	[self updateVisibleTiles];
+}
+
+- (void)setMap:(LGTileMap *)m
+{
+	map = m;
+	
+	for(NSString *name in [map layers])
+	{
+		LGTMXTileLayer *layer = [[map layers] objectForKey:name];
+		
+		if([layer isVisible])
+		{
+			NSMutableArray *entities = [NSMutableArray array];
+			
+			for(int i = 0; i < visibleY; i++)
+			{
+				NSMutableArray *row = [NSMutableArray array];
+				[entities addObject:row];
+				
+				for(int j = 0; j < visibleX; j++)
+				{
+					LGEntity *spriteEntity = [[LGEntity alloc] init];
+					
+					LGSprite *s = [LGSprite copyOfSprite:sprite];
+					[s setPosition:[[layer tileAtRow:i andCol:j] position]];
+					[s setLayer:[layer zOrder]];
+					[spriteEntity addComponent:s];
+					
+					LGTransform *t = [[LGTransform alloc] init];
+					[t setPosition:CGPointMake(j * [sprite size].width, i * [sprite size].height)];
+					[spriteEntity addComponent:t];
+					
+					[self.scene addEntity:spriteEntity];
+					[row addObject:spriteEntity];
+				}
+			}
+			
+			[layer setEntities:entities];
+		}
+		
+		if([layer isCollsion])
+		{
+			LGTileCollider *tileCollider = [[LGTileCollider alloc] init];
+			[tileCollider setCollisionLayer:layer];
+			[tileCollider setTileSize:CGSizeMake([map tileWidth], [map tileHeight])];
+			[tileCollider setSize:size];
+			
+			LGEntity *collisionLayerEntity = [[LGEntity alloc] init];
+			[collisionLayerEntity addComponent:tileCollider];
+			[collisionLayerEntity addComponent:[[LGTransform alloc] init]];
+			
+			[self.scene addEntity:collisionLayerEntity];
+		}
+	}
 }
 
 #pragma mark Public Methods
@@ -209,6 +266,8 @@
 	visibleY			= 0;
 	padding				= 1;
 	self.updateOrder	= LGUpdateOrderBeforeRender;
+	
+	map					= nil;
 }
 
 @end
