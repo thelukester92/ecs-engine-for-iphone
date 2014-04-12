@@ -15,7 +15,7 @@
 
 @implementation LGScene
 
-@synthesize engine, entities, systems, allTouches, rootView, ready;
+@synthesize engine, entities, systems, allTouches, rootView, isReady;
 
 #pragma mark UIViewController Overrides
 
@@ -71,11 +71,22 @@
 	}
 }
 
+- (void)ready
+{
+	isReady = YES;
+	
+	// First call to the update loop happens before the game is visible
+	[self update];
+	
+	// Unhide the game
+	[self.view setHidden:NO];
+}
+
 #pragma mark The Loop
 
 - (void)update
 {
-	if(ready)
+	if(isReady)
 	{
 		for(LGSystem *system in systems)
 		{
@@ -97,10 +108,11 @@
 		systems		= [NSMutableArray array];
 		allTouches	= [NSMutableDictionary dictionary];
 		rootView	= [[UIView alloc] initWithFrame:[self.view frame]];
-		ready		= NO;
+		isReady		= NO;
 		
 		[self.view addSubview:rootView];
 		[self.view setMultipleTouchEnabled:YES];
+		[self.view setHidden:YES];
 	}
 	
 	return self;

@@ -83,7 +83,7 @@
 		
 		[[player componentOfType:[LGCamera type]] setBounds:CGRectMake(0, 0, [tileSystem size].width, [tileSystem size].height)];
 		
-		self.ready = YES;
+		[self ready];
 	}];
 	
 	[parser parseFile:@"level1"];

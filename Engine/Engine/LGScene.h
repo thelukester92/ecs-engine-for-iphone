@@ -17,11 +17,12 @@
 @property (nonatomic, retain) NSMutableDictionary *allTouches;
 @property (nonatomic, retain) UIView *rootView;
 @property (nonatomic, assign) CGSize size;
-@property (nonatomic, assign) BOOL ready;
+@property (nonatomic, assign) BOOL isReady;
 
 // Actions
 - (void)addSystem:(LGSystem *)system;
 - (void)addEntity:(LGEntity *)entity;
+- (void)ready;
 
 // The Loop
 - (void)update;
