@@ -40,15 +40,14 @@
 		
 		for(LGSprite *sprite in sprites)
 		{
-			if([sprite visible])
+			[self updateRender:sprite withTransform:transform];
+			
+			if([sprite visible] && [[sprite state] isAnimated])
 			{
-				[self updateRender:sprite withTransform:transform];
-				
-				if([[sprite state] isAnimated])
+				[sprite incrementAnimationCounter];
+				if([sprite animationCounter] == 0)
 				{
-					[sprite incrementAnimationCounter];
-					if([sprite animationCounter] == 0)
-						[sprite nextPosition];
+					[sprite nextPosition];
 				}
 			}
 		}

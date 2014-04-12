@@ -13,23 +13,18 @@
 
 @synthesize components;
 
-#pragma mark Private Methods
-
-- (NSMutableArray *)arrayForComponentType:(NSString *)type
-{
-	if([components objectForKey:type] == nil)
-	{
-		[components setObject:[NSMutableArray array] forKey:type];
-	}
-	
-	return [components objectForKey:type];
-}
-
-#pragma mark Public Methods
-
 - (void)addComponent:(LGComponent *)component
 {
-	[[self arrayForComponentType:[[component class] type]] addObject:component];
+	NSString *type = [[component class] type];
+	NSMutableArray *array = [components objectForKey:type];
+	
+	if(array == nil)
+	{
+		array = [NSMutableArray array];
+		[components setObject:array forKey:type];
+	}
+	
+	[array addObject:component];
 }
 
 - (NSArray *)componentsOfType:(NSString *)type
