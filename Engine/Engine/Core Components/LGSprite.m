@@ -125,8 +125,8 @@
 	[super setOffset:o];
 	
 	CGRect frame = [self.view frame];
-	frame.origin.x = -self.offset.x;
-	frame.origin.y = -self.offset.y;
+	frame.origin.x = self.offset.x;
+	frame.origin.y = self.offset.y;
 	[self.view setFrame:frame];
 }
 

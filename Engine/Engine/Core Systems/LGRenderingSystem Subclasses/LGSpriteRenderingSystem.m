@@ -23,25 +23,33 @@
 - (void)addEntity:(LGEntity *)entity
 {
 	[super addEntity:entity];
-	[self addRenderToView:[entity componentOfType:[LGSprite type]]];
+	
+	NSArray *sprites = [entity componentsOfType:[LGSprite type]];
+	for(LGSprite *sprite in sprites)
+	{
+		[self addRenderToView:sprite];
+	}
 }
 
 - (void)update
 {
 	for(LGEntity *entity in self.entities)
 	{
-		LGSprite *sprite		= [entity componentOfType:[LGSprite type]];
+		NSArray *sprites		= [entity componentsOfType:[LGSprite type]];
 		LGTransform *transform	= [entity componentOfType:[LGTransform type]];
 		
-		if([sprite visible])
+		for(LGSprite *sprite in sprites)
 		{
-			[[sprite view] setFrame:CGRectMake(round([transform position].x - [sprite offset].x), round([transform position].y - [sprite offset].y), [sprite size].width, [sprite size].height)];
-			
-			if([[sprite state] isAnimated])
+			if([sprite visible])
 			{
-				[sprite incrementAnimationCounter];
-				if([sprite animationCounter] == 0)
-					[sprite nextPosition];
+				[self updateRender:sprite withTransform:transform];
+				
+				if([[sprite state] isAnimated])
+				{
+					[sprite incrementAnimationCounter];
+					if([sprite animationCounter] == 0)
+						[sprite nextPosition];
+				}
 			}
 		}
 	}

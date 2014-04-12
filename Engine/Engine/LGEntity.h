@@ -15,6 +15,7 @@
 @property (nonatomic, retain) NSMutableDictionary *components;
 
 - (void)addComponent:(LGComponent *)component;
+- (NSArray *)componentsOfType:(NSString *)type;
 - (id)componentOfType:(NSString *)type;
 
 - (BOOL)hasComponentOfType:(NSString *)type;

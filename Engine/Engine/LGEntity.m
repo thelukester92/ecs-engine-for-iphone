@@ -13,19 +13,38 @@
 
 @synthesize components;
 
-- (void)addComponent:(LGComponent *)component
+#pragma mark Private Methods
+
+- (NSMutableArray *)arrayForComponentType:(NSString *)type
 {
-	[components setObject:component forKey:[[component class] type]];
+	if([components objectForKey:type] == nil)
+	{
+		[components setObject:[NSMutableArray array] forKey:type];
+	}
+	
+	return [components objectForKey:type];
 }
 
-- (id)componentOfType:(NSString *)type
+#pragma mark Public Methods
+
+- (void)addComponent:(LGComponent *)component
+{
+	[[self arrayForComponentType:[[component class] type]] addObject:component];
+}
+
+- (NSArray *)componentsOfType:(NSString *)type
 {
 	return [components objectForKey:type];
 }
 
+- (id)componentOfType:(NSString *)type
+{
+	return [[components objectForKey:type] firstObject];
+}
+
 - (BOOL)hasComponentOfType:(NSString *)type
 {
-	return [self componentOfType:type] != nil;
+	return [self componentsOfType:type] != nil;
 }
 
 - (BOOL)hasComponentsOfType:(NSString *)firstObject, ...

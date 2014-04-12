@@ -7,18 +7,16 @@
 //
 
 #import "LGTileLayer.h"
-#import "LGEntity.h"
 #import "LGTile.h"
 #import "LGSprite.h"
-#import "LGTransform.h"
 
 @implementation LGTileLayer
 
-@synthesize name, opacity, isVisible, isCollsion, data, entities, zOrder, offsetX, offsetY;
+@synthesize name, opacity, isVisible, isCollsion, data, sprites, zOrder, offsetX, offsetY;
 
 - (BOOL)shiftRight
 {
-	int tileX = offsetX + [[entities objectAtIndex:0] count];
+	int tileX = offsetX + [[sprites objectAtIndex:0] count];
 	
 	if(tileX >= [[data objectAtIndex:0] count])
 	{
@@ -27,26 +25,24 @@
 	
 	if(isVisible)
 	{
-		for(int i = 0; i < [entities count]; i++)
+		for(int i = 0; i < [sprites count]; i++)
 		{
 			int tileY = offsetY + i;
 			
 			// Get the left-most sprite
-			LGEntity *entity		= [[entities objectAtIndex:i] objectAtIndex:0];
-			LGSprite *sprite		= [entity componentOfType:[LGSprite type]];
-			LGTransform *transform	= [entity componentOfType:[LGTransform type]];
+			LGSprite *sprite = [[sprites objectAtIndex:i] objectAtIndex:0];
 			
 			// Move it from its old place
-			[[entities objectAtIndex:i] removeObject:entity];
+			[[sprites objectAtIndex:i] removeObject:sprite];
 			
 			// Move it to its new place
-			[[entities objectAtIndex:i] addObject:entity];
+			[[sprites objectAtIndex:i] addObject:sprite];
 			
 			// Swap out its texture
 			[sprite setPosition:[[self tileAtRow:tileY andCol:tileX] position]];
 			
 			// Adjust its position
-			[transform setPositionX:tileX * [sprite size].width];
+			[sprite setOffsetX:tileX * [sprite size].width];
 		}
 	}
 	
@@ -66,26 +62,24 @@
 	
 	if(isVisible)
 	{
-		for(int i = 0; i < [entities count]; i++)
+		for(int i = 0; i < [sprites count]; i++)
 		{
 			int tileY = offsetY + i;
 			
 			// Get the right-most sprite
-			LGEntity *entity		= [[entities objectAtIndex:i] objectAtIndex:[[entities objectAtIndex:0] count] - 1];
-			LGSprite *sprite		= [entity componentOfType:[LGSprite type]];
-			LGTransform *transform	= [entity componentOfType:[LGTransform type]];
+			LGSprite *sprite = [[sprites objectAtIndex:i] objectAtIndex:[[sprites objectAtIndex:0] count] - 1];
 			
 			// Move it from its old place
-			[[entities objectAtIndex:i] removeObject:entity];
+			[[sprites objectAtIndex:i] removeObject:sprite];
 			
 			// Move it to its new place
-			[[entities objectAtIndex:i] insertObject:entity atIndex:0];
+			[[sprites objectAtIndex:i] insertObject:sprite atIndex:0];
 			
 			// Swap out its texture
 			[sprite setPosition:[[self tileAtRow:tileY andCol:tileX] position]];
 			
 			// Adjust its position
-			[transform setPositionX:tileX * [sprite size].width];
+			[sprite setOffsetX:tileX * [sprite size].width];
 		}
 	}
 	
@@ -96,7 +90,7 @@
 
 - (BOOL)shiftDown
 {
-	int tileY = offsetY + [entities count];
+	int tileY = offsetY + [sprites count];
 	
 	if(tileY >= [data count])
 	{
@@ -106,29 +100,27 @@
 	if(isVisible)
 	{
 		// Get the top-most row
-		NSMutableArray *row = [entities objectAtIndex:0];
+		NSMutableArray *row = [sprites objectAtIndex:0];
 		
 		// Move it from its old place
-		[entities removeObject:row];
+		[sprites removeObject:row];
 		
 		// Move it to its new place
-		[entities addObject:row];
+		[sprites addObject:row];
 		
 		// Swap out textures
-		for(int j = 0; j < [[entities objectAtIndex:0] count]; j++)
+		for(int j = 0; j < [[sprites objectAtIndex:0] count]; j++)
 		{
 			int tileX = offsetX + j;
 			
 			// Get the sprite
-			LGEntity *entity		= [row objectAtIndex:j];
-			LGSprite *sprite		= [entity componentOfType:[LGSprite type]];
-			LGTransform *transform	= [entity componentOfType:[LGTransform type]];
+			LGSprite *sprite = [row objectAtIndex:j];
 			
 			// Swap out its texture
 			[sprite setPosition:[[self tileAtRow:tileY andCol:tileX] position]];
 			
 			// Adjust its position
-			[transform setPositionY:tileY * [sprite size].height];
+			[sprite setOffsetY:tileY * [sprite size].height];
 		}
 	}
 	
@@ -149,29 +141,27 @@
 	if(isVisible)
 	{
 		// Get the bottom-most row
-		NSMutableArray *row = [entities objectAtIndex:[entities count] - 1];
+		NSMutableArray *row = [sprites objectAtIndex:[sprites count] - 1];
 		
 		// Move it from its old place
-		[entities removeObject:row];
+		[sprites removeObject:row];
 		
 		// Move it to its new place
-		[entities insertObject:row atIndex:0];
+		[sprites insertObject:row atIndex:0];
 		
 		// Swap out textures
-		for(int j = 0; j < [[entities objectAtIndex:0] count]; j++)
+		for(int j = 0; j < [[sprites objectAtIndex:0] count]; j++)
 		{
 			int tileX = offsetX + j;
 			
 			// Get the sprite
-			LGEntity *entity		= [row objectAtIndex:j];
-			LGSprite *sprite		= [entity componentOfType:[LGSprite type]];
-			LGTransform *transform	= [entity componentOfType:[LGTransform type]];
+			LGSprite *sprite = [row objectAtIndex:j];
 			
 			// Swap out its texture
 			[sprite setPosition:[[self tileAtRow:tileY andCol:tileX] position]];
 			
 			// Adjust its position
-			[transform setPositionY:tileY * [sprite size].height];
+			[sprite setOffsetY:tileY * [sprite size].height];
 		}
 	}
 	
@@ -190,11 +180,11 @@
 	return nil;
 }
 
-- (LGEntity *)spriteEntityAtRow:(int)row andCol:(int)col
+- (LGSprite *)spriteAtRow:(int)row andCol:(int)col
 {
-	if(isVisible && row < [entities count] && col < [[entities objectAtIndex:0] count])
+	if(isVisible && row < [sprites count] && col < [[sprites objectAtIndex:0] count])
 	{
-		return [[entities objectAtIndex:row] objectAtIndex:col];
+		return [[sprites objectAtIndex:row] objectAtIndex:col];
 	}
 	
 	return nil;
@@ -223,7 +213,7 @@
 		isCollsion	= NO;
 		zOrder		= 0;
 		data		= nil;
-		entities	= nil;
+		sprites	= nil;
 	}
 	
 	return self;

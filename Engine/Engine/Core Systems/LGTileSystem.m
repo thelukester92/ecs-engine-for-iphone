@@ -21,7 +21,7 @@
 @implementation LGTileSystem
 
 @synthesize camera, cameraTransform, sprite, visibleLayer, size, visibleX, visibleY, padding;
-@synthesize map;
+@synthesize map, mapEntity;
 
 #pragma mark Overrides
 
@@ -43,6 +43,9 @@
 	
 	size = CGSizeMake([map width] * [sprite size].width, [map height] * [sprite size].height);
 	
+	mapEntity = [[LGEntity alloc] init];
+	[mapEntity addComponent:[[LGTransform alloc] init]];
+	
 	for(NSString *name in [map layers])
 	{
 		LGTileLayer *layer = [[map layers] objectForKey:name];
@@ -58,23 +61,17 @@
 				
 				for(int j = 0; j < visibleX; j++)
 				{
-					LGEntity *spriteEntity = [[LGEntity alloc] init];
-					
 					LGSprite *s = [LGSprite copyOfSprite:sprite];
 					[s setPosition:[[layer tileAtRow:i andCol:j] position]];
 					[s setLayer:[layer zOrder]];
-					[spriteEntity addComponent:s];
+					[s setOffset:CGPointMake(j * [sprite size].width, i * [sprite size].height)];
 					
-					LGTransform *t = [[LGTransform alloc] init];
-					[t setPosition:CGPointMake(j * [sprite size].width, i * [sprite size].height)];
-					[spriteEntity addComponent:t];
-					
-					[self.scene addEntity:spriteEntity];
-					[row addObject:spriteEntity];
+					[mapEntity addComponent:s];
+					[row addObject:s];
 				}
 			}
 			
-			[layer setEntities:entities];
+			[layer setSprites:entities];
 			
 			visibleLayer = layer;
 		}
@@ -93,6 +90,8 @@
 			[self.scene addEntity:collisionLayerEntity];
 		}
 	}
+	
+	[self.scene addEntity:mapEntity];
 }
 
 #pragma mark Private Methods
@@ -113,40 +112,40 @@
 		return;
 	}
 	
-	int rightMost = (int) [[[visibleLayer entities] objectAtIndex:0] count] - 1;
-	int bottomMost = (int) [[visibleLayer entities] count] - 1;
+	int rightMost = (int) [[[visibleLayer sprites] objectAtIndex:0] count] - 1;
+	int bottomMost = (int) [[visibleLayer sprites] count] - 1;
 	
-	LGTransform *leftTransform	= [[visibleLayer spriteEntityAtRow:0 andCol:0] componentOfType:[LGTransform type]];
-	LGTransform *rightTransform	= [[visibleLayer spriteEntityAtRow:bottomMost andCol:rightMost] componentOfType:[LGTransform type]];
+	CGPoint tlOffset = [[visibleLayer spriteAtRow:0 andCol:0] offset];
+	CGPoint brOffset = [[visibleLayer spriteAtRow:bottomMost andCol:rightMost] offset];
 	
 	BOOL canShift;
 	
 	canShift = YES;
-	while([leftTransform position].x + [sprite size].width < [camera offset].x + [cameraTransform position].x && canShift)
+	while(tlOffset.x + [sprite size].width < [camera offset].x + [cameraTransform position].x && canShift)
 	{
 		canShift = [map shiftRight];
-		leftTransform = [[visibleLayer spriteEntityAtRow:0 andCol:0] componentOfType:[LGTransform type]];
+		tlOffset = [[visibleLayer spriteAtRow:0 andCol:0] offset];
 	}
 	
 	canShift = YES;
-	while([rightTransform position].x > [camera offset].x + [cameraTransform position].x + (visibleX - padding) * [sprite size].width && canShift)
+	while(brOffset.x > [camera offset].x + [cameraTransform position].x + (visibleX - padding) * [sprite size].width && canShift)
 	{
 		canShift = [map shiftLeft];
-		rightTransform = [[visibleLayer spriteEntityAtRow:bottomMost andCol:rightMost] componentOfType:[LGTransform type]];
+		brOffset = [[visibleLayer spriteAtRow:bottomMost andCol:rightMost] offset];
 	}
 	
 	canShift = YES;
-	while([leftTransform position].y + [sprite size].height < [camera offset].y + [cameraTransform position].y && canShift)
+	while(tlOffset.y + [sprite size].height < [camera offset].y + [cameraTransform position].y && canShift)
 	{
 		canShift = [map shiftDown];
-		leftTransform = [[visibleLayer spriteEntityAtRow:0 andCol:0] componentOfType:[LGTransform type]];
+		tlOffset = [[visibleLayer spriteAtRow:0 andCol:0] offset];
 	}
 	
 	canShift = YES;
-	while([rightTransform position].y > [camera offset].y + [cameraTransform position].y + [camera size].height && canShift)
+	while(brOffset.y > [camera offset].y + [cameraTransform position].y + [camera size].height && canShift)
 	{
 		canShift = [map shiftUp];
-		rightTransform = [[visibleLayer spriteEntityAtRow:bottomMost andCol:rightMost] componentOfType:[LGTransform type]];
+		brOffset = [[visibleLayer spriteAtRow:bottomMost andCol:rightMost] offset];
 	}
 }
 

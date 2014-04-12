@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class LGEntity, LGTile;
+@class LGSprite, LGTile;
 
 @interface LGTileLayer : NSObject
 
@@ -18,7 +18,7 @@
 
 
 @property (nonatomic, retain) NSArray *data;
-@property (nonatomic, retain) NSMutableArray *entities;
+@property (nonatomic, retain) NSMutableArray *sprites;
 @property (nonatomic, assign) int zOrder, offsetX, offsetY;
 
 - (BOOL)shiftRight;
@@ -27,7 +27,7 @@
 - (BOOL)shiftUp;
 
 - (LGTile *)tileAtRow:(int)row andCol:(int)col;
-- (LGEntity *)spriteEntityAtRow:(int)row andCol:(int)col;
+- (LGSprite *)spriteAtRow:(int)row andCol:(int)col;
 - (BOOL)collidesAtRow:(int)row andCol:(int)col;
 
 - (id)initWithName:(NSString *)n andOpacity:(double)o andVisible:(BOOL)v;

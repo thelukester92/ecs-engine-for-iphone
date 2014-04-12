@@ -23,4 +23,7 @@ enum
 @property (nonatomic, assign) BOOL visible;
 @property (nonatomic, assign) int layer;
 
+- (void)setOffsetX:(double)x;
+- (void)setOffsetY:(double)y;
+
 @end

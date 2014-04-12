@@ -30,6 +30,16 @@
 	[view.layer setZPosition:layer];
 }
 
+- (void)setOffsetX:(double)x
+{
+	offset.x = x;
+}
+
+- (void)setOffsetY:(double)y
+{
+	offset.y = y;
+}
+
 - (void)initialize
 {
 	view		= [[UIView alloc] initWithFrame:CGRectZero];

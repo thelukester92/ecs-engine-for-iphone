@@ -8,7 +8,7 @@
 
 #import "LGSystem.h"
 
-@class LGSprite, LGCamera, LGTransform, LGTileLayer, LGTileMap;
+@class LGSprite, LGCamera, LGTransform, LGTileLayer, LGTileMap, LGEntity;
 
 @interface LGTileSystem : LGSystem
 
@@ -20,5 +20,6 @@
 @property (nonatomic, assign) int visibleX, visibleY, padding;
 
 @property (nonatomic, retain) LGTileMap *map;
+@property (nonatomic, retain) LGEntity *mapEntity;
 
 @end

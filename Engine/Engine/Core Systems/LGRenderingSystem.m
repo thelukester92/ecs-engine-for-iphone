@@ -25,7 +25,7 @@
 {
 	if([render visible])
 	{
-		[[render view] setFrame:CGRectMake(round([transform position].x - [render offset].x), round([transform position].y - [render offset].y), [render size].width, [render size].height)];
+		[[render view] setFrame:CGRectMake(round([transform position].x + [render offset].x), round([transform position].y + [render offset].y), [render size].width, [render size].height)];
 	}
 }
 

@@ -22,7 +22,7 @@
 	LGSprite *render = [[LGSprite alloc] init];
 	[render setSpriteSheetName:@"Player"];
 	[render setSize:CGSizeMake(40, 42)];
-	[render setOffset:CGPointMake(8, 2)];
+	[render setOffset:CGPointMake(-8, -2)];
 	
 	[render addState:[[LGSpriteState alloc] initWithPosition:1] forKey:@"idle"];
 	[render addState:[[LGSpriteState alloc] initWithStart:8 andEnd:9] forKey:@"walk"];
