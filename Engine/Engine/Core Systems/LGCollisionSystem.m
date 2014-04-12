@@ -11,10 +11,10 @@
 #import "LGTransform.h"
 #import "LGPhysics.h"
 #import "LGTileCollider.h"
-#import "LGTileLayer.h"
 #import "LGPlayer.h"
 #import "LGSpatialGrid.h"
 #import "LGScene.h"
+#import "LGTMXTileLayer.h"
 
 @implementation LGCollisionSystem
 

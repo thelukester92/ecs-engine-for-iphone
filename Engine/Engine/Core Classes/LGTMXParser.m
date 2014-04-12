@@ -113,6 +113,7 @@
 		if([[currentLayer name] isEqualToString:collisionLayerName])
 		{
 			[currentLayer setIsCollsion:YES];
+			[currentLayer setIsVisible:NO];
 		}
 		
 		if([[currentLayer name] isEqualToString:foregroundLayerName])

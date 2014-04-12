@@ -15,9 +15,16 @@
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, assign) double opacity;
 @property (nonatomic, assign) BOOL isVisible, isCollsion;
-@property (nonatomic, assign) int zOrder;
 
-@property (nonatomic, retain) NSArray *data, *entities;
+
+@property (nonatomic, retain) NSArray *data;
+@property (nonatomic, retain) NSMutableArray *entities;
+@property (nonatomic, assign) int zOrder, offsetX, offsetY;
+
+- (BOOL)shiftRight;
+- (BOOL)shiftLeft;
+- (BOOL)shiftDown;
+- (BOOL)shiftUp;
 
 - (LGTile *)tileAtRow:(int)row andCol:(int)col;
 - (LGEntity *)spriteEntityAtRow:(int)row andCol:(int)col;

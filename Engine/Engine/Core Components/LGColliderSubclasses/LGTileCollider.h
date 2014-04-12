@@ -8,11 +8,11 @@
 
 #import "LGCollider.h"
 
-@class LGTileLayer;
+@class LGTMXTileLayer;
 
 @interface LGTileCollider : LGCollider
 
-@property (nonatomic, retain) LGTileLayer *collisionLayer;
+@property (nonatomic, retain) LGTMXTileLayer *collisionLayer;
 @property (nonatomic, assign) CGSize tileSize;
 
 @end

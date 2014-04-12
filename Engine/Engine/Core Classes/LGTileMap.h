@@ -18,6 +18,11 @@
 @property (nonatomic, retain) NSMutableDictionary *layers;
 @property (nonatomic, retain) NSString *imageName;
 
+- (BOOL)shiftRight;
+- (BOOL)shiftLeft;
+- (BOOL)shiftDown;
+- (BOOL)shiftUp;
+
 - (void)addLayer:(LGTMXTileLayer *)layer;
 - (id)initWithWidth:(int)w andHeight:(int)h andTileWidth:(int)tw andTileHeight:(int)th;
 

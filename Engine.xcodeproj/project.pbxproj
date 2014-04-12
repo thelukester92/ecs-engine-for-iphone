@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A319EF6718EEEE070058E0E3 /* LGTileLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF3818EEEE070058E0E3 /* LGTileLayer.m */; };
 		A319EF6818EEEE070058E0E3 /* LGCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF3B18EEEE070058E0E3 /* LGCamera.m */; };
 		A319EF6918EEEE070058E0E3 /* LGCollider.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF3D18EEEE070058E0E3 /* LGCollider.m */; };
 		A319EF6A18EEEE070058E0E3 /* LGTileCollider.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4018EEEE070058E0E3 /* LGTileCollider.m */; };
@@ -50,7 +49,6 @@
 		A363F6B018F1DF0600581E67 /* LGCollisionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF5118EEEE070058E0E3 /* LGCollisionSystem.m */; };
 		A36C739A18F0449300B988C7 /* Player.png in Resources */ = {isa = PBXBuildFile; fileRef = A36C739918F0449300B988C7 /* Player.png */; };
 		A36C739C18F04D3C00B988C7 /* tileset.png in Resources */ = {isa = PBXBuildFile; fileRef = A36C739B18F04D3C00B988C7 /* tileset.png */; };
-		A36C73E218F0510D00B988C7 /* LGTileLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF3818EEEE070058E0E3 /* LGTileLayer.m */; };
 		A36C73E318F0510D00B988C7 /* LGCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF3B18EEEE070058E0E3 /* LGCamera.m */; };
 		A36C73E418F0510D00B988C7 /* LGCollider.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF3D18EEEE070058E0E3 /* LGCollider.m */; };
 		A36C73E518F0510D00B988C7 /* LGTileCollider.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4018EEEE070058E0E3 /* LGTileCollider.m */; };
@@ -109,8 +107,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A319EF3718EEEE070058E0E3 /* LGTileLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGTileLayer.h; sourceTree = "<group>"; };
-		A319EF3818EEEE070058E0E3 /* LGTileLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGTileLayer.m; sourceTree = "<group>"; };
 		A319EF3A18EEEE070058E0E3 /* LGCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGCamera.h; sourceTree = "<group>"; };
 		A319EF3B18EEEE070058E0E3 /* LGCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGCamera.m; sourceTree = "<group>"; };
 		A319EF3C18EEEE070058E0E3 /* LGCollider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGCollider.h; sourceTree = "<group>"; };
@@ -259,8 +255,6 @@
 			children = (
 				A3F818DC18F0B42400359EB8 /* LGTile.h */,
 				A3F818DD18F0B42400359EB8 /* LGTile.m */,
-				A319EF3718EEEE070058E0E3 /* LGTileLayer.h */,
-				A319EF3818EEEE070058E0E3 /* LGTileLayer.m */,
 				A3F818E918F1A52D00359EB8 /* LGSpatialGrid.h */,
 				A3F818EA18F1A52D00359EB8 /* LGSpatialGrid.m */,
 				A38C5D3418F9952E0043510C /* LGTileMap.h */,
@@ -557,7 +551,6 @@
 				A319EF7918EEEE070058E0E3 /* LGEngine.m in Sources */,
 				A319EF7318EEEE070058E0E3 /* LGPhysicalSystem.m in Sources */,
 				A319EF6A18EEEE070058E0E3 /* LGTileCollider.m in Sources */,
-				A319EF6718EEEE070058E0E3 /* LGTileLayer.m in Sources */,
 				A319EF6818EEEE070058E0E3 /* LGCamera.m in Sources */,
 				A319EF9018EEEE8E0058E0E3 /* MainScene.m in Sources */,
 				A3367D1F18B3E621005475B7 /* Engine.xcdatamodeld in Sources */,
@@ -598,7 +591,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A36C73E218F0510D00B988C7 /* LGTileLayer.m in Sources */,
 				A36C73E318F0510D00B988C7 /* LGCamera.m in Sources */,
 				A36C73E418F0510D00B988C7 /* LGCollider.m in Sources */,
 				A36C73E518F0510D00B988C7 /* LGTileCollider.m in Sources */,

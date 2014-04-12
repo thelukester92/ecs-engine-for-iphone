@@ -79,12 +79,7 @@
 		[sprite setSize:CGSizeMake([map tileWidth], [map tileHeight])];
 		
 		[tileSystem setSprite:sprite];
-		
-		for(NSString *name in [map layers])
-		{
-			LGTMXTileLayer *layer = [[map layers] objectForKey:name];
-			[tileSystem generateLayerFromArray:[layer data] layer:[layer zOrder] visible:([layer isVisible] && ![layer isCollsion]) collision:[layer isCollsion]];
-		}
+		[tileSystem setMap:map];
 		
 		[[player componentOfType:[LGCamera type]] setBounds:CGRectMake(0, 0, [tileSystem size].width, [tileSystem size].height)];
 		

@@ -13,6 +13,54 @@
 
 @synthesize width, height, tileWidth, tileHeight, layers, imageName;
 
+- (BOOL)shiftRight
+{
+	BOOL shifted = YES;
+	
+	for(NSString *name in layers)
+	{
+		shifted = [[layers objectForKey:name] shiftRight];
+	}
+	
+	return shifted;
+}
+
+- (BOOL)shiftLeft
+{
+	BOOL shifted = YES;
+	
+	for(NSString *name in layers)
+	{
+		shifted = [[layers objectForKey:name] shiftLeft];
+	}
+	
+	return shifted;
+}
+
+- (BOOL)shiftDown
+{
+	BOOL shifted = YES;
+	
+	for(NSString *name in layers)
+	{
+		shifted = [[layers objectForKey:name] shiftDown];
+	}
+	
+	return shifted;
+}
+
+- (BOOL)shiftUp
+{
+	BOOL shifted = YES;
+	
+	for(NSString *name in layers)
+	{
+		shifted = [[layers objectForKey:name] shiftUp];
+	}
+	
+	return shifted;
+}
+
 - (void)addLayer:(LGTMXTileLayer *)layer
 {
 	[layers setObject:layer forKey:[layer name]];
