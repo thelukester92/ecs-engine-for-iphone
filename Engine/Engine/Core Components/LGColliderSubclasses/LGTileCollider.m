@@ -7,7 +7,7 @@
 //
 
 #import "LGTileCollider.h"
-#import "LGTMXTileLayer.h"
+#import "LGTileLayer.h"
 
 @implementation LGTileCollider
 

@@ -1,5 +1,5 @@
 //
-//  LGTMXTileLayer.h
+//  LGTileLayer.h
 //  Engine
 //
 //  Created by Luke Godfrey on 4/12/14.
@@ -10,7 +10,7 @@
 
 @class LGEntity, LGTile;
 
-@interface LGTMXTileLayer : NSObject
+@interface LGTileLayer : NSObject
 
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, assign) double opacity;

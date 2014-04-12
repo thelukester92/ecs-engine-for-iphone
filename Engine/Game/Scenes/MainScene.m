@@ -22,7 +22,7 @@
 #import "EntityFactory.h"
 #import "LGTMXParser.h"
 #import "LGTileMap.h"
-#import "LGTMXTileLayer.h"
+#import "LGTileLayer.h"
 
 @implementation MainScene
 

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class LGTMXTileLayer;
+@class LGTileLayer;
 
 @interface LGTileMap : NSObject
 
@@ -23,7 +23,7 @@
 - (BOOL)shiftDown;
 - (BOOL)shiftUp;
 
-- (void)addLayer:(LGTMXTileLayer *)layer;
+- (void)addLayer:(LGTileLayer *)layer;
 - (id)initWithWidth:(int)w andHeight:(int)h andTileWidth:(int)tw andTileHeight:(int)th;
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "LGTileMap.h"
-#import "LGTMXTileLayer.h"
+#import "LGTileLayer.h"
 
 @implementation LGTileMap
 
@@ -61,7 +61,7 @@
 	return shifted;
 }
 
-- (void)addLayer:(LGTMXTileLayer *)layer
+- (void)addLayer:(LGTileLayer *)layer
 {
 	[layers setObject:layer forKey:[layer name]];
 }

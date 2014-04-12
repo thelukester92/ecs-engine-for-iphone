@@ -8,14 +8,14 @@
 
 #import "LGSystem.h"
 
-@class LGSprite, LGCamera, LGTransform, LGTMXTileLayer, LGTileMap;
+@class LGSprite, LGCamera, LGTransform, LGTileLayer, LGTileMap;
 
 @interface LGTileSystem : LGSystem
 
 @property (nonatomic, retain) LGCamera *camera;
 @property (nonatomic, retain) LGTransform *cameraTransform;
 @property (nonatomic, retain) LGSprite *sprite;
-@property (nonatomic, retain) LGTMXTileLayer *visibleLayer;
+@property (nonatomic, retain) LGTileLayer *visibleLayer;
 @property (nonatomic, assign) CGSize size;
 @property (nonatomic, assign) int visibleX, visibleY, padding;
 

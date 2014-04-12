@@ -75,7 +75,7 @@
 		A3806A0118B56AD500486D21 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3367D0D18B3E620005475B7 /* UIKit.framework */; };
 		A38C5D3118F9916B0043510C /* LGTMXParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A38C5D3018F9916B0043510C /* LGTMXParser.m */; };
 		A38C5D3618F9952E0043510C /* LGTileMap.m in Sources */ = {isa = PBXBuildFile; fileRef = A38C5D3518F9952E0043510C /* LGTileMap.m */; };
-		A38C5D3918F99CA50043510C /* LGTMXTileLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A38C5D3818F99CA50043510C /* LGTMXTileLayer.m */; };
+		A38C5D3918F99CA50043510C /* LGTileLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A38C5D3818F99CA50043510C /* LGTileLayer.m */; };
 		A38C5D3D18F9A7A00043510C /* level1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = A38C5D3C18F9A7A00043510C /* level1.tmx */; };
 		A3D7547618EE1B14007EC53C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A3D7547518EE1B14007EC53C /* README.md */; };
 		A3DFD9DB18EDFEE0004412EE /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = A3DFD9DA18EDFEE0004412EE /* LICENSE */; };
@@ -182,8 +182,8 @@
 		A38C5D3018F9916B0043510C /* LGTMXParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGTMXParser.m; sourceTree = "<group>"; };
 		A38C5D3418F9952E0043510C /* LGTileMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGTileMap.h; sourceTree = "<group>"; };
 		A38C5D3518F9952E0043510C /* LGTileMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGTileMap.m; sourceTree = "<group>"; };
-		A38C5D3718F99CA50043510C /* LGTMXTileLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGTMXTileLayer.h; sourceTree = "<group>"; };
-		A38C5D3818F99CA50043510C /* LGTMXTileLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGTMXTileLayer.m; sourceTree = "<group>"; };
+		A38C5D3718F99CA50043510C /* LGTileLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGTileLayer.h; sourceTree = "<group>"; };
+		A38C5D3818F99CA50043510C /* LGTileLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGTileLayer.m; sourceTree = "<group>"; };
 		A38C5D3C18F9A7A00043510C /* level1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level1.tmx; sourceTree = "<group>"; };
 		A3D7547518EE1B14007EC53C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		A3DFD9DA18EDFEE0004412EE /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -257,12 +257,12 @@
 				A3F818DD18F0B42400359EB8 /* LGTile.m */,
 				A3F818E918F1A52D00359EB8 /* LGSpatialGrid.h */,
 				A3F818EA18F1A52D00359EB8 /* LGSpatialGrid.m */,
+				A38C5D3718F99CA50043510C /* LGTileLayer.h */,
+				A38C5D3818F99CA50043510C /* LGTileLayer.m */,
 				A38C5D3418F9952E0043510C /* LGTileMap.h */,
 				A38C5D3518F9952E0043510C /* LGTileMap.m */,
 				A38C5D2F18F9916B0043510C /* LGTMXParser.h */,
 				A38C5D3018F9916B0043510C /* LGTMXParser.m */,
-				A38C5D3718F99CA50043510C /* LGTMXTileLayer.h */,
-				A38C5D3818F99CA50043510C /* LGTMXTileLayer.m */,
 			);
 			path = "Core Classes";
 			sourceTree = "<group>";
@@ -560,7 +560,7 @@
 				A3F818DE18F0B42400359EB8 /* LGTile.m in Sources */,
 				A38C5D3618F9952E0043510C /* LGTileMap.m in Sources */,
 				A319EF7A18EEEE070058E0E3 /* LGEntity.m in Sources */,
-				A38C5D3918F99CA50043510C /* LGTMXTileLayer.m in Sources */,
+				A38C5D3918F99CA50043510C /* LGTileLayer.m in Sources */,
 				A319EF7418EEEE070058E0E3 /* LGPlayerInputSystem.m in Sources */,
 				A3F818EB18F1A52D00359EB8 /* LGSpatialGrid.m in Sources */,
 				A319EF7118EEEE070058E0E3 /* LGCameraSystem.m in Sources */,

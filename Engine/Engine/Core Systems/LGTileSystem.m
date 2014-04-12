@@ -16,7 +16,7 @@
 #import "LGTileCollider.h"
 #import "LGTile.h"
 #import "LGTileMap.h"
-#import "LGTMXTileLayer.h"
+#import "LGTileLayer.h"
 
 @implementation LGTileSystem
 
@@ -45,7 +45,7 @@
 	
 	for(NSString *name in [map layers])
 	{
-		LGTMXTileLayer *layer = [[map layers] objectForKey:name];
+		LGTileLayer *layer = [[map layers] objectForKey:name];
 		
 		if([layer isVisible])
 		{

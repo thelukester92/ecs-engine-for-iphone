@@ -8,7 +8,7 @@
 
 #import "LGTMXParser.h"
 #import "LGTileMap.h"
-#import "LGTMXTileLayer.h"
+#import "LGTileLayer.h"
 #import "LGTile.h"
 
 @implementation LGTMXParser
@@ -108,7 +108,7 @@
 			visible = [[attributeDict objectForKey:@"visible"] boolValue];
 		}
 		
-		currentLayer = [[LGTMXTileLayer alloc] initWithName:[attributeDict objectForKey:@"name"] andOpacity:opacity andVisible:visible];
+		currentLayer = [[LGTileLayer alloc] initWithName:[attributeDict objectForKey:@"name"] andOpacity:opacity andVisible:visible];
 		
 		if([[currentLayer name] isEqualToString:collisionLayerName])
 		{

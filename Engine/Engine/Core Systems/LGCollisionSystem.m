@@ -14,7 +14,7 @@
 #import "LGPlayer.h"
 #import "LGSpatialGrid.h"
 #import "LGScene.h"
-#import "LGTMXTileLayer.h"
+#import "LGTileLayer.h"
 
 @implementation LGCollisionSystem
 

@@ -1,18 +1,18 @@
 //
-//  LGTMXTileLayer.m
+//  LGTileLayer.m
 //  Engine
 //
 //  Created by Luke Godfrey on 4/12/14.
 //  Copyright (c) 2014 Luke Godfrey. All rights reserved.
 //
 
-#import "LGTMXTileLayer.h"
+#import "LGTileLayer.h"
 #import "LGEntity.h"
 #import "LGTile.h"
 #import "LGSprite.h"
 #import "LGTransform.h"
 
-@implementation LGTMXTileLayer
+@implementation LGTileLayer
 
 @synthesize name, opacity, isVisible, isCollsion, data, entities, zOrder, offsetX, offsetY;
 

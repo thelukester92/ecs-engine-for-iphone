@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class LGTileMap, LGTMXTileLayer;
+@class LGTileMap, LGTileLayer;
 
 typedef void(^LGTMXParserCompletionBlock)(LGTileMap *map);
 
@@ -18,7 +18,7 @@ typedef void(^LGTMXParserCompletionBlock)(LGTileMap *map);
 @property (nonatomic, retain) NSString *currentElement, *tempData, *collisionLayerName, *foregroundLayerName;
 
 @property (nonatomic, retain) LGTileMap *map;
-@property (nonatomic, retain) LGTMXTileLayer *currentLayer;
+@property (nonatomic, retain) LGTileLayer *currentLayer;
 
 @property (nonatomic, assign) LGTMXParserCompletionBlock completionHandler;
 @property (nonatomic, assign) int zOrder, backgroundLayer, foregroundLayer;
