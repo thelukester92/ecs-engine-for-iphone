@@ -47,17 +47,34 @@
 
 - (void)addSystem:(LGSystem *)system
 {
+	BOOL inserted = NO;
+	
 	for(int i = 0; i < [systems count]; i++)
 	{
 		if([[systems objectAtIndex:i] updateOrder] > [system updateOrder])
 		{
 			[systems insertObject:system atIndex:i];
-			return;
+			inserted = YES;
+			break;
 		}
 	}
 	
-	// If we reach this, then it hasn't yet been inserted; add it to the end
-	[systems addObject:system];
+	// Add this system to the end of the update array if it wasn't added in the middle
+	
+	if(!inserted)
+	{
+		[systems addObject:system];
+	}
+	
+	// Add previously added entities to this system
+	
+	for(LGEntity *entity in entities)
+	{
+		if([system acceptsEntity:entity])
+		{
+			[system addEntity:entity];
+		}
+	}
 }
 
 - (void)addEntity:(LGEntity *)entity
@@ -67,7 +84,9 @@
 	for(LGSystem *system in systems)
 	{
 		if([system acceptsEntity:entity])
+		{
 			[system addEntity:entity];
+		}
 	}
 }
 
