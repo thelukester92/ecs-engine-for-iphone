@@ -15,18 +15,6 @@
 
 @synthesize engine;
 
-- (id)init
-{
-	self = [super init];
-	
-	if(self)
-	{
-		
-	}
-	
-	return self;
-}
-
 - (void)viewDidLoad
 {
 	[super viewDidLoad];

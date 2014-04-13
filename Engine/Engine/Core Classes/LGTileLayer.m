@@ -16,7 +16,7 @@
 
 - (BOOL)shiftRight
 {
-	int tileX = offsetX + [[sprites objectAtIndex:0] count];
+	int tileX = offsetX + (int) [[sprites objectAtIndex:0] count];
 	
 	if(tileX >= [[data objectAtIndex:0] count])
 	{
@@ -90,7 +90,7 @@
 
 - (BOOL)shiftDown
 {
-	int tileY = offsetY + [sprites count];
+	int tileY = offsetY + (int) [sprites count];
 	
 	if(tileY >= [data count])
 	{

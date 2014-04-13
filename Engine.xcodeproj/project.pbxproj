@@ -45,29 +45,9 @@
 		A3367D2B18B3E621005475B7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3367D0F18B3E620005475B7 /* CoreData.framework */; };
 		A3367D3318B3E621005475B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3367D3118B3E621005475B7 /* InfoPlist.strings */; };
 		A3367D3518B3E621005475B7 /* EngineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3367D3418B3E621005475B7 /* EngineTests.m */; };
-		A3367D4018B3E662005475B7 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3367D3F18B3E662005475B7 /* MainViewController.m */; };
 		A363F6B018F1DF0600581E67 /* LGCollisionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF5118EEEE070058E0E3 /* LGCollisionSystem.m */; };
 		A36C739A18F0449300B988C7 /* Player.png in Resources */ = {isa = PBXBuildFile; fileRef = A36C739918F0449300B988C7 /* Player.png */; };
 		A36C739C18F04D3C00B988C7 /* tileset.png in Resources */ = {isa = PBXBuildFile; fileRef = A36C739B18F04D3C00B988C7 /* tileset.png */; };
-		A36C73E318F0510D00B988C7 /* LGCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF3B18EEEE070058E0E3 /* LGCamera.m */; };
-		A36C73E418F0510D00B988C7 /* LGCollider.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF3D18EEEE070058E0E3 /* LGCollider.m */; };
-		A36C73E518F0510D00B988C7 /* LGTileCollider.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4018EEEE070058E0E3 /* LGTileCollider.m */; };
-		A36C73E618F0510D00B988C7 /* LGPhysics.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4218EEEE070058E0E3 /* LGPhysics.m */; };
-		A36C73E718F0510D00B988C7 /* LGPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4418EEEE070058E0E3 /* LGPlayer.m */; };
-		A36C73E818F0510D00B988C7 /* LGRender.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4618EEEE070058E0E3 /* LGRender.m */; };
-		A36C73E918F0510D00B988C7 /* LGSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4818EEEE070058E0E3 /* LGSprite.m */; };
-		A36C73EB18F0510D00B988C7 /* LGTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4C18EEEE070058E0E3 /* LGTransform.m */; };
-		A36C73EC18F0510D00B988C7 /* LGCameraSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4F18EEEE070058E0E3 /* LGCameraSystem.m */; };
-		A36C73EE18F0510D00B988C7 /* LGPhysicalSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF5318EEEE070058E0E3 /* LGPhysicalSystem.m */; };
-		A36C73EF18F0510D00B988C7 /* LGPlayerInputSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF5518EEEE070058E0E3 /* LGPlayerInputSystem.m */; };
-		A36C73F018F0510D00B988C7 /* LGSpriteRenderingSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF5818EEEE070058E0E3 /* LGSpriteRenderingSystem.m */; };
-		A36C73F118F0510D00B988C7 /* LGRenderingSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF5A18EEEE070058E0E3 /* LGRenderingSystem.m */; };
-		A36C73F218F0510D00B988C7 /* LGTileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF5C18EEEE070058E0E3 /* LGTileSystem.m */; };
-		A36C73F318F0510D00B988C7 /* LGComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF5E18EEEE070058E0E3 /* LGComponent.m */; };
-		A36C73F418F0510D00B988C7 /* LGEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF6018EEEE070058E0E3 /* LGEngine.m */; };
-		A36C73F518F0510D00B988C7 /* LGEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF6218EEEE070058E0E3 /* LGEntity.m */; };
-		A36C73F618F0510D00B988C7 /* LGScene.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF6418EEEE070058E0E3 /* LGScene.m */; };
-		A36C73F718F0510D00B988C7 /* LGSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF6618EEEE070058E0E3 /* LGSystem.m */; };
 		A37F40BC18C524E100C58298 /* notes.md in Resources */ = {isa = PBXBuildFile; fileRef = A37F40BB18C524E100C58298 /* notes.md */; };
 		A38069D818B56A7100486D21 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3367D0918B3E620005475B7 /* Foundation.framework */; };
 		A38069FF18B56ACD00486D21 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3367D0B18B3E620005475B7 /* CoreGraphics.framework */; };
@@ -77,10 +57,35 @@
 		A38C5D3618F9952E0043510C /* LGTileMap.m in Sources */ = {isa = PBXBuildFile; fileRef = A38C5D3518F9952E0043510C /* LGTileMap.m */; };
 		A38C5D3918F99CA50043510C /* LGTileLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A38C5D3818F99CA50043510C /* LGTileLayer.m */; };
 		A38C5D3D18F9A7A00043510C /* level1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = A38C5D3C18F9A7A00043510C /* level1.tmx */; };
+		A3B70AFF18FB1EFC00A32C88 /* LGSpatialGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F818EA18F1A52D00359EB8 /* LGSpatialGrid.m */; };
+		A3B70B0018FB1EFC00A32C88 /* LGTile.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F818DD18F0B42400359EB8 /* LGTile.m */; };
+		A3B70B0118FB1EFC00A32C88 /* LGTileLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A38C5D3818F99CA50043510C /* LGTileLayer.m */; };
+		A3B70B0218FB1EFC00A32C88 /* LGTileMap.m in Sources */ = {isa = PBXBuildFile; fileRef = A38C5D3518F9952E0043510C /* LGTileMap.m */; };
+		A3B70B0318FB1EFC00A32C88 /* LGTMXParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A38C5D3018F9916B0043510C /* LGTMXParser.m */; };
+		A3B70B0418FB1EFC00A32C88 /* LGCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF3B18EEEE070058E0E3 /* LGCamera.m */; };
+		A3B70B0518FB1EFC00A32C88 /* LGCollider.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF3D18EEEE070058E0E3 /* LGCollider.m */; };
+		A3B70B0618FB1EFC00A32C88 /* LGPhysics.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4218EEEE070058E0E3 /* LGPhysics.m */; };
+		A3B70B0718FB1EFC00A32C88 /* LGPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4418EEEE070058E0E3 /* LGPlayer.m */; };
+		A3B70B0818FB1EFC00A32C88 /* LGRender.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4618EEEE070058E0E3 /* LGRender.m */; };
+		A3B70B0918FB1EFC00A32C88 /* LGSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4818EEEE070058E0E3 /* LGSprite.m */; };
+		A3B70B0A18FB1EFC00A32C88 /* LGTileCollider.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4018EEEE070058E0E3 /* LGTileCollider.m */; };
+		A3B70B0B18FB1EFC00A32C88 /* LGTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4C18EEEE070058E0E3 /* LGTransform.m */; };
+		A3B70B0C18FB1EFC00A32C88 /* LGCameraSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF4F18EEEE070058E0E3 /* LGCameraSystem.m */; };
+		A3B70B0D18FB1EFC00A32C88 /* LGCollisionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF5118EEEE070058E0E3 /* LGCollisionSystem.m */; };
+		A3B70B0E18FB1EFC00A32C88 /* LGPhysicalSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF5318EEEE070058E0E3 /* LGPhysicalSystem.m */; };
+		A3B70B0F18FB1EFC00A32C88 /* LGPlayerInputSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF5518EEEE070058E0E3 /* LGPlayerInputSystem.m */; };
+		A3B70B1018FB1EFC00A32C88 /* LGRenderingSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF5A18EEEE070058E0E3 /* LGRenderingSystem.m */; };
+		A3B70B1118FB1EFC00A32C88 /* LGSpriteRenderingSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF5818EEEE070058E0E3 /* LGSpriteRenderingSystem.m */; };
+		A3B70B1218FB1EFC00A32C88 /* LGTileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF5C18EEEE070058E0E3 /* LGTileSystem.m */; };
+		A3B70B1318FB1EFC00A32C88 /* LGComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF5E18EEEE070058E0E3 /* LGComponent.m */; };
+		A3B70B1418FB1EFC00A32C88 /* LGEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF6018EEEE070058E0E3 /* LGEngine.m */; };
+		A3B70B1518FB1EFC00A32C88 /* LGEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF6218EEEE070058E0E3 /* LGEntity.m */; };
+		A3B70B1618FB1EFC00A32C88 /* LGScene.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF6418EEEE070058E0E3 /* LGScene.m */; };
+		A3B70B1718FB1EFC00A32C88 /* LGSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF6618EEEE070058E0E3 /* LGSystem.m */; };
+		A3B70B9B18FB385200A32C88 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B70B9918FB385200A32C88 /* MainViewController.m */; };
 		A3D7547618EE1B14007EC53C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A3D7547518EE1B14007EC53C /* README.md */; };
 		A3DFD9DB18EDFEE0004412EE /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = A3DFD9DA18EDFEE0004412EE /* LICENSE */; };
 		A3F818DE18F0B42400359EB8 /* LGTile.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F818DD18F0B42400359EB8 /* LGTile.m */; };
-		A3F818E718F100AD00359EB8 /* LGCollisionSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A319EF5118EEEE070058E0E3 /* LGCollisionSystem.m */; };
 		A3F818EB18F1A52D00359EB8 /* LGSpatialGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F818EA18F1A52D00359EB8 /* LGSpatialGrid.m */; };
 /* End PBXBuildFile section */
 
@@ -172,8 +177,6 @@
 		A3367D3018B3E621005475B7 /* EngineTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EngineTests-Info.plist"; sourceTree = "<group>"; };
 		A3367D3218B3E621005475B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A3367D3418B3E621005475B7 /* EngineTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EngineTests.m; sourceTree = "<group>"; };
-		A3367D3E18B3E662005475B7 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		A3367D3F18B3E662005475B7 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		A36C739918F0449300B988C7 /* Player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Player.png; sourceTree = "<group>"; };
 		A36C739B18F04D3C00B988C7 /* tileset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tileset.png; sourceTree = "<group>"; };
 		A37F40BB18C524E100C58298 /* notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = notes.md; path = Engine/notes.md; sourceTree = "<group>"; };
@@ -185,6 +188,8 @@
 		A38C5D3718F99CA50043510C /* LGTileLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGTileLayer.h; sourceTree = "<group>"; };
 		A38C5D3818F99CA50043510C /* LGTileLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGTileLayer.m; sourceTree = "<group>"; };
 		A38C5D3C18F9A7A00043510C /* level1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level1.tmx; sourceTree = "<group>"; };
+		A3B70B9918FB385200A32C88 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		A3B70B9A18FB385200A32C88 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		A3D7547518EE1B14007EC53C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		A3DFD9DA18EDFEE0004412EE /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		A3F818DC18F0B42400359EB8 /* LGTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGTile.h; sourceTree = "<group>"; };
@@ -386,8 +391,8 @@
 				A319EF7D18EEEE8E0058E0E3 /* Game */,
 				A3367D1A18B3E620005475B7 /* AppDelegate.h */,
 				A3367D1B18B3E620005475B7 /* AppDelegate.m */,
-				A3367D3E18B3E662005475B7 /* MainViewController.h */,
-				A3367D3F18B3E662005475B7 /* MainViewController.m */,
+				A3B70B9A18FB385200A32C88 /* MainViewController.h */,
+				A3B70B9918FB385200A32C88 /* MainViewController.m */,
 				A3367D2018B3E621005475B7 /* Images.xcassets */,
 				A3367D1D18B3E621005475B7 /* Engine.xcdatamodeld */,
 				A3367D1218B3E620005475B7 /* Supporting Files */,
@@ -563,11 +568,11 @@
 				A38C5D3918F99CA50043510C /* LGTileLayer.m in Sources */,
 				A319EF7418EEEE070058E0E3 /* LGPlayerInputSystem.m in Sources */,
 				A3F818EB18F1A52D00359EB8 /* LGSpatialGrid.m in Sources */,
+				A3B70B9B18FB385200A32C88 /* MainViewController.m in Sources */,
 				A319EF7118EEEE070058E0E3 /* LGCameraSystem.m in Sources */,
 				A319EF7618EEEE070058E0E3 /* LGRenderingSystem.m in Sources */,
 				A3367D1818B3E620005475B7 /* main.m in Sources */,
 				A319EF7B18EEEE070058E0E3 /* LGScene.m in Sources */,
-				A3367D4018B3E662005475B7 /* MainViewController.m in Sources */,
 				A319EF6918EEEE070058E0E3 /* LGCollider.m in Sources */,
 				A319EF6C18EEEE070058E0E3 /* LGPlayer.m in Sources */,
 				A319EF7018EEEE070058E0E3 /* LGTransform.m in Sources */,
@@ -591,26 +596,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A36C73E318F0510D00B988C7 /* LGCamera.m in Sources */,
-				A36C73E418F0510D00B988C7 /* LGCollider.m in Sources */,
-				A36C73E518F0510D00B988C7 /* LGTileCollider.m in Sources */,
-				A36C73E618F0510D00B988C7 /* LGPhysics.m in Sources */,
-				A36C73E718F0510D00B988C7 /* LGPlayer.m in Sources */,
-				A36C73E818F0510D00B988C7 /* LGRender.m in Sources */,
-				A36C73E918F0510D00B988C7 /* LGSprite.m in Sources */,
-				A36C73EB18F0510D00B988C7 /* LGTransform.m in Sources */,
-				A36C73EC18F0510D00B988C7 /* LGCameraSystem.m in Sources */,
-				A36C73EE18F0510D00B988C7 /* LGPhysicalSystem.m in Sources */,
-				A3F818E718F100AD00359EB8 /* LGCollisionSystem.m in Sources */,
-				A36C73EF18F0510D00B988C7 /* LGPlayerInputSystem.m in Sources */,
-				A36C73F018F0510D00B988C7 /* LGSpriteRenderingSystem.m in Sources */,
-				A36C73F118F0510D00B988C7 /* LGRenderingSystem.m in Sources */,
-				A36C73F218F0510D00B988C7 /* LGTileSystem.m in Sources */,
-				A36C73F318F0510D00B988C7 /* LGComponent.m in Sources */,
-				A36C73F418F0510D00B988C7 /* LGEngine.m in Sources */,
-				A36C73F518F0510D00B988C7 /* LGEntity.m in Sources */,
-				A36C73F618F0510D00B988C7 /* LGScene.m in Sources */,
-				A36C73F718F0510D00B988C7 /* LGSystem.m in Sources */,
+				A3B70AFF18FB1EFC00A32C88 /* LGSpatialGrid.m in Sources */,
+				A3B70B0018FB1EFC00A32C88 /* LGTile.m in Sources */,
+				A3B70B0118FB1EFC00A32C88 /* LGTileLayer.m in Sources */,
+				A3B70B0218FB1EFC00A32C88 /* LGTileMap.m in Sources */,
+				A3B70B0318FB1EFC00A32C88 /* LGTMXParser.m in Sources */,
+				A3B70B0418FB1EFC00A32C88 /* LGCamera.m in Sources */,
+				A3B70B0518FB1EFC00A32C88 /* LGCollider.m in Sources */,
+				A3B70B0618FB1EFC00A32C88 /* LGPhysics.m in Sources */,
+				A3B70B0718FB1EFC00A32C88 /* LGPlayer.m in Sources */,
+				A3B70B0818FB1EFC00A32C88 /* LGRender.m in Sources */,
+				A3B70B0918FB1EFC00A32C88 /* LGSprite.m in Sources */,
+				A3B70B0A18FB1EFC00A32C88 /* LGTileCollider.m in Sources */,
+				A3B70B0B18FB1EFC00A32C88 /* LGTransform.m in Sources */,
+				A3B70B0C18FB1EFC00A32C88 /* LGCameraSystem.m in Sources */,
+				A3B70B0D18FB1EFC00A32C88 /* LGCollisionSystem.m in Sources */,
+				A3B70B0E18FB1EFC00A32C88 /* LGPhysicalSystem.m in Sources */,
+				A3B70B0F18FB1EFC00A32C88 /* LGPlayerInputSystem.m in Sources */,
+				A3B70B1018FB1EFC00A32C88 /* LGRenderingSystem.m in Sources */,
+				A3B70B1118FB1EFC00A32C88 /* LGSpriteRenderingSystem.m in Sources */,
+				A3B70B1218FB1EFC00A32C88 /* LGTileSystem.m in Sources */,
+				A3B70B1318FB1EFC00A32C88 /* LGComponent.m in Sources */,
+				A3B70B1418FB1EFC00A32C88 /* LGEngine.m in Sources */,
+				A3B70B1518FB1EFC00A32C88 /* LGEntity.m in Sources */,
+				A3B70B1618FB1EFC00A32C88 /* LGScene.m in Sources */,
+				A3B70B1718FB1EFC00A32C88 /* LGSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -722,6 +732,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Engine/Engine-Prefix.pch";
 				INFOPLIST_FILE = "Engine/Engine-Info.plist";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -735,6 +746,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Engine/Engine-Prefix.pch";
 				INFOPLIST_FILE = "Engine/Engine-Info.plist";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

@@ -20,7 +20,9 @@
 - (void)gotoScene:(LGScene *)scene
 {
 	if(currentScene != nil)
+	{
 		[[currentScene view] removeFromSuperview];
+	}
 	
 	[view addSubview:[scene view]];
 	currentScene = scene;
