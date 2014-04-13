@@ -46,10 +46,8 @@
 	mapEntity = [[LGEntity alloc] init];
 	[mapEntity addComponent:[[LGTransform alloc] init]];
 	
-	for(NSString *name in [map layers])
+	for(LGTileLayer *layer in [map layers])
 	{
-		LGTileLayer *layer = [[map layers] objectForKey:name];
-		
 		if([layer isVisible])
 		{
 			NSMutableArray *entities = [NSMutableArray array];

@@ -15,7 +15,7 @@
 @property (nonatomic, assign) int width, height;
 @property (nonatomic, assign) int tileWidth, tileHeight;
 
-@property (nonatomic, retain) NSMutableDictionary *layers;
+@property (nonatomic, retain) NSMutableArray *layers;
 @property (nonatomic, retain) NSString *imageName;
 
 - (BOOL)shiftRight;

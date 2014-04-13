@@ -21,8 +21,7 @@
 	
 	engine = [[LGEngine alloc] initWithView:self.view];
 	
-	LGScene *scene = [[MainScene alloc] initWithEngine:engine];
-	[engine gotoScene:scene];
+	[engine gotoScene:[[MainScene alloc] initWithEngine:engine]];
 }
 
 @end

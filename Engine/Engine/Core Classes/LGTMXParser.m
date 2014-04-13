@@ -10,6 +10,7 @@
 #import "LGTileMap.h"
 #import "LGTileLayer.h"
 #import "LGTile.h"
+#import "LGRender.h"
 
 @implementation LGTMXParser
 
@@ -46,10 +47,10 @@
 	
 	if(self)
 	{
-		collisionLayerName	= nil;
-		foregroundLayerName	= nil;
-		backgroundLayer		= 0;
-		foregroundLayer		= 0;
+		collisionLayerName	= @"collisions";
+		foregroundLayerName	= @"foreground";
+		backgroundLayer		= LGRenderLayerBackground;
+		foregroundLayer		= LGRenderLayerForeground;
 	}
 	
 	return self;

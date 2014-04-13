@@ -17,9 +17,9 @@
 {
 	BOOL shifted = YES;
 	
-	for(NSString *name in layers)
+	for(LGTileLayer *layer in layers)
 	{
-		shifted = [[layers objectForKey:name] shiftRight];
+		shifted = [layer shiftRight];
 	}
 	
 	return shifted;
@@ -29,9 +29,9 @@
 {
 	BOOL shifted = YES;
 	
-	for(NSString *name in layers)
+	for(LGTileLayer *layer in layers)
 	{
-		shifted = [[layers objectForKey:name] shiftLeft];
+		shifted = [layer shiftLeft];
 	}
 	
 	return shifted;
@@ -41,9 +41,9 @@
 {
 	BOOL shifted = YES;
 	
-	for(NSString *name in layers)
+	for(LGTileLayer *layer in layers)
 	{
-		shifted = [[layers objectForKey:name] shiftDown];
+		shifted = [layer shiftDown];
 	}
 	
 	return shifted;
@@ -53,9 +53,9 @@
 {
 	BOOL shifted = YES;
 	
-	for(NSString *name in layers)
+	for(LGTileLayer *layer in layers)
 	{
-		shifted = [[layers objectForKey:name] shiftUp];
+		shifted = [layer shiftUp];
 	}
 	
 	return shifted;
@@ -63,7 +63,7 @@
 
 - (void)addLayer:(LGTileLayer *)layer
 {
-	[layers setObject:layer forKey:[layer name]];
+	[layers addObject:layer];
 }
 
 - (id)initWithWidth:(int)w andHeight:(int)h andTileWidth:(int)tw andTileHeight:(int)th
@@ -77,7 +77,7 @@
 		tileWidth	= tw;
 		tileHeight	= th;
 		
-		layers		= [NSMutableDictionary dictionary];
+		layers		= [NSMutableArray array];
 		imageName	= nil;
 	}
 	
