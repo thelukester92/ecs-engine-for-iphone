@@ -20,7 +20,6 @@
 	[super viewDidLoad];
 	
 	engine = [[LGEngine alloc] initWithView:self.view];
-	
 	[engine gotoScene:[[MainScene alloc] initWithEngine:engine]];
 }
 

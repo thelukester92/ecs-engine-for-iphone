@@ -28,6 +28,7 @@
 - (void)update;
 
 // Initializations
+- (id)init __attribute__((unavailable("Use initWithEngine: instead.")));
 - (id)initWithEngine:(LGEngine *)e;
 
 @end

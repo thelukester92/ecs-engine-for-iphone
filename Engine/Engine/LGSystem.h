@@ -34,6 +34,7 @@ enum
 - (void)update;
 - (void)initialize;
 
+- (id)init __attribute__((unavailable("Use initWithScene: instead.")));
 - (id)initWithScene:(LGScene *)s;
 
 @end
