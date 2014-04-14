@@ -16,7 +16,6 @@
 @property (nonatomic, retain) NSMutableArray *entities, *systems;
 @property (nonatomic, retain) NSMutableDictionary *allTouches;
 @property (nonatomic, retain) UIView *rootView;
-@property (nonatomic, assign) CGSize size;
 @property (nonatomic, assign) BOOL isReady;
 
 // Actions

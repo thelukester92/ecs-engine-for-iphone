@@ -27,6 +27,11 @@
 	
 	camera = [entity componentOfType:[LGCamera type]];
 	cameraTransform = [entity componentOfType:[LGTransform type]];
+	
+	if(CGSizeEqualToSize([camera size], CGSizeZero))
+	{
+		[camera setSize:[[self.scene view] frame].size];
+	}
 }
 
 - (void)update

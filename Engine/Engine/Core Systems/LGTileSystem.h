@@ -18,6 +18,7 @@
 @property (nonatomic, retain) LGTileLayer *visibleLayer;
 @property (nonatomic, assign) CGSize size;
 @property (nonatomic, assign) int visibleX, visibleY, padding;
+@property (nonatomic, assign) BOOL canShift;
 
 @property (nonatomic, retain) LGTileMap *map;
 @property (nonatomic, retain) LGEntity *mapEntity;

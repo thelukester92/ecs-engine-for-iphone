@@ -54,7 +54,6 @@
 	[self registerSystems];
 	
 	LGEntity *player = [EntityFactory playerEntity];
-	[[player componentOfType:[LGCamera type]] setSize:CGSizeMake([self.view frame].size.width, [self.view frame].size.height)];
 	[self addEntity:player];
 	
 	LGEntity *block = [EntityFactory blockEntity];
