@@ -37,8 +37,8 @@
 - (void)update
 {
 	CGRect frame = [[self.scene rootView] frame];
-	frame.origin.x = round( MIN( 0, MAX( [camera size].width - [camera bounds].size.width - [camera bounds].origin.x, - [camera offset].x - [cameraTransform position].x ) ) );
-	frame.origin.y = round( MIN( 0, MAX( [camera size].height - [camera bounds].size.height - [camera bounds].origin.y, - [camera offset].y - [cameraTransform position].y ) ) );
+	frame.origin.x = round( MIN( 0, MAX( [camera size].width - [camera bounds].width, - [camera offset].x - [cameraTransform position].x ) ) );
+	frame.origin.y = round( MIN( 0, MAX( [camera size].height - [camera bounds].height, - [camera offset].y - [cameraTransform position].y ) ) );
 	[[self.scene rootView] setFrame:frame];
 }
 

@@ -46,14 +46,22 @@
 		return;
 	}
 	
+	size = CGSizeMake([map width] * [sprite size].width, [map height] * [sprite size].height);
+	
 	if(camera == nil)
 	{
 		// Entire map is visible
 		visibleX = [map width];
 		visibleY = [map height];
 	}
-	
-	size = CGSizeMake([map width] * [sprite size].width, [map height] * [sprite size].height);
+	else
+	{
+		// Make sure the camera's bounds are big enough to fit the tile map
+		CGSize bounds = [camera bounds];
+		bounds.width = MAX(bounds.width, size.width);
+		bounds.height = MAX(bounds.height, size.height);
+		[camera setBounds:bounds];
+	}
 	
 	mapEntity = [[LGEntity alloc] init];
 	[mapEntity addComponent:[[LGTransform alloc] init]];

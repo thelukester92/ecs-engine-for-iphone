@@ -28,7 +28,7 @@
 {
 	offset	= CGPointZero;
 	size	= CGSizeZero;
-	bounds	= CGRectZero;
+	bounds	= CGSizeZero;
 }
 
 @end

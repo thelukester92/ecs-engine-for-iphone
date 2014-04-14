@@ -65,12 +65,6 @@
 	[self addEntity:block];
 	
 	LGTMXParser *parser = [[LGTMXParser alloc] init];
-	
-	[parser setCollisionLayerName:@"collisions"];
-	[parser setForegroundLayerName:@"foreground"];
-	[parser setBackgroundLayer:LGRenderLayerBackground];
-	[parser setForegroundLayer:LGRenderLayerForeground];
-	
 	[parser setCompletionHandler:^(LGTileMap *map)
 	{
 		LGSprite *sprite = [[LGSprite alloc] init];
@@ -80,7 +74,8 @@
 		[tileSystem setSprite:sprite];
 		[tileSystem setMap:map];
 		
-		[[player componentOfType:[LGCamera type]] setBounds:CGRectMake(0, 0, [tileSystem size].width, [tileSystem size].height)];
+//		LGCamera *camera = [player componentOfType:[LGCamera type]];
+//		[camera setBounds:CGSizeMake([tileSystem size].width, [tileSystem size].height)];
 		
 		[self ready];
 	}];

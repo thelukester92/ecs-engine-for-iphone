@@ -11,7 +11,6 @@
 @interface LGCamera : LGComponent
 
 @property (nonatomic, assign) CGPoint offset;
-@property (nonatomic, assign) CGSize size;
-@property (nonatomic, assign) CGRect bounds;
+@property (nonatomic, assign) CGSize size, bounds;
 
 @end
